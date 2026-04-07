@@ -1,0 +1,514 @@
+/* ─────────────────────────────────────────
+   Design tokens
+   ───────────────────────────────────────── */
+:root {
+  --green:          #3F6F63;
+  --orange:         #D47A2C;
+  --text-primary:   #111111;
+  --text-secondary: #555555;
+  --border:         rgba(0, 0, 0, 0.07); /* UI chrome: nav, form inputs */
+  --divider:        rgba(0, 0, 0, 0.08); /* section-to-section structural lines */
+  --max-w:          720px;
+  --nav-h:          62px;
+}
+
+/* ─────────────────────────────────────────
+   Reset
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─────────────────────────────────────────
+   Navigation
+   ───────────────────────────────────────── */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: -0.01em;
+  user-select: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Shared style for both <a> and <button> nav items */
+.nav-link {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+/* Orange micro-accent underline on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link--cta {
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────
+   Hero
+   ───────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+  animation: heroFadeIn 1.2s ease-out;
+}
+
+/* Animated grid — hero section only */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(63, 111, 99, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 111, 99, 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: gridDrift 40s linear infinite;
+  pointer-events: none;
+  will-change: background-position;
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 120px 0; }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px 32px 120px;
+}
+
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.06em;
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 36px;
+}
+
+.hero-line-1 {
+  display: block;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hero-line-2 {
+  display: block;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+.hero-subtext {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 600px;
+  margin-bottom: 52px;
+}
+
+/* ─────────────────────────────────────────
+   Buttons
+   ───────────────────────────────────────── */
+.btn-primary {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--green);
+  border: none;
+  padding: 13px 28px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.84;
+}
+
+/* ─────────────────────────────────────────
+   FadeInSection wrapper
+   ───────────────────────────────────────── */
+.fade-section {
+  padding: 112px 0;
+  border-top: 1px solid var(--divider);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Section heading rhythm */
+.section-inner h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.section-inner h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+/* Body paragraph rhythm — applies to raw <p> tags outside .prose */
+.section-inner p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.section-inner p:last-child {
+  margin-bottom: 0;
+}
+
+/* Spacing between sibling work/content blocks */
+.section-inner > div + div {
+  margin-top: 36px;
+}
+
+/* Timestamp / update note (e.g. <small>Updated March 2026</small>) */
+.section-inner small {
+  display: block;
+  margin-top: 32px;
+  font-size: 11px;
+  color: #bbbbbb;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Section label — small caps green */
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 52px;
+}
+
+/* ─────────────────────────────────────────
+   Section 1 — The Structural Shift
+   ───────────────────────────────────────── */
+.prose p {
+  font-size: 1.05rem;
+  color: #444444;
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* Larger weighted statement block */
+.statement {
+  font-size: 1.22rem !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.85 !important;
+  margin-bottom: 44px !important;
+}
+
+/* ─────────────────────────────────────────
+   Section 2 — Current Work
+   ───────────────────────────────────────── */
+.work-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-item {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.work-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.work-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* Muted text link — orange underline on hover */
+.link-subtle {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.link-subtle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-subtle:hover {
+  color: var(--text-primary);
+}
+
+.link-subtle:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─────────────────────────────────────────
+   Section 3 — Currently Exploring
+   ───────────────────────────────────────── */
+.explore-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.explore-lines p {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.updated-note {
+  font-size: 11px;
+  color: #bbbbbb;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────
+   Final section — Continue the Conversation
+   ───────────────────────────────────────── */
+.section-contact {
+  padding-bottom: 140px;
+}
+
+.contact-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 540px;
+  margin-bottom: 44px;
+}
+
+.signature {
+  max-width: var(--max-w);
+  margin: 64px auto 48px;
+  padding: 0 32px;
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  letter-spacing: 0.01em;
+}
+
+/* ─────────────────────────────────────────
+   Footer
+   ───────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 36px 40px;
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  font-size: 12px;
+  color: #bbbbbb;
+  letter-spacing: 0.01em;
+}
+
+/* ─────────────────────────────────────────
+   Responsive
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-inner       { padding: 0 24px; }
+  .nav-links       { gap: 24px; }
+  .hero-inner      { padding: 60px 24px 100px; }
+  .fade-section    { padding: 72px 0; }
+  .section-inner   { padding: 0 24px; }
+  .section-contact { padding-bottom: 100px; }
+  .site-footer     { padding: 32px 24px; }
+}
+
+@media (max-width: 480px) {
+  .nav-inner       { padding: 0 20px; }
+  .nav-links       { gap: 18px; }
+  .hero-inner      { padding: 48px 24px 80px; }
+  .site-footer     { padding: 28px 20px; }
+
+  .hero-headline {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    letter-spacing: -0.025em;
+  }
+}
+/* ─────────────────────────────────────────
+   Contact form fields
+   ───────────────────────────────────────── */
+.contact-form {
+  margin-top: 32px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #3F6F63;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  margin-top: 16px;
+  padding: 14px 22px;
+  background: #3F6F63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #355e54;
+}
