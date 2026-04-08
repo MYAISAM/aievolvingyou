@@ -87,9 +87,8 @@ export default function WaitlistModal({ open, onClose }) {
             <p className="modal-eyebrow">Coming soon</p>
             <h2 className="modal-title">AI Displacement Risk Report</h2>
             <p className="modal-body">
-              A structured tool to help you understand and communicate your
-              organisation's AI displacement exposure — built for leaders
-              navigating workforce transition.
+              Find out how exposed your role is to AI, which tasks are most
+              at risk, and what that could mean for your future at work.
             </p>
 
             <form
