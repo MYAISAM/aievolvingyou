@@ -22,7 +22,7 @@ export default function InterviewCoachCTA() {
   return (
     <section ref={ref} id="coach" className="fade-section">
       <div className="section-inner">
-        <span className="section-label">Beta — Free to use</span>
+        <p className="section-label">Beta — Free to use</p>
 
         {/* Grid background matching hero */}
         <div style={{
@@ -33,7 +33,7 @@ export default function InterviewCoachCTA() {
           borderRadius: 4,
           padding: '48px 0 52px',
           overflow: 'hidden',
-          marginTop: -8,
+          marginTop: 0,
         }}>
           {/* Animated grid */}
           <div style={{
