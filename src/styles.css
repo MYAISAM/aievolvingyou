@@ -167,7 +167,7 @@ body {
 }
 
 .nav-dropdown-item:hover {
-  background: rgba(63, 111, 99, 0.05);
+  background: rgba(212, 122, 44, 0.08);
   color: var(--text-primary);
 }
 
