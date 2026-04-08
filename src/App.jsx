@@ -1,13 +1,17 @@
+import { useState } from 'react'
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import FadeInSection from "./components/FadeInSection";
 import ContactForm from "./components/ContactForm";
 import InterviewCoachCTA from "./components/InterviewCoachCTA";
+import WaitlistModal from "./components/WaitlistModal";
 
 function App() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false)
+
   return (
     <>
-      <Nav />
+      <Nav onOpenWaitlist={() => setWaitlistOpen(true)} />
       <Hero />
 
       <FadeInSection>
@@ -75,6 +79,16 @@ function App() {
       <ContactForm />
 
       <p className="signature">— Man Wong</p>
+
+      <WaitlistModal
+        open={waitlistOpen}
+        onClose={() => setWaitlistOpen(false)}
+      />
+
+      {/* Hidden form for Netlify to detect waitlist submissions at build time */}
+      <form name="waitlist" data-netlify="true" hidden>
+        <input type="email" name="email" />
+      </form>
     </>
   );
 }

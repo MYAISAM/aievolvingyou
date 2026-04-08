@@ -140,7 +140,7 @@ body {
   position: absolute;
   top: calc(100% + 14px);
   right: 0;
-  min-width: 230px;
+  min-width: 240px;
   background: #ffffff;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
@@ -148,29 +148,53 @@ body {
   z-index: 200;
 }
 
+/* Base item — used for both <a> and <button> */
 .nav-dropdown-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
   padding: 11px 18px;
+  font-family: inherit;
   font-size: 13px;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease;
+  background: none;
+  border: none;
+  text-align: left;
   cursor: pointer;
-  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.nav-dropdown-item:hover:not(.nav-dropdown-item--disabled) {
+.nav-dropdown-item:hover {
   background: rgba(63, 111, 99, 0.05);
   color: var(--text-primary);
 }
 
-.nav-dropdown-item--disabled {
-  cursor: default;
-  opacity: 0.55;
+.nav-dropdown-item-title {
+  flex: 1;
+  white-space: nowrap;
 }
 
+/* Report item — stacked two-line layout */
+.nav-dropdown-item--report {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.nav-dropdown-item-action {
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.01em;
+  opacity: 0.85;
+}
+
+.nav-dropdown-item--report:hover .nav-dropdown-item-action {
+  opacity: 1;
+}
+
+/* Beta badge — Interview Coach only */
 .nav-badge {
   font-size: 10px;
   font-weight: 600;
@@ -183,9 +207,156 @@ body {
   flex-shrink: 0;
 }
 
-.nav-badge--soon {
+/* ─────────────────────────────────────────
+   Waitlist modal
+   ───────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-box {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  max-width: 460px;
+  padding: 48px;
+  border-top: 3px solid var(--green);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 20px;
+  line-height: 1;
+  color: #aaaaaa;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.modal-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.modal-body {
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  background: rgba(0, 0, 0, 0.06);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.modal-field {
+  margin-bottom: 16px;
+}
+
+.modal-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+.modal-field input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: #ffffff;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.modal-field input:focus {
+  border-color: var(--green);
+}
+
+.modal-submit {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  background: var(--green);
+  border: none;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.modal-submit:hover {
+  opacity: 0.84;
+}
+
+.modal-error {
+  font-size: 13px;
+  color: #c0392b;
+  margin-bottom: 10px;
+}
+
+.modal-success {
+  padding: 16px 0;
+}
+
+.modal-success-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.modal-success-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 36px 28px;
+  }
 }
 
 /* ─────────────────────────────────────────

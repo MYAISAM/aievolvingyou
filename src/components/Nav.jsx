@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function Nav() {
+export default function Nav({ onOpenWaitlist }) {
   const [productsOpen, setProductsOpen] = useState(false)
   const dropdownRef = useRef(null)
 
@@ -21,27 +21,18 @@ export default function Nav() {
     }
   }, [])
 
+  function closeAll() {
+    setProductsOpen(false)
+  }
+
   return (
     <nav className="nav">
       <div className="nav-inner">
         <span className="nav-logo">AI Evolving You</span>
         <div className="nav-links">
 
-          <a
-            href="#work"
-            className="nav-link"
-            onClick={() => setProductsOpen(false)}
-          >
+          <a href="#work" className="nav-link" onClick={closeAll}>
             Work
-          </a>
-
-          <a
-            href="https://www.youtube.com/@OurHumanIntelligence"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-          >
-            YouTube
           </a>
 
           {/* Products dropdown */}
@@ -62,21 +53,33 @@ export default function Nav() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="nav-dropdown-item"
-                  onClick={() => setProductsOpen(false)}
+                  onClick={closeAll}
                 >
-                  Interview Coach
+                  <span className="nav-dropdown-item-title">Interview Coach</span>
                   <span className="nav-badge">Beta</span>
                 </a>
-                <span className="nav-dropdown-item nav-dropdown-item--disabled">
-                  Evolve AI Displacement Report
-                  <span className="nav-badge nav-badge--soon">Soon</span>
-                </span>
+                <button
+                  className="nav-dropdown-item nav-dropdown-item--report"
+                  onClick={() => { closeAll(); onOpenWaitlist() }}
+                >
+                  <span className="nav-dropdown-item-title">AI Displacement Risk Report</span>
+                  <span className="nav-dropdown-item-action">Join the waitlist →</span>
+                </button>
               </div>
             )}
           </div>
 
           <a
-            href="https://manwong.substack.com"
+            href="https://www.youtube.com/@OurHumanIntelligence"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+          >
+            YouTube
+          </a>
+
+          <a
+            href="https://ourhumanintelligence.substack.com"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link"
@@ -84,11 +87,7 @@ export default function Nav() {
             Substack
           </a>
 
-          <a
-            href="#connect"
-            className="nav-link nav-link--cta"
-            onClick={() => setProductsOpen(false)}
-          >
+          <a href="#connect" className="nav-link nav-link--cta" onClick={closeAll}>
             Connect
           </a>
 
