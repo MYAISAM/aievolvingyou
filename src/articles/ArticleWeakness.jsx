@@ -4,7 +4,7 @@ export default function ArticleWeakness() {
   return (
     <ArticleLayout
       bucket="Interview Resources"
-      title='The weakness question: why "I\'m a perfectionist" is the worst answer'
+      title={`The weakness question: why "I'm a perfectionist" is the worst answer`}
     >
       <p>"What's your greatest weakness?"</p>
 
