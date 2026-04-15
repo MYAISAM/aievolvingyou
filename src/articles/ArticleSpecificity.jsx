@@ -4,7 +4,7 @@ export default function ArticleSpecificity() {
   return (
     <ArticleLayout
       bucket="Interview Resources"
-      title='"I\'m a good communicator" is killing your applications'
+      title={`"I'm a good communicator" is killing your applications`}
     >
       <p>I want you to read this sentence and tell me what it tells you about the person who wrote it.</p>
 
