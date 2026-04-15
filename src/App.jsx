@@ -56,7 +56,7 @@ function App() {
           <div>
             <h3>AI Displacement Report</h3>
             <p>
-              Which roles are most exposed to AI disruption — and what you can
+              Which roles are most exposed to AI disruption, and what you can
               do about it. Research-backed, sector by sector.
             </p>
             <button
