@@ -3,7 +3,7 @@ import { useState } from "react";
 const articles = [
   {
     bucket: "Interview Resources",
-    title: "The STAR method explained — with three real examples you can actually learn from",
+    title: "The STAR method explained. With three real examples you can actually learn from",
     excerpt: "Most interview advice tells you what STAR stands for. What it doesn't tell you is why most people's answers still fall flat — and what the difference looks like in practice.",
     href: "#",
     available: true,

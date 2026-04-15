@@ -756,3 +756,84 @@ body {
 .contact-form button:hover {
   background: #355e54;
 }
+/* ─────────────────────────────────────────
+   Mobile nav - hamburger
+   ───────────────────────────────────────── */
+
+/* Hide hamburger on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 110;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+/* Mobile menu panel */
+.nav-mobile-menu {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0 16px;
+}
+
+.nav-mobile-item {
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-mobile-item:last-child {
+  border-bottom: none;
+}
+
+.nav-mobile-item:hover {
+  color: var(--text-primary);
+  background: rgba(0,0,0,0.02);
+}
+
+.nav-mobile-item--cta {
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* Show hamburger, hide desktop links on mobile */
+@media (max-width: 640px) {
+  .nav-links--desktop {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+}
