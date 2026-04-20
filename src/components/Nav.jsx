@@ -80,7 +80,7 @@ export default function Nav({ onOpenWaitlist }) {
               Resources
             </a>
 
-            {/* Channels dropdown */}
+            {/* Human Intelligence dropdown */}
             <div className="nav-dropdown" ref={channelsRef}>
               <button
                 className={`nav-link nav-dropdown-trigger${channelsOpen ? ' open' : ''}`}
@@ -88,7 +88,7 @@ export default function Nav({ onOpenWaitlist }) {
                 aria-expanded={channelsOpen}
                 aria-haspopup="true"
               >
-                Channels
+                Human Intelligence
                 <span className="nav-caret" aria-hidden="true">▾</span>
               </button>
               {channelsOpen && (
