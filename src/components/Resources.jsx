@@ -18,7 +18,7 @@ const t = {
 };
 
 // Stripe buy link — replace this URL once your Stripe Payment Link is live
-const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/REPLACE_WITH_LIVE_LINK";
+const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
 
 // Candidate articles — slugs must match routes in App.jsx
 const candidateArticles = [
@@ -70,7 +70,7 @@ const candidateArticles = [
     excerpt:
       "Behavioural interviews are predictable once you know the pattern. Here's how to build a bank of strong examples that work across dozens of different questions.",
     readTime: "7 min read",
-    live: true,
+    live: false,
   },
   {
     slug: "career-changers",
@@ -80,7 +80,7 @@ const candidateArticles = [
     excerpt:
       "When you're crossing industries or roles, your biggest challenge isn't your experience, it's how you frame it. Here's how to turn a non-linear career into a strength.",
     readTime: "6 min read",
-    live: true,
+    live: false,
   },
 ];
 
@@ -375,7 +375,7 @@ function ProcurementCard() {
               marginLeft: 6,
             }}
           >
-            one-time · instant download
+            one-time · + VAT · instant download
           </span>
         </div>
 
