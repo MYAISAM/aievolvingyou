@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function ArticleLayout({ title, bucket, children }) {
+export default function ArticleLayout({ title, bucket, children, nextArticle }) {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -22,7 +22,7 @@ export default function ArticleLayout({ title, bucket, children }) {
           onMouseEnter={e => e.target.style.color = "#111111"}
           onMouseLeave={e => e.target.style.color = "#555555"}
         >
-          ← Back to resources
+          Back to resources
         </Link>
 
         {/* Bucket label */}
@@ -53,9 +53,61 @@ export default function ArticleLayout({ title, bucket, children }) {
           {children}
         </div>
 
+        {/* Next article card */}
+        {nextArticle && (
+          <div style={{
+            marginTop: 56,
+            padding: "24px 28px",
+            background: "#f9f9f9",
+            border: "1.5px solid rgba(0,0,0,0.07)",
+            borderRadius: 12,
+          }}>
+            <div style={{
+              fontSize: 10, fontWeight: 600,
+              letterSpacing: "0.07em", textTransform: "uppercase",
+              color: "#7A3A0E",
+              background: "#fdf0e4",
+              display: "inline-block",
+              padding: "2px 9px", borderRadius: 20,
+              marginBottom: 12,
+            }}>
+              {nextArticle.label}
+            </div>
+            <div style={{
+              fontSize: 10, fontWeight: 600,
+              letterSpacing: "0.06em", textTransform: "uppercase",
+              color: "#3F6F63", marginBottom: 8,
+            }}>
+              Up next
+            </div>
+            <p style={{
+              fontSize: 16, fontWeight: 600,
+              color: "#111111", lineHeight: 1.35,
+              letterSpacing: "-0.01em", marginBottom: 8,
+            }}>
+              {nextArticle.title}
+            </p>
+            <p style={{
+              fontSize: 14, color: "#555555",
+              lineHeight: 1.6, marginBottom: 16,
+            }}>
+              {nextArticle.excerpt}
+            </p>
+            <Link
+              to={`/resources/${nextArticle.slug}`}
+              style={{
+                fontSize: 13, fontWeight: 600,
+                color: "#3F6F63", textDecoration: "none",
+              }}
+            >
+              Read next
+            </Link>
+          </div>
+        )}
+
         {/* CTA */}
         <div style={{
-          marginTop: 56, padding: "32px 28px",
+          marginTop: 16, padding: "32px 28px",
           background: "#f9f9f9",
           border: "1.5px solid rgba(0,0,0,0.07)",
           borderRadius: 12,
@@ -74,13 +126,13 @@ export default function ArticleLayout({ title, bucket, children }) {
             rel="noopener noreferrer"
             style={{
               display: "inline-block",
-              background: "#3F6F63", color: "#ffffff",
+              background: "#D47A2C", color: "#ffffff",
               padding: "12px 24px", borderRadius: 6,
               fontSize: 14, fontWeight: 500,
               textDecoration: "none",
             }}
           >
-            Try the Interview Coach →
+            Try the Interview Coach
           </a>
         </div>
 
