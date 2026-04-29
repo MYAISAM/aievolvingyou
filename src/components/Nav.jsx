@@ -38,7 +38,7 @@ export default function Nav({ onOpenWaitlist }) {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <Link to="/" className="nav-logo" onClick={closeAll}>AI Evolving You</Link>
+          <Link to="/" className="nav-logo" onClick={closeAll} style={{ textDecoration: "none" }}>AI Evolving You</Link>
 
           {/* Desktop links */}
           <div className="nav-links nav-links--desktop">

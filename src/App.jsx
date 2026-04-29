@@ -15,13 +15,14 @@ import ArticleFourTypes from "./articles/ArticleFourTypes";
 import ArticleSpecificity from "./articles/ArticleSpecificity";
 import ArticleAIPrep from "./articles/ArticleAIPrep";
 import ArticleLongGap from "./articles/ArticleLongGap";
+import ArticleBehavioural from "./articles/ArticleBehavioural";
+import ArticleCareerChangers from "./articles/ArticleCareerChangers";
 
 function HomePage({ onOpenWaitlist }) {
   return (
     <>
       <Hero />
 
-      {/* Bridge */}
       <FadeInSection>
         <div className="section-inner">
           <p>
@@ -34,10 +35,8 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      {/* Interview Coach featured section */}
       <InterviewCoachCTA />
 
-      {/* What's Here */}
       <FadeInSection id="work">
         <div className="section-inner">
           <h2>What's Here</h2>
@@ -101,7 +100,6 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      {/* Currently Exploring */}
       <FadeInSection>
         <div className="section-inner">
           <h2>Currently Exploring</h2>
@@ -113,7 +111,6 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      {/* Connect */}
       <ContactForm />
 
       <p className="signature">- Man Wong</p>
@@ -137,6 +134,8 @@ function App() {
         <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
         <Route path="/resources/ai-interview-prep" element={<ArticleAIPrep />} />
         <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
+        <Route path="/resources/behavioural-interview" element={<ArticleBehavioural />} />
+        <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
       </Routes>
 
       <WaitlistModal
@@ -144,7 +143,6 @@ function App() {
         onClose={() => setWaitlistOpen(false)}
       />
 
-      {/* Hidden form for Netlify */}
       <form name="waitlist" data-netlify="true" hidden>
         <input type="email" name="email" />
       </form>
