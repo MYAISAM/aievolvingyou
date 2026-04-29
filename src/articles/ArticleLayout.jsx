@@ -12,7 +12,7 @@ export default function ArticleLayout({ title, bucket, children }) {
 
         {/* Back link */}
         <Link
-          to="/#resources"
+          to="/resources"
           style={{
             display: "inline-block",
             fontSize: 13, color: "#555555",
