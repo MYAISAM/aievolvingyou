@@ -10,7 +10,6 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
     <div style={{ paddingTop: 62 }}>
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "56px 24px 80px" }}>
 
-        {/* Back link */}
         <Link
           to="/resources"
           style={{
@@ -25,7 +24,6 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
           Back to resources
         </Link>
 
-        {/* Bucket label */}
         <div style={{ marginBottom: 16 }}>
           <span style={{
             display: "inline-block",
@@ -38,7 +36,6 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
           </span>
         </div>
 
-        {/* Title */}
         <h1 style={{
           fontSize: "clamp(26px, 5vw, 38px)",
           fontWeight: 700, letterSpacing: "-0.025em",
@@ -48,12 +45,10 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
           {title}
         </h1>
 
-        {/* Article body */}
         <div className="article-body">
           {children}
         </div>
 
-        {/* Next article card */}
         {nextArticle && (
           <div style={{
             marginTop: 56,
@@ -99,7 +94,6 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
           </div>
         )}
 
-        {/* CTA */}
         <div style={{
           marginTop: 16, padding: "32px 28px",
           background: "#f9f9f9",
@@ -120,7 +114,7 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
             rel="noopener noreferrer"
             style={{
               display: "inline-block",
-              background: "#D47A2C", color: "#ffffff",
+              background: "#3F6F63", color: "#ffffff",
               padding: "12px 24px", borderRadius: 6,
               fontSize: 14, fontWeight: 500,
               textDecoration: "none",
