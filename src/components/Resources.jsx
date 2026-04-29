@@ -70,7 +70,7 @@ const candidateArticles = [
     excerpt:
       "Behavioural interviews are predictable once you know the pattern. Here's how to build a bank of strong examples that work across dozens of different questions.",
     readTime: "7 min read",
-    live: false,
+    live: true,
   },
   {
     slug: "career-changers",
@@ -80,7 +80,7 @@ const candidateArticles = [
     excerpt:
       "When you're crossing industries or roles, your biggest challenge isn't your experience, it's how you frame it. Here's how to turn a non-linear career into a strength.",
     readTime: "6 min read",
-    live: false,
+    live: true,
   },
 ];
 
