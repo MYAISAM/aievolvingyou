@@ -496,6 +496,7 @@ export default function Resources() {
 
   return (
     <main
+      id="resources"
       style={{
         maxWidth: 720,
         margin: "0 auto",
