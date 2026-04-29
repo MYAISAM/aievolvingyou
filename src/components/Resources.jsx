@@ -20,25 +20,27 @@ const t = {
 // Stripe buy link — replace this URL once your Stripe Payment Link is live
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/REPLACE_WITH_LIVE_LINK";
 
-// Candidate articles
+// Candidate articles — slugs must match routes in App.jsx
 const candidateArticles = [
   {
-    slug: "4-types-of-interview-question",
+    slug: "four-types-of-interview-question",
     label: "Start here",
     tag: "Interview prep",
     title: "The 4 types of interview question and how to answer each one",
     excerpt:
       "Most interview questions fall into four categories. Once you know which type you're dealing with, you can structure your answer before the interviewer has finished speaking.",
     readTime: "6 min read",
+    live: true,
   },
   {
-    slug: "star-method-explained",
+    slug: "star-method",
     label: "Next up",
     tag: "Interview prep",
     title: "The STAR method explained with real examples",
     excerpt:
       "Situation, Task, Action, Result. It's the most reliable structure for behavioural answers but most people use it wrong. Here's how to use it right.",
     readTime: "5 min read",
+    live: true,
   },
   {
     slug: "weakness-question",
@@ -48,6 +50,7 @@ const candidateArticles = [
     excerpt:
       "Interviewers have heard it thousands of times and it tells them nothing useful. Here's what a strong, honest, strategically smart weakness answer actually looks like.",
     readTime: "5 min read",
+    live: true,
   },
   {
     slug: "ai-interview-prep",
@@ -57,6 +60,7 @@ const candidateArticles = [
     excerpt:
       "AI can make your interview prep sharper. It can also make you sound like everyone else. The difference is in how you use it.",
     readTime: "6 min read",
+    live: true,
   },
   {
     slug: "behavioural-interview",
@@ -66,6 +70,7 @@ const candidateArticles = [
     excerpt:
       "Behavioural interviews are predictable once you know the pattern. Here's how to build a bank of strong examples that work across dozens of different questions.",
     readTime: "7 min read",
+    live: false,
   },
   {
     slug: "career-changers",
@@ -75,6 +80,7 @@ const candidateArticles = [
     excerpt:
       "When you're crossing industries or roles, your biggest challenge isn't your experience, it's how you frame it. Here's how to turn a non-linear career into a strength.",
     readTime: "6 min read",
+    live: false,
   },
 ];
 
@@ -212,7 +218,7 @@ function ArticleCard({ article, dimmed }) {
           {article.readTime}
         </span>
 
-        {!dimmed && (
+        {!dimmed && article.live && (
           <Link
             to={`/resources/${article.slug}`}
             style={{
