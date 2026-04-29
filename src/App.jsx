@@ -101,9 +101,6 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      {/* Resources */}
-      <Resources />
-
       {/* Currently Exploring */}
       <FadeInSection>
         <div className="section-inner">
@@ -133,6 +130,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/resources/star-method" element={<ArticleSTAR />} />
         <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
         <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />

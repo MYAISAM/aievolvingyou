@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Nav({ onOpenWaitlist }) {
   const [productsOpen, setProductsOpen] = useState(false)
@@ -37,7 +38,7 @@ export default function Nav({ onOpenWaitlist }) {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <span className="nav-logo">AI Evolving You</span>
+          <Link to="/" className="nav-logo" onClick={closeAll}>AI Evolving You</Link>
 
           {/* Desktop links */}
           <div className="nav-links nav-links--desktop">
@@ -76,9 +77,9 @@ export default function Nav({ onOpenWaitlist }) {
               )}
             </div>
 
-            <a href="#resources" className="nav-link" onClick={closeAll}>
+            <Link to="/resources" className="nav-link" onClick={closeAll}>
               Resources
-            </a>
+            </Link>
 
             {/* Human Intelligence dropdown */}
             <div className="nav-dropdown" ref={channelsRef}>
@@ -138,7 +139,7 @@ export default function Nav({ onOpenWaitlist }) {
         </div>
       </nav>
 
-      {/* Mobile menu - drops below nav */}
+      {/* Mobile menu */}
       {mobileOpen && (
         <div className="nav-mobile-menu">
           <a
@@ -156,9 +157,9 @@ export default function Nav({ onOpenWaitlist }) {
           >
             AI Displacement Report
           </button>
-          <a href="#resources" className="nav-mobile-item" onClick={closeAll}>
+          <Link to="/resources" className="nav-mobile-item" onClick={closeAll}>
             Resources
-          </a>
+          </Link>
           <a
             href="https://www.youtube.com/@OurHumanIntelligence"
             target="_blank"
