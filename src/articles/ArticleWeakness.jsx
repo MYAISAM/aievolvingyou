@@ -15,7 +15,7 @@ const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
 const surface = "#f9f9f9";
 
-// What the question is testing — four coloured cards
+// What the question is testing - four coloured cards
 function TestingCards() {
   const items = [
     { label: "Self-awareness", description: "Do you know how you come across? Can you identify where your working style creates problems?", colour: "#e8f4f0" },
@@ -82,7 +82,7 @@ function StrategyCards() {
   );
 }
 
-// What to avoid — avoid list
+// What to avoid - avoid list
 function AvoidList() {
   const items = [
     { title: "Don't choose something core to the job.", detail: "If you're applying for a data analyst role, \"I've never been comfortable with numbers\" is not the move." },
@@ -110,7 +110,7 @@ function AnswerStructure() {
   const steps = [
     "Name the weakness clearly and specifically (one sentence)",
     "Give a brief example of how it's shown up in practice (two or three sentences)",
-    "Explain what you've done about it — specific actions, not vague intentions (two or three sentences)",
+    "Explain what you've done about it - specific actions, not vague intentions (two or three sentences)",
     "Land on a result or marker of progress where possible (one sentence)",
   ];
   return (

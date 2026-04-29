@@ -22,12 +22,12 @@ function ThreeWays() {
       label: "Generate questions, not answers",
       description: "This is the highest-value use of AI in interview prep and the one most people overlook. Ask for twenty realistic questions specific to the role.",
       prompt: "\"I'm interviewing for a Senior Customer Success Manager role at a B2B SaaS company with around 200 employees. The role involves managing enterprise accounts, driving renewals, and working cross-functionally with product and sales. Give me twenty interview questions I'm likely to be asked.\"",
-      tip: "The AI generates the questions. Your answers need to be yours — in your own words, out loud, drawing from your own experience.",
+      tip: "The AI generates the questions. Your answers need to be yours - in your own words, out loud, drawing from your own experience.",
     },
     {
       number: "02",
       label: "Sharpen your language, not write it for you",
-      description: "Paste your answer in and ask for editing feedback. The AI helps you refine your own thinking — that's very different from asking it to think for you.",
+      description: "Paste your answer in and ask for editing feedback. The AI helps you refine your own thinking - that's very different from asking it to think for you.",
       prompt: "\"How can I make this more concise and punchy without losing the specifics?\" or \"Does this answer actually address the question, or am I going off on a tangent?\"",
       tip: "Never take the AI's rewritten version wholesale. Read it, take what's useful, rewrite it again in your own voice.",
     },
@@ -36,7 +36,7 @@ function ThreeWays() {
       label: "Run a practice interview",
       description: "Ask the AI to play the role of an interviewer. Give it context, ask it to go one question at a time, wait for your answer, and give feedback before moving on.",
       prompt: "\"Act as an interviewer for a [role] at [company]. Ask me one question at a time, wait for my answer, give brief feedback, then move to the next question.\"",
-      tip: "Answer out loud — not by typing. The gap between how something sounds in your head and how it sounds when you say it out loud is significant.",
+      tip: "Answer out loud - not by typing. The gap between how something sounds in your head and how it sounds when you say it out loud is significant.",
     },
   ];
 

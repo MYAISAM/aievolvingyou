@@ -20,7 +20,7 @@ function FiveThemes() {
     {
       number: "01",
       label: "Delivering results under pressure",
-      prompt: "A time you had a tight deadline, competing demands, or limited resources — and got the outcome anyway.",
+      prompt: "A time you had a tight deadline, competing demands, or limited resources - and got the outcome anyway.",
       colour: "#e8f4f0",
     },
     {
