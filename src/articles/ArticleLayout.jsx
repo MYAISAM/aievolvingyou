@@ -62,28 +62,22 @@ export default function ArticleLayout({ title, bucket, children, nextArticle }) 
             border: "1.5px solid rgba(0,0,0,0.07)",
             borderRadius: 12,
           }}>
-            <div style={{
+            <span style={{
+              display: "inline-block",
               fontSize: 10, fontWeight: 600,
               letterSpacing: "0.07em", textTransform: "uppercase",
               color: "#7A3A0E",
               background: "#fdf0e4",
-              display: "inline-block",
               padding: "2px 9px", borderRadius: 20,
               marginBottom: 12,
             }}>
               {nextArticle.label}
-            </div>
-            <div style={{
-              fontSize: 10, fontWeight: 600,
-              letterSpacing: "0.06em", textTransform: "uppercase",
-              color: "#3F6F63", marginBottom: 8,
-            }}>
-              Up next
-            </div>
+            </span>
             <p style={{
               fontSize: 16, fontWeight: 600,
               color: "#111111", lineHeight: 1.35,
               letterSpacing: "-0.01em", marginBottom: 8,
+              marginTop: 8,
             }}>
               {nextArticle.title}
             </p>
