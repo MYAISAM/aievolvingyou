@@ -126,6 +126,7 @@ function LegalCases() {
       tag: "UK regulator",
     },
   ];
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {cases.map((c, i) => (
@@ -135,22 +136,25 @@ function LegalCases() {
           borderRadius: 8,
           padding: "14px 18px",
           display: "flex",
-          gap: 16,
+          gap: 20,
           alignItems: "flex-start",
         }}>
-          <div style={{ flexShrink: 0, minWidth: 72 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
+          {/* Fixed-width left column — date + tag badge always same width */}
+          <div style={{ flexShrink: 0, width: 110 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0, whiteSpace: "nowrap" }}>{c.year}</p>
             <span style={{
               display: "inline-block",
               fontSize: 10, fontWeight: 600,
               color: orange, background: "#fdf0e4",
               borderRadius: 20, padding: "2px 8px",
-              marginTop: 4, letterSpacing: "0.04em",
+              marginTop: 5, letterSpacing: "0.04em",
+              lineHeight: 1.4,
             }}>
               {c.tag}
             </span>
           </div>
-          <div>
+          {/* Content column — always starts at same horizontal point */}
+          <div style={{ flex: 1, minWidth: 0 }}>
             <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>
             <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6 }}>{c.what}</p>
           </div>
