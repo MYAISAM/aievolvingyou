@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // Design tokens
@@ -17,10 +17,8 @@ const t = {
   tagOrangeText: "#7A3A0E",
 };
 
-// Stripe buy link — replace this URL once your Stripe Payment Link is live
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
 
-// Candidate articles — slugs must match routes in App.jsx
 const candidateArticles = [
   {
     slug: "four-types-of-interview-question",
@@ -84,7 +82,6 @@ const candidateArticles = [
   },
 ];
 
-// Org articles
 const orgArticles = [
   {
     slug: "ai-hiring-trust-problem",
@@ -108,7 +105,6 @@ const orgArticles = [
   },
 ];
 
-// Journey badge — green for Start here, orange for all steps
 function JourneyBadge({ label }) {
   const isStart = label === "Start here";
   return (
@@ -131,8 +127,8 @@ function JourneyBadge({ label }) {
   );
 }
 
-// Article card shared by both tracks
-function ArticleCard({ article, dimmed }) {
+function ArticleCard({ article }) {
+  const dimmed = !article.live;
   return (
     <div
       style={{
@@ -236,7 +232,6 @@ function ArticleCard({ article, dimmed }) {
   );
 }
 
-// Procurement product card
 function ProcurementCard() {
   return (
     <div
@@ -250,7 +245,7 @@ function ProcurementCard() {
         gap: 14,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <span
           style={{
             fontSize: "0.68rem",
@@ -417,7 +412,6 @@ function ProcurementCard() {
   );
 }
 
-// Candidate track CTA
 function CandidateCTA() {
   return (
     <div
@@ -471,7 +465,6 @@ function CandidateCTA() {
   );
 }
 
-// Section label for org track
 function SectionLabel({ children }) {
   return (
     <div
@@ -490,9 +483,20 @@ function SectionLabel({ children }) {
   );
 }
 
-// Main Resources component
 export default function Resources() {
-  const [track, setTrack] = useState("candidates");
+  // Read URL hash on mount — default to orgs tab if hash is #orgs
+  const [track, setTrack] = useState(() => {
+    return window.location.hash === "#orgs" ? "orgs" : "candidates";
+  });
+
+  // Also respond if the hash changes after mount (e.g. browser back/forward)
+  useEffect(() => {
+    function handleHashChange() {
+      setTrack(window.location.hash === "#orgs" ? "orgs" : "candidates");
+    }
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
     <main
@@ -603,7 +607,7 @@ export default function Resources() {
             }}
           >
             {candidateArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} dimmed={false} />
+              <ArticleCard key={article.slug} article={article} />
             ))}
           </div>
 
@@ -653,11 +657,7 @@ export default function Resources() {
             }}
           >
             {orgArticles.map((article) => (
-              <ArticleCard
-                key={article.slug}
-                article={article}
-                dimmed={!article.live}
-              />
+              <ArticleCard key={article.slug} article={article} />
             ))}
           </div>
 
@@ -665,7 +665,6 @@ export default function Resources() {
 
           <ProcurementCard />
 
-          {/* Toolkit teaser */}
           <div
             style={{
               marginTop: 32,
@@ -699,7 +698,7 @@ export default function Resources() {
               toolkit: £149.
             </p>
             <a
-              href="/connect"
+              href="/#connect"
               style={{
                 fontSize: "0.82rem",
                 fontWeight: 600,

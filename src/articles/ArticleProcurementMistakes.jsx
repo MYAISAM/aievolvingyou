@@ -1,7 +1,6 @@
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
-const greenLight = "#edf4f2";
 const orange = "#D47A2C";
 const ink = "#111111";
 const inkMid = "#555555";
@@ -102,18 +101,54 @@ function FourMistakes() {
 
 function LegalCases() {
   const cases = [
-    { year: "2023", who: "iTutorGroup / EEOC", what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.", tag: "First resolved case" },
-    { year: "2025", who: "Workday class action", what: "Federal court established that AI vendors can act as agents of employers — making vendors directly liable alongside the organisations using their tools.", tag: "Vendor liability established" },
-    { year: "Jan 2026", who: "Eightfold AI class action", what: "New legal theory: AI scoring platforms may need to comply with the Fair Credit Reporting Act, expanding compliance requirements significantly.", tag: "New legal theory" },
-    { year: "2023-24", who: "UK ICO", what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.", tag: "UK regulator" },
+    {
+      year: "2023",
+      who: "iTutorGroup / EEOC",
+      what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.",
+      tag: "First resolved case",
+    },
+    {
+      year: "2025",
+      who: "Workday class action",
+      what: "Federal court established that AI vendors can act as agents of employers, making vendors directly liable alongside the organisations using their tools.",
+      tag: "Vendor liability established",
+    },
+    {
+      year: "Jan 2026",
+      who: "Eightfold AI class action",
+      what: "New legal theory: AI scoring platforms may need to comply with the Fair Credit Reporting Act, expanding compliance requirements significantly.",
+      tag: "New legal theory",
+    },
+    {
+      year: "2023 to 2024",
+      who: "UK ICO",
+      what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.",
+      tag: "UK regulator",
+    },
   ];
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {cases.map((c, i) => (
-        <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
-          <div style={{ flexShrink: 0, minWidth: 64 }}>
+        <div key={i} style={{
+          background: surface,
+          border: `1px solid ${border}`,
+          borderRadius: 8,
+          padding: "14px 18px",
+          display: "flex",
+          gap: 16,
+          alignItems: "flex-start",
+        }}>
+          <div style={{ flexShrink: 0, minWidth: 72 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
+            <span style={{
+              display: "inline-block",
+              fontSize: 10, fontWeight: 600,
+              color: orange, background: "#fdf0e4",
+              borderRadius: 20, padding: "2px 8px",
+              marginTop: 4, letterSpacing: "0.04em",
+            }}>
+              {c.tag}
+            </span>
           </div>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>
@@ -156,7 +191,7 @@ function VendorQuestions() {
         </div>
         <p style={{ fontSize: 13, color: ink, fontWeight: 600, margin: "16px 0 0", borderTop: `1px solid ${border}`, paddingTop: 14 }}>A vendor who cannot answer these questions clearly is answering you anyway.</p>
       </div>
-      <div style={{ background: greenLight, border: `1.5px solid ${green}`, borderRadius: 10, padding: "20px 22px" }}>
+      <div style={{ background: "#edf4f2", border: `1.5px solid ${green}`, borderRadius: 10, padding: "20px 22px" }}>
         <p style={{ fontSize: 12, fontWeight: 700, color: green, margin: "0 0 14px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Ask internally first</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {internal.map((q, i) => (
@@ -176,6 +211,7 @@ export default function ArticleProcurementMistakes() {
     <ArticleLayout
       bucket="For Organisations"
       title="What most organisations get wrong when buying AI hiring tools"
+      ctaVariant="org"
     >
       <p>Many teams buying AI hiring technology are asking sensible questions. The problem is that the most consequential ones often stay too broad, too vague, or too late in the process. Here is what responsible procurement actually looks like, and why it matters more than most buyers realise.</p>
 

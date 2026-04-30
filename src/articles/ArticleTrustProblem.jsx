@@ -1,5 +1,4 @@
 import ArticleLayout from "./ArticleLayout";
-import { Link } from "react-router-dom";
 
 const nextArticle = {
   slug: "ai-procurement-mistakes",
@@ -9,7 +8,6 @@ const nextArticle = {
 };
 
 const green = "#3F6F63";
-const greenLight = "#edf4f2";
 const orange = "#D47A2C";
 const ink = "#111111";
 const inkMid = "#555555";
@@ -35,7 +33,7 @@ function FeedbackLoop() {
           </div>
         ))}
         <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#fff8f4", border: "1.5px solid #f5ddc8", borderRadius: 8, padding: "12px 16px" }}>
-          <span style={{ fontSize: 14, fontWeight: 700, color: orange, flexShrink: 0 }}>↺</span>
+          <span style={{ fontSize: 14, fontWeight: 700, color: orange, flexShrink: 0 }}>&#8635;</span>
           <p style={{ fontSize: 14, color: orange, fontWeight: 600, margin: 0, lineHeight: 1.55 }}>Back to step 01 — and the loop tightens</p>
         </div>
       </div>
@@ -93,25 +91,13 @@ function CostCards() {
   );
 }
 
-function ProductCTA() {
-  return (
-    <div style={{ marginTop: 48, padding: "24px 28px", background: greenLight, border: `2px solid ${green}`, borderRadius: 12 }}>
-      <p style={{ fontSize: 12, fontWeight: 700, color: green, margin: "0 0 10px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Ready to put this into practice?</p>
-      <p style={{ fontSize: 15, fontWeight: 600, color: ink, margin: "0 0 8px", lineHeight: 1.35 }}>AI Procurement Questions for Hiring Teams</p>
-      <p style={{ fontSize: 13, color: inkMid, margin: "0 0 16px", lineHeight: 1.6 }}>48 structured vendor evaluation questions across 6 categories, with red flags, scoring guidance, and a vendor comparison sheet. £79 + VAT, instant download.</p>
-      <Link to="/resources" style={{ display: "inline-block", background: orange, color: "#fff", fontWeight: 600, fontSize: 13, padding: "10px 20px", borderRadius: 6, textDecoration: "none" }}>
-        Get it on the resources page
-      </Link>
-    </div>
-  );
-}
-
 export default function ArticleTrustProblem() {
   return (
     <ArticleLayout
       bucket="For Organisations"
       title="AI in hiring has created a trust problem on both sides of the table"
       nextArticle={nextArticle}
+      ctaVariant="org"
     >
       <p>I've spent the last year building tools for people navigating AI-disrupted careers. And the longer I've been in this space, the more clearly I can see a problem that almost nobody is naming directly.</p>
 
@@ -172,8 +158,6 @@ export default function ArticleTrustProblem() {
       <p>Most hiring teams I've spoken to know something is off. They can feel the quality of applications changing. They know their process has become more automated but aren't sure what that means for the humans going through it. They want to do this better — they just don't have the language or the structure to act on it.</p>
 
       <p>That's the gap. And it's very fixable.</p>
-
-      <ProductCTA />
 
     </ArticleLayout>
   );

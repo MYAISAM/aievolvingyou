@@ -66,6 +66,14 @@ export default function Nav({ onOpenWaitlist }) {
                     <span className="nav-dropdown-item-title">Interview Coach</span>
                     <span className="nav-badge">Beta</span>
                   </a>
+                  <Link
+                    to="/resources#orgs"
+                    className="nav-dropdown-item"
+                    onClick={closeAll}
+                  >
+                    <span className="nav-dropdown-item-title">AI Procurement Questions for Hiring Teams</span>
+                    <span className="nav-dropdown-item-action">£79 + VAT →</span>
+                  </Link>
                   <button
                     className="nav-dropdown-item nav-dropdown-item--report"
                     onClick={() => { closeAll(); onOpenWaitlist() }}
@@ -151,6 +159,13 @@ export default function Nav({ onOpenWaitlist }) {
           >
             Interview Coach <span className="nav-badge">Beta</span>
           </a>
+          <Link
+            to="/resources#orgs"
+            className="nav-mobile-item"
+            onClick={closeAll}
+          >
+            AI Procurement Questions
+          </Link>
           <button
             className="nav-mobile-item"
             onClick={() => { closeAll(); onOpenWaitlist() }}
