@@ -1,0 +1,122 @@
+# SKILL — Stripe Payment Link + PDF Delivery on Netlify
+
+## When to use this skill
+Use whenever adding a new paid PDF product to the main site (aievolvingyou.com). This covers the full pattern from Stripe to download.
+
+---
+
+## The full pattern
+
+### 1. Add the PDF to the repo
+```bash
+cp "/path/to/YourProduct.pdf" public/downloads/Your-Product-Name.pdf
+git add public/downloads/
+git commit -m "Add [product name] PDF to downloads"
+git push
+```
+
+**Critical:** Verify the file is a real PDF before committing:
+```bash
+file public/downloads/Your-Product-Name.pdf
+# Must return: PDF document, version X.X, N pages
+```
+
+**Critical:** Verify Git actually has the right content:
+```bash
+git show HEAD:public/downloads/Your-Product-Name.pdf | file -
+# Must return: PDF document
+```
+
+---
+
+### 2. Add the Content-Disposition header to netlify.toml
+
+Add a new `[[headers]]` block for each PDF. The catch-all redirect must remain LAST:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[headers]]
+  for = "/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
+    [headers.values]
+      Content-Disposition = "attachment; filename=AI-Procurement-Questions-for-Hiring-Teams.pdf"
+
+[[headers]]
+  for = "/downloads/Your-New-Product.pdf"
+    [headers.values]
+      Content-Disposition = "attachment; filename=Your-New-Product.pdf"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**Why this matters:** The `/* → /index.html` catch-all intercepts ALL requests including static files. Without the headers block, browsers receive an HTML page instead of a PDF, which corrupts the download.
+
+---
+
+### 3. Create the ThankYou component
+
+File location: `src/components/ThankYou[ProductName].jsx`
+
+Copy `ThankYou.jsx` as the template and update:
+- The product name in the heading and description
+- The `href` on the download button — must match exactly the filename in `public/downloads/`
+- The `download` attribute value — the filename the user sees when saving
+- The page metadata text (categories, page count etc)
+
+**Critical:** The `href` must use hyphens and match the exact filename in `public/downloads/`. A single character mismatch causes a 404.
+
+---
+
+### 4. Wire the route in App.jsx
+
+Add import:
+```js
+import ThankYouProductName from "./components/ThankYouProductName";
+```
+
+Add route (before `</Routes>`):
+```jsx
+<Route path="/thank-you/product-slug" element={<ThankYouProductName />} />
+```
+
+---
+
+### 5. Set up Stripe
+
+**Payment Link settings:**
+- After payment → Don't show confirmation page → Redirect to: `https://aievolvingyou.com/thank-you/product-slug`
+- Advanced options → Allow promotion codes: ON
+
+**Discount codes:**
+- Product catalogue → Coupons → Create coupon (set the discount rule)
+- Click into the coupon → Promotion codes section → click `+` → create the code customers type
+- Both must exist. Coupon alone = "This code is invalid" at checkout.
+
+---
+
+### 6. Verify before launch checklist
+
+- [ ] `file public/downloads/[name].pdf` returns "PDF document"
+- [ ] `git show HEAD:public/downloads/[name].pdf | file -` returns "PDF document"  
+- [ ] `ls dist/downloads/` after `npm run build` shows the file at correct size
+- [ ] Direct URL `https://aievolvingyou.com/downloads/[name].pdf` opens PDF in incognito browser
+- [ ] Download button on thank-you page downloads correct file
+- [ ] Stripe redirect URL is set correctly in Payment Link settings
+- [ ] Promotion code exists inside the coupon (not just the coupon alone)
+
+---
+
+## Known gotchas
+
+**iCloud file stubs:** Files stored in iCloud may show correct size locally but be stubs (not fully downloaded). Always verify with `file` command and `git show HEAD | file -` before assuming the commit is correct.
+
+**Browser cache:** When testing downloads, use incognito/private mode to bypass cache. The `-2`, `-3` suffixes on downloaded filenames indicate the browser is serving cached versions.
+
+**Netlify cache:** After fixing file issues, always use "Deploy project without cache" in Netlify dashboard to force a full rebuild.
+
+**Same URL can't both download and open inline:** The `Content-Disposition: attachment` header applies to the URL, not the link. If you need both a download button and an "open in browser" link, they must point to different URLs or the fallback link should be removed entirely.

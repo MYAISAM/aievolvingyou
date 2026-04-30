@@ -353,3 +353,29 @@ Green = navigate/engage. Orange = spend/transact. Consistent colour meaning acro
 
 ### Implication
 Never use orange for navigation CTAs. Never use green for purchase buttons.
+
+---
+
+## 24. First paid org product is live — AI Procurement Questions
+
+### Decision
+AI Procurement Questions for Hiring Teams is live at £79 via Stripe Payment Link, with a custom thank-you page at `/thank-you/ai-procurement-questions` and PDF delivery via Netlify static file hosting.
+
+### Why
+First commercial validation of the org product lane. Establishes the technical pattern for all future paid framework products.
+
+### Implication
+All future org product purchases follow the same pattern: Stripe Payment Link → redirect to `/thank-you/[product-slug]` → download from `/downloads/[filename].pdf`.
+
+---
+
+## 25. PDF delivery via Netlify static hosting with Content-Disposition header
+
+### Decision
+PDFs are stored in `public/downloads/` and served via Netlify with a `Content-Disposition: attachment` header set in `netlify.toml`.
+
+### Why
+The `download` attribute alone is unreliable across browsers. Safari corrupts files when the `/* → /index.html` catch-all redirect intercepts the request. The header solution forces correct download behaviour regardless of browser.
+
+### netlify.toml pattern (locked)
+```toml
