@@ -38,7 +38,6 @@ export default function Nav({ onOpenWaitlist }) {
 
           <div className="nav-links nav-links--desktop">
 
-            {/* Products dropdown */}
             <div className="nav-dropdown" ref={productsRef}>
               <button
                 className={`nav-link nav-dropdown-trigger${productsOpen ? ' open' : ''}`}
@@ -67,7 +66,6 @@ export default function Nav({ onOpenWaitlist }) {
                     onClick={closeAll}
                   >
                     <span className="nav-dropdown-item-title">AI Procurement Questions for Hiring Teams</span>
-                    <span className="nav-dropdown-item-action">View and buy →</span>
                   </Link>
                   <button
                     className="nav-dropdown-item nav-dropdown-item--report"
@@ -84,7 +82,6 @@ export default function Nav({ onOpenWaitlist }) {
               Resources
             </Link>
 
-            {/* Human Intelligence dropdown */}
             <div className="nav-dropdown" ref={channelsRef}>
               <button
                 className={`nav-link nav-dropdown-trigger${channelsOpen ? ' open' : ''}`}
@@ -151,11 +148,7 @@ export default function Nav({ onOpenWaitlist }) {
           >
             Interview Coach <span className="nav-badge">Beta</span>
           </a>
-          <Link
-            to="/resources#orgs"
-            className="nav-mobile-item"
-            onClick={closeAll}
-          >
+          <Link to="/resources#orgs" className="nav-mobile-item" onClick={closeAll}>
             AI Procurement Questions
           </Link>
           <button
