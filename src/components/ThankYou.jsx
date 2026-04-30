@@ -222,7 +222,7 @@ export default function ThankYou() {
 
         {/* Download button */}
         <a
-          href="/downloads/AIProcurementQuestionsforHiringTeamsFINAL.pdf"
+          href="/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
           download="AI-Procurement-Questions-for-Hiring-Teams.pdf"
           style={{
             display: "inline-flex",
@@ -256,7 +256,7 @@ export default function ThankYou() {
         >
           If the download doesn't start,{" "}
           <a
-            href="/downloads/AIProcurementQuestionsforHiringTeamsFINAL.pdf"
+            href="/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{
