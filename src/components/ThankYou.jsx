@@ -244,31 +244,7 @@ export default function ThankYou() {
           Download your PDF
         </a>
 
-        {/* Reassurance note */}
-        <p
-          style={{
-            fontSize: "0.78rem",
-            color: t.inkLight,
-            marginTop: 14,
-            marginBottom: 0,
-            lineHeight: 1.5,
-          }}
-        >
-          If the download doesn't start,{" "}
-          <a
-            href="/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: t.accentGreen,
-              textDecoration: "underline",
-              textUnderlineOffset: 2,
-            }}
-          >
-            open it directly in your browser
-          </a>
-          .
-        </p>
+
       </div>
 
       {/* What's next card */}
