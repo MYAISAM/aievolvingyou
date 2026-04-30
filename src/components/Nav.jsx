@@ -10,16 +10,10 @@ export default function Nav({ onOpenWaitlist }) {
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (productsRef.current && !productsRef.current.contains(e.target)) {
-        setProductsOpen(false)
-      }
-      if (channelsRef.current && !channelsRef.current.contains(e.target)) {
-        setChannelsOpen(false)
-      }
+      if (productsRef.current && !productsRef.current.contains(e.target)) setProductsOpen(false)
+      if (channelsRef.current && !channelsRef.current.contains(e.target)) setChannelsOpen(false)
     }
-    function handleEscape(e) {
-      if (e.key === 'Escape') closeAll()
-    }
+    function handleEscape(e) { if (e.key === 'Escape') closeAll() }
     document.addEventListener('mousedown', handleClickOutside)
     document.addEventListener('keydown', handleEscape)
     return () => {
@@ -38,9 +32,10 @@ export default function Nav({ onOpenWaitlist }) {
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <Link to="/" className="nav-logo" onClick={closeAll} style={{ textDecoration: "none" }}>AI Evolving You</Link>
+          <Link to="/" className="nav-logo" onClick={closeAll} style={{ textDecoration: "none" }}>
+            AI Evolving You
+          </Link>
 
-          {/* Desktop links */}
           <div className="nav-links nav-links--desktop">
 
             {/* Products dropdown */}
@@ -72,7 +67,7 @@ export default function Nav({ onOpenWaitlist }) {
                     onClick={closeAll}
                   >
                     <span className="nav-dropdown-item-title">AI Procurement Questions for Hiring Teams</span>
-                    <span className="nav-dropdown-item-action">£79 + VAT →</span>
+                    <span className="nav-dropdown-item-action">View and buy →</span>
                   </Link>
                   <button
                     className="nav-dropdown-item nav-dropdown-item--report"
@@ -132,7 +127,6 @@ export default function Nav({ onOpenWaitlist }) {
 
           </div>
 
-          {/* Hamburger - mobile only */}
           <button
             className="nav-hamburger"
             onClick={() => setMobileOpen(v => !v)}
@@ -143,11 +137,9 @@ export default function Nav({ onOpenWaitlist }) {
             <span className={`hamburger-bar${mobileOpen ? ' open' : ''}`} />
             <span className={`hamburger-bar${mobileOpen ? ' open' : ''}`} />
           </button>
-
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="nav-mobile-menu">
           <a
