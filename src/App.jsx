@@ -17,6 +17,8 @@ import ArticleAIPrep from "./articles/ArticleAIPrep";
 import ArticleLongGap from "./articles/ArticleLongGap";
 import ArticleBehavioural from "./articles/ArticleBehavioural";
 import ArticleCareerChangers from "./articles/ArticleCareerChangers";
+import ArticleTrustProblem from "./articles/ArticleTrustProblem";
+import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
 
 function HomePage({ onOpenWaitlist }) {
   return (
@@ -136,7 +138,8 @@ function App() {
         <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
         <Route path="/resources/behavioural-interview" element={<ArticleBehavioural />} />
         <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
-      </Routes>
+        <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
+        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />      </Routes>
 
       <WaitlistModal
         open={waitlistOpen}
