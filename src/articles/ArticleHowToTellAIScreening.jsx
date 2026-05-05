@@ -33,7 +33,7 @@ function SignalCard({ signal, what, means }) {
 }
 
 function ActionList() {
-  const actions = [a
+  const actions = [
     {
       number: "01",
       action: "Mirror the language of the job description",
@@ -42,7 +42,7 @@ function ActionList() {
     {
       number: "02",
       action: "Make your CV easy to parse",
-      detail: "Complex layouts, tables, text boxes, headers in unusual fonts, and graphics can break how an ATS reads your CV. A clean, single-column format with clear section headings — Experience, Education, Skills is more reliably parsed than a designed template. Style matters less than structure at the screening stage.",
+      detail: "Complex layouts, tables, text boxes, headersthi in unusual fonts, and graphics can break how an ATS reads your CV. A clean, single-column format with clear section headings — Experience, Education, Skills is more reliably parsed than a designed template. Style matters less than structure at the screening stage.",
     },
     {
       number: "03",
