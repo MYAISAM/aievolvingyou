@@ -8,7 +8,7 @@ import InterviewCoachCTA from "./components/InterviewCoachCTA";
 import WaitlistModal from "./components/WaitlistModal";
 import Resources from "./components/Resources";
 
-// Article pages
+// Candidate article pages
 import ArticleSTAR from "./articles/ArticleSTAR";
 import ArticleWeakness from "./articles/ArticleWeakness";
 import ArticleFourTypes from "./articles/ArticleFourTypes";
@@ -17,8 +17,17 @@ import ArticleAIPrep from "./articles/ArticleAIPrep";
 import ArticleLongGap from "./articles/ArticleLongGap";
 import ArticleBehavioural from "./articles/ArticleBehavioural";
 import ArticleCareerChangers from "./articles/ArticleCareerChangers";
+
+// Companion / quick-answer articles
+import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples";
+import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI";
+import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening";
+
+// Org article pages
 import ArticleTrustProblem from "./articles/ArticleTrustProblem";
 import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
+
+// Thank you
 import ThankYou from "./components/ThankYou";
 
 function HomePage({ onOpenWaitlist }) {
@@ -131,18 +140,29 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
         <Route path="/resources" element={<Resources />} />
+
+        {/* Candidate articles — journey flow */}
+        <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
         <Route path="/resources/star-method" element={<ArticleSTAR />} />
         <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
-        <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
-        <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
         <Route path="/resources/ai-interview-prep" element={<ArticleAIPrep />} />
-        <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
         <Route path="/resources/behavioural-interview" element={<ArticleBehavioural />} />
         <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
+        <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
+        <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
+
+        {/* Companion / quick-answer articles */}
+        <Route path="/resources/weakness-question-examples" element={<ArticleWeaknessExamples />} />
+        <Route path="/resources/do-employers-use-ai-to-screen-applications" element={<ArticleDoEmployersUseAI />} />
+        <Route path="/resources/how-to-tell-if-ai-is-screening-you" element={<ArticleHowToTellAIScreening />} />
+
+        {/* Org articles */}
         <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
-        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />      
+        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
+
+        {/* Thank you */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
-        </Routes>
+      </Routes>
 
       <WaitlistModal
         open={waitlistOpen}
