@@ -19,7 +19,7 @@ import ArticleBehavioural from "./articles/ArticleBehavioural";
 import ArticleCareerChangers from "./articles/ArticleCareerChangers";
 
 // Companion / quick-answer articles
-import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples.jsx/index.js";
+import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples";
 import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI.jsx";
 import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening";
 
