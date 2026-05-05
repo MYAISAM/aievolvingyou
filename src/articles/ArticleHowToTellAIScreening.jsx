@@ -33,16 +33,16 @@ function SignalCard({ signal, what, means }) {
 }
 
 function ActionList() {
-  const actions = [
+  const actions = [a
     {
       number: "01",
       action: "Mirror the language of the job description",
-      detail: `If the role says "stakeholder management" and your CV says "managing relationships with senior leaders," an AI keyword scan may not connect them. Use the exact phrasing from the job description where it accurately describes your experience. You are not gaming the system — you are making your genuine experience legible to it.`,
+      detail: `If the role says "stakeholder management" and your CV says "managing relationships with senior leaders," an AI keyword scan may not connect them. Use the exact phrasing from the job description where it accurately describes your experience. You are not gaming the system, you are making your genuine experience legible to it.`,
     },
     {
       number: "02",
       action: "Make your CV easy to parse",
-      detail: "Complex layouts, tables, text boxes, headers in unusual fonts, and graphics can break how an ATS reads your CV. A clean, single-column format with clear section headings — Experience, Education, Skills — is more reliably parsed than a designed template. Style matters less than structure at the screening stage.",
+      detail: "Complex layouts, tables, text boxes, headers in unusual fonts, and graphics can break how an ATS reads your CV. A clean, single-column format with clear section headings — Experience, Education, Skills is more reliably parsed than a designed template. Style matters less than structure at the screening stage.",
     },
     {
       number: "03",
@@ -57,7 +57,7 @@ function ActionList() {
     {
       number: "05",
       action: "Do not assume rejection means you were assessed",
-      detail: "If you did not hear back, it is possible your application was filtered before any human reviewed it. That is useful information. It does not mean you were not right for the role — it may mean your application was not legible enough to the system. Adjust and reapply if the role is still live.",
+      detail: "If you did not hear back, it is possible your application was filtered before any human reviewed it. That is useful information. It does not mean you were not right for the role, it may mean your application was not legible enough to the system. Adjust and reapply if the role is still live.",
     },
   ];
   return (
@@ -123,7 +123,7 @@ export default function ArticleHowToTellAIScreening() {
         excerpt: "How widespread AI screening actually is, which sectors use it most, and what it means for how you apply.",
       }}
     >
-      <p>In most cases you will not be told directly. Employers are rarely required to disclose that AI is being used, and most do not volunteer it. But there are signals worth knowing — and whether or not AI is in play, the practical response is largely the same.</p>
+      <p>In most cases you will not be told directly. Employers are rarely required to disclose that AI is being used, and most do not volunteer it. But there are signals worth knowing, and whether or not AI is in play, the practical response is largely the same.</p>
 
       <h2>Signals that AI screening is likely</h2>
 
@@ -131,19 +131,19 @@ export default function ArticleHowToTellAIScreening() {
 
       <SignalCard
         signal="The application is through an online portal with structured fields"
-        what="Platforms like Workday, Greenhouse, Lever, Taleo, and iCIMS are Applicant Tracking Systems — and most now include AI-powered ranking and filtering built in. If you are filling in a structured form rather than emailing a CV directly to someone, there is very likely an ATS involved."
+        what="Platforms like Workday, Greenhouse, Lever, Taleo, and iCIMS are Applicant Tracking Systems and most now include AI-powered ranking and filtering built in. If you are filling in a structured form rather than emailing a CV directly to someone, there is very likely an ATS involved."
         means="Your CV needs to be clean and parseable. Avoid tables, text boxes, and unusual formatting. Make sure your key experience appears in plain text that a system can read."
       />
 
       <SignalCard
         signal="You receive an instant or very fast automated acknowledgement"
-        what="A confirmation email within seconds of submitting is almost always automated. That is not unusual — but if it is followed quickly by a rejection, that is a signal the initial screen was automated too."
+        what="A confirmation email within seconds of submitting is almost always automated. That is not unusual, but if it is followed quickly by a rejection, that is a signal the initial screen was automated too."
         means="A fast rejection is more likely to be a screening filter than a human decision. If you were genuinely qualified for the role, consider whether the way your CV was written matched the language of the job description."
       />
 
       <SignalCard
         signal="You are asked to complete a pre-screening questionnaire"
-        what="Structured yes/no or multiple choice questions at the application stage are often used to automatically filter out candidates who do not meet minimum requirements — before any human reviews your materials."
+        what="Structured yes/no or multiple choice questions at the application stage are often used to automatically filter out candidates who do not meet minimum requirements, before any human reviews your materials."
         means="Answer these carefully and honestly. Some systems will automatically reject applications where a disqualifying answer is given, regardless of what else is in your CV."
       />
 
@@ -155,13 +155,13 @@ export default function ArticleHowToTellAIScreening() {
 
       <SignalCard
         signal="You are invited to a recorded video interview as a first step"
-        what="Platforms like HireVue, Spark Hire, and Vieple are used to collect recorded responses to set questions. Some use AI to analyse the responses — assessing word choice, delivery, and content — before a human reviews selected candidates."
+        what="Platforms like HireVue, Spark Hire, and Vieple are used to collect recorded responses to set questions. Some use AI to analyse the responses, assessing word choice, delivery, and content. Before a human reviews selected candidates."
         means="Prepare as you would for a live interview. Speak clearly and structure your answers. Do not assume a relaxed approach because there is no live interviewer on screen."
       />
 
       <h2>What you are entitled to know</h2>
 
-      <p>This is an area where regulation is developing faster than most people realise — but it is patchy and jurisdiction-dependent.</p>
+      <p>This is an area where regulation is developing faster than most people realise, but it is patchy and jurisdiction-dependent.</p>
 
       <RightsBox />
 
@@ -169,7 +169,7 @@ export default function ArticleHowToTellAIScreening() {
 
       <h2>What you can actually do about it</h2>
 
-      <p>The good news is that preparing for AI screening and preparing for human review point in the same direction. A clear, well-structured, relevant CV serves you in both contexts. There is no version of optimising for AI that undermines how a human reads your application — as long as you are not stuffing in keywords that do not reflect your actual experience.</p>
+      <p>The good news is that preparing for AI screening and preparing for human review point in the same direction. A clear, well-structured, relevant CV serves you in both contexts. There is no version of optimising for AI that undermines how a human reads your application, as long as you are not stuffing in keywords that do not reflect your actual experience.</p>
 
       <ActionList />
 

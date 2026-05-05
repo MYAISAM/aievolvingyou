@@ -90,7 +90,7 @@ function WhatThisMeans() {
   const points = [
     {
       heading: "Keywords matter more than at first contact",
-      body: "If your CV does not contain the language the job description uses, an AI screener may filter it out before a human sees it. This is not about gaming the system — it is about making sure your genuine experience is legible to automated tools. Use the words from the job description where they accurately describe what you do.",
+      body: "If your CV does not contain the language the job description uses, an AI screener may filter it out before a human sees it. This is not about gaming the system, it is about making sure your genuine experience is legible to automated tools. Use the words from the job description where they accurately describe what you do.",
     },
     {
       heading: "Generic applications are higher risk",
@@ -102,7 +102,7 @@ function WhatThisMeans() {
     },
     {
       heading: "Rejection may not mean what you think",
-      body: "If you are not hearing back, it is worth considering whether your CV is being filtered rather than reviewed. A qualified candidate can be screened out by a mismatch in terminology alone. This is not a reflection of your ability — it is a reflection of how your experience is being communicated.",
+      body: "If you are not hearing back, it is worth considering whether your CV is being filtered rather than reviewed. A qualified candidate can be screened out by a mismatch in terminology alone. This is not a reflection of your ability, it is a reflection of how your experience is being communicated.",
     },
   ];
   return (
@@ -134,9 +134,9 @@ export default function ArticleDoEmployersUseAI() {
         excerpt: "The signals to look for, what it means for how you apply, and what you can actually do about it.",
       }}
     >
-      <p>Yes — and more widely than most candidates realise. The majority of large employers now use some form of AI or automated tool at some point in the hiring process. For many roles, your application will be assessed by an algorithm before any human sees it.</p>
+      <p>Yes! And more widely than most candidates realise. The majority of large employers now use some form of AI or automated tool at some point in the hiring process. For many roles, your application will be assessed by an algorithm before any human sees it.</p>
 
-      <p>That does not mean every employer uses it, or uses it in the same way. The picture is more complicated than a simple yes or no — and understanding the detail changes how you approach your applications.</p>
+      <p>That does not mean every employer uses it, or uses it in the same way. The picture is more complicated than a simple yes or no and understanding the detail changes how you approach your applications.</p>
 
       <h2>How widespread is it?</h2>
 
@@ -159,9 +159,9 @@ export default function ArticleDoEmployersUseAI() {
 
       <p>The scale problem is real. Goldman Sachs received over 315,000 applications for its 2024 internship programme. Google receives millions of applications a year. Even a mid-sized company posting a single role can receive hundreds of CVs within days of posting.</p>
 
-      <p>No recruiter team can meaningfully review that volume manually. AI screening is primarily a response to that problem — a way to reduce a large pool to a manageable shortlist before human review begins.</p>
+      <p>No recruiter team can meaningfully review that volume manually. AI screening is primarily a response to that problem, a way to reduce a large pool to a manageable shortlist before human review begins.</p>
 
-      <p>That context matters because it changes how you think about what is happening. The AI is not making a final decision about you as a person. It is doing a first-pass filter to decide whether your application looks relevant enough to warrant a human's time. That is a much narrower question — and one you can prepare for.</p>
+      <p>That context matters because it changes how you think about what is happening. The AI is not making a final decision about you as a person. It is doing a first-pass filter to decide whether your application looks relevant enough to warrant a human's time. That is a much narrower question and one you can prepare for.</p>
 
       <h2>What this means for how you apply</h2>
 
@@ -169,15 +169,15 @@ export default function ArticleDoEmployersUseAI() {
 
       <h2>What AI screening cannot assess</h2>
 
-      <p>It is worth being clear about what these systems are not doing. AI screening tools are generally assessing surface signals — keywords, structure, formatting, stated experience. They are not assessing your potential, your character, your working style, or whether you would actually be good at the job.</p>
+      <p>It is worth being clear about what these systems are not doing. AI screening tools are generally assessing surface signals: keywords, structure, formatting, stated experience. They are not assessing your potential, your character, your working style, or whether you would actually be good at the job.</p>
 
-      <p>That means the candidates who get through AI screening are not necessarily the best candidates. They are the candidates whose applications were most legible to the system. Getting past the screen is a prerequisite for the actual assessment — it is not the assessment itself.</p>
+      <p>That means the candidates who get through AI screening are not necessarily the best candidates. They are the candidates whose applications were most legible to the system. Getting past the screen is a prerequisite for the actual assessment, it is not the assessment itself.</p>
 
       <p>Once you are talking to a human, the dynamic shifts completely. That is where your preparation, your self-awareness, and your ability to communicate your experience clearly becomes what matters. The AI gets you into the room. What you do in the room is still entirely up to you.</p>
 
       <h2>The trust problem candidates are right to notice</h2>
 
-      <p>Concern about AI screening is well-founded and not just a feeling. Research consistently shows that AI screening tools can filter out qualified candidates due to terminology mismatches, unconventional career paths, or biases baked into the training data. A system trained on historically successful hires tends to favour candidates who look like past hires — which can disadvantage career changers, people returning from gaps, and candidates from underrepresented backgrounds.</p>
+      <p>Concern about AI screening is well-founded and not just a feeling. Research consistently shows that AI screening tools can filter out qualified candidates due to terminology mismatches, unconventional career paths, or biases baked into the training data. A system trained on historically successful hires tends to favour candidates who look like past hires, which can disadvantage career changers, people returning from gaps, and candidates from underrepresented backgrounds.</p>
 
       <p>This is not an argument against preparing for AI screening. It is an argument for understanding what you are dealing with, so you can give yourself the best possible chance within a system that is imperfect but real.</p>
 
