@@ -389,7 +389,7 @@ function ProcurementCard() {
             textDecoration: "none",
           }}
         >
-          Get the document — £9
+          Get the document — £79
         </a>
         <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
       </div>
