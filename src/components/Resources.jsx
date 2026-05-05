@@ -545,7 +545,7 @@ export default function Resources() {
             gap: 16,
           }}>
             {candidateArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+           <ArticleCard key={article.slug} article={article} dimmed={!article.live} />
             ))}
           </div>
 
