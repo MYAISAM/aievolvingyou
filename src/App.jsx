@@ -56,14 +56,14 @@ function HomePage({ onOpenWaitlist }) {
         <div className="section-inner">
           <p>
             AI is changing how careers are built, how hiring works, and what employers actually value.
-            There is no shortage of tools being built in response - resume optimisers, application generators,
+            There is no shortage of tools being built in response. Resume optimisers, application generators,
             screening platforms. Most of them are built to help candidates pass a machine's filter.
           </p>
           <p style={{ marginTop: '1.25rem', fontSize: '1.1rem', fontWeight: 500, color: '#111111', lineHeight: 1.7 }}>
             That is not preparation. That is performance.
           </p>
           <p style={{ marginTop: '1.25rem' }}>
-            AI Evolving You builds tools that develop real capability - for candidates who want to compete
+            AI Evolving You builds tools that develop real capability. For candidates who want to compete
             with genuine confidence, and for organisations that want to use AI in hiring responsibly.
           </p>
         </div>
@@ -84,16 +84,21 @@ function HomePage({ onOpenWaitlist }) {
               <p style={{ marginBottom: '16px' }}>
                 Practise with questions tailored to your actual job description. Answer by voice or in writing,
                 get coaching on every response, and walk away with a personalised cheat sheet. Built for anyone
-                preparing for their next interview - whatever level, whatever role.
+                preparing for their next interview at whatever level and whatever role.
               </p>
-              <a
-                href="https://coach.aievolvingyou.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-subtle"
-              >
-                Try it free →
-              </a>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                <a
+                  href="https://coach.aievolvingyou.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-subtle"
+                >
+                  Try it free →
+                </a>
+                <a href="/resources" className="link-subtle">
+                  Browse guides and resources →
+                </a>
+              </div>
             </div>
 
             <div style={cardStyle}>
@@ -101,8 +106,8 @@ function HomePage({ onOpenWaitlist }) {
               <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Frameworks and Tools</h3>
               <p style={{ marginBottom: '16px' }}>
                 Practical resources for HR teams and hiring leaders navigating AI adoption responsibly.
-                Procurement questions, governance frameworks, and bias audit tools - built to help organisations
-                make better decisions before they buy, deploy, and scale AI in their hiring process.
+                Procurement questions, governance frameworks and bias audit tools. Built to help organisations
+                make better decisions before they buy, deploy and scale AI in their hiring process.
               </p>
               <a href="/resources" className="link-subtle">
                 See the resources →
@@ -139,7 +144,7 @@ function HomePage({ onOpenWaitlist }) {
               <p className="section-label" style={{ marginBottom: '8px', color: '#999999' }}>Coming soon</p>
               <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>AI Displacement Report</h3>
               <p style={{ marginBottom: '16px' }}>
-                Which roles are most exposed to AI disruption - and what you can do about it.
+                Which roles are most exposed to AI disruption and what you can do about it.
                 Research-backed, sector by sector.
               </p>
               <button
@@ -152,20 +157,6 @@ function HomePage({ onOpenWaitlist }) {
             </div>
 
           </div>
-        </div>
-      </FadeInSection>
-
-      {/* Resources teaser */}
-      <FadeInSection>
-        <div className="section-inner">
-          <h2>Resources</h2>
-          <p>
-            Guides, frameworks and thinking - for candidates preparing to compete and organisations
-            preparing to lead.
-          </p>
-          <a href="/resources" className="link-subtle" style={{ marginTop: '0.75rem', display: 'inline-block' }}>
-            Browse all resources →
-          </a>
         </div>
       </FadeInSection>
 
