@@ -35,30 +35,38 @@ function HomePage({ onOpenWaitlist }) {
     <>
       <Hero />
 
+      {/* Bridge — the why */}
       <FadeInSection>
         <div className="section-inner">
           <p>
-            AI is changing what employers look for. It's changing how interviews
-            are run, how CVs are screened, and which skills get rewarded. The
-            people who thrive aren't the ones who ignore that shift - they're
-            the ones who understand it and use it to their advantage. Everything
-            here is built to help you do exactly that.
+            AI is changing how careers are built, how hiring works, and what employers actually value.
+            There's no shortage of tools being built in response - resume optimisers, application generators,
+            screening platforms. Most of them are built to help candidates pass a machine's filter.
+          </p>
+          <p style={{ marginTop: '1rem' }}>
+            That's not preparation. That's performance.
+          </p>
+          <p style={{ marginTop: '1rem' }}>
+            AI Evolving You builds tools that develop real capability - for candidates who want to compete
+            with genuine confidence, and for organisations that want to use AI in hiring responsibly.
           </p>
         </div>
       </FadeInSection>
 
       <InterviewCoachCTA />
 
+      {/* What's Here — product shelf */}
       <FadeInSection id="work">
         <div className="section-inner">
           <h2>What's Here</h2>
 
-          <div>
+          <div style={{ marginTop: '1.5rem' }}>
+            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For candidates</p>
             <h3>Interview Coach</h3>
             <p>
-              AI-powered interview preparation tailored to your actual job
-              description. Practice questions, get coaching on every answer,
-              leave with a personalised cheat sheet.
+              Practise with questions tailored to your actual job description. Answer by voice or in writing,
+              get coaching on every response, and walk away with a personalised cheat sheet. Built for anyone
+              preparing for their next interview - whatever level, whatever role.
             </p>
             <a
               href="https://coach.aievolvingyou.com"
@@ -66,30 +74,32 @@ function HomePage({ onOpenWaitlist }) {
               rel="noopener noreferrer"
               className="link-subtle"
             >
-              Start a session →
+              Try it free →
             </a>
           </div>
 
-          <div>
-            <h3>AI Displacement Report</h3>
+          <div style={{ marginTop: '2rem' }}>
+            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For organisations</p>
+            <h3>Frameworks and Tools</h3>
             <p>
-              Which roles are most exposed to AI disruption - and what you can
-              do about it. Research-backed, sector by sector.
+              Practical resources for HR teams and hiring leaders navigating AI adoption responsibly.
+              Procurement questions, governance frameworks, and bias audit tools - built to help organisations
+              make better decisions before they buy, deploy, and scale AI in their hiring process.
             </p>
-            <button
-              onClick={onOpenWaitlist}
+            <a
+              href="/resources"
               className="link-subtle"
-              style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
             >
-              Join the waitlist →
-            </button>
+              See the resources →
+            </a>
           </div>
 
-          <div>
+          <div style={{ marginTop: '2rem' }}>
+            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For thinking</p>
             <h3>Human Intelligence</h3>
             <p>
-              Commentary, thinking, and analysis on AI's impact on work and
-              society. The person behind the platform.
+              Commentary, analysis and conversation about AI's impact on work, careers and society.
+              The thinking behind the platform.
             </p>
             <a
               href="https://www.youtube.com/@OurHumanIntelligence"
@@ -109,17 +119,36 @@ function HomePage({ onOpenWaitlist }) {
               Read on Substack →
             </a>
           </div>
+
+          <div style={{ marginTop: '2rem' }}>
+            <p className="section-label" style={{ marginBottom: '0.4rem' }}>Coming soon</p>
+            <h3>AI Displacement Report</h3>
+            <p>
+              Which roles are most exposed to AI disruption - and what you can do about it.
+              Research-backed, sector by sector.
+            </p>
+            <button
+              onClick={onOpenWaitlist}
+              className="link-subtle"
+              style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
+            >
+              Join the waitlist →
+            </button>
+          </div>
         </div>
       </FadeInSection>
 
+      {/* Resources teaser */}
       <FadeInSection>
         <div className="section-inner">
-          <h2>Currently Exploring</h2>
-          <p>AI and the candidate experience - who's building for the person on the other side of the process</p>
-          <p>The human skills that travel - which capabilities hold their value as AI reshapes role definitions</p>
-          <p>Organisational frameworks for AI hiring - practical tools for HR teams making AI purchasing decisions responsibly</p>
-          <p>What "AI-ready" actually means - beyond "can you use the tools"</p>
-          <small>Updated April 2026</small>
+          <h2>Resources</h2>
+          <p>
+            Guides, frameworks and thinking - for candidates preparing to compete and organisations
+            preparing to lead.
+          </p>
+          <a href="/resources" className="link-subtle" style={{ marginTop: '0.75rem', display: 'inline-block' }}>
+            Browse all resources →
+          </a>
         </div>
       </FadeInSection>
 
