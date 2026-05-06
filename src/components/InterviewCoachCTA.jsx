@@ -92,7 +92,7 @@ export default function InterviewCoachCTA() {
                 Try the Interview Coach →
               </a>
               <span style={{ fontSize: 12, color: '#999999', fontStyle: 'italic' }}>
-                No signup · No payment · 8 role categories
+                No signup · No payment · Questions tailored to your JD
               </span>
             </div>
           </div>
