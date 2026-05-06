@@ -30,23 +30,39 @@ import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
 // Thank you
 import ThankYou from "./components/ThankYou";
 
+const cardStyle = {
+  background: '#f9f9f9',
+  border: '1px solid rgba(0,0,0,0.07)',
+  borderLeft: '3px solid #3F6F63',
+  borderRadius: 8,
+  padding: '28px 28px 24px',
+}
+
+const cardStyleMuted = {
+  background: '#f9f9f9',
+  border: '1px solid rgba(0,0,0,0.07)',
+  borderLeft: '3px solid #e0e0e0',
+  borderRadius: 8,
+  padding: '28px 28px 24px',
+}
+
 function HomePage({ onOpenWaitlist }) {
   return (
     <>
       <Hero />
 
-      {/* Bridge — the why */}
+      {/* Bridge */}
       <FadeInSection>
         <div className="section-inner">
           <p>
             AI is changing how careers are built, how hiring works, and what employers actually value.
-            There's no shortage of tools being built in response - resume optimisers, application generators,
+            There is no shortage of tools being built in response - resume optimisers, application generators,
             screening platforms. Most of them are built to help candidates pass a machine's filter.
           </p>
-          <p style={{ marginTop: '1rem' }}>
-            That's not preparation. That's performance.
+          <p style={{ marginTop: '1.25rem', fontSize: '1.1rem', fontWeight: 500, color: '#111111', lineHeight: 1.7 }}>
+            That is not preparation. That is performance.
           </p>
-          <p style={{ marginTop: '1rem' }}>
+          <p style={{ marginTop: '1.25rem' }}>
             AI Evolving You builds tools that develop real capability - for candidates who want to compete
             with genuine confidence, and for organisations that want to use AI in hiring responsibly.
           </p>
@@ -55,85 +71,86 @@ function HomePage({ onOpenWaitlist }) {
 
       <InterviewCoachCTA />
 
-      {/* What's Here — product shelf */}
+      {/* What's Here */}
       <FadeInSection id="work">
         <div className="section-inner">
           <h2>What's Here</h2>
 
-          <div style={{ marginTop: '1.5rem' }}>
-            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For candidates</p>
-            <h3>Interview Coach</h3>
-            <p>
-              Practise with questions tailored to your actual job description. Answer by voice or in writing,
-              get coaching on every response, and walk away with a personalised cheat sheet. Built for anyone
-              preparing for their next interview - whatever level, whatever role.
-            </p>
-            <a
-              href="https://coach.aievolvingyou.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-subtle"
-            >
-              Try it free →
-            </a>
-          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
 
-          <div style={{ marginTop: '2rem' }}>
-            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For organisations</p>
-            <h3>Frameworks and Tools</h3>
-            <p>
-              Practical resources for HR teams and hiring leaders navigating AI adoption responsibly.
-              Procurement questions, governance frameworks, and bias audit tools - built to help organisations
-              make better decisions before they buy, deploy, and scale AI in their hiring process.
-            </p>
-            <a
-              href="/resources"
-              className="link-subtle"
-            >
-              See the resources →
-            </a>
-          </div>
+            <div style={cardStyle}>
+              <p className="section-label" style={{ marginBottom: '8px' }}>For candidates</p>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Interview Coach</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Practise with questions tailored to your actual job description. Answer by voice or in writing,
+                get coaching on every response, and walk away with a personalised cheat sheet. Built for anyone
+                preparing for their next interview - whatever level, whatever role.
+              </p>
+              <a
+                href="https://coach.aievolvingyou.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-subtle"
+              >
+                Try it free →
+              </a>
+            </div>
 
-          <div style={{ marginTop: '2rem' }}>
-            <p className="section-label" style={{ marginBottom: '0.4rem' }}>For thinking</p>
-            <h3>Human Intelligence</h3>
-            <p>
-              Commentary, analysis and conversation about AI's impact on work, careers and society.
-              The thinking behind the platform.
-            </p>
-            <a
-              href="https://www.youtube.com/@OurHumanIntelligence"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-subtle"
-            >
-              Watch on YouTube →
-            </a>
-            {" "}
-            <a
-              href="https://ourhumanintelligence.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-subtle"
-            >
-              Read on Substack →
-            </a>
-          </div>
+            <div style={cardStyle}>
+              <p className="section-label" style={{ marginBottom: '8px' }}>For organisations</p>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Frameworks and Tools</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Practical resources for HR teams and hiring leaders navigating AI adoption responsibly.
+                Procurement questions, governance frameworks, and bias audit tools - built to help organisations
+                make better decisions before they buy, deploy, and scale AI in their hiring process.
+              </p>
+              <a href="/resources" className="link-subtle">
+                See the resources →
+              </a>
+            </div>
 
-          <div style={{ marginTop: '2rem' }}>
-            <p className="section-label" style={{ marginBottom: '0.4rem' }}>Coming soon</p>
-            <h3>AI Displacement Report</h3>
-            <p>
-              Which roles are most exposed to AI disruption - and what you can do about it.
-              Research-backed, sector by sector.
-            </p>
-            <button
-              onClick={onOpenWaitlist}
-              className="link-subtle"
-              style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
-            >
-              Join the waitlist →
-            </button>
+            <div style={cardStyle}>
+              <p className="section-label" style={{ marginBottom: '8px' }}>For thinking</p>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Human Intelligence</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Commentary, analysis and conversation about AI's impact on work, careers and society.
+                The thinking behind the platform.
+              </p>
+              <a
+                href="https://www.youtube.com/@OurHumanIntelligence"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-subtle"
+              >
+                Watch on YouTube →
+              </a>
+              {" "}
+              <a
+                href="https://ourhumanintelligence.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-subtle"
+              >
+                Read on Substack →
+              </a>
+            </div>
+
+            <div style={cardStyleMuted}>
+              <p className="section-label" style={{ marginBottom: '8px', color: '#999999' }}>Coming soon</p>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>AI Displacement Report</h3>
+              <p style={{ marginBottom: '16px' }}>
+                Which roles are most exposed to AI disruption - and what you can do about it.
+                Research-backed, sector by sector.
+              </p>
+              <button
+                onClick={onOpenWaitlist}
+                className="link-subtle"
+                style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
+              >
+                Join the waitlist →
+              </button>
+            </div>
+
           </div>
         </div>
       </FadeInSection>
@@ -170,7 +187,7 @@ function App() {
         <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
         <Route path="/resources" element={<Resources />} />
 
-        {/* Candidate articles — journey flow */}
+        {/* Candidate articles */}
         <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
         <Route path="/resources/star-method" element={<ArticleSTAR />} />
         <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
@@ -180,7 +197,7 @@ function App() {
         <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
         <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
 
-        {/* Companion / quick-answer articles */}
+        {/* Companion articles */}
         <Route path="/resources/weakness-question-examples" element={<ArticleWeaknessExamples />} />
         <Route path="/resources/do-employers-use-ai-to-screen-applications" element={<ArticleDoEmployersUseAI />} />
         <Route path="/resources/how-to-tell-if-ai-is-screening-you" element={<ArticleHowToTellAIScreening />} />
