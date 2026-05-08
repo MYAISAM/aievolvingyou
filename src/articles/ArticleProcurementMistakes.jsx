@@ -1,6 +1,7 @@
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
+const greenLight = "#edf4f2";
 const orange = "#D47A2C";
 const ink = "#111111";
 const inkMid = "#555555";
@@ -47,6 +48,25 @@ function QuestionsComparison() {
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function StatsRow() {
+  const stats = [
+    { num: "88%", label: "of organisations use AI for initial screening", source: "SHRM, 2026" },
+    { num: "39%", label: "have gone through any formal governance review", source: "SHRM, 2026" },
+    { num: "50%", label: "of HR professionals do zero monitoring of their AI hiring tools", source: "Greenhouse, 2023" },
+  ];
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, margin: "20px 0 32px" }}>
+      {stats.map((s, i) => (
+        <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 10, padding: "18px 16px", textAlign: "center" }}>
+          <p style={{ fontSize: 28, fontWeight: 700, color: green, lineHeight: 1.1, margin: "0 0 6px" }}>{s.num}</p>
+          <p style={{ fontSize: 12, color: inkMid, lineHeight: 1.45, margin: "0 0 6px" }}>{s.label}</p>
+          <p style={{ fontSize: 11, color: "#aaaaaa", margin: 0, fontWeight: 600 }}>{s.source}</p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -101,60 +121,20 @@ function FourMistakes() {
 
 function LegalCases() {
   const cases = [
-    {
-      year: "2023",
-      who: "iTutorGroup / EEOC",
-      what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.",
-      tag: "First resolved case",
-    },
-    {
-      year: "2025",
-      who: "Workday class action",
-      what: "Federal court established that AI vendors can act as agents of employers, making vendors directly liable alongside the organisations using their tools.",
-      tag: "Vendor liability established",
-    },
-    {
-      year: "Jan 2026",
-      who: "Eightfold AI class action",
-      what: "New legal theory: AI scoring platforms may need to comply with the Fair Credit Reporting Act, expanding compliance requirements significantly.",
-      tag: "New legal theory",
-    },
-    {
-      year: "2023 to 2024",
-      who: "UK ICO",
-      what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.",
-      tag: "UK regulator",
-    },
+    { year: "2023", who: "iTutorGroup / EEOC", what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.", tag: "First resolved case" },
+    { year: "2024", who: "Workday class action", what: "Federal court allowed a nationwide class action to proceed, alleging Workday's AI tools discriminated on race, age, and disability. Significantly, the case targets the vendor directly — not just the employer.", tag: "Vendor liability" },
+    { year: "2025", who: "Intuit and HireVue / ACLU", what: "Complaint filed under the Colorado Anti-Discrimination Act, ADA, and Title VII, alleging HireVue's AI interview analysis produced biased outcomes. Procurement-layer failures at the centre of the argument.", tag: "Video interview AI" },
+    { year: "2023-24", who: "UK ICO", what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.", tag: "UK regulator" },
   ];
-
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {cases.map((c, i) => (
-        <div key={i} style={{
-          background: surface,
-          border: `1px solid ${border}`,
-          borderRadius: 8,
-          padding: "14px 18px",
-          display: "flex",
-          gap: 20,
-          alignItems: "flex-start",
-        }}>
-          {/* Fixed-width left column — date + tag badge always same width */}
-          <div style={{ flexShrink: 0, width: 110 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0, whiteSpace: "nowrap" }}>{c.year}</p>
-            <span style={{
-              display: "inline-block",
-              fontSize: 10, fontWeight: 600,
-              color: orange, background: "#fdf0e4",
-              borderRadius: 20, padding: "2px 8px",
-              marginTop: 5, letterSpacing: "0.04em",
-              lineHeight: 1.4,
-            }}>
-              {c.tag}
-            </span>
+        <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
+          <div style={{ flexShrink: 0, minWidth: 64 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
           </div>
-          {/* Content column — always starts at same horizontal point */}
-          <div style={{ flex: 1, minWidth: 0 }}>
+          <div>
             <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>
             <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6 }}>{c.what}</p>
           </div>
@@ -195,7 +175,7 @@ function VendorQuestions() {
         </div>
         <p style={{ fontSize: 13, color: ink, fontWeight: 600, margin: "16px 0 0", borderTop: `1px solid ${border}`, paddingTop: 14 }}>A vendor who cannot answer these questions clearly is answering you anyway.</p>
       </div>
-      <div style={{ background: "#edf4f2", border: `1.5px solid ${green}`, borderRadius: 10, padding: "20px 22px" }}>
+      <div style={{ background: greenLight, border: `1.5px solid ${green}`, borderRadius: 10, padding: "20px 22px" }}>
         <p style={{ fontSize: 12, fontWeight: 700, color: green, margin: "0 0 14px", letterSpacing: "0.05em", textTransform: "uppercase" }}>Ask internally first</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {internal.map((q, i) => (
@@ -215,7 +195,6 @@ export default function ArticleProcurementMistakes() {
     <ArticleLayout
       bucket="For Organisations"
       title="What most organisations get wrong when buying AI hiring tools"
-      ctaVariant="org"
     >
       <p>Many teams buying AI hiring technology are asking sensible questions. The problem is that the most consequential ones often stay too broad, too vague, or too late in the process. Here is what responsible procurement actually looks like, and why it matters more than most buyers realise.</p>
 
@@ -225,9 +204,17 @@ export default function ArticleProcurementMistakes() {
 
       <p>What often does not happen is enough depth on how the tool actually works. Not because buyers are careless. More often it is the opposite: teams are trying to do a decent job, but they are working without a structured way to probe. AI tools can create a quiet imposter syndrome in the room. Nobody wants to ask a question that makes them look like they do not understand the technology. So the vendor stays in control of the frame, and the hardest questions stay underexplored.</p>
 
-      <p>This is not just an observation. Research from the International Journal of Human Resource Management identifies it as a structural skills gap: 39% of VP-level leaders say they lack the knowledge to make vendor decisions involving AI. An HRO Today survey found only 22% of HR leaders felt AI data had meaningfully increased their decision-making confidence, with just 2% saying it had done so to a great extent.</p>
+      <p>The average AI literacy score among procurement professionals is 34 out of 100. That is not a knowledge gap. That is a structural disadvantage — and vendors know it.</p>
 
       <p>Most organisations buy AI hiring tools the way they would buy project management software. These are not the same category of decision. Project management software organises tasks. AI hiring tools influence which people get opportunities and which do not.</p>
+
+      <h2>How widespread this actually is</h2>
+
+      <p>This is not a fringe problem. The numbers show a procurement and governance gap running through the entire sector.</p>
+
+      <StatsRow />
+
+      <p>The monitoring figure is the most telling. Not inadequate monitoring. None at all. Tools bought, deployed, and left to run with no one watching what they are actually doing.</p>
 
       <h2>What buyers often ask versus what they also need to ask</h2>
 
@@ -237,7 +224,7 @@ export default function ArticleProcurementMistakes() {
 
       <p>AI hiring vendors operate with a significant information advantage. They understand their models. They know which questions are hard to answer. They have been through enough sales cycles to know which topics buyers rarely push on.</p>
 
-      <p>This is not always bad faith. It is often just sales gravity: vendors optimise for clarity, confidence, and conversion. If buyers do not ask harder questions, the harder topics stay off the table. The demo stays clean. The narrative stays tight.</p>
+      <p>This is not always bad faith. It is often just sales gravity: vendors optimise for clarity, confidence, and conversion. The evidence suggests they are not volunteering much on the hard stuff. Only 1 in 3 HR professionals whose organisations buy AI tools from vendors say those vendors are "very transparent" about bias prevention — from a 2024 SHRM survey of over 2,300 HR professionals. Two thirds of buyers are going in without clear answers on the most consequential part of the product.</p>
 
       <p>Buyers who go in with a structured question set change the balance of the conversation. They signal that this organisation is paying attention. That the sale will not close on confidence and polish alone. That the vendor needs to demonstrate, not just describe.</p>
 
@@ -271,7 +258,7 @@ export default function ArticleProcurementMistakes() {
 
       <p>Organisations that evaluate AI hiring tools rigorously do not just reduce their legal and reputational exposure. They end up with tools that actually work, because they have stress-tested the claims, examined the limitations, and chosen vendors who can stand behind their product.</p>
 
-      <p>Most teams are still under-equipped for this kind of procurement conversation. The teams that close that gap are already differentiated: in the quality of the tools they use, the trust they maintain with candidates, and their readiness for a regulatory environment that has already arrived, even if enforcement is still catching up.</p>
+      <p>Most teams are still under-equipped for this kind of procurement conversation. The average AI literacy score among procurement professionals sits at 34 out of 100. That gap is closable. The teams that close it are already differentiated: in the quality of the tools they use, the trust they maintain with candidates, and their readiness for a regulatory environment that has already arrived, even if enforcement is still catching up.</p>
 
       <p>Responsible procurement starts with better questions. Most teams do not yet have a structure for asking them.</p>
 
