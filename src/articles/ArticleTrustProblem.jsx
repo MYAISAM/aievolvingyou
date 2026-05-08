@@ -97,7 +97,7 @@ export default function ArticleTrustProblem() {
       bucket="For Organisations"
       title="AI in hiring has created a trust problem on both sides of the table"
       nextArticle={nextArticle}
-      ctaVariant="org"
+      hideCoachCta={true}
     >
       <p>I've spent the last year building tools for people navigating AI-disrupted careers. And the longer I've been in this space, the more clearly I can see a problem that almost nobody is naming directly.</p>
 
@@ -155,9 +155,7 @@ export default function ArticleTrustProblem() {
 
       <p>It's not soft. It's strategic.</p>
 
-      <p>Most hiring teams I've spoken to know something is off. They can feel the quality of applications changing. They know their process has become more automated but aren't sure what that means for the humans going through it. They want to do this better — they just don't have the language or the structure to act on it.</p>
-
-      <p>That's the gap. And it's very fixable.</p>
+      <p>The organisations that act on this now are not doing it out of idealism. They are doing it because they have realised that every stage of opacity is a decision they will eventually have to explain: to a candidate who asks, to a regulator who audits, or to a team asking why quality keeps declining despite more automation. Transparency does not prevent that conversation. It just means you are ready for it.</p>
 
     </ArticleLayout>
   );
