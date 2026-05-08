@@ -121,23 +121,24 @@ function HomePage({ onOpenWaitlist }) {
                 Commentary, analysis and conversation about AI's impact on work, careers and society.
                 The thinking behind the platform.
               </p>
-              <a
-                href="https://www.youtube.com/@OurHumanIntelligence"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-subtle"
-              >
-                Watch on YouTube →
-              </a>
-              {" "}
-              <a
-                href="https://ourhumanintelligence.substack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-subtle"
-              >
-                Read on Substack →
-              </a>
+              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                <a
+                  href="https://www.youtube.com/@OurHumanIntelligence"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-subtle"
+                >
+                  Watch on YouTube →
+                </a>
+                <a
+                  href="https://ourhumanintelligence.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-subtle"
+                >
+                  Read on Substack →
+                </a>
+              </div>
             </div>
 
             <div style={cardStyleMuted}>
