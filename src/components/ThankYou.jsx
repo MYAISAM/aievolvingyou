@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-// Design tokens — matches BRAND.md and existing site
 const t = {
   bg: "#ffffff",
   surface: "#f9f9f9",
@@ -15,7 +14,6 @@ const t = {
   tagGreenText: "#3F6F63",
 };
 
-// Checkmark icon — inline SVG, no dependency needed
 function CheckIcon() {
   return (
     <svg
@@ -38,7 +36,6 @@ function CheckIcon() {
   );
 }
 
-// Download icon — inline SVG
 function DownloadIcon() {
   return (
     <svg
@@ -220,7 +217,7 @@ export default function ThankYou() {
         </p>
 
         {/* Download button */}
-        
+        <a
           href="/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
           download="AI-Procurement-Questions-for-Hiring-Teams.pdf"
           style={{
@@ -278,7 +275,7 @@ export default function ThankYou() {
         }}
       >
         Questions? Get in touch via the{" "}
-        
+        <a
           href="/connect"
           style={{
             color: t.accentGreen,
