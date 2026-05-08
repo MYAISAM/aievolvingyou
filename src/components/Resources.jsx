@@ -622,33 +622,6 @@ export default function Resources() {
           <SectionLabel>Then put it into practice</SectionLabel>
 
           <ProcurementCard />
-
-          {/* Toolkit teaser */}
-          <div style={{
-            marginTop: 32,
-            padding: "20px 24px",
-            background: t.surface,
-            borderRadius: 10,
-            border: `1px solid ${t.border}`,
-          }}>
-            <p style={{ fontSize: "0.82rem", fontWeight: 600, color: t.ink, margin: "0 0 6px" }}>
-              More frameworks coming
-            </p>
-            <p style={{ fontSize: "0.8rem", color: t.inkMid, lineHeight: 1.6, margin: "0 0 14px" }}>
-              The full AI Hiring Toolkit will include four documents: Governance
-              Framework, Bias Audit Checklist, Candidate Transparency Guide, and
-              the Procurement Questions above. Combined price for the full toolkit: £149.
-            </p>
-            <a href="/connect" style={{
-              fontSize: "0.82rem",
-              fontWeight: 600,
-              color: t.accentGreen,
-              textDecoration: "none",
-            }}>
-              Get notified when the full toolkit launches
-            </a>
-          </div>
-        </div>
       )}
     </main>
   );
