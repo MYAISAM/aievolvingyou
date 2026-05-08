@@ -224,7 +224,7 @@ export default function ThankYou() {
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: t.accentGreen,
+            background: t.accentPop,
             color: "#ffffff",
             fontFamily:
               "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
