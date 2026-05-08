@@ -622,7 +622,9 @@ export default function Resources() {
           <SectionLabel>Then put it into practice</SectionLabel>
 
           <ProcurementCard />
-      </div>
+        </div>
+      )}
+
     </main>
   );
 }
