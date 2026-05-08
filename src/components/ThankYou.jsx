@@ -104,7 +104,7 @@ export default function ThankYou() {
               margin: "0 0 12px",
             }}
           >
-            You have got the questions.
+            You've got the questions.
             <br />
             Now ask them.
           </h1>
@@ -139,7 +139,7 @@ export default function ThankYou() {
       <div
         style={{
           background: t.surface,
-          border: `2px solid ${t.accentGreen}`,
+          border: `2px solid ${t.accentPop}`,
           borderRadius: 12,
           padding: "32px 28px",
           marginBottom: 32,
