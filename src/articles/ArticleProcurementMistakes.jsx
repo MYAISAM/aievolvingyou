@@ -130,11 +130,11 @@ function LegalCases() {
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {cases.map((c, i) => (
         <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
-          <div style={{ flexShrink: 0, minWidth: 64 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
+          <div style={{ flexShrink: 0, width: 80 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: "0 0 4px" }}>{c.year}</p>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", letterSpacing: "0.04em" }}>{c.tag}</span>
           </div>
-          <div>
+          <div style={{ flex: 1 }}>
             <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>
             <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6 }}>{c.what}</p>
           </div>
@@ -204,7 +204,7 @@ export default function ArticleProcurementMistakes() {
 
       <p>What often does not happen is enough depth on how the tool actually works. Not because buyers are careless. More often it is the opposite: teams are trying to do a decent job, but they are working without a structured way to probe. AI tools can create a quiet imposter syndrome in the room. Nobody wants to ask a question that makes them look like they do not understand the technology. So the vendor stays in control of the frame, and the hardest questions stay underexplored.</p>
 
-      <p>The average AI literacy score among procurement professionals is 34 out of 100. That is not a knowledge gap. That is a structural disadvantage — and vendors know it.</p>
+      <p>The average AI literacy score among procurement professionals is 34 out of 100. That is not a knowledge gap. That is a structural disadvantage, and vendors know it.</p>
 
       <p>Most organisations buy AI hiring tools the way they would buy project management software. These are not the same category of decision. Project management software organises tasks. AI hiring tools influence which people get opportunities and which do not.</p>
 
@@ -224,7 +224,7 @@ export default function ArticleProcurementMistakes() {
 
       <p>AI hiring vendors operate with a significant information advantage. They understand their models. They know which questions are hard to answer. They have been through enough sales cycles to know which topics buyers rarely push on.</p>
 
-      <p>This is not always bad faith. It is often just sales gravity: vendors optimise for clarity, confidence, and conversion. The evidence suggests they are not volunteering much on the hard stuff. Only 1 in 3 HR professionals whose organisations buy AI tools from vendors say those vendors are "very transparent" about bias prevention — from a 2024 SHRM survey of over 2,300 HR professionals. Two thirds of buyers are going in without clear answers on the most consequential part of the product.</p>
+      <p>This is not always bad faith. It is often just sales gravity: vendors optimise for clarity, confidence, and conversion. The evidence suggests they are not volunteering much on the hard stuff. Only 1 in 3 HR professionals whose organisations buy AI tools from vendors say those vendors are "very transparent" about bias prevention, from a 2024 SHRM survey of over 2,300 HR professionals. Two thirds of buyers are going in without clear answers on the most consequential part of the product.</p>
 
       <p>Buyers who go in with a structured question set change the balance of the conversation. They signal that this organisation is paying attention. That the sale will not close on confidence and polish alone. That the vendor needs to demonstrate, not just describe.</p>
 
@@ -261,6 +261,20 @@ export default function ArticleProcurementMistakes() {
       <p>Most teams are still under-equipped for this kind of procurement conversation. The average AI literacy score among procurement professionals sits at 34 out of 100. That gap is closable. The teams that close it are already differentiated: in the quality of the tools they use, the trust they maintain with candidates, and their readiness for a regulatory environment that has already arrived, even if enforcement is still catching up.</p>
 
       <p>Responsible procurement starts with better questions. Most teams do not yet have a structure for asking them.</p>
+
+      <div style={{ margin: "40px 0 0", padding: "24px 28px", background: greenLight, border: `1.5px solid ${green}`, borderRadius: 12 }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: green, letterSpacing: "0.07em", textTransform: "uppercase", margin: "0 0 8px" }}>AI Hiring Toolkit</p>
+        <p style={{ fontSize: 16, fontWeight: 700, color: ink, lineHeight: 1.3, margin: "0 0 8px", letterSpacing: "-0.01em" }}>AI Procurement Questions for Hiring Teams</p>
+        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 18px" }}>48 structured vendor evaluation questions across 6 categories. Red flags, guidance notes, and a comparison framework. Built for HR and procurement teams who are not AI experts.</p>
+        <a
+          href="https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", background: green, color: "#ffffff", padding: "12px 24px", borderRadius: 6, fontSize: 14, fontWeight: 600, textDecoration: "none" }}
+        >
+          Buy the toolkit — £79
+        </a>
+      </div>
 
     </ArticleLayout>
   );
