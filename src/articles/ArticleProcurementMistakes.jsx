@@ -122,7 +122,7 @@ function FourMistakes() {
 function LegalCases() {
   const cases = [
     { year: "2023", who: "iTutorGroup / EEOC", what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.", tag: "First resolved case" },
-    { year: "2024", who: "Workday class action", what: "Federal court allowed a nationwide class action to proceed, alleging Workday's AI tools discriminated on race, age, and disability. Significantly, the case targets the vendor directly — not just the employer.", tag: "Vendor liability" },
+    { year: "2024", who: "Workday class action", what: "Federal court allowed a nationwide class action to proceed, alleging Workday's AI tools discriminated on race, age, and disability. The case targets the vendor directly, not just the employer.", tag: "Vendor liability" },
     { year: "2025", who: "Intuit and HireVue / ACLU", what: "Complaint filed under the Colorado Anti-Discrimination Act, ADA, and Title VII, alleging HireVue's AI interview analysis produced biased outcomes. Procurement-layer failures at the centre of the argument.", tag: "Video interview AI" },
     { year: "2023-24", who: "UK ICO", what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.", tag: "UK regulator" },
   ];
@@ -130,8 +130,8 @@ function LegalCases() {
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {cases.map((c, i) => (
         <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
-          <div style={{ flexShrink: 0, width: 80 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: "0 0 4px" }}>{c.year}</p>
+          <div style={{ flexShrink: 0, width: 120 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: "0 0 6px" }}>{c.year}</p>
             <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", letterSpacing: "0.04em" }}>{c.tag}</span>
           </div>
           <div style={{ flex: 1 }}>
@@ -195,6 +195,7 @@ export default function ArticleProcurementMistakes() {
     <ArticleLayout
       bucket="For Organisations"
       title="What most organisations get wrong when buying AI hiring tools"
+      hideCoachCta={true}
     >
       <p>Many teams buying AI hiring technology are asking sensible questions. The problem is that the most consequential ones often stay too broad, too vague, or too late in the process. Here is what responsible procurement actually looks like, and why it matters more than most buyers realise.</p>
 
