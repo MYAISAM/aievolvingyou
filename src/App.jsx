@@ -26,7 +26,7 @@ import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening"
 // Org article pages
 import ArticleTrustProblem from "./articles/ArticleTrustProblem";
 import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
-import ArticleAIHiringBias from "./articles/ArticleAIHiringBias.jsx/index.js";  // ADD THIS
+import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";
 import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 
 // Route
