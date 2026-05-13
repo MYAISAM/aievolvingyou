@@ -235,43 +235,7 @@ export default function ArticleAIHiringOwnership() {
 
       <p>Nobody is coming to hand you a governance framework. The vendor will not build it. The regulator will ask for it after something goes wrong. The only organisation that will build it in time is the one that decides, before something goes wrong, that someone owns this.</p>
 
-      {/* CTA */}
-      <div style={{
-        borderTop: `0.5px solid ${border}`,
-        marginTop: "2.75rem",
-        paddingTop: "1.5rem",
-      }}>
-        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 1.25rem" }}>
-          If ownership is the problem, a governance framework is where the answer starts.
-        </p>
-        <p style={{
-          fontSize: 10, fontWeight: 700, textTransform: "uppercase",
-          letterSpacing: "0.06em", color: green, margin: "0 0 8px",
-        }}>
-          Put it into practice
-        </p>
-        <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 4px" }}>
-          AI Hiring Policy Framework
-        </p>
-        <p style={{ fontSize: 12.5, color: inkMid, margin: "0 0 12px", lineHeight: 1.55 }}>
-          A structured internal governance framework for organisations using AI in hiring. Covers ownership, oversight, candidate rights, vendor accountability, and audit requirements. Built for HR and legal teams who need to govern AI, not just use it.
-        </p>
-        <a
-          href="/resources"
-          style={{
-            display: "inline-block",
-            background: green,
-            color: "#ffffff",
-            fontSize: 13,
-            fontWeight: 600,
-            padding: "9px 16px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          See all organisational tools →
-        </a>
-      </div>
+
 
     </ArticleLayout>
   );
