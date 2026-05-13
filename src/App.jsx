@@ -26,6 +26,8 @@ import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening"
 // Org article pages
 import ArticleTrustProblem from "./articles/ArticleTrustProblem";
 import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
+import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";  // ADD THIS
+
 
 // Thank you
 import ThankYou from "./components/ThankYou";
@@ -197,7 +199,10 @@ function App() {
         {/* Org articles */}
         <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
         <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
-
+        <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
+        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} /> 
+        <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />  {/* ADD THIS */}
+       
         {/* Thank you */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
       </Routes>

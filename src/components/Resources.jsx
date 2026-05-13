@@ -124,7 +124,17 @@ const orgArticles = [
     readTime: "9 min read",
     live: true,
   },
-];
+  {
+    slug: "ai-hiring-bias",
+    label: "Then this",
+    tag: "Bias & fairness",
+    title: "AI did not remove bias from hiring. It gave it a uniform and a spreadsheet.",
+    excerpt: "The case for AI in hiring was partly a fairness argument. Remove the human, remove the bias. The evidence now tells a different story.",
+    readTime: "9 min read",
+    live: true,
+  },
+  ];
+
 
 // ── Journey badge ─────────────────────────────────────────────────
 function JourneyBadge({ label }) {
