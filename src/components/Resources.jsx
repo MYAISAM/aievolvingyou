@@ -133,6 +133,15 @@ const orgArticles = [
     readTime: "9 min read",
     live: true,
   },
+  {
+    slug: "ai-hiring-ownership",
+    label: "And this",
+    tag: "Governance & accountability",
+    title: "Who owns AI in your hiring process?",
+    excerpt: "When something goes wrong with an AI hiring tool, accountability tends to dissolve. HR points to the vendor. The vendor points to the data. The data points to no one.",
+    readTime: "9 min read",
+    live: true,
+},
   ];
 
 
