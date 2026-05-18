@@ -41,9 +41,8 @@ function LegalCard({ label, text }) {
 
 export default function ArticleVendorQuestions() {
   return (
-    <ArticleLayout
-      title="The questions your AI hiring vendor cannot answer clearly"
-      bucket="For Organisations"
+    <ArticleLayout  
+      title="AI hiring vendor due diligence: the questions that matter"      bucket="For Organisations"
       hideCoachCta={true}
       nextArticle={{
         label: "Related reading",
