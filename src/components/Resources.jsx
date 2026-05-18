@@ -159,6 +159,15 @@ const orgArticles = [
     readTime: "8 min read",
     live: true,
   },
+  {
+    slug: "eu-ai-act-hiring",
+    label: "Essential reading",
+    tag: "Regulation & compliance",
+    title: "EU AI Act hiring compliance: what HR teams need to do now",
+    excerpt: "The August 2026 deadline may be moving. The obligations are not. Here is what HR teams need to have in place.",
+    readTime: "9 min read",
+    live: true,
+  },
   ];
 
 

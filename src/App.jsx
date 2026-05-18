@@ -30,7 +30,7 @@ import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";
 import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 import ArticleCandidateWants from "./articles/ArticleCandidateWants";
 import ArticleVendorQuestions from "./articles/ArticleVendorQuestions";
-
+import ArticleEUAIAct from "./articles/ArticleEUAIAct";
 
 // Route
 <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
@@ -209,6 +209,7 @@ function App() {
         <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
         <Route path="/resources/candidate-transparency-wants" element={<ArticleCandidateWants />} />
         <Route path="/resources/ai-vendor-questions" element={<ArticleVendorQuestions />} />
+        <Route path="/resources/eu-ai-act-hiring" element={<ArticleEUAIAct />} />
 
         {/* Thank you */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
