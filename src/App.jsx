@@ -20,7 +20,7 @@ import ArticleCareerChangers from "./articles/ArticleCareerChangers";
 
 // Companion / quick-answer articles
 import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples";
-import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI.jsx";
+import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI";
 import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening";
 
 // Org article pages
