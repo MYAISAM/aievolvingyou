@@ -308,7 +308,7 @@ export default function ArticleEUAIAct() {
       <p>Legal, operational, and reputational exposure do not pause during the extension period.</p>
 
       <p>Prepare for August. If the deadline moves, you will be ahead. If it does not, you will be ready. And until the law formally changes, the August 2026 deadline remains the operative position.</p>
-
+  
     </ArticleLayout>
   );
 }
