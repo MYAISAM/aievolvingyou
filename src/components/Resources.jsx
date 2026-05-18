@@ -141,7 +141,16 @@ const orgArticles = [
     excerpt: "When something goes wrong with an AI hiring tool, accountability tends to dissolve. HR points to the vendor. The vendor points to the data. The data points to no one.",
     readTime: "9 min read",
     live: true,
-},
+  },
+  {
+    slug: "candidate-transparency-wants",
+    label: "Deep dive",
+    tag: "Candidate transparency",
+    title: "What candidates actually want to know about AI in your hiring process",
+    excerpt: "Candidates are not asking you to stop using AI. They are asking to be told when it is happening and whether a human will review the result.",
+    readTime: "7 min read",
+    live: true,
+  },
   ];
 
 
