@@ -29,6 +29,8 @@ import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
 import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";
 import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 import ArticleCandidateWants from "./articles/ArticleCandidateWants";
+import ArticleVendorQuestions from "./articles/ArticleVendorQuestions";
+
 
 // Route
 <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
@@ -203,11 +205,10 @@ function App() {
         {/* Org articles */}
         <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
         <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
-        <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
-        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} /> 
         <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />  {/* ADD THIS */}
         <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
         <Route path="/resources/candidate-transparency-wants" element={<ArticleCandidateWants />} />
+        <Route path="/resources/ai-vendor-questions" element={<ArticleVendorQuestions />} />
 
         {/* Thank you */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />

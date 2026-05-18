@@ -74,6 +74,15 @@ const candidateArticles = [
     readTime: "6 min read",
     live: true,
   },
+  {
+  slug: "ai-vendor-questions",
+  label: "Go deeper",
+  tag: "Responsible procurement",
+  title: "The questions your AI hiring vendor cannot answer clearly",
+  excerpt: "Most vendors cannot answer the questions that matter. Here is what to ask, and why the answers reveal more than the sales deck ever will.",
+  readTime: "8 min read",
+  live: true,
+},
 ];
 
 // ── Companion quick-answer articles ───────────────────────────────
