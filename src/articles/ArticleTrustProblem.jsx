@@ -101,7 +101,7 @@ export default function ArticleTrustProblem() {
     >
       <p>I've spent the last year building tools for people navigating AI-disrupted careers. And the longer I've been in this space, the more clearly I can see a problem that almost nobody is naming directly.</p>
 
-      <p>Hiring is broken. Not in the way it's always been slightly broken — slow, inconsistent, occasionally unfair. It's broken in a new, specific, and self-reinforcing way. And AI is at the centre of it on both sides.</p>
+      <p>Hiring is broken. Not in the way it's always been slightly broken, slow, inconsistent, occasionally unfair. It's broken in a new, specific, and self-reinforcing way. And AI is at the centre of it on both sides.</p>
 
       <blockquote style={{ borderLeft: `3px solid ${green}`, paddingLeft: 20, margin: "24px 0", fontStyle: "italic", color: inkMid, fontSize: 15, lineHeight: 1.7 }}>
         "Candidates don't trust the process. So they use AI to protect themselves. Organisations get flooded with AI-polished applications. So they add more automation to filter. Which makes candidates trust the process even less."
