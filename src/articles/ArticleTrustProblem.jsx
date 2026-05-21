@@ -107,7 +107,7 @@ export default function ArticleTrustProblem() {
         "Candidates don't trust the process. So they use AI to protect themselves. Organisations get flooded with AI-polished applications. So they add more automation to filter. Which makes candidates trust the process even less."
       </blockquote>
 
-      <p>Round and round. Nobody wins. And hiring quality — the actual ability of an organisation to find and bring in genuinely good people — quietly degrades.</p>
+      <p>Round and round. Nobody wins. And hiring quality, the actual ability of an organisation to find and bring in genuinely good people quietly degrades.</p>
 
       <h2>How we got here</h2>
 
@@ -129,7 +129,7 @@ export default function ArticleTrustProblem() {
 
       <h2>What this is actually costing organisations</h2>
 
-      <p>The obvious cost is signal noise. When every application is AI-optimised, the quality signals you were relying on — writing style, how someone structures their thinking, what they choose to emphasise — become unreliable. You get volume without clarity.</p>
+      <p>The obvious cost is signal noise. When every application is AI-optimised, the quality signals you were relying on, writing style, how someone structures their thinking, what they choose to emphasise become unreliable. You get volume without clarity.</p>
 
       <p>But there are less obvious costs that matter more.</p>
 
@@ -139,9 +139,9 @@ export default function ArticleTrustProblem() {
 
       <p>I'm not suggesting transparency solves everything. It doesn't. Bias still needs auditing. Governance still needs building. Vendor tools still need interrogating.</p>
 
-      <p>But transparency is the thing that can interrupt the loop — because the loop is fundamentally driven by opacity.</p>
+      <p>But transparency is the thing that can interrupt the loop, because the loop is fundamentally driven by opacity.</p>
 
-      <p>Candidates use AI to cope because they don't understand what they're being evaluated against. When organisations explain clearly — what tools are used, at which stages, how decisions are made, what human involvement looks like — candidates can engage authentically rather than defensively.</p>
+      <p>Candidates use AI to cope because they don't understand what they're being evaluated against. When organisations explain clearly what tools are used, at which stages, how decisions are made, what human involvement looks like, candidates can engage authentically rather than defensively.</p>
 
       <p>That changes the dynamic. Instead of an arms race between candidate AI and employer AI, you have something that actually resembles an informed process.</p>
 
@@ -149,7 +149,7 @@ export default function ArticleTrustProblem() {
 
       <h2>What this means in practice</h2>
 
-      <p>Transparency in AI hiring isn't a values statement. It's an operational decision with real consequences — for trust, for quality, for legal defensibility, and for the kind of candidates you attract and retain.</p>
+      <p>Transparency in AI hiring isn't a values statement. It's an operational decision with real consequences, for trust, for quality, for legal defensibility, and for the kind of candidates you attract and retain.</p>
 
       <p>The organisations getting ahead of this aren't doing it because it's the right thing to do in an abstract sense. They're doing it because they've realised that opacity is expensive. That an unexplained automated rejection is a reputational event. That candidates who feel treated fairly are more likely to accept offers, refer others, and think well of the brand regardless of outcome.</p>
 
