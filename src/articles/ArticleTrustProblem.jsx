@@ -115,7 +115,7 @@ export default function ArticleTrustProblem() {
 
       <p>Most candidates had no idea this was happening. They just knew the process felt different. Less human. Less legible. They'd apply, hear nothing, and have no way to understand why.</p>
 
-      <p>So they adapted. They started using AI to write their CVs, optimise for keywords, craft cover letters, prepare answers. Not because they wanted to be dishonest — but because they felt like they were competing against a machine and needed to speak its language.</p>
+      <p>So they adapted. They started using AI to write their CVs, optimise for keywords, craft cover letters, prepare answers. Not because they wanted to be dishonest, but because they felt like they were competing against a machine and needed to speak its language.</p>
 
       <p>And then organisations noticed. Applications started sounding similar. Polished in the same way. The keyword density was suspiciously good. The structure weirdly consistent.</p>
 
