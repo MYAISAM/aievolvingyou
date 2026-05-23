@@ -58,7 +58,7 @@ function DownloadIcon() {
   );
 }
 
-export default function ThankYouTransparencyGuide() {
+export default function ThankYou() {
   return (
     <main
       style={{
@@ -104,9 +104,9 @@ export default function ThankYouTransparencyGuide() {
               margin: "0 0 12px",
             }}
           >
-            You've got the framework.
+            You've got the questions.
             <br />
-            Now use it.
+            Now ask them.
           </h1>
           <p
             style={{
@@ -119,10 +119,10 @@ export default function ThankYouTransparencyGuide() {
           >
             Your copy of the{" "}
             <strong style={{ color: t.ink, fontWeight: 600 }}>
-              Candidate Transparency Guide
+              AI Procurement Questions for Hiring Teams
             </strong>{" "}
-            is ready to download. Use it to close the gap between what your
-            organisation does and what your candidates actually understand.
+            is ready to download. Use it the next time you are evaluating an AI
+            hiring tool, or share it with whoever is.
           </p>
         </div>
       </div>
@@ -145,6 +145,7 @@ export default function ThankYouTransparencyGuide() {
           marginBottom: 32,
         }}
       >
+        {/* Document meta */}
         <div
           style={{
             display: "flex",
@@ -165,7 +166,7 @@ export default function ThankYouTransparencyGuide() {
               padding: "3px 12px",
             }}
           >
-            Communication framework
+            Framework document
           </span>
           <span
             style={{
@@ -176,7 +177,7 @@ export default function ThankYouTransparencyGuide() {
               color: t.accentPop,
             }}
           >
-            Candidate transparency
+            Responsible procurement
           </span>
         </div>
 
@@ -190,7 +191,7 @@ export default function ThankYouTransparencyGuide() {
             margin: "0 0 10px",
           }}
         >
-          Candidate Transparency Guide
+          AI Procurement Questions for Hiring Teams
         </h2>
 
         <p
@@ -201,9 +202,8 @@ export default function ThankYouTransparencyGuide() {
             margin: "0 0 6px",
           }}
         >
-          What to tell candidates about AI in your hiring process, when to tell
-          them, and what is at stake if you do not. Five sections, an audit
-          sheet, and ready-to-use communication guidance.
+          48 structured questions across 6 evaluation categories, with red
+          flags, scoring guidance, and a comparison sheet.
         </p>
 
         <p
@@ -213,12 +213,13 @@ export default function ThankYouTransparencyGuide() {
             margin: "0 0 24px",
           }}
         >
-          PDF · 15 pages
+          PDF · 11 pages
         </p>
 
+        {/* Download button */}
         <a
-          href="/downloads/Candidate-Transparency-Guide.pdf"
-          download="Candidate-Transparency-Guide.pdf"
+          href="/downloads/AI-Procurement-Questions-for-Hiring-Teams.pdf"
+          download="AI-Procurement-Questions-for-Hiring-Teams.pdf"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -264,7 +265,7 @@ export default function ThankYouTransparencyGuide() {
         </Link>
       </div>
 
-      {/* Footer note */}
+      {/* Quiet footer note */}
       <p
         style={{
           fontSize: "0.8rem",
