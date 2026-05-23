@@ -409,7 +409,7 @@ function ProcurementCard() {
             textDecoration: "none",
           }}
         >
-          Get the document — £79
+          Get the document — £79 + VAT
         </a>
         <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
       </div>
@@ -502,7 +502,7 @@ function TransparencyGuideCard() {
             textDecoration: "none",
           }}
         >
-          Get the document — £49
+          Get the document — £49 + VAT
         </a>
         <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
       </div>
