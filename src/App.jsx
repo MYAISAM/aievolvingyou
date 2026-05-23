@@ -20,7 +20,7 @@ import ArticleCareerChangers from "./articles/ArticleCareerChangers";
 
 // Companion / quick-answer articles
 import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples";
-import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI";
+import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI.jsx";
 import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening";
 
 // Org article pages
@@ -28,15 +28,10 @@ import ArticleTrustProblem from "./articles/ArticleTrustProblem";
 import ArticleProcurementMistakes from "./articles/ArticleProcurementMistakes";
 import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";
 import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
-import ArticleCandidateWants from "./articles/ArticleCandidateWants";
-import ArticleVendorQuestions from "./articles/ArticleVendorQuestions";
-import ArticleEUAIAct from "./articles/ArticleEUAIAct";
 
-// Route
-<Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
-
-// Thank you
+// Thank you pages
 import ThankYou from "./components/ThankYou";
+import ThankYouTransparencyGuide from "./components/ThankYouTransparencyGuide";
 
 const cardStyle = {
   background: '#f9f9f9',
@@ -205,14 +200,12 @@ function App() {
         {/* Org articles */}
         <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
         <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
-        <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />  {/* ADD THIS */}
+        <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />
         <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
-        <Route path="/resources/candidate-transparency-wants" element={<ArticleCandidateWants />} />
-        <Route path="/resources/ai-vendor-questions" element={<ArticleVendorQuestions />} />
-        <Route path="/resources/eu-ai-act-hiring" element={<ArticleEUAIAct />} />
 
-        {/* Thank you */}
+        {/* Thank you pages */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
+        <Route path="/thank-you/candidate-transparency-guide" element={<ThankYouTransparencyGuide />} />
       </Routes>
 
       <WaitlistModal

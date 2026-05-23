@@ -18,6 +18,8 @@ const t = {
 
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
 
+const TRANSPARENCY_STRIPE_URL = "https://buy.stripe.com/fZubJ17Zg01o7YMbqt5Ne07";
+
 // ── Candidate guide articles (journey flow) ───────────────────────
 const candidateArticles = [
   {
@@ -142,34 +144,7 @@ const orgArticles = [
     readTime: "9 min read",
     live: true,
   },
-  {
-    slug: "candidate-transparency-wants",
-    label: "Deep dive",
-    tag: "Candidate transparency",
-    title: "What candidates actually want to know about AI in your hiring process",
-    excerpt: "Candidates are not asking you to stop using AI. They are asking to be told when it is happening and whether a human will review the result.",
-    readTime: "7 min read",
-    live: true,
-  },
-  {
-    slug: "ai-vendor-questions",
-    label: "Go deeper",
-    tag: "Responsible procurement",
-    title: "AI hiring vendor due diligence: the questions that matter",    excerpt: "Most vendors cannot answer the questions that matter. Here is what to ask, and why the answers reveal more than the sales deck ever will.",
-    readTime: "8 min read",
-    live: true,
-  },
-  {
-    slug: "eu-ai-act-hiring",
-    label: "Essential reading",
-    tag: "Regulation & compliance",
-    title: "EU AI Act hiring compliance: what HR teams need to do now",
-    excerpt: "The August 2026 deadline may be moving. The obligations are not. Here is what HR teams need to have in place.",
-    readTime: "9 min read",
-    live: true,
-  },
-  ];
-
+];
 
 // ── Journey badge ─────────────────────────────────────────────────
 function JourneyBadge({ label }) {
@@ -442,6 +417,99 @@ function ProcurementCard() {
   );
 }
 
+// ── Transparency Guide product card ───────────────────────────────
+function TransparencyGuideCard() {
+  return (
+    <div style={{
+      background: "#ffffff",
+      border: `2px solid ${t.accentGreen}`,
+      borderRadius: 12,
+      padding: "28px 28px 24px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 14,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 700,
+          letterSpacing: "0.07em",
+          textTransform: "uppercase",
+          color: "#ffffff",
+          background: t.accentGreen,
+          borderRadius: 20,
+          padding: "4px 12px",
+        }}>
+          Communication framework
+        </span>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 600,
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+          color: t.accentPop,
+        }}>
+          Candidate transparency
+        </span>
+      </div>
+      <h3 style={{
+        fontSize: "1.15rem",
+        fontWeight: 700,
+        color: t.ink,
+        lineHeight: 1.35,
+        letterSpacing: "-0.02em",
+        margin: 0,
+      }}>
+        Candidate Transparency Guide
+      </h3>
+      <p style={{
+        fontSize: "0.9rem",
+        color: t.inkMid,
+        lineHeight: 1.65,
+        margin: 0,
+      }}>
+        What to tell candidates about AI in your hiring process, when to tell them, and
+        what is at stake if you do not. A practical communication framework for HR and
+        talent teams, with an audit sheet and ready-to-use guidance at every stage.
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {[
+          "What counts as AI use and why it matters",
+          "What to communicate at each hiring stage",
+          "How to write disclosures that candidates actually read",
+          "Legal obligations across EU, UK, and US",
+          "Reputational stakes and what good looks like",
+        ].map((item) => (
+          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
+            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
+        <a
+          href={TRANSPARENCY_STRIPE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            background: t.accentGreen,
+            color: "#ffffff",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            padding: "11px 22px",
+            borderRadius: 6,
+            textDecoration: "none",
+          }}
+        >
+          Get the document — £49
+        </a>
+        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
+      </div>
+    </div>
+  );
+}
+
 // ── Candidate track CTA ───────────────────────────────────────────
 function CandidateCTA() {
   return (
@@ -590,11 +658,10 @@ export default function Resources() {
             gap: 16,
           }}>
             {candidateArticles.map((article) => (
-           <ArticleCard key={article.slug} article={article} dimmed={!article.live} />
+              <ArticleCard key={article.slug} article={article} dimmed={!article.live} />
             ))}
           </div>
 
-          {/* Divider */}
           <div style={{
             borderTop: `1px solid ${t.border}`,
             margin: "40px 0 0",
@@ -666,7 +733,10 @@ export default function Resources() {
 
           <SectionLabel>Then put it into practice</SectionLabel>
 
-          <ProcurementCard />
+          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+            <ProcurementCard />
+            <TransparencyGuideCard />
+          </div>
         </div>
       )}
 
