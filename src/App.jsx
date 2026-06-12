@@ -50,24 +50,46 @@ const latestThinking = [
   },
 ]
 
+const ecosystemPillars = [
+  {
+    title: "Tools",
+    body: "Practical products that help people prepare for change.",
+  },
+  {
+    title: "Resources",
+    body: "Frameworks and guidance for organisations adopting AI responsibly.",
+  },
+  {
+    title: "Research",
+    body: "Evidence and data on workforce change and labour market trends.",
+  },
+  {
+    title: "Commentary",
+    body: "Articles, videos and analysis exploring how AI is reshaping work.",
+  },
+]
+
 function HomePage({ onOpenWaitlist }) {
   return (
     <>
       <Hero />
 
-      <FadeInSection>
-        <div className="section-inner ecosystem-intro">
+      <FadeInSection className="section-band section-band--surface">
+        <div className="section-inner section-inner--wide ecosystem-intro">
           <p className="section-label">What is AI Evolving You?</p>
-          <h2>Tools, research and practical resources for the AI shift at work.</h2>
-          <p className="section-lede">
-            AI is changing how people build careers, how organisations make decisions,
-            and what skills get rewarded. AI Evolving You helps individuals and teams
-            navigate that change with clearer tools, grounded research and usable guidance.
-          </p>
+          <h2>Four ways to understand the AI shift.</h2>
+          <div className="pillar-grid">
+            {ecosystemPillars.map((pillar) => (
+              <article className="pillar-card" key={pillar.title}>
+                <span>{pillar.title}</span>
+                <p>{pillar.body}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </FadeInSection>
 
-      <FadeInSection id="work">
+      <FadeInSection id="choose-your-path">
         <div className="section-inner section-inner--wide">
           <div className="section-heading-row">
             <p className="section-label">Choose your path</p>
@@ -75,7 +97,7 @@ function HomePage({ onOpenWaitlist }) {
           </div>
 
           <div className="pathway-layout">
-            <article className="pathway-card pathway-card--primary">
+            <article className="pathway-card pathway-card--individuals">
               <p className="pathway-label">For individuals</p>
               <h3>Prepare for changing careers and interviews.</h3>
               <p>
@@ -95,7 +117,7 @@ function HomePage({ onOpenWaitlist }) {
               </div>
             </article>
 
-            <article className="pathway-card">
+            <article className="pathway-card pathway-card--organisations">
               <p className="pathway-label">For organisations</p>
               <h3>Use AI in hiring with more ownership.</h3>
               <p>
@@ -107,7 +129,7 @@ function HomePage({ onOpenWaitlist }) {
               </div>
             </article>
 
-            <article className="pathway-card">
+            <article className="pathway-card pathway-card--research">
               <p className="pathway-label">Research & insight</p>
               <h3>Track what is changing in the labour market.</h3>
               <p>
@@ -137,7 +159,7 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      <FadeInSection>
+      <FadeInSection className="section-band section-band--plain">
         <div className="section-inner section-inner--wide">
           <article className="featured-project">
             <div>
@@ -166,7 +188,7 @@ function HomePage({ onOpenWaitlist }) {
         </div>
       </FadeInSection>
 
-      <FadeInSection>
+      <FadeInSection className="section-band section-band--surface">
         <div className="section-inner section-inner--wide">
           <div className="section-heading-row">
             <p className="section-label">Latest thinking</p>

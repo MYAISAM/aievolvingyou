@@ -31,11 +31,15 @@ export default function ContactForm() {
 
   return (
     <section id="connect" className="fade-section visible">
-      <div className="section-inner">
-        <h2>Start a Conversation</h2>
-        <p>
-          If you're thinking seriously about how AI is reshaping your work or organisation, I'm open to thoughtful dialogue.
-        </p>
+      <div className="section-inner section-inner--wide contact-destination">
+        <div className="contact-cta-panel">
+          <p className="section-label">Connect</p>
+          <h2>Start a conversation.</h2>
+          <p>
+            Whether you're exploring AI in your career, your organisation or your
+            industry, I'm always interested in thoughtful discussions.
+          </p>
+        </div>
 
         {submitted ? (
           <p style={{ marginTop: '32px' }}>Thanks — I'll respond personally.</p>

@@ -491,6 +491,14 @@ body {
   transform: translateY(0);
 }
 
+.section-band--surface {
+  background: var(--surface-soft);
+}
+
+.section-band--plain {
+  background: var(--background);
+}
+
 .section-inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -569,7 +577,42 @@ body {
 }
 
 .ecosystem-intro {
-  max-width: 900px;
+  max-width: var(--max-wide);
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 44px;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+.pillar-card {
+  min-height: 180px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px;
+}
+
+.pillar-card span {
+  display: block;
+  font-family: 'JetBrains Mono', 'Inter', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.pillar-card p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--text-secondary);
 }
 
 .section-heading-row {
@@ -606,8 +649,31 @@ body {
   transform: translateY(-2px);
 }
 
-.pathway-card--primary {
+.pathway-card--individuals {
   background: #f6f3f2;
+  border-top: 3px solid var(--green);
+}
+
+.pathway-card--organisations {
+  background: #fffaf6;
+  border-top: 3px solid var(--orange);
+}
+
+.pathway-card--research {
+  background: #fbfbfa;
+  border-top: 3px solid #313030;
+}
+
+.pathway-card--individuals .pathway-label {
+  color: var(--green) !important;
+}
+
+.pathway-card--organisations .pathway-label {
+  color: #934b00 !important;
+}
+
+.pathway-card--research .pathway-label {
+  color: #313030 !important;
 }
 
 .pathway-label {
@@ -883,6 +949,35 @@ body {
   margin-bottom: 44px;
 }
 
+.contact-destination {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.contact-cta-panel {
+  background: #fff7f0;
+  border: 1px solid rgba(212, 122, 44, 0.22);
+  border-top: 4px solid var(--orange);
+  border-radius: 18px;
+  padding: 40px;
+}
+
+.contact-cta-panel .section-label {
+  color: #934b00;
+}
+
+.contact-cta-panel h2 {
+  margin-bottom: 18px;
+}
+
+.contact-cta-panel p:not(.section-label) {
+  max-width: 520px;
+  color: var(--text-primary);
+  line-height: 1.68;
+}
+
 .signature {
   max-width: var(--max-w);
   margin: 64px auto 48px;
@@ -918,6 +1013,9 @@ body {
   .fade-section    { padding: 72px 0; }
   .section-inner   { padding: 0 24px; }
   .section-inner--wide { padding: 0 24px; }
+  .pillar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
   .pathway-layout  { grid-template-columns: 1fr; }
   .featured-project {
     grid-template-columns: 1fr;
@@ -927,6 +1025,14 @@ body {
   .thinking-item {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+  .contact-destination {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .contact-cta-panel,
+  .contact-form {
+    padding: 28px 24px;
   }
   .section-contact { padding-bottom: 100px; }
   .site-footer     { padding: 32px 24px; }
@@ -942,12 +1048,25 @@ body {
     font-size: clamp(2rem, 9vw, 2.6rem);
     letter-spacing: -0.025em;
   }
+
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar-card {
+    min-height: 0;
+    padding: 24px;
+  }
 }
 /* ─────────────────────────────────────────
    Contact form fields
    ───────────────────────────────────────── */
 .contact-form {
-  margin-top: 32px;
+  margin-top: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px;
 }
 
 .contact-form label {
