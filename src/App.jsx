@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import FadeInSection from "./components/FadeInSection";
 import ContactForm from "./components/ContactForm";
-import InterviewCoachCTA from "./components/InterviewCoachCTA";
 import WaitlistModal from "./components/WaitlistModal";
 import Resources from "./components/Resources";
 
@@ -33,140 +32,162 @@ import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 import ThankYou from "./components/ThankYou";
 import ThankYouTransparencyGuide from "./components/ThankYouTransparencyGuide";
 
-const cardStyle = {
-  background: '#f9f9f9',
-  border: '1px solid rgba(0,0,0,0.07)',
-  borderLeft: '3px solid #3F6F63',
-  borderRadius: 8,
-  padding: '28px 28px 24px',
-}
-
-const cardStyleMuted = {
-  background: '#f9f9f9',
-  border: '1px solid rgba(0,0,0,0.07)',
-  borderLeft: '3px solid #e0e0e0',
-  borderRadius: 8,
-  padding: '28px 28px 24px',
-}
+const latestThinking = [
+  {
+    label: "AI & hiring",
+    title: "AI in hiring has created a trust problem on both sides of the table",
+    to: "/resources/ai-hiring-trust-problem",
+  },
+  {
+    label: "Responsible procurement",
+    title: "What most organisations get wrong when buying AI hiring tools",
+    to: "/resources/ai-procurement-mistakes",
+  },
+  {
+    label: "Interview prep",
+    title: "How to use AI to prep for interviews without sounding like a robot",
+    to: "/resources/ai-interview-prep",
+  },
+]
 
 function HomePage({ onOpenWaitlist }) {
   return (
     <>
       <Hero />
 
-      {/* Bridge */}
       <FadeInSection>
-        <div className="section-inner">
-          <p>
-            AI is changing how careers are built, how hiring works, and what employers actually value.
-            There is no shortage of tools being built in response. Resume optimisers, application generators,
-            screening platforms. Most of them are built to help candidates pass a machine's filter.
-          </p>
-          <p style={{ marginTop: '1.25rem', fontSize: '1.1rem', fontWeight: 500, color: '#111111', lineHeight: 1.7 }}>
-            That is not preparation. That is performance.
-          </p>
-          <p style={{ marginTop: '1.25rem' }}>
-            AI Evolving You builds tools that develop real capability. For candidates who want to compete
-            with genuine confidence, and for organisations that want to use AI in hiring responsibly.
+        <div className="section-inner ecosystem-intro">
+          <p className="section-label">What is AI Evolving You?</p>
+          <h2>Tools, research and practical resources for the AI shift at work.</h2>
+          <p className="section-lede">
+            AI is changing how people build careers, how organisations make decisions,
+            and what skills get rewarded. AI Evolving You helps individuals and teams
+            navigate that change with clearer tools, grounded research and usable guidance.
           </p>
         </div>
       </FadeInSection>
 
-      <InterviewCoachCTA />
-
-      {/* What's Here */}
       <FadeInSection id="work">
-        <div className="section-inner">
-          <h2>What's Here</h2>
+        <div className="section-inner section-inner--wide">
+          <div className="section-heading-row">
+            <p className="section-label">Choose your path</p>
+            <h2>Start with the part of the shift you are closest to.</h2>
+          </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
-
-            <div style={cardStyle}>
-              <p className="section-label" style={{ marginBottom: '8px' }}>For candidates</p>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Interview Coach</h3>
-              <p style={{ marginBottom: '16px' }}>
-                Practise with questions tailored to your actual job description. Answer by voice or in writing,
-                get coaching on every response, and walk away with a personalised cheat sheet. Built for anyone
-                preparing for their next interview at whatever level and whatever role.
+          <div className="pathway-layout">
+            <article className="pathway-card pathway-card--primary">
+              <p className="pathway-label">For individuals</p>
+              <h3>Prepare for changing careers and interviews.</h3>
+              <p>
+                Practise stronger answers, understand how AI affects hiring, and build
+                confidence in a process that is becoming less transparent.
               </p>
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <div className="pathway-actions">
                 <a
                   href="https://coach.aievolvingyou.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="link-subtle"
                 >
-                  Try it free →
+                  Try Interview Coach →
                 </a>
-                <a href="/resources" className="link-subtle">
-                  Browse guides and resources →
-                </a>
+                <Link to="/resources" className="link-subtle">Browse candidate guides →</Link>
               </div>
-            </div>
+            </article>
 
-            <div style={cardStyle}>
-              <p className="section-label" style={{ marginBottom: '8px' }}>For organisations</p>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Frameworks and Tools</h3>
-              <p style={{ marginBottom: '16px' }}>
-                Practical resources for HR teams and hiring leaders navigating AI adoption responsibly.
-                Procurement questions, governance frameworks and bias audit tools. Built to help organisations
-                make better decisions before they buy, deploy and scale AI in their hiring process.
+            <article className="pathway-card">
+              <p className="pathway-label">For organisations</p>
+              <h3>Use AI in hiring with more ownership.</h3>
+              <p>
+                Practical articles, procurement questions and governance resources for
+                teams evaluating AI tools before they buy, deploy or scale them.
               </p>
-              <a href="/resources" className="link-subtle">
-                See the resources →
-              </a>
-            </div>
+              <div className="pathway-actions">
+                <Link to="/resources" className="link-subtle">See resources →</Link>
+              </div>
+            </article>
 
-            <div style={cardStyle}>
-              <p className="section-label" style={{ marginBottom: '8px' }}>For thinking</p>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>Human Intelligence</h3>
-              <p style={{ marginBottom: '16px' }}>
-                Commentary, analysis and conversation about AI's impact on work, careers and society.
-                The thinking behind the platform.
+            <article className="pathway-card">
+              <p className="pathway-label">Research & insight</p>
+              <h3>Track what is changing in the labour market.</h3>
+              <p>
+                Human Intelligence, articles and Displaced Index research connect
+                individual experience to wider shifts in work.
               </p>
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <div className="pathway-actions">
+                <a
+                  href="https://displaced.aievolvingyou.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-subtle"
+                >
+                  Open Displaced Index →
+                </a>
                 <a
                   href="https://www.youtube.com/@OurHumanIntelligence"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="link-subtle"
                 >
-                  Watch on YouTube →
-                </a>
-                <a
-                  href="https://ourhumanintelligence.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-subtle"
-                >
-                  Read on Substack →
+                  Watch Human Intelligence →
                 </a>
               </div>
-            </div>
+            </article>
+          </div>
+        </div>
+      </FadeInSection>
 
-            <div style={cardStyleMuted}>
-              <p className="section-label" style={{ marginBottom: '8px', color: '#999999' }}>Coming soon</p>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#111111', marginBottom: '10px' }}>AI Displacement Report</h3>
-              <p style={{ marginBottom: '16px' }}>
-                Which roles are most exposed to AI disruption and what you can do about it.
-                Research-backed, sector by sector.
+      <FadeInSection>
+        <div className="section-inner section-inner--wide">
+          <article className="featured-project">
+            <div>
+              <p className="section-label">Featured project</p>
+              <h2>Displaced Index</h2>
+              <p>
+                A public tracker of AI-attributed workforce reductions,
+                counter-signals and emerging labour market patterns.
               </p>
-              <button
-                onClick={onOpenWaitlist}
-                className="link-subtle"
-                style={{ background: "none", border: "none", padding: 0, cursor: "pointer", font: "inherit" }}
+              <a
+                href="https://displaced.aievolvingyou.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary btn-primary--inline"
               >
-                Join the waitlist →
-              </button>
+                View the index →
+              </a>
             </div>
 
+            <div className="featured-metric" aria-label="AI-attributed job cuts tracked">
+              <span>AI-attributed job cuts tracked</span>
+              <strong>91,476</strong>
+              <small>Editorially rated, source-led</small>
+            </div>
+          </article>
+        </div>
+      </FadeInSection>
+
+      <FadeInSection>
+        <div className="section-inner section-inner--wide">
+          <div className="section-heading-row">
+            <p className="section-label">Latest thinking</p>
+            <h2>Recent writing on AI, hiring and work.</h2>
+          </div>
+
+          <div className="thinking-list">
+            {latestThinking.map((item) => (
+              <Link className="thinking-item" to={item.to} key={item.to}>
+                <span>{item.label}</span>
+                <strong>{item.title}</strong>
+                <em>Read →</em>
+              </Link>
+            ))}
           </div>
         </div>
       </FadeInSection>
 
       <ContactForm />
 
-      <p className="signature">- Man Wong</p>
+      <p className="signature">— Man Wong</p>
     </>
   )
 }

@@ -82,6 +82,16 @@ export default function Nav({ onOpenWaitlist }) {
               Resources
             </Link>
 
+            <a
+              href="https://displaced.aievolvingyou.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+              onClick={closeAll}
+            >
+              Displaced Index
+            </a>
+
             <div className="nav-dropdown" ref={channelsRef}>
               <button
                 className={`nav-link nav-dropdown-trigger${channelsOpen ? ' open' : ''}`}
@@ -160,6 +170,15 @@ export default function Nav({ onOpenWaitlist }) {
           <Link to="/resources" className="nav-mobile-item" onClick={closeAll}>
             Resources
           </Link>
+          <a
+            href="https://displaced.aievolvingyou.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-mobile-item"
+            onClick={closeAll}
+          >
+            Displaced Index
+          </a>
           <a
             href="https://www.youtube.com/@OurHumanIntelligence"
             target="_blank"

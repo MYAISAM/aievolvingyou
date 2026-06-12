@@ -16,9 +16,9 @@ export default function Hero() {
           </span>
         </h1>
         <p className="hero-subtext">
-          AI is changing how we work, decide and create.{' '}
-          I explore what that means for incentives, leadership and human agency{' '}
-          by writing, building and experimenting.
+          AI is changing how people work, build careers and make decisions.{' '}
+          AI Evolving You helps individuals and organisations navigate that shift{' '}
+          through tools, research and practical resources.
         </p>
         <button className="btn-primary" onClick={scrollToWork}>
           Explore the Work →
