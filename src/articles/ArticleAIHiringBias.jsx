@@ -382,7 +382,7 @@ export default function ArticlePillar2Bias() {
           A structured internal review tool to identify where bias risk is entering or scaling in your AI-enabled hiring process. Seven audit dimensions, 40 questions, practical remediation prompts.
         </p>
         <a
-          href="/resources"
+          href="/resources#toolkits"
           style={{
             display: "inline-block",
             background: green,

@@ -16,7 +16,7 @@ export default function Hero() {
           Helping people and organisations evolve with the changing world of work.
         </p>
         <button className="btn-primary" onClick={scrollToWork}>
-          Explore the Work →
+          Choose your path →
         </button>
       </div>
     </section>

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta }) {
+  const resourcesPath = bucket === "For Organisations" ? "/resources#organisations" : "/resources";
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -11,7 +13,7 @@ export default function ArticleLayout({ title, bucket, children, nextArticle, hi
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "56px 24px 80px" }}>
 
         <Link
-          to="/resources"
+          to={resourcesPath}
           style={{
             display: "inline-block",
             fontSize: 13, color: "#555555",
