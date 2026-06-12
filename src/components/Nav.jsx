@@ -61,7 +61,7 @@ export default function Nav({ onOpenWaitlist }) {
                     <span className="nav-badge">Beta</span>
                   </a>
                   <Link
-                    to="/resources#orgs"
+                    to="/resources#toolkits"
                     className="nav-dropdown-item"
                     onClick={closeAll}
                   >
@@ -158,7 +158,7 @@ export default function Nav({ onOpenWaitlist }) {
           >
             Interview Coach <span className="nav-badge">Beta</span>
           </a>
-          <Link to="/resources#orgs" className="nav-mobile-item" onClick={closeAll}>
+          <Link to="/resources#toolkits" className="nav-mobile-item" onClick={closeAll}>
             AI Procurement Questions
           </Link>
           <button

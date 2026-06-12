@@ -125,7 +125,8 @@ function HomePage({ onOpenWaitlist }) {
                 teams evaluating AI tools before they buy, deploy or scale them.
               </p>
               <div className="pathway-actions">
-                <Link to="/resources" className="link-subtle">See resources →</Link>
+                <Link to="/resources#toolkits" className="link-subtle">Browse toolkits →</Link>
+                <Link to="/resources#organisations" className="link-subtle">See resources →</Link>
               </div>
             </article>
 
@@ -152,6 +153,14 @@ function HomePage({ onOpenWaitlist }) {
                   className="link-subtle"
                 >
                   Watch Human Intelligence →
+                </a>
+                <a
+                  href="https://ourhumanintelligence.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-subtle"
+                >
+                  Read on Substack →
                 </a>
               </div>
             </article>

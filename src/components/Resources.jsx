@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const t = {
   bg: "#ffffff",
@@ -577,6 +577,47 @@ function SectionLabel({ children, top = 36 }) {
 // ── Main Resources component ──────────────────────────────────────
 export default function Resources() {
   const [track, setTrack] = useState("candidates");
+  const location = useLocation();
+  const candidatesRef = useRef(null);
+  const organisationsRef = useRef(null);
+  const toolkitsRef = useRef(null);
+
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+
+    if (["organisations", "orgs", "toolkits"].includes(hash)) {
+      setTrack("orgs");
+      return;
+    }
+
+    if (["candidates", "ai-skills"].includes(hash)) {
+      setTrack("candidates");
+      return;
+    }
+
+    setTrack("candidates");
+  }, [location.hash]);
+
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+
+    requestAnimationFrame(() => {
+      if (!hash) {
+        window.scrollTo({ top: 0, behavior: "auto" });
+        return;
+      }
+
+      const target = {
+        candidates: candidatesRef.current,
+        "ai-skills": candidatesRef.current,
+        organisations: organisationsRef.current,
+        orgs: organisationsRef.current,
+        toolkits: toolkitsRef.current,
+      }[hash];
+
+      target?.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+  }, [location.pathname, location.hash, track]);
 
   return (
     <main id="resources" style={{ maxWidth: 720, margin: "0 auto", padding: "64px 24px 96px" }}>
@@ -640,7 +681,7 @@ export default function Resources() {
 
       {/* ── CANDIDATES TRACK ── */}
       {track === "candidates" && (
-        <div>
+        <div id="candidates" ref={candidatesRef}>
           <SectionLabel top={0}>Interview guides</SectionLabel>
           <p style={{
             fontSize: "0.88rem",
@@ -695,7 +736,7 @@ export default function Resources() {
 
       {/* ── ORGS TRACK ── */}
       {track === "orgs" && (
-        <div>
+        <div id="organisations" ref={organisationsRef}>
           <div style={{
             fontSize: "0.72rem",
             fontWeight: 700,
@@ -731,11 +772,13 @@ export default function Resources() {
             ))}
           </div>
 
-          <SectionLabel>Then put it into practice</SectionLabel>
+          <div id="toolkits" ref={toolkitsRef}>
+            <SectionLabel>Then put it into practice</SectionLabel>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            <ProcurementCard />
-            <TransparencyGuideCard />
+            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              <ProcurementCard />
+              <TransparencyGuideCard />
+            </div>
           </div>
         </div>
       )}
