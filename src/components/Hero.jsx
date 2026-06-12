@@ -13,7 +13,7 @@ export default function Hero() {
           <span className="hero-line-1">AI Evolving You</span>
         </h1>
         <p className="hero-subtext">
-          Helping people and organisations evolve with the changing world of work.
+          Understand what's being displaced. Evolve with what's replacing it.
         </p>
         <button className="btn-primary" onClick={scrollToWork}>
           Choose your path →
