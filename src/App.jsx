@@ -31,7 +31,8 @@ import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 // Thank you pages
 import ThankYou from "./components/ThankYou";
 import ThankYouTransparencyGuide from "./components/ThankYouTransparencyGuide";
-
+import ThankYouBiasAudit from "./components/ThankYouBiasAudit";
+import ThankYouPolicyFramework from "./components/ThankYouPolicyFramework";
 const latestThinking = [
   {
     label: "AI & hiring",
@@ -258,6 +259,8 @@ function App() {
         {/* Thank you pages */}
         <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
         <Route path="/thank-you/candidate-transparency-guide" element={<ThankYouTransparencyGuide />} />
+        <Route path="/thank-you/bias-audit-checklist" element={<ThankYouBiasAudit />} />
+        <Route path="/thank-you/ai-hiring-policy-framework" element={<ThankYouPolicyFramework />} />
       </Routes>
 
       <WaitlistModal
