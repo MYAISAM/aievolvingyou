@@ -1,0 +1,293 @@
+import { Link } from "react-router-dom";
+
+const t = {
+  bg: "#ffffff",
+  surface: "#f9f9f9",
+  surfaceAlt: "#f2f2f2",
+  border: "rgba(0,0,0,0.07)",
+  ink: "#111111",
+  inkMid: "#555555",
+  inkLight: "#999999",
+  accentGreen: "#3F6F63",
+  accentPop: "#D47A2C",
+  tagGreen: "#edf4f2",
+  tagGreenText: "#3F6F63",
+};
+
+function CheckIcon() {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="14" cy="14" r="14" fill={t.accentGreen} />
+      <path
+        d="M8.5 14.5L12.5 18.5L19.5 10.5"
+        stroke="#ffffff"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      style={{ flexShrink: 0 }}
+    >
+      <path
+        d="M9 2v9m0 0L5.5 7.5M9 11l3.5-3.5M3 14h12"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function ThankYouPolicyFramework() {
+  return (
+    <main
+      style={{
+        maxWidth: 720,
+        margin: "0 auto",
+        padding: "72px 24px 96px",
+        fontFamily:
+          "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      }}
+    >
+      {/* Confirmation header */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 16,
+          marginBottom: 36,
+        }}
+      >
+        <div style={{ paddingTop: 3, flexShrink: 0 }}>
+          <CheckIcon />
+        </div>
+        <div>
+          <p
+            style={{
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              letterSpacing: "0.07em",
+              textTransform: "uppercase",
+              color: t.accentGreen,
+              margin: "0 0 8px",
+            }}
+          >
+            Order confirmed
+          </p>
+          <h1
+            style={{
+              fontSize: "clamp(1.55rem, 4vw, 2rem)",
+              fontWeight: 700,
+              color: t.ink,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.2,
+              margin: "0 0 12px",
+            }}
+          >
+            You have the framework.
+            <br />
+            Now build the policy.
+          </h1>
+          <p
+            style={{
+              fontSize: "0.95rem",
+              color: t.inkMid,
+              lineHeight: 1.65,
+              margin: 0,
+              maxWidth: 520,
+            }}
+          >
+            Your copy of the{" "}
+            <strong style={{ color: t.ink, fontWeight: 600 }}>
+              AI Hiring Policy Framework
+            </strong>{" "}
+            is ready to download. Complete the readiness review with your
+            governance team, then use the policy template to produce a first
+            draft ready for legal review.
+          </p>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div
+        style={{
+          borderTop: `1px solid rgba(0,0,0,0.08)`,
+          marginBottom: 40,
+        }}
+      />
+
+      {/* Download card */}
+      <div
+        style={{
+          background: t.surface,
+          border: `2px solid ${t.accentPop}`,
+          borderRadius: 12,
+          padding: "32px 28px",
+          marginBottom: 32,
+        }}
+      >
+        {/* Document meta */}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            marginBottom: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.68rem",
+              fontWeight: 700,
+              letterSpacing: "0.07em",
+              textTransform: "uppercase",
+              color: "#ffffff",
+              background: t.accentGreen,
+              borderRadius: 20,
+              padding: "3px 12px",
+            }}
+          >
+            Policy framework
+          </span>
+          <span
+            style={{
+              fontSize: "0.68rem",
+              fontWeight: 600,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              color: t.accentPop,
+            }}
+          >
+            Governance
+          </span>
+        </div>
+
+        <h2
+          style={{
+            fontSize: "1.15rem",
+            fontWeight: 700,
+            color: t.ink,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.35,
+            margin: "0 0 10px",
+          }}
+        >
+          AI Hiring Policy Framework
+        </h2>
+
+        <p
+          style={{
+            fontSize: "0.88rem",
+            color: t.inkMid,
+            lineHeight: 1.65,
+            margin: "0 0 6px",
+          }}
+        >
+          42 governance review questions, internal alignment prompts, AI tool
+          inventory template, and a complete draft AI Hiring Policy template.
+        </p>
+
+        <p
+          style={{
+            fontSize: "0.8rem",
+            color: t.inkLight,
+            margin: "0 0 24px",
+          }}
+        >
+          PDF · 24 pages
+        </p>
+
+        {/* Download button */}
+        <a
+          href="/downloads/AI-Hiring-Policy-Framework.pdf"
+          download="AI-Hiring-Policy-Framework.pdf"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            background: t.accentPop,
+            color: "#ffffff",
+            fontFamily:
+              "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            padding: "12px 22px",
+            borderRadius: 6,
+            textDecoration: "none",
+            cursor: "pointer",
+          }}
+        >
+          <DownloadIcon />
+          Download your PDF
+        </a>
+      </div>
+
+      {/* Back to Resources */}
+      <div style={{ marginBottom: 40 }}>
+        <Link
+          to="/resources"
+          onClick={() => {
+            sessionStorage.setItem("resourcesTrack", "orgs");
+          }}
+          style={{
+            display: "inline-block",
+            background: t.accentGreen,
+            color: "#ffffff",
+            fontFamily:
+              "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+            fontWeight: 600,
+            fontSize: "0.88rem",
+            padding: "10px 20px",
+            borderRadius: 6,
+            textDecoration: "none",
+          }}
+        >
+          Back to Resources
+        </Link>
+      </div>
+
+      {/* Quiet footer note */}
+      <p
+        style={{
+          fontSize: "0.8rem",
+          color: t.inkLight,
+          lineHeight: 1.6,
+          margin: 0,
+        }}
+      >
+        Questions? Get in touch via the{" "}
+        <a
+          href="/connect"
+          style={{
+            color: t.accentGreen,
+            textDecoration: "underline",
+            textUnderlineOffset: 2,
+          }}
+        >
+          Connect page
+        </a>
+        . A receipt from Stripe will have been sent to your email.
+      </p>
+    </main>
+  );
+}
