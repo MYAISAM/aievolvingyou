@@ -22,7 +22,7 @@ export default function InterviewCoachCTA() {
   return (
     <section ref={ref} id="coach" className="fade-section">
       <div className="section-inner">
-        <p className="section-label">Beta — Free to use</p>
+        <p className="section-label">Free to use</p>
 
         {/* Grid background matching hero */}
         <div style={{
@@ -67,7 +67,7 @@ export default function InterviewCoachCTA() {
               maxWidth: 520,
               marginBottom: 36,
             }}>
-              Our AI Interview Coach helps you practise with questions tailored to your actual job description. Answer out loud or in writing, and get personalised coaching on every response. Free to use during beta.
+              Our AI Interview Coach helps you practise with questions tailored to your actual job description. Answer out loud or in writing, and get personalised coaching on every response. Free to use.
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
