@@ -47,6 +47,7 @@ function TableRow({ col1, col2, col3, isLast }) {
 export default function ArticleAIHiringOwnership() {
   return (
     <ArticleLayout
+      track="orgs"
       title="Who owns AI in your hiring process?"
       bucket="For Organisations"
       hideCoachCta={true}

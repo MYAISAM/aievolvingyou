@@ -94,6 +94,7 @@ function CostCards() {
 export default function ArticleTrustProblem() {
   return (
     <ArticleLayout
+      track="orgs"
       bucket="For Organisations"
       title="AI in hiring has created a trust problem on both sides of the table"
       nextArticle={nextArticle}

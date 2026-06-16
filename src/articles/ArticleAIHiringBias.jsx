@@ -117,6 +117,7 @@ function CheckItem({ children }) {
 export default function ArticlePillar2Bias() {
   return (
     <ArticleLayout
+      track="orgs"
       title="AI did not remove bias from hiring. It gave it a uniform and a spreadsheet."
       bucket="For Organisations"
       hideCoachCta={true}

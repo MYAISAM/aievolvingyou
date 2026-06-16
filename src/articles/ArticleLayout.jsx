@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta }) {
-  const resourcesPath = bucket === "For Organisations" ? "/resources#organisations" : "/resources";
+export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta, track }) {
+  const resourcesPath = track === "orgs" ? "/resources#organisations" : "/resources";
 
   useEffect(() => {
     window.scrollTo(0, 0)
