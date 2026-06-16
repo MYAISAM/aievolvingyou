@@ -20,6 +20,10 @@ const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
 
 const TRANSPARENCY_STRIPE_URL = "https://buy.stripe.com/fZubJ17Zg01o7YMbqt5Ne07";
 
+const BIAS_AUDIT_STRIPE_URL = "https://buy.stripe.com/dRm3cvenEaG2frebqt5Ne08";
+
+const POLICY_FRAMEWORK_STRIPE_URL = "https://buy.stripe.com/9B63cv6Vc8xUfreamp5Ne09";
+
 // ── Candidate guide articles (journey flow) ───────────────────────
 const candidateArticles = [
   {
@@ -510,6 +514,192 @@ function TransparencyGuideCard() {
   );
 }
 
+// ── Bias Audit Checklist product card ─────────────────────────────
+function BiasAuditCard() {
+  return (
+    <div style={{
+      background: "#ffffff",
+      border: `2px solid ${t.accentGreen}`,
+      borderRadius: 12,
+      padding: "28px 28px 24px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 14,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 700,
+          letterSpacing: "0.07em",
+          textTransform: "uppercase",
+          color: "#ffffff",
+          background: t.accentGreen,
+          borderRadius: 20,
+          padding: "4px 12px",
+        }}>
+          Audit checklist
+        </span>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 600,
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+          color: t.accentPop,
+        }}>
+          Bias and fairness
+        </span>
+      </div>
+      <h3 style={{
+        fontSize: "1.15rem",
+        fontWeight: 700,
+        color: t.ink,
+        lineHeight: 1.35,
+        letterSpacing: "-0.02em",
+        margin: 0,
+      }}>
+        Bias Audit Checklist
+      </h3>
+      <p style={{
+        fontSize: "0.9rem",
+        color: t.inkMid,
+        lineHeight: 1.65,
+        margin: 0,
+      }}>
+        A practical checklist for reviewing bias and fairness risks in AI hiring tools.
+        It helps teams decide what to check, what evidence to ask vendors for, what to
+        record, and what to do when a tool creates unfair or unexplained outcomes.
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {[
+          "What bias and fairness risks to check",
+          "The evidence to request from your vendor",
+          "Candidate groups, outcomes and decision points to review",
+          "How to record findings, concerns and remediation",
+          "What to do when the tool fails the check",
+        ].map((item) => (
+          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
+            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
+        <a
+          href={BIAS_AUDIT_STRIPE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            background: t.accentGreen,
+            color: "#ffffff",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            padding: "11px 22px",
+            borderRadius: 6,
+            textDecoration: "none",
+          }}
+        >
+          Get the document — £49 + VAT
+        </a>
+        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
+      </div>
+    </div>
+  );
+}
+
+// ── AI Hiring Policy Framework product card ───────────────────────
+function PolicyFrameworkCard() {
+  return (
+    <div style={{
+      background: "#ffffff",
+      border: `2px solid ${t.accentGreen}`,
+      borderRadius: 12,
+      padding: "28px 28px 24px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 14,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 700,
+          letterSpacing: "0.07em",
+          textTransform: "uppercase",
+          color: "#ffffff",
+          background: t.accentGreen,
+          borderRadius: 20,
+          padding: "4px 12px",
+        }}>
+          Policy framework
+        </span>
+        <span style={{
+          fontSize: "0.68rem",
+          fontWeight: 600,
+          letterSpacing: "0.05em",
+          textTransform: "uppercase",
+          color: t.accentPop,
+        }}>
+          Governance and accountability
+        </span>
+      </div>
+      <h3 style={{
+        fontSize: "1.15rem",
+        fontWeight: 700,
+        color: t.ink,
+        lineHeight: 1.35,
+        letterSpacing: "-0.02em",
+        margin: 0,
+      }}>
+        AI Hiring Policy Framework
+      </h3>
+      <p style={{
+        fontSize: "0.9rem",
+        color: t.inkMid,
+        lineHeight: 1.65,
+        margin: 0,
+      }}>
+        A ready-to-adapt framework for setting internal rules on AI use in hiring.
+        It helps define ownership, tool classification, human oversight, data protection,
+        bias monitoring, candidate rights and what happens when something goes wrong.
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {[
+          "Governance ownership and decision rights",
+          "AI tool inventory and classification",
+          "Human oversight and review standards",
+          "Bias monitoring and candidate rights",
+          "Incident handling, review cycles and record keeping",
+        ].map((item) => (
+          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
+            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
+        <a
+          href={POLICY_FRAMEWORK_STRIPE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-block",
+            background: t.accentGreen,
+            color: "#ffffff",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            padding: "11px 22px",
+            borderRadius: 6,
+            textDecoration: "none",
+          }}
+        >
+          Get the document — £79 + VAT
+        </a>
+        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
+      </div>
+    </div>
+  );
+}
+
 // ── Candidate track CTA ───────────────────────────────────────────
 function CandidateCTA() {
   return (
@@ -778,6 +968,8 @@ export default function Resources() {
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <ProcurementCard />
               <TransparencyGuideCard />
+              <BiasAuditCard />
+              <PolicyFrameworkCard />
             </div>
           </div>
         </div>
