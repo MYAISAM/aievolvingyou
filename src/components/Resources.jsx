@@ -148,6 +148,24 @@ const orgArticles = [
     readTime: "9 min read",
     live: true,
   },
+  {
+    slug: "how-many-ai-tools-in-hiring",
+    label: "Then this",
+    tag: "AI inventory",
+    title: "How many AI tools are already in your hiring process?",
+    excerpt: "Most teams underestimate how much AI already touches hiring, across job ads, sourcing, screening, interviews, scheduling and the platforms you already pay for. Governance starts with counting them.",
+    readTime: "8 min read",
+    live: true,
+  },
+  {
+    slug: "what-to-tell-candidates-about-ai",
+    label: "And this",
+    tag: "Candidate transparency",
+    title: "What should candidates be told about AI?",
+    excerpt: "Transparency is not about explaining the algorithm. It is about telling candidates where AI is used, what it affects, what stays human, and how to reach a person. Here is what to say, and what to leave out.",
+    readTime: "7 min read",
+    live: true,
+  },
 ];
 
 // ── Journey badge ─────────────────────────────────────────────────
