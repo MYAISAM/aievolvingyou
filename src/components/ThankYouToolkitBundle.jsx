@@ -158,8 +158,8 @@ export default function ThankYouToolkitBundle() {
 
       <p style={{ fontSize: "0.8rem", color: t.inkLight, lineHeight: 1.6, margin: 0 }}>
         If you have any issue accessing the files, contact{" "}
-        <a href="mailto:hello@aievolvingyou.com" style={{ color: t.accentGreen, textDecoration: "underline", textUnderlineOffset: 2 }}>
-          hello@aievolvingyou.com
+        <a href="mailto:man@aievolvingyou.com" style={{ color: t.accentGreen, textDecoration: "underline", textUnderlineOffset: 2 }}>
+          man@aievolvingyou.com
         </a>{" "}
         and include the email address used at checkout.
       </p>

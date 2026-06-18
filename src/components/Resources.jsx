@@ -20,18 +20,7 @@ const orgDrawers = [
   { id: "create-governance", label: "Create Governance", copy: "Ask better procurement questions and name ownership before problems land." },
 ];
 
-const toolkits = [
-  {
-    id: "ai-hiring-toolkit-bundle",
-    title: "AI Hiring Toolkit Bundle",
-    price: "£199",
-    label: "BEST VALUE",
-    body: "Get all four documents together: procurement questions, candidate transparency, bias audit and policy governance.",
-    note: "Save £57 compared with buying separately.",
-    href: TOOLKIT_BUNDLE_STRIPE_URL,
-    button: "Buy bundle",
-    featured: true,
-  },
+const individualToolkits = [
   {
     id: "procurement-questions",
     title: "AI Procurement Questions for Hiring Teams",
@@ -70,6 +59,19 @@ const toolkits = [
   },
 ];
 
+const bundleToolkit = {
+  id: "ai-hiring-toolkit-bundle",
+  title: "AI Hiring Toolkit Bundle",
+  price: "£199",
+  label: "BEST VALUE",
+  body: "Includes all four AI Hiring Toolkits covering procurement, transparency, bias and governance.",
+  note: "£199 bundle price",
+  value: "Save over 20% compared with individual purchase",
+  href: TOOLKIT_BUNDLE_STRIPE_URL,
+  button: "Buy bundle",
+  featured: true,
+};
+
 function sortByOrder(items) {
   return [...items].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 }
@@ -93,6 +95,7 @@ function ToolkitCard({ toolkit }) {
         <h3>{toolkit.title}</h3>
         <p>{toolkit.body}</p>
         {toolkit.note && <p className="toolkit-card__note">{toolkit.note}</p>}
+        {toolkit.value && <p className="toolkit-card__value">{toolkit.value}</p>}
       </div>
       <div className="toolkit-card__footer">
         <strong>{toolkit.price}</strong>
@@ -104,9 +107,9 @@ function ToolkitCard({ toolkit }) {
   );
 }
 
-function AudienceCard({ title, copy, href }) {
+function AudienceCard({ title, copy, href, variant }) {
   return (
-    <a className="audience-card" href={href}>
+    <a className={`audience-card audience-card--${variant}`} href={href}>
       <h2>{title}</h2>
       <p>{copy}</p>
     </a>
@@ -132,15 +135,17 @@ export default function Resources() {
         <p className="section-label">RESOURCES</p>
         <h1>AI is changing hiring. Getting hired is still human.</h1>
         <p className="resources-hero__subheading">
-          Understand how AI is shaping recruitment, improve your applications, perform better in interviews, and use practical frameworks to make hiring more transparent, fair and accountable.
+          AI is changing how organisations hire and how candidates get hired. Explore practical guidance, evidence-based articles, interview coaching and governance resources.
         </p>
         <div className="audience-chooser" aria-label="Choose resource audience">
           <AudienceCard
+            variant="candidate"
             title="For candidates"
-            copy="Understand AI-shaped hiring, improve your applications, and practise for interviews."
+            copy="Understand how AI is shaping hiring, improve your applications, and prepare for interviews with confidence."
             href="#candidate-library"
           />
           <AudienceCard
+            variant="teams"
             title="For hiring teams"
             copy="Review AI hiring tools, improve transparency, reduce bias, and create governance."
             href="#organisation-library"
@@ -190,6 +195,14 @@ export default function Resources() {
         </div>
       </section>
 
+      <section className="candidate-to-teams-bridge" aria-label="Hiring team resources">
+        <div>
+          <h2>Looking for hiring-team resources instead?</h2>
+          <p>Explore guidance on transparency, fairness, procurement and governance.</p>
+        </div>
+        <a href="#organisation-library">Jump to Hiring Teams ↓</a>
+      </section>
+
       <section className="resource-section resource-section--soft" id="quick-answers">
         <div className="resource-section__heading">
           <p className="section-label">Quick Answers</p>
@@ -234,14 +247,15 @@ export default function Resources() {
         <span className="anchor-alias" id="toolkits" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Toolkit Library</p>
-          <h2>Practical AI hiring frameworks your team can use without hiring another consultant.</h2>
-          <p>AI hiring is noisy. These documents help teams ask better questions, review vendors, improve transparency, reduce bias and establish clear ownership without waiting for someone else to lead it.</p>
+          <h2>Practical AI hiring frameworks for teams reviewing tools, transparency, bias and governance.</h2>
+          <p>AI hiring is full of claims, vendors and conflicting advice. These resources help teams ask better questions, review tools, improve transparency, reduce bias and establish clear ownership.</p>
         </div>
         <div className="toolkit-grid">
-          {toolkits.map((toolkit) => (
+          {individualToolkits.map((toolkit) => (
             <ToolkitCard toolkit={toolkit} key={toolkit.id} />
           ))}
         </div>
+        <ToolkitCard toolkit={bundleToolkit} />
       </section>
     </main>
   );
