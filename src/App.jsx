@@ -38,6 +38,7 @@ import ThankYou from "./components/ThankYou";
 import ThankYouTransparencyGuide from "./components/ThankYouTransparencyGuide";
 import ThankYouBiasAudit from "./components/ThankYouBiasAudit";
 import ThankYouPolicyFramework from "./components/ThankYouPolicyFramework";
+import ThankYouToolkitBundle from "./components/ThankYouToolkitBundle";
 const latestThinking = [
   {
     label: "AI & hiring",
@@ -272,6 +273,7 @@ function App() {
         <Route path="/thank-you/candidate-transparency-guide" element={<ThankYouTransparencyGuide />} />
         <Route path="/thank-you/bias-audit-checklist" element={<ThankYouBiasAudit />} />
         <Route path="/thank-you/ai-hiring-policy-framework" element={<ThankYouPolicyFramework />} />
+        <Route path="/thank-you/toolkit-bundle" element={<ThankYouToolkitBundle />} />
       </Routes>
 
       <WaitlistModal
