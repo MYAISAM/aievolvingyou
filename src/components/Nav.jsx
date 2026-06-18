@@ -159,8 +159,8 @@ export default function Nav({ onOpenWaitlist }) {
             >
               Interview Coach
             </a>
-            <Link to="/resources#toolkits" className="nav-mobile-item" onClick={closeAll}>
-              AI Procurement Questions
+            <Link to="/resources#toolkit-library" className="nav-mobile-item" onClick={closeAll}>
+              AI Hiring Toolkits
             </Link>
             <button
               className="nav-mobile-item"
@@ -172,8 +172,11 @@ export default function Nav({ onOpenWaitlist }) {
 
           <div className="nav-mobile-group">
             <p className="nav-mobile-label">Resources</p>
-            <Link to="/resources" className="nav-mobile-item" onClick={closeAll}>
-              Resources
+            <Link to="/resources#candidate-library" className="nav-mobile-item" onClick={closeAll}>
+              For Candidates
+            </Link>
+            <Link to="/resources#organisation-library" className="nav-mobile-item" onClick={closeAll}>
+              For Hiring Teams
             </Link>
             <a
               href="https://displaced.aievolvingyou.com"
@@ -211,7 +214,7 @@ export default function Nav({ onOpenWaitlist }) {
           <div className="nav-mobile-group">
             <p className="nav-mobile-label">Connect</p>
             <a href="#connect" className="nav-mobile-item nav-mobile-item--cta" onClick={closeAll}>
-              Connect
+              Contact
             </a>
           </div>
         </div>
