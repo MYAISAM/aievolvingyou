@@ -39,23 +39,25 @@ import ThankYouTransparencyGuide from "./components/ThankYouTransparencyGuide";
 import ThankYouBiasAudit from "./components/ThankYouBiasAudit";
 import ThankYouPolicyFramework from "./components/ThankYouPolicyFramework";
 import ThankYouToolkitBundle from "./components/ThankYouToolkitBundle";
-const latestThinking = [
-  {
-    label: "AI & hiring",
-    title: "AI in hiring has created a trust problem on both sides of the table",
-    to: "/resources/ai-hiring-trust-problem",
-  },
-  {
-    label: "Responsible procurement",
-    title: "What most organisations get wrong when buying AI hiring tools",
-    to: "/resources/ai-procurement-mistakes",
-  },
-  {
-    label: "Interview prep",
-    title: "How to use AI to prep for interviews without sounding like a robot",
-    to: "/resources/ai-interview-prep",
-  },
+import { articleMetadataBySlug } from "./articles/articleMetadata";
+
+const latestThinkingSlugs = [
+  "/resources/ai-hiring-trust-problem",
+  "/resources/ai-procurement-mistakes",
+  "/resources/ai-interview-prep",
 ]
+
+const latestThinkingLabels = {
+  "/resources/ai-hiring-trust-problem": "AI & hiring",
+  "/resources/ai-procurement-mistakes": "Responsible procurement",
+  "/resources/ai-interview-prep": "Interview prep",
+}
+
+const latestThinking = latestThinkingSlugs.map((slug) => ({
+  label: latestThinkingLabels[slug],
+  title: articleMetadataBySlug[slug].title,
+  to: articleMetadataBySlug[slug].slug,
+}))
 
 const ecosystemPillars = [
   {
@@ -219,6 +221,10 @@ function HomePage({ onOpenWaitlist }) {
                 <em>Read →</em>
               </Link>
             ))}
+          </div>
+
+          <div style={{ marginTop: 24 }}>
+            <Link to="/resources" className="link-subtle">Explore all resources →</Link>
           </div>
         </div>
       </FadeInSection>
