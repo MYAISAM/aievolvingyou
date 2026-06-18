@@ -148,57 +148,72 @@ export default function Nav({ onOpenWaitlist }) {
 
       {mobileOpen && (
         <div className="nav-mobile-menu">
-          <a
-            href="https://coach.aievolvingyou.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-mobile-item"
-            onClick={closeAll}
-          >
-            Interview Coach
-          </a>
-          <Link to="/resources#toolkits" className="nav-mobile-item" onClick={closeAll}>
-            AI Procurement Questions
-          </Link>
-          <button
-            className="nav-mobile-item"
-            onClick={() => { closeAll(); onOpenWaitlist() }}
-          >
-            AI Displacement Report
-          </button>
-          <Link to="/resources" className="nav-mobile-item" onClick={closeAll}>
-            Resources
-          </Link>
-          <a
-            href="https://displaced.aievolvingyou.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-mobile-item"
-            onClick={closeAll}
-          >
-            Displaced Index
-          </a>
-          <a
-            href="https://www.youtube.com/@OurHumanIntelligence"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-mobile-item"
-            onClick={closeAll}
-          >
-            YouTube
-          </a>
-          <a
-            href="https://ourhumanintelligence.substack.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-mobile-item"
-            onClick={closeAll}
-          >
-            Substack
-          </a>
-          <a href="#connect" className="nav-mobile-item nav-mobile-item--cta" onClick={closeAll}>
-            Connect
-          </a>
+          <div className="nav-mobile-group">
+            <p className="nav-mobile-label">Products</p>
+            <a
+              href="https://coach.aievolvingyou.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-mobile-item"
+              onClick={closeAll}
+            >
+              Interview Coach
+            </a>
+            <Link to="/resources#toolkits" className="nav-mobile-item" onClick={closeAll}>
+              AI Procurement Questions
+            </Link>
+            <button
+              className="nav-mobile-item"
+              onClick={() => { closeAll(); onOpenWaitlist() }}
+            >
+              AI Displacement Report
+            </button>
+          </div>
+
+          <div className="nav-mobile-group">
+            <p className="nav-mobile-label">Resources</p>
+            <Link to="/resources" className="nav-mobile-item" onClick={closeAll}>
+              Resources
+            </Link>
+            <a
+              href="https://displaced.aievolvingyou.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-mobile-item"
+              onClick={closeAll}
+            >
+              Displaced Index
+            </a>
+          </div>
+
+          <div className="nav-mobile-group">
+            <p className="nav-mobile-label">Human Intelligence</p>
+            <a
+              href="https://www.youtube.com/@OurHumanIntelligence"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-mobile-item"
+              onClick={closeAll}
+            >
+              YouTube
+            </a>
+            <a
+              href="https://ourhumanintelligence.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-mobile-item"
+              onClick={closeAll}
+            >
+              Substack
+            </a>
+          </div>
+
+          <div className="nav-mobile-group">
+            <p className="nav-mobile-label">Connect</p>
+            <a href="#connect" className="nav-mobile-item nav-mobile-item--cta" onClick={closeAll}>
+              Connect
+            </a>
+          </div>
         </div>
       )}
     </>
