@@ -1,998 +1,200 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
-const t = {
-  bg: "#ffffff",
-  surface: "#f9f9f9",
-  surfaceAlt: "#f2f2f2",
-  border: "rgba(0,0,0,0.07)",
-  ink: "#111111",
-  inkMid: "#555555",
-  inkLight: "#999999",
-  accentGreen: "#3F6F63",
-  accentPop: "#D47A2C",
-  tagGreen: "#edf4f2",
-  tagOrange: "#fdf0e4",
-  tagOrangeText: "#7A3A0E",
-};
+import { articleMetadata } from "../articles/articleMetadata";
 
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
-
 const TRANSPARENCY_STRIPE_URL = "https://buy.stripe.com/fZubJ17Zg01o7YMbqt5Ne07";
-
 const BIAS_AUDIT_STRIPE_URL = "https://buy.stripe.com/dRm3cvenEaG2frebqt5Ne08";
-
 const POLICY_FRAMEWORK_STRIPE_URL = "https://buy.stripe.com/9B63cv6Vc8xUfreamp5Ne09";
 
-// ── Candidate guide articles (journey flow) ───────────────────────
-const candidateArticles = [
+const candidateStages = [
+  { id: "understand", label: "Understand", copy: "See what actually changed before trying to optimise for the wrong system." },
+  { id: "adapt", label: "Adapt", copy: "Make your CV and applications readable to the tools and the people behind them." },
+  { id: "perform", label: "Perform", copy: "Turn visibility into strong interview answers once you are in the room." },
+];
+
+const orgDrawers = [
+  { id: "understand-risk", label: "Understand Risk", copy: "Map where AI is already shaping hiring and where trust is breaking down." },
+  { id: "build-trust-fairness", label: "Build Trust & Fairness", copy: "Explain AI use clearly and review fairness risks before they harden." },
+  { id: "create-governance", label: "Create Governance", copy: "Ask better procurement questions and name ownership before problems land." },
+];
+
+const toolkits = [
   {
-    slug: "four-types-of-interview-question",
-    label: "Start here",
-    tag: "Interview prep",
-    title: "The 4 types of interview question and how to answer each one",
-    excerpt: "Most interview questions fall into four categories. Once you know which type you're dealing with, you can structure your answer before the interviewer has finished speaking.",
-    readTime: "6 min read",
-    live: true,
+    id: "procurement-questions",
+    title: "AI Procurement Questions for Hiring Teams",
+    price: "£79",
+    label: "Procurement Questions",
+    body: "50 questions to cut through vendor claims and evaluate AI hiring tools properly, covering bias, privacy, transparency, legal exposure and vendor accountability.",
+    href: PROCUREMENT_STRIPE_URL,
   },
   {
-    slug: "star-method",
-    label: "Next up",
-    tag: "Interview prep",
-    title: "The STAR method explained with real examples",
-    excerpt: "Situation, Task, Action, Result. It's the most reliable structure for behavioural answers but most people use it wrong. Here's how to use it right.",
-    readTime: "5 min read",
-    live: true,
+    id: "candidate-transparency-guide",
+    title: "Candidate Transparency Guide",
+    price: "£49",
+    label: "Candidate Transparency Guide",
+    body: "A practical guide for explaining where AI is used, what it affects, what stays human and how candidates can reach a person.",
+    href: TRANSPARENCY_STRIPE_URL,
   },
   {
-    slug: "weakness-question",
-    label: "Then try this",
-    tag: "Interview prep",
-    title: "The weakness question: why \"I'm a perfectionist\" is the worst answer",
-    excerpt: "Interviewers have heard it thousands of times and it tells them nothing useful. Here's what a strong, honest, strategically smart weakness answer actually looks like.",
-    readTime: "5 min read",
-    live: true,
+    id: "bias-audit-checklist",
+    title: "Bias Audit Checklist",
+    price: "£49",
+    label: "Bias Audit Checklist",
+    body: "A structured checklist for reviewing fairness risks across AI hiring tools, vendors, data, outcomes and decision points.",
+    href: BIAS_AUDIT_STRIPE_URL,
   },
   {
-    slug: "ai-interview-prep",
-    label: "Level up",
-    tag: "AI & interviews",
-    title: "How to use AI to prep for interviews without sounding like a robot",
-    excerpt: "AI can make your interview prep sharper. It can also make you sound like everyone else. The difference is in how you use it.",
-    readTime: "6 min read",
-    live: true,
-  },
-  {
-    slug: "behavioural-interview",
-    label: "Go deeper",
-    tag: "Interview prep",
-    title: "How to prepare for a behavioural interview",
-    excerpt: "Behavioural interviews are predictable once you know the pattern. Here's how to build a bank of strong examples that work across dozens of different questions.",
-    readTime: "7 min read",
-    live: true,
-  },
-  {
-    slug: "career-changers",
-    label: "Going further",
-    tag: "Career change",
-    title: "Interview tips for career changers",
-    excerpt: "When you're crossing industries or roles, your biggest challenge isn't your experience, it's how you frame it. Here's how to turn a non-linear career into a strength.",
-    readTime: "6 min read",
-    live: true,
+    id: "ai-hiring-policy-framework",
+    title: "AI Hiring Policy Framework",
+    price: "£79",
+    label: "AI Hiring Policy Framework",
+    body: "A practical governance document for AI use in recruitment, ready to adapt for internal ownership, review and escalation.",
+    href: POLICY_FRAMEWORK_STRIPE_URL,
   },
 ];
 
-// ── Companion quick-answer articles ───────────────────────────────
-const quickAnswerArticles = [
-  {
-    slug: "weakness-question-examples",
-    tag: "Interview prep",
-    title: "What to say when asked about your biggest weakness in an interview",
-    excerpt: "Real examples structured around the four beats every strong answer hits — with versions for different roles and seniority levels.",
-    readTime: "7 min read",
-    live: true,
-  },
-  {
-    slug: "do-employers-use-ai-to-screen-applications",
-    tag: "AI & hiring",
-    title: "Do employers use AI to screen job applications?",
-    excerpt: "Yes — and more widely than most candidates realise. Here's how widespread it actually is, which sectors use it most, and what it means for how you apply.",
-    readTime: "6 min read",
-    live: true,
-  },
-  {
-    slug: "how-to-tell-if-ai-is-screening-you",
-    tag: "AI & hiring",
-    title: "How do I know if a company is using AI to screen my application?",
-    excerpt: "In most cases you won't be told. Here are the signals to look for, what you're entitled to know, and what you can actually do about it.",
-    readTime: "5 min read",
-    live: true,
-  },
-];
+function sortByOrder(items) {
+  return [...items].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+}
 
-// ── Org articles ──────────────────────────────────────────────────
-const orgArticles = [
-  {
-    slug: "ai-hiring-trust-problem",
-    label: "Start here",
-    tag: "Candidate transparency",
-    title: "AI in hiring has created a trust problem on both sides of the table",
-    excerpt: "Candidates don't trust the process. Organisations don't trust the applications. And both sides have reached for AI to cope. Here's why that's making everything worse and what can actually interrupt it.",
-    readTime: "8 min read",
-    live: true,
-  },
-  {
-    slug: "ai-procurement-mistakes",
-    label: "Next up",
-    tag: "Responsible procurement",
-    title: "What most organisations get wrong when buying AI hiring tools",
-    excerpt: "Most procurement conversations start too late, ask the wrong questions, and end with a contract that protects the vendor more than the buyer. Here's what a more rigorous evaluation looks like.",
-    readTime: "9 min read",
-    live: true,
-  },
-  {
-    slug: "ai-hiring-bias",
-    label: "Then this",
-    tag: "Bias & fairness",
-    title: "AI did not remove bias from hiring. It gave it a uniform and a spreadsheet.",
-    excerpt: "The case for AI in hiring was partly a fairness argument. Remove the human, remove the bias. The evidence now tells a different story.",
-    readTime: "9 min read",
-    live: true,
-  },
-  {
-    slug: "ai-hiring-ownership",
-    label: "And this",
-    tag: "Governance & accountability",
-    title: "Who owns AI in your hiring process?",
-    excerpt: "When something goes wrong with an AI hiring tool, accountability tends to dissolve. HR points to the vendor. The vendor points to the data. The data points to no one.",
-    readTime: "9 min read",
-    live: true,
-  },
-  {
-    slug: "how-many-ai-tools-in-hiring",
-    label: "Then this",
-    tag: "AI inventory",
-    title: "How many AI tools are already in your hiring process?",
-    excerpt: "Most teams underestimate how much AI already touches hiring, across job ads, sourcing, screening, interviews, scheduling and the platforms you already pay for. Governance starts with counting them.",
-    readTime: "8 min read",
-    live: true,
-  },
-  {
-    slug: "what-to-tell-candidates-about-ai",
-    label: "And this",
-    tag: "Candidate transparency",
-    title: "What should candidates be told about AI?",
-    excerpt: "Transparency is not about explaining the algorithm. It is about telling candidates where AI is used, what it affects, what stays human, and how to reach a person. Here is what to say, and what to leave out.",
-    readTime: "7 min read",
-    live: true,
-  },
-];
-
-// ── Journey badge ─────────────────────────────────────────────────
-function JourneyBadge({ label }) {
-  const isStart = label === "Start here";
+function ArticleLinkCard({ article, index }) {
   return (
-    <span style={{
-      display: "inline-block",
-      fontSize: "0.68rem",
-      fontWeight: 600,
-      letterSpacing: "0.05em",
-      textTransform: "uppercase",
-      color: isStart ? "#ffffff" : t.tagOrangeText,
-      background: isStart ? t.accentGreen : t.tagOrange,
-      borderRadius: 20,
-      padding: "3px 10px",
-      marginBottom: 10,
-    }}>
-      {label}
-    </span>
+    <Link className="resource-card" to={article.slug}>
+      {typeof index === "number" && <span className="resource-card__step">{String(index).padStart(2, "0")}</span>}
+      <span className="resource-card__meta">{article.readTime}</span>
+      <h3>{article.title}</h3>
+      <p>{article.excerpt}</p>
+    </Link>
   );
 }
 
-// ── Standard article card (journey flow) ─────────────────────────
-function ArticleCard({ article }) {
-  const dimmed = !article.live;
+function ToolkitCard({ toolkit }) {
   return (
-    <div style={{
-      background: t.surface,
-      border: `1px solid ${t.border}`,
-      borderRadius: 12,
-      padding: "24px 24px 20px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 10,
-      opacity: dimmed ? 0.5 : 1,
-      position: "relative",
-    }}>
-      {dimmed && (
-        <span style={{
-          position: "absolute",
-          top: 14, right: 14,
-          fontSize: "0.68rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          color: t.inkLight,
-          background: t.surfaceAlt,
-          borderRadius: 20,
-          padding: "3px 10px",
-        }}>
-          Coming soon
-        </span>
-      )}
-      <JourneyBadge label={article.label} />
-      <span style={{
-        fontSize: "0.72rem",
-        fontWeight: 600,
-        color: t.accentGreen,
-        letterSpacing: "0.05em",
-        textTransform: "uppercase",
-      }}>
-        {article.tag}
-      </span>
-      <h3 style={{
-        fontSize: "1rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.4,
-        letterSpacing: "-0.01em",
-        margin: 0,
-      }}>
-        {article.title}
-      </h3>
-      <p style={{
-        fontSize: "0.88rem",
-        color: t.inkMid,
-        lineHeight: 1.65,
-        margin: 0,
-        flexGrow: 1,
-      }}>
-        {article.excerpt}
-      </p>
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 4,
-      }}>
-        <span style={{ fontSize: "0.75rem", color: t.inkLight }}>{article.readTime}</span>
-        {!dimmed && article.live && (
-          <Link to={`/resources/${article.slug}`} style={{
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            color: t.accentGreen,
-            textDecoration: "none",
-          }}>
-            Read
-          </Link>
-        )}
+    <article className="toolkit-card" id={toolkit.id}>
+      <div>
+        <span className="toolkit-card__label">{toolkit.label}</span>
+        <h3>{toolkit.title}</h3>
+        <p>{toolkit.body}</p>
       </div>
-    </div>
-  );
-}
-
-// ── Quick answer card (companion articles) ────────────────────────
-function QuickAnswerCard({ article }) {
-  return (
-    <div style={{
-      background: t.bg,
-      border: `1px solid ${t.border}`,
-      borderLeft: `3px solid ${t.accentGreen}`,
-      borderRadius: "0 10px 10px 0",
-      padding: "18px 20px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 8,
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
-        <span style={{
-          fontSize: "0.65rem",
-          fontWeight: 700,
-          letterSpacing: "0.06em",
-          textTransform: "uppercase",
-          color: t.accentGreen,
-          background: t.tagGreen,
-          borderRadius: 20,
-          padding: "2px 8px",
-        }}>
-          Quick answer
-        </span>
-        <span style={{
-          fontSize: "0.65rem",
-          fontWeight: 600,
-          color: t.inkLight,
-          letterSpacing: "0.04em",
-          textTransform: "uppercase",
-        }}>
-          {article.tag}
-        </span>
-      </div>
-      <h3 style={{
-        fontSize: "0.95rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.4,
-        letterSpacing: "-0.01em",
-        margin: 0,
-      }}>
-        {article.title}
-      </h3>
-      <p style={{
-        fontSize: "0.85rem",
-        color: t.inkMid,
-        lineHeight: 1.6,
-        margin: 0,
-        flexGrow: 1,
-      }}>
-        {article.excerpt}
-      </p>
-      <div style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 4,
-      }}>
-        <span style={{ fontSize: "0.75rem", color: t.inkLight }}>{article.readTime}</span>
-        <Link to={`/resources/${article.slug}`} style={{
-          fontSize: "0.8rem",
-          fontWeight: 600,
-          color: t.accentGreen,
-          textDecoration: "none",
-        }}>
-          Read
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-// ── Procurement product card ───────────────────────────────────────
-function ProcurementCard() {
-  return (
-    <div style={{
-      background: "#ffffff",
-      border: `2px solid ${t.accentGreen}`,
-      borderRadius: 12,
-      padding: "28px 28px 24px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 14,
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 700,
-          letterSpacing: "0.07em",
-          textTransform: "uppercase",
-          color: "#ffffff",
-          background: t.accentGreen,
-          borderRadius: 20,
-          padding: "4px 12px",
-        }}>
-          Framework document
-        </span>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          color: t.accentPop,
-        }}>
-          Responsible procurement
-        </span>
-      </div>
-      <h3 style={{
-        fontSize: "1.15rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.35,
-        letterSpacing: "-0.02em",
-        margin: 0,
-      }}>
-        AI Procurement Questions for Hiring Teams
-      </h3>
-      <p style={{
-        fontSize: "0.9rem",
-        color: t.inkMid,
-        lineHeight: 1.65,
-        margin: 0,
-      }}>
-        50 questions to cut through vendor claims and evaluate AI hiring tools properly.
-        Covers bias and fairness, data handling, candidate experience, legal exposure, and
-        what to do when a vendor can't answer clearly.
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {[
-          "Bias, fairness and explainability",
-          "Data handling and privacy",
-          "Candidate experience and transparency",
-          "Legal and compliance exposure",
-          "Vendor accountability and support",
-        ].map((item) => (
-          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
-            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
-        <a
-          href={PROCUREMENT_STRIPE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            background: t.accentGreen,
-            color: "#ffffff",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-            padding: "11px 22px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          Get the document — £79 + VAT
+      <div className="toolkit-card__footer">
+        <strong>{toolkit.price}</strong>
+        <a href={toolkit.href} target="_blank" rel="noopener noreferrer">
+          Buy toolkit
         </a>
-        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
       </div>
-    </div>
+    </article>
   );
 }
 
-// ── Transparency Guide product card ───────────────────────────────
-function TransparencyGuideCard() {
-  return (
-    <div style={{
-      background: "#ffffff",
-      border: `2px solid ${t.accentGreen}`,
-      borderRadius: 12,
-      padding: "28px 28px 24px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 14,
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 700,
-          letterSpacing: "0.07em",
-          textTransform: "uppercase",
-          color: "#ffffff",
-          background: t.accentGreen,
-          borderRadius: 20,
-          padding: "4px 12px",
-        }}>
-          Communication framework
-        </span>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          color: t.accentPop,
-        }}>
-          Candidate transparency
-        </span>
-      </div>
-      <h3 style={{
-        fontSize: "1.15rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.35,
-        letterSpacing: "-0.02em",
-        margin: 0,
-      }}>
-        Candidate Transparency Guide
-      </h3>
-      <p style={{
-        fontSize: "0.9rem",
-        color: t.inkMid,
-        lineHeight: 1.65,
-        margin: 0,
-      }}>
-        What to tell candidates about AI in your hiring process, when to tell them, and
-        what is at stake if you do not. A practical communication framework for HR and
-        talent teams, with an audit sheet and ready-to-use guidance at every stage.
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {[
-          "What counts as AI use and why it matters",
-          "What to communicate at each hiring stage",
-          "How to write disclosures that candidates actually read",
-          "Legal obligations across EU, UK, and US",
-          "Reputational stakes and what good looks like",
-        ].map((item) => (
-          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
-            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
-        <a
-          href={TRANSPARENCY_STRIPE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            background: t.accentGreen,
-            color: "#ffffff",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-            padding: "11px 22px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          Get the document — £49 + VAT
-        </a>
-        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
-      </div>
-    </div>
-  );
-}
-
-// ── Bias Audit Checklist product card ─────────────────────────────
-function BiasAuditCard() {
-  return (
-    <div style={{
-      background: "#ffffff",
-      border: `2px solid ${t.accentGreen}`,
-      borderRadius: 12,
-      padding: "28px 28px 24px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 14,
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 700,
-          letterSpacing: "0.07em",
-          textTransform: "uppercase",
-          color: "#ffffff",
-          background: t.accentGreen,
-          borderRadius: 20,
-          padding: "4px 12px",
-        }}>
-          Audit checklist
-        </span>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          color: t.accentPop,
-        }}>
-          Bias and fairness
-        </span>
-      </div>
-      <h3 style={{
-        fontSize: "1.15rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.35,
-        letterSpacing: "-0.02em",
-        margin: 0,
-      }}>
-        Bias Audit Checklist
-      </h3>
-      <p style={{
-        fontSize: "0.9rem",
-        color: t.inkMid,
-        lineHeight: 1.65,
-        margin: 0,
-      }}>
-        A practical checklist for reviewing bias and fairness risks in AI hiring tools.
-        It helps teams decide what to check, what evidence to ask vendors for, what to
-        record, and what to do when a tool creates unfair or unexplained outcomes.
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {[
-          "What bias and fairness risks to check",
-          "The evidence to request from your vendor",
-          "Candidate groups, outcomes and decision points to review",
-          "How to record findings, concerns and remediation",
-          "What to do when the tool fails the check",
-        ].map((item) => (
-          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
-            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
-        <a
-          href={BIAS_AUDIT_STRIPE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            background: t.accentGreen,
-            color: "#ffffff",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-            padding: "11px 22px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          Get the document — £49 + VAT
-        </a>
-        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
-      </div>
-    </div>
-  );
-}
-
-// ── AI Hiring Policy Framework product card ───────────────────────
-function PolicyFrameworkCard() {
-  return (
-    <div style={{
-      background: "#ffffff",
-      border: `2px solid ${t.accentGreen}`,
-      borderRadius: 12,
-      padding: "28px 28px 24px",
-      display: "flex",
-      flexDirection: "column",
-      gap: 14,
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 700,
-          letterSpacing: "0.07em",
-          textTransform: "uppercase",
-          color: "#ffffff",
-          background: t.accentGreen,
-          borderRadius: 20,
-          padding: "4px 12px",
-        }}>
-          Policy framework
-        </span>
-        <span style={{
-          fontSize: "0.68rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          color: t.accentPop,
-        }}>
-          Governance and accountability
-        </span>
-      </div>
-      <h3 style={{
-        fontSize: "1.15rem",
-        fontWeight: 700,
-        color: t.ink,
-        lineHeight: 1.35,
-        letterSpacing: "-0.02em",
-        margin: 0,
-      }}>
-        AI Hiring Policy Framework
-      </h3>
-      <p style={{
-        fontSize: "0.9rem",
-        color: t.inkMid,
-        lineHeight: 1.65,
-        margin: 0,
-      }}>
-        A ready-to-adapt framework for setting internal rules on AI use in hiring.
-        It helps define ownership, tool classification, human oversight, data protection,
-        bias monitoring, candidate rights and what happens when something goes wrong.
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-        {[
-          "Governance ownership and decision rights",
-          "AI tool inventory and classification",
-          "Human oversight and review standards",
-          "Bias monitoring and candidate rights",
-          "Incident handling, review cycles and record keeping",
-        ].map((item) => (
-          <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 5, height: 5, borderRadius: "50%", background: t.accentGreen, flexShrink: 0 }} />
-            <span style={{ fontSize: "0.82rem", color: t.inkMid }}>{item}</span>
-          </div>
-        ))}
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap", marginTop: 4 }}>
-        <a
-          href={POLICY_FRAMEWORK_STRIPE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-block",
-            background: t.accentGreen,
-            color: "#ffffff",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-            padding: "11px 22px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          Get the document — £79 + VAT
-        </a>
-        <span style={{ fontSize: "0.78rem", color: t.inkLight }}>PDF · Instant download</span>
-      </div>
-    </div>
-  );
-}
-
-// ── Candidate track CTA ───────────────────────────────────────────
-function CandidateCTA() {
-  return (
-    <div style={{
-      background: t.surface,
-      border: `1px solid ${t.border}`,
-      borderRadius: 12,
-      padding: "28px 24px",
-      textAlign: "center",
-    }}>
-      <p style={{
-        fontSize: "1rem",
-        fontWeight: 600,
-        color: t.ink,
-        margin: "0 0 6px",
-        letterSpacing: "-0.01em",
-      }}>
-        Ready to put this into practice?
-      </p>
-      <p style={{
-        fontSize: "0.88rem",
-        color: t.inkMid,
-        margin: "0 0 18px",
-        lineHeight: 1.6,
-      }}>
-        The Interview Coach turns these frameworks into a tailored, live session.
-        Questions matched to your role, real-time coaching, and a personalised cheat sheet.
-      </p>
-      <a
-        href="https://coach.aievolvingyou.com"
-        style={{
-          display: "inline-block",
-          background: t.accentPop,
-          color: "#ffffff",
-          fontWeight: 600,
-          fontSize: "0.9rem",
-          padding: "11px 22px",
-          borderRadius: 6,
-          textDecoration: "none",
-        }}
-      >
-        Try the Interview Coach
-      </a>
-    </div>
-  );
-}
-
-// ── Section label ─────────────────────────────────────────────────
-function SectionLabel({ children, top = 36 }) {
-  return (
-    <div style={{
-      fontSize: "0.72rem",
-      fontWeight: 700,
-      letterSpacing: "0.08em",
-      textTransform: "uppercase",
-      color: t.accentGreen,
-      marginBottom: 14,
-      marginTop: top,
-    }}>
-      {children}
-    </div>
-  );
-}
-
-// ── Main Resources component ──────────────────────────────────────
 export default function Resources() {
-  const [track, setTrack] = useState("candidates");
   const location = useLocation();
-  const candidatesRef = useRef(null);
-  const organisationsRef = useRef(null);
-  const toolkitsRef = useRef(null);
+  const candidates = articleMetadata.filter((article) => article.track === "candidate");
+  const orgs = articleMetadata.filter((article) => article.track === "org");
+  const quickAnswers = candidates.filter((article) => article.stage === "quick-answer");
 
   useEffect(() => {
-    const hash = location.hash.replace("#", "");
-
-    if (["organisations", "orgs", "toolkits"].includes(hash)) {
-      setTrack("orgs");
-      return;
-    }
-
-    if (["candidates", "ai-skills"].includes(hash)) {
-      setTrack("candidates");
-      return;
-    }
-
-    setTrack("candidates");
+    if (!location.hash) return;
+    window.requestAnimationFrame(() => {
+      document.querySelector(location.hash)?.scrollIntoView({ block: "start" });
+    });
   }, [location.hash]);
 
-  useEffect(() => {
-    const hash = location.hash.replace("#", "");
-
-    requestAnimationFrame(() => {
-      if (!hash) {
-        window.scrollTo({ top: 0, behavior: "auto" });
-        return;
-      }
-
-      const target = {
-        candidates: candidatesRef.current,
-        "ai-skills": candidatesRef.current,
-        organisations: organisationsRef.current,
-        orgs: organisationsRef.current,
-        toolkits: toolkitsRef.current,
-      }[hash];
-
-      target?.scrollIntoView({ block: "start", behavior: "auto" });
-    });
-  }, [location.pathname, location.hash, track]);
-
   return (
-    <main id="resources" style={{ maxWidth: 720, margin: "0 auto", padding: "64px 24px 96px" }}>
+    <main className="resources-page">
+      <section className="resources-hero">
+        <p className="section-label">Resources</p>
+        <h1>Practical guidance for candidates and hiring teams navigating AI-shaped recruitment.</h1>
+      </section>
 
-      <div style={{ marginBottom: 40 }}>
-        <h1 style={{
-          fontSize: "clamp(1.6rem, 4vw, 2rem)",
-          fontWeight: 700,
-          color: t.ink,
-          letterSpacing: "-0.03em",
-          margin: "0 0 10px",
-        }}>
-          Resources
-        </h1>
-        <p style={{
-          fontSize: "1rem",
-          color: t.inkMid,
-          lineHeight: 1.65,
-          margin: 0,
-          maxWidth: 560,
-        }}>
-          Practical guides and frameworks for people navigating AI in the workplace,
-          whether you're preparing for interviews or making hiring decisions.
-        </p>
-      </div>
-
-      {/* Track switcher */}
-      <div style={{
-        display: "flex",
-        gap: 4,
-        background: t.surfaceAlt,
-        borderRadius: 8,
-        padding: 4,
-        marginBottom: 44,
-        width: "fit-content",
-      }}>
-        {[
-          { id: "candidates", label: "For Candidates" },
-          { id: "orgs", label: "For Organisations" },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setTrack(tab.id)}
-            style={{
-              padding: "9px 20px",
-              borderRadius: 6,
-              border: "none",
-              cursor: "pointer",
-              fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-              fontSize: "0.88rem",
-              fontWeight: track === tab.id ? 600 : 400,
-              color: track === tab.id ? "#ffffff" : t.inkMid,
-              background: track === tab.id ? t.accentGreen : "transparent",
-              transition: "all 0.15s ease",
-            }}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* ── CANDIDATES TRACK ── */}
-      {track === "candidates" && (
-        <div id="candidates" ref={candidatesRef}>
-          <SectionLabel top={0}>Interview guides</SectionLabel>
-          <p style={{
-            fontSize: "0.88rem",
-            color: t.inkMid,
-            lineHeight: 1.65,
-            margin: "0 0 28px",
-          }}>
-            Follow the journey in order or jump to what you need. Each guide
-            builds on the last.
-          </p>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: 16,
-          }}>
-            {candidateArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} dimmed={!article.live} />
-            ))}
-          </div>
-
-          <div style={{
-            borderTop: `1px solid ${t.border}`,
-            margin: "40px 0 0",
-          }} />
-
-          <SectionLabel>Common questions</SectionLabel>
-          <p style={{
-            fontSize: "0.88rem",
-            color: t.inkMid,
-            lineHeight: 1.65,
-            margin: "0 0 20px",
-          }}>
-            Direct answers to the questions candidates search for most.
-          </p>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: 12,
-          }}>
-            {quickAnswerArticles.map((article) => (
-              <QuickAnswerCard key={article.slug} article={article} />
-            ))}
-          </div>
-
-          <div style={{ marginTop: 40 }}>
-            <CandidateCTA />
-          </div>
+      <section className="resource-section" id="candidates">
+        <div className="resource-section__heading">
+          <p className="section-label">Candidate Library</p>
+          <h2>Understand → Adapt → Perform → Practise</h2>
         </div>
-      )}
 
-      {/* ── ORGS TRACK ── */}
-      {track === "orgs" && (
-        <div id="organisations" ref={organisationsRef}>
-          <div style={{
-            fontSize: "0.72rem",
-            fontWeight: 700,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            color: t.accentGreen,
-            marginBottom: 14,
-          }}>
-            For HR teams, Talent leads and Hiring managers
-          </div>
+        <div className="candidate-staircase">
+          {candidateStages.map((stage) => {
+            const articles = sortByOrder(candidates.filter((article) => article.stage === stage.id));
+            if (articles.length === 0) return null;
 
-          <p style={{
-            fontSize: "0.88rem",
-            color: t.inkMid,
-            lineHeight: 1.65,
-            margin: "0 0 28px",
-          }}>
-            AI is changing what responsible hiring looks like. These articles and
-            frameworks help organisations get ahead of the problem, not respond to
-            it after something goes wrong.
-          </p>
+            return (
+              <section className="candidate-stage" key={stage.id}>
+                <div className="candidate-stage__intro">
+                  <span>{stage.label}</span>
+                  <p>{stage.copy}</p>
+                </div>
+                <div className="candidate-stage__list">
+                  {articles.map((article) => (
+                    <ArticleLinkCard article={article} index={article.order} key={article.slug} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
 
-          <SectionLabel top={0}>Read first</SectionLabel>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: 16,
-            marginBottom: 12,
-          }}>
-            {orgArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} dimmed={!article.live} />
-            ))}
-          </div>
-
-          <div id="toolkits" ref={toolkitsRef}>
-            <SectionLabel>Then put it into practice</SectionLabel>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              <ProcurementCard />
-              <TransparencyGuideCard />
-              <BiasAuditCard />
-              <PolicyFrameworkCard />
+          <section className="candidate-stage candidate-stage--practise">
+            <div className="candidate-stage__intro">
+              <span>Practise</span>
+              <p>Put the frameworks under pressure with questions matched to your role.</p>
             </div>
-          </div>
+            <a className="coach-endpoint" href="https://coach.aievolvingyou.com" target="_blank" rel="noopener noreferrer">
+              <span>12</span>
+              <strong>Interview Coach</strong>
+              <p>Live practice, real-time feedback and a cheat sheet you keep.</p>
+            </a>
+          </section>
         </div>
-      )}
+      </section>
 
+      <section className="resource-section resource-section--soft" id="quick-answers">
+        <div className="resource-section__heading">
+          <p className="section-label">Quick Answers</p>
+          <h2>Situational side-shelf resources.</h2>
+        </div>
+        <div className="quick-answer-grid">
+          {quickAnswers.map((article) => (
+            <ArticleLinkCard article={article} key={article.slug} />
+          ))}
+        </div>
+      </section>
+
+      <section className="resource-section" id="organisations">
+        <div className="resource-section__heading">
+          <p className="section-label">Organisation Library</p>
+          <h2>Browse by problem.</h2>
+        </div>
+        <div className="org-drawers">
+          {orgDrawers.map((drawer) => {
+            const articles = orgs.filter((article) => article.stage === drawer.id);
+            if (articles.length === 0) return null;
+
+            return (
+              <section className="org-drawer" key={drawer.id}>
+                <h3>{drawer.label}</h3>
+                <p>{drawer.copy}</p>
+                <div className="org-drawer__links">
+                  {articles.map((article) => (
+                    <ArticleLinkCard article={article} key={article.slug} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="resource-section resource-section--soft" id="toolkits">
+        <div className="resource-section__heading">
+          <p className="section-label">Toolkit Library</p>
+          <h2>Single-purpose documents for teams that need to act.</h2>
+        </div>
+        <div className="toolkit-grid">
+          {toolkits.map((toolkit) => (
+            <ToolkitCard toolkit={toolkit} key={toolkit.id} />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

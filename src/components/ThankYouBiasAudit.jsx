@@ -9,7 +9,7 @@ const t = {
   inkMid: "#555555",
   inkLight: "#999999",
   accentGreen: "#3F6F63",
-  accentPop: "#D47A2C",
+  accentPop: "#3F6F63",
   tagGreen: "#edf4f2",
   tagGreenText: "#3F6F63",
 };

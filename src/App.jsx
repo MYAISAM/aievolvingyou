@@ -14,13 +14,16 @@ import ArticleFourTypes from "./articles/ArticleFourTypes";
 import ArticleSpecificity from "./articles/ArticleSpecificity";
 import ArticleAIPrep from "./articles/ArticleAIPrep";
 import ArticleLongGap from "./articles/ArticleLongGap";
-import ArticleBehavioural from "./articles/ArticleBehavioural";
 import ArticleCareerChangers from "./articles/ArticleCareerChangers";
+import ArticleAtsMyth from "./articles/ArticleAtsMyth";
+import ArticleAIScreeningWorks from "./articles/ArticleAIScreeningWorks";
+import ArticleCanYouTellAIScreening from "./articles/ArticleCanYouTellAIScreening";
+import ArticleCvDidntChange from "./articles/ArticleCvDidntChange";
+import ArticleAtsFriendly from "./articles/ArticleAtsFriendly";
+import ArticleNeverHearBack from "./articles/ArticleNeverHearBack";
 
 // Companion / quick-answer articles
 import ArticleWeaknessExamples from "./articles/ArticleWeaknessExamples";
-import ArticleDoEmployersUseAI from "./articles/ArticleDoEmployersUseAI.jsx";
-import ArticleHowToTellAIScreening from "./articles/ArticleHowToTellAIScreening";
 
 // Org article pages
 import ArticleTrustProblem from "./articles/ArticleTrustProblem";
@@ -236,21 +239,25 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/toolkits" element={<Resources />} />
 
         {/* Candidate articles */}
+        <Route path="/resources/do-ats-systems-reject-75-percent" element={<ArticleAtsMyth />} />
+        <Route path="/resources/how-ai-screening-actually-works" element={<ArticleAIScreeningWorks />} />
+        <Route path="/resources/can-you-tell-when-ai-is-screening-your-application" element={<ArticleCanYouTellAIScreening />} />
+        <Route path="/resources/the-cv-didnt-change" element={<ArticleCvDidntChange />} />
+        <Route path="/resources/ats-friendly-cvs-what-matters" element={<ArticleAtsFriendly />} />
+        <Route path="/resources/applications-you-never-hear-back-from" element={<ArticleNeverHearBack />} />
         <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
         <Route path="/resources/star-method" element={<ArticleSTAR />} />
         <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
         <Route path="/resources/ai-interview-prep" element={<ArticleAIPrep />} />
-        <Route path="/resources/behavioural-interview" element={<ArticleBehavioural />} />
         <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
         <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
         <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
 
         {/* Companion articles */}
         <Route path="/resources/weakness-question-examples" element={<ArticleWeaknessExamples />} />
-        <Route path="/resources/do-employers-use-ai-to-screen-applications" element={<ArticleDoEmployersUseAI />} />
-        <Route path="/resources/how-to-tell-if-ai-is-screening-you" element={<ArticleHowToTellAIScreening />} />
 
         {/* Org articles */}
         <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />

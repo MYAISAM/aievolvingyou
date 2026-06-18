@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import ArticleCTA from "./ArticleCTA";
+import JourneyNext from "./JourneyNext";
+import { articleMetadataBySlug } from "./articleMetadata";
 
 export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta, track }) {
-  const resourcesPath = track === "orgs" ? "/resources#organisations" : "/resources";
+  const location = useLocation();
+  const article = articleMetadataBySlug[location.pathname];
+  const resourcesPath = article?.track === "org" || track === "orgs" ? "/resources#organisations" : "/resources";
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -51,82 +57,8 @@ export default function ArticleLayout({ title, bucket, children, nextArticle, hi
           {children}
         </div>
 
-        {nextArticle && (
-          <div style={{
-            marginTop: 56,
-            padding: "24px 28px",
-            background: "#f9f9f9",
-            border: "1.5px solid rgba(0,0,0,0.07)",
-            borderRadius: 12,
-          }}>
-            <span style={{
-              display: "inline-block",
-              fontSize: 10, fontWeight: 600,
-              letterSpacing: "0.07em", textTransform: "uppercase",
-              color: "#7A3A0E",
-              background: "#fdf0e4",
-              padding: "2px 9px", borderRadius: 20,
-              marginBottom: 12,
-            }}>
-              {nextArticle.label}
-            </span>
-            <p style={{
-              fontSize: 16, fontWeight: 600,
-              color: "#111111", lineHeight: 1.35,
-              letterSpacing: "-0.01em", marginBottom: 8,
-              marginTop: 8,
-            }}>
-              {nextArticle.title}
-            </p>
-            <p style={{
-              fontSize: 14, color: "#555555",
-              lineHeight: 1.6, marginBottom: 16,
-            }}>
-              {nextArticle.excerpt}
-            </p>
-            <Link
-              to={`/resources/${nextArticle.slug}`}
-              style={{
-                fontSize: 13, fontWeight: 600,
-                color: "#3F6F63", textDecoration: "none",
-              }}
-            >
-              Read next
-            </Link>
-          </div>
-        )}
-
-        {!hideCoachCta && (
-          <div style={{
-            marginTop: 16, padding: "32px 28px",
-            background: "#f9f9f9",
-            border: "1.5px solid rgba(0,0,0,0.07)",
-            borderRadius: 12,
-          }}>
-            <p style={{
-              fontSize: 15, color: "#555555",
-              lineHeight: 1.7, fontWeight: 300, marginBottom: 16,
-            }}>
-              Practice your interview answers with coaching tailored to your actual
-              job description. The AI Interview Coach gives you specific feedback
-              on every response - before the real thing.
-            </p>
-            <a
-              href="https://coach.aievolvingyou.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                background: "#3F6F63", color: "#ffffff",
-                padding: "12px 24px", borderRadius: 6,
-                fontSize: 14, fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              Try the Interview Coach
-            </a>
-          </div>
-        )}
+        <JourneyNext article={article} />
+        <ArticleCTA cta={article?.cta} />
 
       </div>
     </div>

@@ -1,26 +1,18 @@
 import ArticleLayout from "./ArticleLayout";
 
-const nextArticle = {
-  slug: "ai-interview-prep",
-  label: "Level up",
-  title: "How to use AI to prep for interviews without sounding like a robot",
-  excerpt: "AI can make your interview prep sharper. It can also make you sound like everyone else. The difference is in how you use it.",
-};
-
 const green = "#3F6F63";
 const greenLight = "#edf4f2";
-const orange = "#D47A2C";
 const ink = "#111111";
 const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
 const surface = "#f9f9f9";
 
-// What the question is testing - four coloured cards
+// Four coloured cards — re-skinned from coloured backgrounds to new system
 function TestingCards() {
   const items = [
     { label: "Self-awareness", description: "Do you know how you come across? Can you identify where your working style creates problems?", colour: "#e8f4f0" },
-    { label: "Honesty under pressure", description: "If you deflect a question this predictable, what happens when something genuinely difficult comes up?", colour: "#fdf0e4" },
-    { label: "Growth mindset", description: "Do you acknowledge gaps and work to close them, or get defensive? This tells interviewers how you'll respond to feedback.", colour: "#f0f0fd" },
+    { label: "Honesty under pressure", description: "If you deflect a question this predictable, what happens when something genuinely difficult comes up?", colour: "#edf4f2" },
+    { label: "Growth mindset", description: "Do you acknowledge gaps and work to close them, or get defensive? This tells interviewers how you will respond to feedback.", colour: "#f0f0fd" },
     { label: "Judgment", description: "Are you choosing something genuinely relevant but not disqualifying? Poor judgment here undermines everything else.", colour: "#fdf4e4" },
   ];
   return (
@@ -41,26 +33,26 @@ function StrategyCards() {
     {
       number: "01",
       label: "Genuine weakness with active improvement",
-      description: "Name something real, explain how it's shown up, and describe specifically what you've done to address it.",
-      example: "\"Early in my career I found it hard to delegate. I'd take on too much myself because I wanted to make sure things were done to a certain standard, which created bottlenecks. Over the last two years I've identified where my involvement is genuinely necessary versus where I'm just hovering, and I've been giving my team more autonomy. I've shifted from doing to coaching, and the team's output has actually improved.\"",
+      description: "Name something real, explain how it has shown up, and describe specifically what you have done to address it.",
+      example: "\"Early in my career I found it hard to delegate. I would take on too much myself because I wanted to make sure things were done to a certain standard, which created bottlenecks. Over the last two years I have identified where my involvement is genuinely necessary versus where I am just hovering, and I have been giving my team more autonomy. I have shifted from doing to coaching, and the team's output has actually improved.\"",
     },
     {
       number: "02",
-      label: "Skill gap you're actively closing",
-      description: "Name a genuine gap framed as something you're proactively addressing. Works well for career changers or senior role moves.",
-      example: "\"I haven't had as much experience presenting to large senior audiences as I'd like. I know this role involves more of that, so I joined a public speaking group six months ago and I've been putting myself forward for presentations at my current company whenever the opportunity comes up.\"",
+      label: "Skill gap you are actively closing",
+      description: "Name a genuine gap framed as something you are proactively addressing. Works well for career changers or senior role moves.",
+      example: "\"I have not had as much experience presenting to large senior audiences as I would like. I know this role involves more of that, so I joined a public speaking group six months ago and I have been putting myself forward for presentations at my current company whenever the opportunity comes up.\"",
     },
     {
       number: "03",
       label: "Bridge",
       description: "Acknowledge a genuine trait honestly, then pivot to how you manage it.",
-      example: "\"I can be impatient when projects move slowly, particularly when I can see a clear path forward and there are process delays. I've learned to channel that energy constructively - I use it to push for clearer timelines and to flag blockers early rather than letting frustration build.\"",
+      example: "\"I can be impatient when projects move slowly, particularly when I can see a clear path forward and there are process delays. I have learned to channel that energy constructively — I use it to push for clearer timelines and to flag blockers early rather than letting frustration build.\"",
     },
     {
       number: "04",
       label: "Past weakness, now resolved",
-      description: "A genuine story of growth - something that was a real challenge earlier in your career that you've demonstrably moved past.",
-      example: "\"A few years ago I struggled with giving direct feedback to colleagues. I'd soften things too much and the message wouldn't land. I took a management training course and made a deliberate effort to be clearer and more direct while staying respectful. My last 360 review specifically noted that my feedback had become more useful and actionable.\"",
+      description: "A genuine story of growth — something that was a real challenge earlier in your career that you have demonstrably moved past.",
+      example: "\"A few years ago I struggled with giving direct feedback to colleagues. I would soften things too much and the message would not land. I took a management training course and made a deliberate effort to be clearer and more direct while staying respectful. My last 360 review specifically noted that my feedback had become more useful and actionable.\"",
     },
   ];
   return (
@@ -82,20 +74,20 @@ function StrategyCards() {
   );
 }
 
-// What to avoid - avoid list
+// Avoid list — re-skinned from orange warning to new design system
 function AvoidList() {
   const items = [
-    { title: "Don't choose something core to the job.", detail: "If you're applying for a data analyst role, \"I've never been comfortable with numbers\" is not the move." },
-    { title: "Don't choose something with no resolution.", detail: "If you name a weakness and have nothing to say about what you've done about it, you've told the interviewer you're aware of a problem and left it unaddressed." },
-    { title: "Don't over-rehearse to the point it sounds scripted.", detail: "This question invites a human answer. Know your answer, but let it breathe." },
-    { title: "Don't give multiple weaknesses.", detail: "Pick one, go deep on it." },
-    { title: "Don't end on the weakness itself.", detail: "Always end on the action or the result." },
+    { title: "Do not choose something core to the job.", detail: "If you are applying for a data analyst role, \"I have never been comfortable with numbers\" is not the move." },
+    { title: "Do not choose something with no resolution.", detail: "If you name a weakness and have nothing to say about what you have done about it, you have told the interviewer you are aware of a problem and left it unaddressed." },
+    { title: "Do not over-rehearse to the point it sounds scripted.", detail: "This question invites a human answer. Know your answer, but let it breathe." },
+    { title: "Do not give multiple weaknesses.", detail: "Pick one, go deep on it." },
+    { title: "Do not end on the weakness itself.", detail: "Always end on the action or the result." },
   ];
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
       {items.map((item, i) => (
-        <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "12px 16px", background: "#fff8f4", border: "1.5px solid #f5ddc8", borderRadius: 8 }}>
-          <span style={{ color: orange, fontWeight: 700, fontSize: 16, flexShrink: 0, marginTop: 1 }}>✗</span>
+        <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start", padding: "12px 16px", background: surface, border: `1px solid ${border}`, borderRadius: 8 }}>
+          <span style={{ color: green, fontWeight: 700, fontSize: 14, flexShrink: 0, marginTop: 2 }}>→</span>
           <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.55 }}>
             <strong style={{ color: ink }}>{item.title}</strong> {item.detail}
           </p>
@@ -109,8 +101,8 @@ function AvoidList() {
 function AnswerStructure() {
   const steps = [
     "Name the weakness clearly and specifically (one sentence)",
-    "Give a brief example of how it's shown up in practice (two or three sentences)",
-    "Explain what you've done about it - specific actions, not vague intentions (two or three sentences)",
+    "Give a brief example of how it has shown up in practice (two or three sentences)",
+    "Explain what you have done about it — specific actions, not vague intentions (two or three sentences)",
     "Land on a result or marker of progress where possible (one sentence)",
   ];
   return (
@@ -128,29 +120,28 @@ function AnswerStructure() {
 export default function ArticleWeakness() {
   return (
     <ArticleLayout
-      bucket="Interview Resources"
+      bucket="Interview prep"
       title={`The weakness question: why "I'm a perfectionist" is the worst answer`}
-      nextArticle={nextArticle}
     >
-      <p>"What's your greatest weakness?"</p>
+      <p>"What is your greatest weakness?"</p>
 
-      <p>It's the question candidates dread most. And ironically, it's the one where most people give exactly the same answer.</p>
+      <p>It is the question candidates dread most. And ironically, it is the one where most people give exactly the same answer.</p>
 
-      <p>I'm a perfectionist. I work too hard. I care too much.</p>
+      <p>I am a perfectionist. I work too hard. I care too much.</p>
 
-      <p>I've heard all of these. Every hiring manager has heard all of these. And every time someone says one of them, the interviewer's pen stops moving - because there's nothing to write down. The candidate has just told them nothing real.</p>
+      <p>Every hiring manager has heard all of these. And every time someone says one of them, the interviewer's pen stops moving — because there is nothing to write down. The candidate has just told them nothing real.</p>
 
-      <p>Here's what I want you to understand before we get into how to answer this well: the weakness question is not a trap. It's designed to find out whether you know yourself - and whether you're the kind of person who can reflect honestly, take feedback, and grow.</p>
+      <p>The weakness question is not a trap. It is designed to find out whether you know yourself — and whether you are the kind of person who can reflect honestly, take feedback, and grow.</p>
 
       <h2>Why "I'm a perfectionist" is the worst answer</h2>
 
-      <p>When you say "I'm a perfectionist", you're doing two things simultaneously. You're claiming a weakness that sounds like a strength (which the interviewer sees straight through), and you're telling them you're not willing to be honest under mild pressure. Neither of those things builds confidence.</p>
+      <p>When you say "I am a perfectionist", you are doing two things simultaneously. You are claiming a weakness that sounds like a strength (which the interviewer sees straight through), and you are telling them you are not willing to be honest under mild pressure. Neither of those things builds confidence.</p>
 
-      <p>What the interviewer actually wants to hear is something real. Not something catastrophic - you don't need to confess your biggest professional failure. But something honest enough that they believe you, and structured enough that it shows you've actually thought about it and done something about it.</p>
+      <p>What the interviewer actually wants to hear is something real. Not something catastrophic — you do not need to confess your biggest professional failure. But something honest enough that they believe you, and structured enough that it shows you have actually thought about it and done something about it.</p>
 
-      <p>There's a big difference between "I'm a perfectionist" and "I've found that I can sometimes over-prepare for things that don't require it, which has occasionally slowed me down. I've been working on recognising earlier when something is good enough to move forward, and giving myself a clearer time limit on certain tasks."</p>
+      <p>There is a big difference between "I am a perfectionist" and "I have found that I can sometimes over-prepare for things that do not require it, which has occasionally slowed me down. I have been working on recognising earlier when something is good enough to move forward, and giving myself a clearer time limit on certain tasks."</p>
 
-      <p>That second answer is specific, believable, and shows self-awareness and active effort. That's what the question is looking for.</p>
+      <p>That second answer is specific, believable, and shows self-awareness and active effort. That is what the question is looking for.</p>
 
       <h2>What the question is actually testing</h2>
 
@@ -172,11 +163,11 @@ export default function ArticleWeakness() {
 
       <h2>The real point</h2>
 
-      <p>"I'm a perfectionist" says: I'm not willing to answer this question properly.</p>
+      <p>"I am a perfectionist" says: I am not willing to answer this question properly.</p>
 
-      <p>A real answer says: I know myself, I'm honest about it, and I'm not done growing.</p>
+      <p>A real answer says: I know myself, I am honest about it, and I am not done growing.</p>
 
-      <p>That's a much better thing to walk out of an interview having said.</p>
+      <p>That is a much better thing to walk out of an interview having said.</p>
 
     </ArticleLayout>
   );

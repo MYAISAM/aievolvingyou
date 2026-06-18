@@ -1,18 +1,21 @@
 import ArticleLayout from "./ArticleLayout";
 
+// SLUG FROZEN: /resources/career-changers
+// Hardcoded in Interview Coach prompt. Do not change.
+
 const green = "#3F6F63";
 const greenLight = "#edf4f2";
-const orange = "#D47A2C";
 const ink = "#111111";
 const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
 const surface = "#f9f9f9";
 
+// Re-skinned: was red/orange negative side, now surface/border negative, green positive
 function DecisionVsDrift() {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, margin: "20px 0 28px" }}>
-      <div style={{ background: "#fff4f4", border: "1.5px solid #f5c6c6", borderRadius: 10, padding: "18px 18px 16px" }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color: "#c0392b", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12 }}>Sounds like escape</p>
+      <div style={{ background: surface, border: `1px solid ${border}`, borderRadius: 10, padding: "18px 18px 16px" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, color: inkMid, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12 }}>Sounds like escape</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {[
             "\"I wanted something different\"",
@@ -20,14 +23,14 @@ function DecisionVsDrift() {
             "\"I just fancied a change\"",
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-              <span style={{ color: "#c0392b", fontWeight: 700, flexShrink: 0, fontSize: 13 }}>✗</span>
+              <span style={{ color: inkMid, fontWeight: 700, flexShrink: 0, fontSize: 13 }}>→</span>
               <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.5, fontStyle: "italic" }}>{item}</p>
             </div>
           ))}
         </div>
-        <p style={{ fontSize: 12, color: "#c0392b", margin: "12px 0 0", lineHeight: 1.5 }}>Signals you might run again when things get hard.</p>
+        <p style={{ fontSize: 12, color: inkMid, margin: "12px 0 0", lineHeight: 1.5 }}>Signals you might run again when things get hard.</p>
       </div>
-      <div style={{ background: "#f0f9f5", border: "1.5px solid #a8d5bc", borderRadius: 10, padding: "18px 18px 16px" }}>
+      <div style={{ background: "#fff", border: `1.5px solid rgba(63,111,99,0.3)`, borderRadius: 10, padding: "18px 18px 16px" }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: green, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12 }}>Sounds like a decision</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {[
@@ -36,7 +39,7 @@ function DecisionVsDrift() {
             "\"Here is what draws me to this specifically, and why now\"",
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
-              <span style={{ color: green, fontWeight: 700, flexShrink: 0, fontSize: 13 }}>✓</span>
+              <span style={{ color: green, fontWeight: 700, flexShrink: 0, fontSize: 13 }}>→</span>
               <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.5, fontStyle: "italic" }}>{item}</p>
             </div>
           ))}
@@ -49,60 +52,39 @@ function DecisionVsDrift() {
 
 function TranslationFlow() {
   const steps = [
-    { label: "Job requirement", detail: "Read each key requirement in the job description carefully.", colour: "#e8f4f0" },
-    { label: "Your experience", detail: "Ask: where have I done something that demonstrates this, even if it looked different?", colour: "#fdf0e4" },
-    { label: "Make it explicit", detail: "\"What this looked like in my previous role was X - and here is how I see that applying here.\"", colour: "#f0f0fd" },
+    {
+      from: "I managed a team of 12 in retail",
+      to: "I led a team of 12 people through a period of significant operational change, managing performance, development, and day-to-day delivery against tight commercial targets.",
+      label: "Retail to operations or HR",
+    },
+    {
+      from: "I taught secondary school English for eight years",
+      to: "I designed and delivered curriculum for groups of 25-30 people, managed performance data across cohorts, handled complex stakeholder relationships including parents, senior leadership and external examiners, and adapted my approach constantly based on what the evidence told me was working.",
+      label: "Teaching to L&D, comms, project management",
+    },
+    {
+      from: "I ran my own business for four years",
+      to: "I was responsible for every function of a small business — business development, client relationships, delivery, finances, and hiring. I built it to a point where I had three employees and recurring revenue, and I made every decision with limited information and no safety net.",
+      label: "Self-employed to corporate",
+    },
   ];
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 8, margin: "16px 0 28px", alignItems: "center" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 14, margin: "20px 0 32px" }}>
       {steps.map((step, i) => (
-        <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ background: step.colour, borderRadius: 10, padding: "16px 18px", maxWidth: 180 }}>
-            <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 6px" }}>{step.label}</p>
-            <p style={{ fontSize: 12, color: inkMid, margin: 0, lineHeight: 1.5 }}>{step.detail}</p>
+        <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 10, padding: "18px 20px" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 10px" }}>{step.label}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ background: "#fff", border: `1px solid ${border}`, borderRadius: 7, padding: "10px 13px" }}>
+              <p style={{ fontSize: 10, fontWeight: 700, color: inkMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 5px" }}>How it often gets described</p>
+              <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.55, fontStyle: "italic" }}>"{step.from}"</p>
+            </div>
+            <div style={{ background: greenLight, borderRadius: 7, padding: "10px 13px" }}>
+              <p style={{ fontSize: 10, fontWeight: 700, color: green, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 5px" }}>Translated for the new context</p>
+              <p style={{ fontSize: 13, color: ink, margin: 0, lineHeight: 1.6 }}>"{step.to}"</p>
+            </div>
           </div>
-          {i < steps.length - 1 && (
-            <span style={{ color: inkMid, fontSize: 18, fontWeight: 300 }}>→</span>
-          )}
         </div>
       ))}
-    </div>
-  );
-}
-
-function GapScript() {
-  return (
-    <div style={{ background: greenLight, border: `1.5px solid ${green}`, borderRadius: 10, padding: "18px 20px", margin: "16px 0 28px" }}>
-      <p style={{ fontSize: 12, fontWeight: 700, color: green, margin: "0 0 10px", letterSpacing: "0.05em", textTransform: "uppercase" }}>A script that works</p>
-      <p style={{ fontSize: 14, color: inkMid, margin: 0, lineHeight: 1.65, fontStyle: "italic" }}>
-        "I know my background is not a conventional fit for this role. What I do bring is X, Y, and Z - and here is specifically how I see that applying."
-      </p>
-      <p style={{ fontSize: 13, color: ink, margin: "12px 0 0", lineHeight: 1.55 }}>
-        Naming the gap yourself shows confidence and self-awareness. It takes the awkwardness out of the room and gives you control over how the conversation frames your background.
-      </p>
-    </div>
-  );
-}
-
-function CareerChangerAdvantage() {
-  const qualities = ["Adaptability", "Resilience", "A willingness to be a beginner again in service of getting somewhere better"];
-  return (
-    <div style={{ background: "#f0f9f5", border: `2px solid ${green}`, borderRadius: 10, padding: "22px 24px", margin: "16px 0 28px" }}>
-      <p style={{ fontSize: 13, fontWeight: 700, color: green, margin: "0 0 12px", letterSpacing: "0.04em", textTransform: "uppercase" }}>The career changer advantage</p>
-      <p style={{ fontSize: 14, color: inkMid, margin: "0 0 14px", lineHeight: 1.6 }}>
-        Someone who has navigated a career change has demonstrated something that is genuinely hard to teach:
-      </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 14 }}>
-        {qualities.map((q, i) => (
-          <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-            <span style={{ color: green, fontWeight: 700, flexShrink: 0, fontSize: 14, marginTop: 1 }}>✓</span>
-            <p style={{ fontSize: 14, fontWeight: i < 2 ? 600 : 400, color: ink, margin: 0, lineHeight: 1.5 }}>{q}</p>
-          </div>
-        ))}
-      </div>
-      <p style={{ fontSize: 14, color: ink, margin: 0, lineHeight: 1.6, borderTop: `1px solid rgba(63,111,99,0.2)`, paddingTop: 14, fontWeight: 500 }}>
-        That is not a liability. In most good organisations, it is exactly what they are looking for.
-      </p>
     </div>
   );
 }
@@ -110,68 +92,62 @@ function CareerChangerAdvantage() {
 export default function ArticleCareerChangers() {
   return (
     <ArticleLayout
-      bucket="Interview Resources"
+      bucket="Interview prep"
       title="Interview tips for career changers"
     >
-      <p>Changing careers is one of the most common things people do - and one of the things candidates feel most uncertain about walking into an interview room. The anxiety usually comes from the same place: "I do not have direct experience in this field. Why would they choose me over someone who does?"</p>
+      <p>When you are crossing industries or roles, the instinct is to apologise for your background. To lead with what you do not have. To frame your experience as almost relevant, nearly qualified, close but not quite there.</p>
 
-      <p>Here is the thing. That question is understandable, but it is the wrong frame. The right question is: what do I have that is genuinely valuable here, and how do I make that visible?</p>
+      <p>That instinct is wrong, and it costs people interviews they could have got.</p>
 
-      <p>This article is about how to answer that question - and how to use it to perform better in interviews than candidates who have spent their whole career in one lane.</p>
+      <p>Career changers do not have a lack of experience. They have experience that needs translating. That is a skills problem, not an evidence problem. And once you learn how to translate, the conversation changes.</p>
 
-      <h2>Why career changers often undersell themselves</h2>
+      <h2>The question they are really asking</h2>
 
-      <p>Most career changers walk into interviews in a defensive crouch. They lead with apology. They frame their background as a gap rather than an asset. They spend so much energy addressing what they lack that they never get to what they bring.</p>
+      <p>When an interviewer asks "why are you making this change?", they are not just curious. They are checking for three things.</p>
 
-      <p>Experienced interviewers find this frustrating, because the candidate sitting across from them often has exactly the kind of perspective they are looking for - someone who has seen how things work in a different industry, who brings a different lens, who has not been institutionalised into doing things one way. That is valuable. The candidate just is not selling it.</p>
+      <p>First: is this a decision or an escape? Someone running away from their last role is a retention risk. Someone who has been moving deliberately toward this one is not.</p>
 
-      <p>The mindset shift that changes everything: you are not trying to convince someone to overlook your background. You are trying to show them why your background is an advantage.</p>
+      <p>Second: do you understand what you are getting into? A career changer who has researched the role and the sector thoroughly signals commitment. One who is vague about the day-to-day reality signals they might be disappointed when they arrive.</p>
 
-      <h2>Do the translation work before the interview</h2>
-
-      <p>The most important preparation you can do as a career changer is translate your experience into the language of the new field before you walk into the room.</p>
-
-      <TranslationFlow />
-
-      <p>The translation work is your job, not the interviewer's. If you make them do it themselves, most of them will not. If you walk them through it clearly, you remove the uncertainty that makes interviewers hesitant.</p>
-
-      <h2>Frame your career change as a decision, not a drift</h2>
-
-      <p>One of the first things an interviewer will want to understand is why you are making this change. The answer matters more than most career changers realise.</p>
+      <p>Third: is your previous experience actually useful here? They are not asking you to prove you have done this exact job before. They are asking you to make the connection between what you have done and what they need.</p>
 
       <DecisionVsDrift />
 
-      <p>Even if your career change was partly reactive - a redundancy, a burnout, a life change - you can frame the forward movement as deliberate. What did you do once you decided to move in this direction? What have you learned? What have you built? That is the story to tell.</p>
+      <h2>The translation problem</h2>
 
-      <h2>Prepare for the experience gap question directly</h2>
+      <p>Most career changers undersell themselves because they describe their experience in the language of where they came from, rather than the language of where they are going. The experience is real and relevant. It just does not sound that way because the framing is wrong.</p>
 
-      <p>At some point, the interviewer will raise the fact that you do not have direct experience in this field. Do not wait for them to bring it up as a challenge. Acknowledge it yourself, and then immediately pivot to what you do have.</p>
+      <p>Translation is not spin. It is accuracy. You are not inventing relevance — you are revealing it. The goal is to describe what you actually did in language that lets the interviewer recognise the value without having to do the translation themselves.</p>
 
-      <GapScript />
+      <TranslationFlow />
 
-      <p>What you should never do is leave the gap unaddressed and hope the interviewer does not notice. They will notice. The question is whether they hear about it from you, framed positively, or whether it just sits there as an unspoken concern.</p>
+      <h2>The gap they are worried about</h2>
 
-      <h2>Use your outsider perspective as a genuine selling point</h2>
+      <p>Every interviewer considering a career changer has a version of the same concern: what do you not know that someone who came up through this sector would know? That concern is legitimate, and trying to pretend it does not exist makes it worse.</p>
 
-      <p>Every industry has things it does because it has always done them that way. Career changers can see those things clearly in a way that people who have grown up in the industry often cannot.</p>
+      <p>The move is to name it before they do, be specific about what it actually is, and show what you have done about it. A gap you have not addressed is a risk. A gap you have named, understood, and are actively closing is just a gap — and every candidate has some of those.</p>
 
-      <p>If your research into the new field has surfaced something you find genuinely interesting - a problem the industry has not solved, a practice that seems to be changing, something that your previous experience gives you a different view on - bring it into the conversation. It demonstrates that you have done serious research and distinguishes you from every other candidate who is just talking about their qualifications.</p>
+      <div style={{ background: greenLight, borderRadius: 10, padding: "18px 20px", margin: "20px 0 28px" }}>
+        <p style={{ fontSize: 13, fontWeight: 600, color: green, margin: "0 0 8px" }}>A structure that works</p>
+        <p style={{ fontSize: 13, color: ink, margin: "0 0 8px", lineHeight: 1.6 }}>"The gap I am aware of is [specific thing]. I do not think it is a barrier because [reason], but I want to be honest that it is there. Here is what I have done to address it: [specific action]. And here is how I expect to close it quickly once I am in the role: [concrete plan]."</p>
+        <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>This signals self-awareness, honesty, and preparation — three things any interviewer values over a candidate who pretends the concern away.</p>
+      </div>
 
-      <h2>What to do if you are asked about salary expectations</h2>
+      <h2>Telling the career change story</h2>
 
-      <p>This comes up more often for career changers because there is genuine uncertainty about where you sit in a new market. Do your research before the interview - look at salary data for the role, the sector, and the seniority level you are targeting - and be ready to give a considered range rather than a number pulled from the air.</p>
+      <p>You will be asked to explain your move. You need a version that is short (two minutes or less), clear (a logical thread, not a rambling explanation), and confident (not apologetic).</p>
 
-      <p>If you are moving into a role at a lower seniority level than you have held before, be honest about the fact that you understand the market rate and you are comfortable with it. If you can address that concern directly - "I understand this is an entry-level salary for this field and I am committed to building here properly" - you remove a real hesitation.</p>
+      <p>The structure: here is where I have been and what I have built. Here is what I realised I was moving toward and why. Here is what I have done to get ready for this. Here is why this role specifically makes sense as the next step.</p>
 
-      <h2>The career changer advantage</h2>
+      <p>That story needs to feel like it ends here — at this role, at this company — not like it could have ended anywhere. The more specific you are about why this particular opportunity, the more convincing the narrative becomes.</p>
 
-      <p>Here is what most career changers never hear: the people who are hardest to hire are the ones who have only ever done one thing in one way in one type of organisation. They are often skilled, but they are narrow. They struggle when the context changes.</p>
+      <h2>What actually matters in the room</h2>
 
-      <CareerChangerAdvantage />
+      <p>In the interview itself, the job is not to defend your background. It is to make the connection so clearly that the interviewer does not have to.</p>
 
-      <p>Your job in the interview is not to apologise for the path you have taken. It is to make the case that the path you have taken has made you better at this than the candidate who has never left their lane.</p>
+      <p>When a question lands, ask yourself: what quality is this question trying to assess? Then choose the example from your experience — regardless of which sector it came from — that best demonstrates that quality. The best answer to "tell me about a time you managed a difficult stakeholder" is the best story you have. It does not matter if it came from teaching, retail, or running a small business.</p>
 
-      <p>Most career changers can make that case. Very few of them do.</p>
+      <p>The candidates who succeed as career changers are not the ones who manage to hide their background. They are the ones who make their background make sense.</p>
 
     </ArticleLayout>
   );

@@ -1,23 +1,11 @@
 import ArticleLayout from "./ArticleLayout";
 
-const nextArticle = {
-  slug: "star-method",
-  label: "Next up",
-  title: "The STAR method explained with real examples",
-  excerpt: "Situation, Task, Action, Result. The most reliable structure for behavioural answers but most people use it wrong. Here's how to use it right.",
-};
-
-// Inline styles shared across visuals
-const colours = {
-  green: "#3F6F63",
-  greenLight: "#edf4f2",
-  orange: "#D47A2C",
-  orangeLight: "#fdf0e4",
-  ink: "#111111",
-  inkMid: "#555555",
-  border: "rgba(0,0,0,0.07)",
-  surface: "#f9f9f9",
-};
+const green = "#3F6F63";
+const greenLight = "#edf4f2";
+const ink = "#111111";
+const inkMid = "#555555";
+const border = "rgba(0,0,0,0.07)";
+const surface = "#f9f9f9";
 
 // Four category cards
 function CategoryGrid() {
@@ -34,7 +22,7 @@ function CategoryGrid() {
       label: "Skills and competency",
       question: "What are you good at?",
       framework: "Claim + Evidence + Relevance",
-      colour: "#fdf0e4",
+      colour: "#edf4f2",
     },
     {
       number: "03",
@@ -70,19 +58,19 @@ function CategoryGrid() {
         }}>
           <span style={{
             fontSize: 11, fontWeight: 700,
-            color: colours.inkMid, letterSpacing: "0.06em",
+            color: inkMid, letterSpacing: "0.06em",
           }}>
             {cat.number}
           </span>
           <p style={{
             fontSize: 15, fontWeight: 700,
-            color: colours.ink, margin: 0,
+            color: ink, margin: 0,
             lineHeight: 1.3,
           }}>
             {cat.label}
           </p>
           <p style={{
-            fontSize: 13, color: colours.inkMid,
+            fontSize: 13, color: inkMid,
             margin: 0, lineHeight: 1.5,
           }}>
             {cat.question}
@@ -90,7 +78,7 @@ function CategoryGrid() {
           <div style={{
             marginTop: 6,
             fontSize: 11, fontWeight: 600,
-            color: colours.green,
+            color: green,
             letterSpacing: "0.04em",
             textTransform: "uppercase",
           }}>
@@ -115,16 +103,16 @@ function FrameworkSteps({ steps }) {
       {steps.map((step, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{
-            background: colours.greenLight,
+            background: greenLight,
             borderRadius: 8,
             padding: "8px 14px",
             fontSize: 13, fontWeight: 600,
-            color: colours.green,
+            color: green,
           }}>
             {step}
           </div>
           {i < steps.length - 1 && (
-            <span style={{ color: colours.inkMid, fontSize: 14 }}>→</span>
+            <span style={{ color: inkMid, fontSize: 14 }}>→</span>
           )}
         </div>
       ))}
@@ -132,20 +120,21 @@ function FrameworkSteps({ steps }) {
   );
 }
 
-// Trap callout box
+// Trap callout box — re-skinned to new design system
 function Trap({ children }) {
   return (
     <div style={{
-      background: "#fff8f4",
-      border: "1.5px solid #f5ddc8",
+      background: surface,
+      border: `1px solid ${border}`,
+      borderLeft: `3px solid ${green}`,
       borderRadius: 8,
       padding: "12px 16px",
       margin: "16px 0 24px",
       fontSize: 14,
-      color: colours.inkMid,
+      color: inkMid,
       lineHeight: 1.6,
     }}>
-      <span style={{ fontWeight: 600, color: colours.orange }}>Trap to avoid: </span>
+      <span style={{ fontWeight: 600, color: ink }}>Watch out: </span>
       {children}
     </div>
   );
@@ -154,13 +143,13 @@ function Trap({ children }) {
 export default function ArticleFourTypes() {
   return (
     <ArticleLayout
-      bucket="Interview Resources"
-      title="The 4 types of interview question - and how to answer each one"
-      nextArticle={nextArticle}
+      bucket="Interview prep"
+      title="The 4 types of interview question and how to answer each one"
     >
-      <p>Here's something most interview prep advice misses: every question you'll ever be asked in a job interview falls into one of four categories. Once you know which category you're dealing with, you know exactly how to structure your answer.</p>
+      <p>Here is something most interview prep advice misses: every question you will ever be asked in a job interview falls into one of four categories. Once you know which category you are dealing with, you know exactly how to structure your answer.</p>
 
-      <p>I've been working in talent and career development for over 20 years. The single most useful thing I can share - the thing that changes how people perform most quickly - is this framework.</p>
+      {/* ADDED: five outfits paragraph */}
+      <p>One thing worth noticing before you go further: behavioural questions come in many disguises. "Tell me about a challenge you faced," "describe a conflict you managed," "walk me through a failure," "give me an example of influencing without authority" — these look like five different questions. They are one question in five different outfits. They all want the same thing: a specific, structured story from your experience. Once you see that, a large part of interview preparation simplifies considerably.</p>
 
       <h2>The four categories</h2>
 
@@ -192,9 +181,9 @@ export default function ArticleFourTypes() {
 
       <FrameworkSteps steps={["Claim", "Evidence", "Relevance"]} />
 
-      <p>Most people only do the first part. They say "I'm a strong communicator" and then wait. That's a claim with nothing behind it. Every candidate in that waiting room is saying the same thing.</p>
+      <p>Most people only do the first part. They say "I'm a strong communicator" and then wait. That is a claim with nothing behind it. Every candidate in that waiting room is saying the same thing.</p>
 
-      <p><em>Example:</em> "I'd say one of my genuine strengths is translating complex information for non-specialist audiences. In my last role I was responsible for presenting data analysis to a board with very little technical background - I developed a format that focused on business implications rather than methodology, and we went from 20-minute presentations with lots of questions to 10-minute sessions where decisions were made on the spot. I imagine that kind of communication is relevant here given the cross-functional nature of the role."</p>
+      <p><em>Example:</em> "I'd say one of my genuine strengths is translating complex information for non-specialist audiences. In my last role I was responsible for presenting data analysis to a board with very little technical background — I developed a format that focused on business implications rather than methodology, and we went from 20-minute presentations with lots of questions to 10-minute sessions where decisions were made on the spot. I imagine that kind of communication is relevant here given the cross-functional nature of the role."</p>
 
       <Trap>Being too vague or listing too many things. Pick two or three genuine strengths and go deep on them.</Trap>
 
@@ -208,36 +197,36 @@ export default function ArticleFourTypes() {
 
       <FrameworkSteps steps={["Research", "Alignment", "Enthusiasm"]} />
 
-      <p>Evidence that you've done your research. A clear line connecting what they're doing to what you genuinely want from your career. And some actual enthusiasm - not performed excitement, but a clear sense that this role makes sense for you right now.</p>
+      <p>Evidence that you have done your research. A clear line connecting what they are doing to what you genuinely want from your career. And some actual enthusiasm — not performed excitement, but a clear sense that this role makes sense for you right now.</p>
 
-      <p><em>Example:</em> "I've been following what you've been doing in the sustainability space for the last couple of years - particularly the supplier transparency work you published last year, which isn't something many companies at your scale have done publicly. That kind of approach to accountability is what I want to be part of. I've spent the last four years building operational experience, and I'm now looking for somewhere I can bring that into a context where the mission actually matters to me."</p>
+      <p><em>Example:</em> "I have been following what you have been doing in the sustainability space for the last couple of years — particularly the supplier transparency work you published last year, which is not something many companies at your scale have done publicly. That kind of approach to accountability is what I want to be part of. I have spent the last four years building operational experience, and I am now looking for somewhere I can bring that into a context where the mission actually matters to me."</p>
 
       <Trap>Treating "why are you leaving your current role" as needing a completely different answer. Keep the focus on what this new opportunity offers rather than what the old one lacks.</Trap>
 
       <h2>Category 4: Challenging questions</h2>
 
-      <p><strong>What they sound like:</strong> "What's your greatest weakness?", "Tell me about a time you failed.", "Describe a situation where you disagreed with your manager.", "Tell me about a time you made a mistake."</p>
+      <p><strong>What they sound like:</strong> "What is your greatest weakness?", "Tell me about a time you failed.", "Describe a situation where you disagreed with your manager.", "Tell me about a time you made a mistake."</p>
 
-      <p><strong>What the interviewer is actually asking:</strong> How do you handle pressure? Are you self-aware? Can you be honest when it's uncomfortable?</p>
+      <p><strong>What the interviewer is actually asking:</strong> How do you handle pressure? Are you self-aware? Can you be honest when it is uncomfortable?</p>
 
       <p><strong>Framework: Bridge / Clarify / Reframe / Authentic</strong></p>
 
       <FrameworkSteps steps={["Bridge", "Clarify", "Reframe", "Authentic"]} />
 
-      <p><strong>Bridge</strong> - acknowledge the question honestly, then pivot to a strength or learning.</p>
-      <p><strong>Clarify</strong> - ask a brief question to buy thinking time and show considered judgment. Works well on vague questions.</p>
-      <p><strong>Reframe</strong> - turn a genuine challenge into a growth story. Name the difficulty, show the arc of learning, land on where you are now.</p>
-      <p><strong>Authentic</strong> - be honest and professional. Don't blame colleagues, don't overshare. You can acknowledge something hard without turning the interview into a therapy session.</p>
+      <p><strong>Bridge</strong> — acknowledge the question honestly, then pivot to a strength or learning.</p>
+      <p><strong>Clarify</strong> — ask a brief question to buy thinking time and show considered judgment. Works well on vague questions.</p>
+      <p><strong>Reframe</strong> — turn a genuine challenge into a growth story. Name the difficulty, show the arc of learning, land on where you are now.</p>
+      <p><strong>Authentic</strong> — be honest and professional. Do not blame colleagues, do not overshare. You can acknowledge something hard without turning the interview into a therapy session.</p>
 
-      <p>The instinct most candidates have with challenging questions is to minimise or deflect. That instinct is wrong. An interviewer who gets a genuine, considered answer - even if it's not flattering - tends to trust the candidate more, not less.</p>
+      <p>The instinct most candidates have with challenging questions is to minimise or deflect. That instinct is wrong. An interviewer who gets a genuine, considered answer — even if it is not flattering — tends to trust the candidate more, not less.</p>
 
-      <Trap>Answering the weakness question with "I'm a perfectionist." Every interviewer has heard this a hundred times. It signals you're not willing to engage with the question properly.</Trap>
+      <Trap>Answering the weakness question with "I'm a perfectionist." Every interviewer has heard this a hundred times. It signals you are not willing to engage with the question properly.</Trap>
 
       <h2>How to use this framework in practice</h2>
 
-      <p>Before any interview, go through the job description and write down five or six questions you expect to be asked. Categorise each one. Once you know the category, you know the structure. Then it's just a matter of choosing the right example or framing for your specific situation.</p>
+      <p>Before any interview, go through the job description and write down five or six questions you expect to be asked. Categorise each one. Once you know the category, you know the structure. Then it is just a matter of choosing the right example or framing for your specific situation.</p>
 
-      <p>The candidates who perform best in interviews aren't the ones with the most impressive CVs. They're the ones who are clearest about what the question is actually asking and most direct in answering it.</p>
+      <p>The candidates who perform best in interviews are not the ones with the most impressive CVs. They are the ones who are clearest about what the question is actually asking and most direct in answering it.</p>
 
     </ArticleLayout>
   );

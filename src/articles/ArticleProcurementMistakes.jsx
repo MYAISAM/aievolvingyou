@@ -2,7 +2,7 @@ import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
 const greenLight = "#edf4f2";
-const orange = "#D47A2C";
+const orange = "#3F6F63";
 const ink = "#111111";
 const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
@@ -26,7 +26,7 @@ function QuestionsComparison() {
   ];
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, margin: "20px 0 32px" }}>
-      <div style={{ background: "#fff8f4", border: "1.5px solid #f5ddc8", borderRadius: 10, padding: "18px 18px 16px" }}>
+      <div style={{ background: "#f6f3f2", border: "1.5px solid rgba(63,111,99,0.22)", borderRadius: 10, padding: "18px 18px 16px" }}>
         <p style={{ fontSize: 11, fontWeight: 700, color: orange, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 12 }}>What buyers often ask</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {often.map((q, i) => (
@@ -89,7 +89,7 @@ function FourMistakes() {
           </div>
           <p style={{ fontSize: 13, color: inkMid, margin: "0 0 10px", lineHeight: 1.6 }}>{m.detail}</p>
           {m.stat && (
-            <div style={{ background: "#fff8f4", border: "1.5px solid #f5ddc8", borderRadius: 8, padding: "10px 14px" }}>
+            <div style={{ background: "#f6f3f2", border: "1.5px solid rgba(63,111,99,0.22)", borderRadius: 8, padding: "10px 14px" }}>
               <p style={{ fontSize: 13, color: ink, margin: 0, lineHeight: 1.55, fontStyle: "italic" }}>"{m.stat}"</p>
               <p style={{ fontSize: 11, color: inkMid, margin: "6px 0 0", fontWeight: 600 }}>{m.source}</p>
             </div>
@@ -113,7 +113,7 @@ function LegalCases() {
         <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
           <div style={{ flexShrink: 0, minWidth: 64 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#fdf0e4", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
+            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#edf4f2", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
           </div>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>

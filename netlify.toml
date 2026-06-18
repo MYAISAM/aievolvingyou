@@ -9,6 +9,24 @@
     Content-Disposition = "attachment"
 
 [[redirects]]
+  from = "/resources/behavioural-interview"
+  to = "/resources/star-method"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resources/do-employers-use-ai-to-screen-applications"
+  to = "/resources/how-ai-screening-actually-works"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resources/how-to-tell-if-ai-is-screening-you"
+  to = "/resources/can-you-tell-when-ai-is-screening-your-application"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

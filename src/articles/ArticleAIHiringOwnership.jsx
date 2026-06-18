@@ -2,7 +2,7 @@ import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
 const greenLight = "#edf4f2";
-const orange = "#D47A2C";
+const orange = "#3F6F63";
 const ink = "#111111";
 const inkMid = "#555555";
 const inkLight = "#999999";

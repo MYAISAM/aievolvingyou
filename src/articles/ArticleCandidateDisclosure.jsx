@@ -2,9 +2,9 @@ import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
 const greenLight = "#edf4f2";
-const orange = "#D47A2C";
-const orangeLight = "#fff8f4";
-const orangeBorder = "#f5ddc8";
+const orange = "#3F6F63";
+const orangeLight = "#f6f3f2";
+const orangeBorder = "rgba(63,111,99,0.22)";
 const ink = "#111111";
 const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";

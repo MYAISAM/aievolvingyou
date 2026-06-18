@@ -8,7 +8,7 @@ const nextArticle = {
 };
 
 const green = "#3F6F63";
-const orange = "#D47A2C";
+const orange = "#3F6F63";
 const ink = "#111111";
 const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
@@ -32,7 +32,7 @@ function FeedbackLoop() {
             <p style={{ fontSize: 14, color: inkMid, margin: 0, lineHeight: 1.55 }}>{step.text}</p>
           </div>
         ))}
-        <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#fff8f4", border: "1.5px solid #f5ddc8", borderRadius: 8, padding: "12px 16px" }}>
+        <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#f6f3f2", border: "1.5px solid rgba(63,111,99,0.22)", borderRadius: 8, padding: "12px 16px" }}>
           <span style={{ fontSize: 14, fontWeight: 700, color: orange, flexShrink: 0 }}>&#8635;</span>
           <p style={{ fontSize: 14, color: orange, fontWeight: 600, margin: 0, lineHeight: 1.55 }}>Back to step 01 — and the loop tightens</p>
         </div>
