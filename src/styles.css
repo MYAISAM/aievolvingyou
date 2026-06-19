@@ -2009,7 +2009,7 @@ body {
 .contact-form {
   margin-top: 0;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1.5px solid rgba(157, 119, 80, 0.42);
   border-radius: 18px;
   padding: 32px;
 }
