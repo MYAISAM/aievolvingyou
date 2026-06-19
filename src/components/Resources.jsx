@@ -249,12 +249,53 @@ export default function Resources() {
     }
   }
 
+  function scrollToResourceHash(hash = window.location.hash, behavior) {
+    if (!hash) return undefined;
+
+    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    target?.scrollIntoView({ block: "start", ...(behavior ? { behavior } : {}) });
+    return target;
+  }
+
   useEffect(() => {
-    if (!location.hash) return;
-    window.requestAnimationFrame(() => {
-      document.querySelector(location.hash)?.scrollIntoView({ block: "start" });
+    if (new URLSearchParams(location.search).has("toolkit")) return undefined;
+
+    const hash = location.hash || window.location.hash;
+    if (!hash) return undefined;
+
+    window.requestAnimationFrame(() => scrollToResourceHash(hash));
+    const timeout = window.setTimeout(() => scrollToResourceHash(hash), 150);
+    return () => window.clearTimeout(timeout);
+  }, [location.pathname, location.search, location.hash, location.key]);
+
+  useEffect(() => {
+    const toolkitId = new URLSearchParams(location.search).get("toolkit");
+    if (!toolkitId) return undefined;
+
+    const toolkit = [...individualToolkits, bundleToolkit].find((item) => item.id === toolkitId);
+    if (!toolkit) return undefined;
+
+    const frame = window.requestAnimationFrame(() => {
+      scrollToResourceHash(location.hash || `#${toolkit.id}`, "instant");
+      toolkitScrollY.current = window.scrollY;
+      setSelectedToolkit(toolkit);
     });
-  }, [location.hash]);
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.search, location.hash, location.key]);
+
+  useEffect(() => {
+    function handleHashChange() {
+      if (new URLSearchParams(window.location.search).has("toolkit")) return;
+
+      window.requestAnimationFrame(() => scrollToResourceHash());
+      window.setTimeout(() => scrollToResourceHash(), 150);
+    }
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   return (
     <main className="resources-page">

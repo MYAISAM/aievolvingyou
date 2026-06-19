@@ -103,21 +103,21 @@ function FourMistakes() {
 function LegalCases() {
   const cases = [
     { year: "2023", who: "iTutorGroup / EEOC", what: "First resolved AI hiring discrimination case. $365,000 settlement after AI tool automatically rejected applicants based on age.", tag: "First resolved case" },
-    { year: "2025", who: "Workday class action", what: "Federal court established that AI vendors can act as agents of employers — making vendors directly liable alongside the organisations using their tools.", tag: "Vendor liability established" },
+    { year: "2025", who: "Workday class action", what: "Federal court established that AI vendors can act as agents of employers, making vendors directly liable alongside the organisations using their tools.", tag: "Vendor liability established" },
     { year: "Jan 2026", who: "Eightfold AI class action", what: "New legal theory: AI scoring platforms may need to comply with the Fair Credit Reporting Act, expanding compliance requirements significantly.", tag: "New legal theory" },
     { year: "2023-24", who: "UK ICO", what: "296 recommendations issued after auditing AI recruitment tool providers, focused on DPIAs, candidate transparency, and bias monitoring post-deployment.", tag: "UK regulator" },
   ];
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 10, margin: "16px 0 28px" }}>
+    <div className="legal-cases">
       {cases.map((c, i) => (
-        <div key={i} style={{ background: surface, border: `1px solid ${border}`, borderRadius: 8, padding: "14px 18px", display: "flex", gap: 16, alignItems: "flex-start" }}>
-          <div style={{ flexShrink: 0, minWidth: 64 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: ink, margin: 0 }}>{c.year}</p>
-            <span style={{ display: "inline-block", fontSize: 10, fontWeight: 600, color: orange, background: "#edf4f2", borderRadius: 20, padding: "2px 8px", marginTop: 4, letterSpacing: "0.04em" }}>{c.tag}</span>
+        <div key={i} className="legal-case">
+          <div className="legal-case__meta">
+            <p className="legal-case__year">{c.year}</p>
+            <span className="legal-case__tag">{c.tag}</span>
           </div>
-          <div>
-            <p style={{ fontSize: 13, fontWeight: 600, color: ink, margin: "0 0 4px" }}>{c.who}</p>
-            <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6 }}>{c.what}</p>
+          <div className="legal-case__content">
+            <p className="legal-case__name">{c.who}</p>
+            <p className="legal-case__detail">{c.what}</p>
           </div>
         </div>
       ))}

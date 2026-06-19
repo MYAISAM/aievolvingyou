@@ -64,7 +64,7 @@ function TranslationFlow() {
     },
     {
       from: "I ran my own business for four years",
-      to: "I was responsible for every function of a small business — business development, client relationships, delivery, finances, and hiring. I built it to a point where I had three employees and recurring revenue, and I made every decision with limited information and no safety net.",
+      to: "I was responsible for every function of a small business, business development, client relationships, delivery, finances, and hiring. I built it to a point where I had three employees and recurring revenue, and I made every decision with limited information and no safety net.",
       label: "Self-employed to corporate",
     },
   ];
@@ -117,7 +117,7 @@ export default function ArticleCareerChangers() {
 
       <p>Most career changers undersell themselves because they describe their experience in the language of where they came from, rather than the language of where they are going. The experience is real and relevant. It just does not sound that way because the framing is wrong.</p>
 
-      <p>Translation is not spin. It is accuracy. You are not inventing relevance — you are revealing it. The goal is to describe what you actually did in language that lets the interviewer recognise the value without having to do the translation themselves.</p>
+      <p>Translation is not spin. It is accuracy. You are not inventing relevance, you are revealing it. The goal is to describe what you actually did in language that lets the interviewer recognise the value without having to do the translation themselves.</p>
 
       <TranslationFlow />
 
@@ -125,12 +125,12 @@ export default function ArticleCareerChangers() {
 
       <p>Every interviewer considering a career changer has a version of the same concern: what do you not know that someone who came up through this sector would know? That concern is legitimate, and trying to pretend it does not exist makes it worse.</p>
 
-      <p>The move is to name it before they do, be specific about what it actually is, and show what you have done about it. A gap you have not addressed is a risk. A gap you have named, understood, and are actively closing is just a gap — and every candidate has some of those.</p>
+      <p>The move is to name it before they do, be specific about what it actually is, and show what you have done about it. A gap you have not addressed is a risk. A gap you have named, understood, and are actively closing is just a gap, and every candidate has some of those.</p>
 
       <div style={{ background: greenLight, borderRadius: 10, padding: "18px 20px", margin: "20px 0 28px" }}>
         <p style={{ fontSize: 13, fontWeight: 600, color: green, margin: "0 0 8px" }}>A structure that works</p>
         <p style={{ fontSize: 13, color: ink, margin: "0 0 8px", lineHeight: 1.6 }}>"The gap I am aware of is [specific thing]. I do not think it is a barrier because [reason], but I want to be honest that it is there. Here is what I have done to address it: [specific action]. And here is how I expect to close it quickly once I am in the role: [concrete plan]."</p>
-        <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>This signals self-awareness, honesty, and preparation — three things any interviewer values over a candidate who pretends the concern away.</p>
+        <p style={{ fontSize: 13, color: inkMid, margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>This signals self-awareness, honesty, and preparation, three things any interviewer values over a candidate who pretends the concern away.</p>
       </div>
 
       <h2>Telling the career change story</h2>
@@ -139,13 +139,13 @@ export default function ArticleCareerChangers() {
 
       <p>The structure: here is where I have been and what I have built. Here is what I realised I was moving toward and why. Here is what I have done to get ready for this. Here is why this role specifically makes sense as the next step.</p>
 
-      <p>That story needs to feel like it ends here — at this role, at this company — not like it could have ended anywhere. The more specific you are about why this particular opportunity, the more convincing the narrative becomes.</p>
+      <p>That story needs to feel like it ends here, at this role, at this company, not like it could have ended anywhere. The more specific you are about why this particular opportunity, the more convincing the narrative becomes.</p>
 
       <h2>What actually matters in the room</h2>
 
       <p>In the interview itself, the job is not to defend your background. It is to make the connection so clearly that the interviewer does not have to.</p>
 
-      <p>When a question lands, ask yourself: what quality is this question trying to assess? Then choose the example from your experience — regardless of which sector it came from — that best demonstrates that quality. The best answer to "tell me about a time you managed a difficult stakeholder" is the best story you have. It does not matter if it came from teaching, retail, or running a small business.</p>
+      <p>When a question lands, ask yourself: what quality is this question trying to assess? Then choose the example from your experience, regardless of which sector it came from, that best demonstrates that quality. The best answer to "tell me about a time you managed a difficult stakeholder" is the best story you have. It does not matter if it came from teaching, retail, or running a small business.</p>
 
       <p>The candidates who succeed as career changers are not the ones who manage to hide their background. They are the ones who make their background make sense.</p>
 

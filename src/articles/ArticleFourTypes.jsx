@@ -120,7 +120,7 @@ function FrameworkSteps({ steps }) {
   );
 }
 
-// Trap callout box — re-skinned to new design system
+// Trap callout box, re-skinned to new design system
 function Trap({ children }) {
   return (
     <div style={{
@@ -149,7 +149,7 @@ export default function ArticleFourTypes() {
       <p>Here is something most interview prep advice misses: every question you will ever be asked in a job interview falls into one of four categories. Once you know which category you are dealing with, you know exactly how to structure your answer.</p>
 
       {/* ADDED: five outfits paragraph */}
-      <p>One thing worth noticing before you go further: behavioural questions come in many disguises. "Tell me about a challenge you faced," "describe a conflict you managed," "walk me through a failure," "give me an example of influencing without authority" — these look like five different questions. They are one question in five different outfits. They all want the same thing: a specific, structured story from your experience. Once you see that, a large part of interview preparation simplifies considerably.</p>
+      <p>One thing worth noticing before you go further: behavioural questions come in many disguises. "Tell me about a challenge you faced," "describe a conflict you managed," "walk me through a failure," "give me an example of influencing without authority", these look like five different questions. They are one question in five different outfits. They all want the same thing: a specific, structured story from your experience. Once you see that, a large part of interview preparation simplifies considerably.</p>
 
       <h2>The four categories</h2>
 
@@ -183,7 +183,7 @@ export default function ArticleFourTypes() {
 
       <p>Most people only do the first part. They say "I'm a strong communicator" and then wait. That is a claim with nothing behind it. Every candidate in that waiting room is saying the same thing.</p>
 
-      <p><em>Example:</em> "I'd say one of my genuine strengths is translating complex information for non-specialist audiences. In my last role I was responsible for presenting data analysis to a board with very little technical background — I developed a format that focused on business implications rather than methodology, and we went from 20-minute presentations with lots of questions to 10-minute sessions where decisions were made on the spot. I imagine that kind of communication is relevant here given the cross-functional nature of the role."</p>
+      <p><em>Example:</em> "I'd say one of my genuine strengths is translating complex information for non-specialist audiences. In my last role I was responsible for presenting data analysis to a board with very little technical background, I developed a format that focused on business implications rather than methodology, and we went from 20-minute presentations with lots of questions to 10-minute sessions where decisions were made on the spot. I imagine that kind of communication is relevant here given the cross-functional nature of the role."</p>
 
       <Trap>Being too vague or listing too many things. Pick two or three genuine strengths and go deep on them.</Trap>
 
@@ -197,9 +197,9 @@ export default function ArticleFourTypes() {
 
       <FrameworkSteps steps={["Research", "Alignment", "Enthusiasm"]} />
 
-      <p>Evidence that you have done your research. A clear line connecting what they are doing to what you genuinely want from your career. And some actual enthusiasm — not performed excitement, but a clear sense that this role makes sense for you right now.</p>
+      <p>Evidence that you have done your research. A clear line connecting what they are doing to what you genuinely want from your career. And some actual enthusiasm, not performed excitement, but a clear sense that this role makes sense for you right now.</p>
 
-      <p><em>Example:</em> "I have been following what you have been doing in the sustainability space for the last couple of years — particularly the supplier transparency work you published last year, which is not something many companies at your scale have done publicly. That kind of approach to accountability is what I want to be part of. I have spent the last four years building operational experience, and I am now looking for somewhere I can bring that into a context where the mission actually matters to me."</p>
+      <p><em>Example:</em> "I have been following what you have been doing in the sustainability space for the last couple of years, particularly the supplier transparency work you published last year, which is not something many companies at your scale have done publicly. That kind of approach to accountability is what I want to be part of. I have spent the last four years building operational experience, and I am now looking for somewhere I can bring that into a context where the mission actually matters to me."</p>
 
       <Trap>Treating "why are you leaving your current role" as needing a completely different answer. Keep the focus on what this new opportunity offers rather than what the old one lacks.</Trap>
 
@@ -213,12 +213,12 @@ export default function ArticleFourTypes() {
 
       <FrameworkSteps steps={["Bridge", "Clarify", "Reframe", "Authentic"]} />
 
-      <p><strong>Bridge</strong> — acknowledge the question honestly, then pivot to a strength or learning.</p>
-      <p><strong>Clarify</strong> — ask a brief question to buy thinking time and show considered judgment. Works well on vague questions.</p>
-      <p><strong>Reframe</strong> — turn a genuine challenge into a growth story. Name the difficulty, show the arc of learning, land on where you are now.</p>
-      <p><strong>Authentic</strong> — be honest and professional. Do not blame colleagues, do not overshare. You can acknowledge something hard without turning the interview into a therapy session.</p>
+      <p><strong>Bridge</strong>, acknowledge the question honestly, then pivot to a strength or learning.</p>
+      <p><strong>Clarify</strong>, ask a brief question to buy thinking time and show considered judgment. Works well on vague questions.</p>
+      <p><strong>Reframe</strong>, turn a genuine challenge into a growth story. Name the difficulty, show the arc of learning, land on where you are now.</p>
+      <p><strong>Authentic</strong>, be honest and professional. Do not blame colleagues, do not overshare. You can acknowledge something hard without turning the interview into a therapy session.</p>
 
-      <p>The instinct most candidates have with challenging questions is to minimise or deflect. That instinct is wrong. An interviewer who gets a genuine, considered answer — even if it is not flattering — tends to trust the candidate more, not less.</p>
+      <p>The instinct most candidates have with challenging questions is to minimise or deflect. That instinct is wrong. An interviewer who gets a genuine, considered answer, even if it is not flattering, tends to trust the candidate more, not less.</p>
 
       <Trap>Answering the weakness question with "I'm a perfectionist." Every interviewer has heard this a hundred times. It signals you are not willing to engage with the question properly.</Trap>
 

@@ -194,7 +194,7 @@ export default function ArticleVendorQuestions() {
             textDecoration: "none",
           }}
         >
-          Buy the toolkit — £79
+          Buy the toolkit, £79
         </a>
       </div>
 

@@ -29,7 +29,7 @@ export default function ArticleSpecificity() {
 
       <p>Think about it from the interviewer's perspective. They are reading thirty applications for one role. Twenty-five of them describe someone who is "passionate about delivering results", "a natural team player", and "comfortable working in fast-paced environments." After the fifth one, those phrases stop registering.</p>
 
-      <p>Then they hit an application that says: "I reduced customer complaint resolution time by 40% by redesigning our escalation process — something I did in the first three months of the role without being asked."</p>
+      <p>Then they hit an application that says: "I reduced customer complaint resolution time by 40% by redesigning our escalation process, something I did in the first three months of the role without being asked."</p>
 
       <p>That one they remember. That one gets the call.</p>
 
@@ -43,7 +43,7 @@ export default function ArticleSpecificity() {
 
       <p>Not "I have a proven track record of success." But: what did you achieve, by how much, and how?</p>
 
-      <p>The specificity principle applies everywhere — your CV, your cover letter, your interview answers, your LinkedIn profile, your elevator pitch. A vague claim is always weaker than a specific example.</p>
+      <p>The specificity principle applies everywhere, your CV, your cover letter, your interview answers, your LinkedIn profile, your elevator pitch. A vague claim is always weaker than a specific example.</p>
 
       {/* ADDED: cross-reference to Article 5 */}
       <p>The same principle applies one step earlier. In the article on ATS-friendly CVs we covered how a skill listed but not demonstrated in your experience is just a claim. Specificity is what turns a claim into evidence, whether on a CV or in an answer.</p>
@@ -107,7 +107,7 @@ export default function ArticleSpecificity() {
 
       <p><strong>They think their examples are not impressive enough.</strong> They are. A specific example from a small team or an entry-level role is worth more than a vague claim about a senior one. "I redesigned our onboarding checklist and reduced new starter mistakes in the first week by half" is more compelling than "I have extensive experience improving operational processes."</p>
 
-      <p><strong>They have not done the work of identifying their examples.</strong> Most people have more specific, compelling stories than they realise — they just have not sat down to surface them.</p>
+      <p><strong>They have not done the work of identifying their examples.</strong> Most people have more specific, compelling stories than they realise, they just have not sat down to surface them.</p>
 
       <p><strong>They are worried about being too specific.</strong> A specific example proves the general capability. It makes the claim believable. And it invites the interviewer to ask follow-up questions, which is exactly what you want.</p>
 
@@ -131,9 +131,9 @@ export default function ArticleSpecificity() {
 
       <p>Stop telling people what you are like. Show them what you have done.</p>
 
-      <p>"I am a good communicator" tells an interviewer nothing they could not have made up themselves. A specific story about what you communicated, to whom, and what happened as a result — that is something they can evaluate, remember, and talk about in a debrief.</p>
+      <p>"I am a good communicator" tells an interviewer nothing they could not have made up themselves. A specific story about what you communicated, to whom, and what happened as a result, that is something they can evaluate, remember, and talk about in a debrief.</p>
 
-      <p>That is the specificity principle. And once you start applying it, you will find you feel more confident talking about yourself — because you are not making claims anymore. You are just telling the truth, with enough detail that it lands.</p>
+      <p>That is the specificity principle. And once you start applying it, you will find you feel more confident talking about yourself, because you are not making claims anymore. You are just telling the truth, with enough detail that it lands.</p>
 
     </ArticleLayout>
   );

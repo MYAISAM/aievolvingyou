@@ -7,24 +7,40 @@ const ctas = {
     href: "https://coach.aievolvingyou.com",
   },
   "toolkit-1": {
-    text: "The AI Procurement Questions guide helps your team evaluate AI hiring tools with clearer questions, stronger evidence and fewer blind spots. £79.",
+    label: "Put it into practice",
+    title: "AI Procurement Questions",
+    text: "Use structured questions to test vendor claims, risk controls, human oversight, data use, bias monitoring and contractual safeguards before you buy.",
     button: "View toolkit",
-    href: "/resources/toolkits#procurement-questions",
+    href: "/resources/toolkits?toolkit=procurement-questions#procurement-questions",
+    secondary: "See all organisational tools",
+    secondaryHref: "/resources#toolkit-library",
   },
   "toolkit-2": {
-    text: "The Candidate Transparency Guide helps you explain AI use in hiring clearly, fairly and without over-disclosing. £49.",
+    label: "Put it into practice",
+    title: "Candidate Transparency Guide",
+    text: "Give candidates clear, practical explanations of where AI is used, what it affects, and how human review works.",
     button: "View toolkit",
-    href: "/resources/toolkits#candidate-transparency-guide",
+    href: "/resources/toolkits?toolkit=candidate-transparency-guide#candidate-transparency-guide",
+    secondary: "See all organisational tools",
+    secondaryHref: "/resources#toolkit-library",
   },
   "toolkit-3": {
-    text: "The Bias Audit Checklist gives your team a structured way to review fairness risks across AI hiring tools and processes. £49.",
+    label: "Put it into practice",
+    title: "Bias Audit Checklist for AI Hiring",
+    text: "Review where AI hiring tools may create, hide or amplify bias across screening, assessment, interview and decision stages.",
     button: "View toolkit",
-    href: "/resources/toolkits#bias-audit-checklist",
+    href: "/resources/toolkits?toolkit=bias-audit-checklist#bias-audit-checklist",
+    secondary: "See all organisational tools",
+    secondaryHref: "/resources#toolkit-library",
   },
   "toolkit-4": {
-    text: "The AI Hiring Policy Framework gives your team a practical governance document for AI use in recruitment, ready to adapt. £79.",
+    label: "Put it into practice",
+    title: "AI Hiring Policy Framework",
+    text: "Turn your AI hiring inventory into clear internal rules for ownership, classification, human oversight, data protection, bias monitoring, candidate rights and incident response.",
     button: "View toolkit",
-    href: "/resources/toolkits#ai-hiring-policy-framework",
+    href: "/resources/toolkits?toolkit=ai-hiring-policy-framework#ai-hiring-policy-framework",
+    secondary: "See all organisational tools",
+    secondaryHref: "/resources#toolkit-library",
   },
 };
 
@@ -36,16 +52,25 @@ export default function ArticleCTA({ cta }) {
 
   return (
     <section className="article-cta">
+      {config.label && <span className="article-cta__label">{config.label}</span>}
+      {config.title && <h2>{config.title}</h2>}
       <p>{config.text}</p>
-      {isExternal ? (
-        <a className="article-cta__button" href={config.href} target="_blank" rel="noopener noreferrer">
-          {config.button}
-        </a>
-      ) : (
-        <Link className="article-cta__button" to={config.href}>
-          {config.button}
-        </Link>
-      )}
+      <div className="article-cta__actions">
+        {isExternal ? (
+          <a className="article-cta__button" href={config.href} target="_blank" rel="noopener noreferrer">
+            {config.button}
+          </a>
+        ) : (
+          <Link className="article-cta__button" to={config.href}>
+            {config.button}
+          </Link>
+        )}
+        {config.secondary && (
+          <Link className="article-cta__secondary" to={config.secondaryHref}>
+            {config.secondary}
+          </Link>
+        )}
+      </div>
     </section>
   );
 }

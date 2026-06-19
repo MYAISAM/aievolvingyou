@@ -7,7 +7,7 @@ const inkMid = "#555555";
 const border = "rgba(0,0,0,0.07)";
 const surface = "#f9f9f9";
 
-// Four coloured cards — re-skinned from coloured backgrounds to new system
+// Four coloured cards, re-skinned from coloured backgrounds to new system
 function TestingCards() {
   const items = [
     { label: "Self-awareness", description: "Do you know how you come across? Can you identify where your working style creates problems?", colour: "#e8f4f0" },
@@ -46,12 +46,12 @@ function StrategyCards() {
       number: "03",
       label: "Bridge",
       description: "Acknowledge a genuine trait honestly, then pivot to how you manage it.",
-      example: "\"I can be impatient when projects move slowly, particularly when I can see a clear path forward and there are process delays. I have learned to channel that energy constructively — I use it to push for clearer timelines and to flag blockers early rather than letting frustration build.\"",
+      example: "\"I can be impatient when projects move slowly, particularly when I can see a clear path forward and there are process delays. I have learned to channel that energy constructively, I use it to push for clearer timelines and to flag blockers early rather than letting frustration build.\"",
     },
     {
       number: "04",
       label: "Past weakness, now resolved",
-      description: "A genuine story of growth — something that was a real challenge earlier in your career that you have demonstrably moved past.",
+      description: "A genuine story of growth, something that was a real challenge earlier in your career that you have demonstrably moved past.",
       example: "\"A few years ago I struggled with giving direct feedback to colleagues. I would soften things too much and the message would not land. I took a management training course and made a deliberate effort to be clearer and more direct while staying respectful. My last 360 review specifically noted that my feedback had become more useful and actionable.\"",
     },
   ];
@@ -74,7 +74,7 @@ function StrategyCards() {
   );
 }
 
-// Avoid list — re-skinned from orange warning to new design system
+// Avoid list, re-skinned from orange warning to new design system
 function AvoidList() {
   const items = [
     { title: "Do not choose something core to the job.", detail: "If you are applying for a data analyst role, \"I have never been comfortable with numbers\" is not the move." },
@@ -102,7 +102,7 @@ function AnswerStructure() {
   const steps = [
     "Name the weakness clearly and specifically (one sentence)",
     "Give a brief example of how it has shown up in practice (two or three sentences)",
-    "Explain what you have done about it — specific actions, not vague intentions (two or three sentences)",
+    "Explain what you have done about it, specific actions, not vague intentions (two or three sentences)",
     "Land on a result or marker of progress where possible (one sentence)",
   ];
   return (
@@ -129,15 +129,15 @@ export default function ArticleWeakness() {
 
       <p>I am a perfectionist. I work too hard. I care too much.</p>
 
-      <p>Every hiring manager has heard all of these. And every time someone says one of them, the interviewer's pen stops moving — because there is nothing to write down. The candidate has just told them nothing real.</p>
+      <p>Every hiring manager has heard all of these. And every time someone says one of them, the interviewer's pen stops moving, because there is nothing to write down. The candidate has just told them nothing real.</p>
 
-      <p>The weakness question is not a trap. It is designed to find out whether you know yourself — and whether you are the kind of person who can reflect honestly, take feedback, and grow.</p>
+      <p>The weakness question is not a trap. It is designed to find out whether you know yourself, and whether you are the kind of person who can reflect honestly, take feedback, and grow.</p>
 
       <h2>Why "I'm a perfectionist" is the worst answer</h2>
 
       <p>When you say "I am a perfectionist", you are doing two things simultaneously. You are claiming a weakness that sounds like a strength (which the interviewer sees straight through), and you are telling them you are not willing to be honest under mild pressure. Neither of those things builds confidence.</p>
 
-      <p>What the interviewer actually wants to hear is something real. Not something catastrophic — you do not need to confess your biggest professional failure. But something honest enough that they believe you, and structured enough that it shows you have actually thought about it and done something about it.</p>
+      <p>What the interviewer actually wants to hear is something real. Not something catastrophic, you do not need to confess your biggest professional failure. But something honest enough that they believe you, and structured enough that it shows you have actually thought about it and done something about it.</p>
 
       <p>There is a big difference between "I am a perfectionist" and "I have found that I can sometimes over-prepare for things that do not require it, which has occasionally slowed me down. I have been working on recognising earlier when something is good enough to move forward, and giving myself a clearer time limit on certain tasks."</p>
 

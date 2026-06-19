@@ -201,7 +201,7 @@ export default function ArticlePillar2Bias() {
         <StatBlock
           num="85.1%"
           label="of cases in a 2024 University of Washington study saw AI tools prefer white-associated names over Black-associated names. The study used 554 real resumes, 571 job descriptions, three leading LLMs, 120 names across four demographic categories, and over three million comparisons."
-          source="Wilson & Caliskan, UW iSchool — AAAI/ACM Conference on AI, Ethics & Society, October 2024"
+          source="Wilson & Caliskan, UW iSchool, AAAI/ACM Conference on AI, Ethics & Society, October 2024"
         />
         <StatBlock
           num="Up to 100%"
@@ -282,19 +282,19 @@ export default function ArticlePillar2Bias() {
         margin: "1.25rem 0 2rem",
       }}>
         <LegalCard
-          label="2023 — iTutorGroup / EEOC"
+          label="2023, iTutorGroup / EEOC"
           text="First resolved AI hiring discrimination case. $365,000 settlement. AI tool automatically rejected applicants based on age before any human reviewed them."
         />
         <LegalCard
-          label="2025 — Workday class action"
+          label="2025, Workday class action"
           text="A federal court allowed claims to proceed against Workday, raising the possibility that AI vendors may be treated as agents of employers in discrimination cases, exposing both sides to liability."
         />
         <LegalCard
-          label="2026 — Eightfold AI class action"
+          label="2026, Eightfold AI class action"
           text="A live class action alleges Eightfold's platform may fall within the Fair Credit Reporting Act framework. If upheld, it would substantially expand compliance requirements for AI hiring tools."
         />
         <LegalCard
-          label="2024 — UK ICO audit"
+          label="2024, UK ICO audit"
           text="296 recommendations issued to AI recruitment tool providers. ICO found tools inferring gender and ethnicity from names without disclosure, and vendors misclassifying themselves to avoid compliance duties."
         />
       </div>
@@ -356,48 +356,6 @@ export default function ArticlePillar2Bias() {
       <p>The organisations getting this right have understood something the vendor sales pitch never quite says: the AI reflects the decisions that go into it. If those decisions are not interrogated, the AI does not fix them. It accelerates them.</p>
 
       <p>Bias did not get removed from hiring when AI arrived. It got a new set of tools, a larger operational reach, and a harder-to-challenge wrapper. The organisations that recognise this now, and build processes to address it, will not be waiting for a regulator or a court to make the point for them.</p>
-
-      {/* CTA */}
-      <div style={{
-        borderTop: `0.5px solid ${border}`,
-        marginTop: "2.75rem",
-        paddingTop: "1.5rem",
-      }}>
-        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 1.25rem" }}>
-          If this is the problem, the next question is what to check inside your own process.
-        </p>
-        <p style={{
-          fontSize: 10,
-          fontWeight: 700,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-          color: green,
-          margin: "0 0 8px",
-        }}>
-          Put it into practice
-        </p>
-        <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 4px" }}>
-          Bias Audit Checklist for AI Hiring
-        </p>
-        <p style={{ fontSize: 12.5, color: inkMid, margin: "0 0 12px", lineHeight: 1.55 }}>
-          A structured internal review tool to identify where bias risk is entering or scaling in your AI-enabled hiring process. Seven audit dimensions, 40 questions, practical remediation prompts.
-        </p>
-        <a
-          href="/resources#toolkits"
-          style={{
-            display: "inline-block",
-            background: green,
-            color: "#ffffff",
-            fontSize: 13,
-            fontWeight: 600,
-            padding: "9px 16px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          See all organisational tools →
-        </a>
-      </div>
 
     </ArticleLayout>
   );

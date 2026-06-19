@@ -179,7 +179,7 @@ export default function ArticleCandidateDisclosure() {
 
       <p>The second version is barely longer. It uses no jargon. And it does all four jobs: it names where AI is used, what it affects, what stays human, and how to reach someone. A candidate who reads it knows exactly where they stand. That is the whole standard, and you can apply it to any stage of your process by asking the same question of every notice you write: after reading this, would the candidate know what is happening to them and who to talk to?</p>
 
-      <p>Writing that once for every stage where AI shows up is the fiddly part, and it is exactly what the <a href="/resources#toolkits" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Candidate Transparency Guide</a> is built to do for you, with ready wording stage by stage. But even if you write your own from scratch, the test above is the only one that matters.</p>
+      <p>Writing that once for every stage where AI shows up is the fiddly part, and it is exactly what the <a href="/resources#toolkit-library" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Candidate Transparency Guide</a> is built to do for you, with ready wording stage by stage. But even if you write your own from scratch, the test above is the only one that matters.</p>
 
       <h2>The common mistakes</h2>
 
@@ -231,48 +231,6 @@ export default function ArticleCandidateDisclosure() {
       <p>You can satisfy every legal requirement with a dense notice in a policy nobody reads and still leave every applicant confused about what happened to them. That is compliant. It is not transparent. The four things, delivered in plain language at the right moment, are what close the gap, and almost none of that is mandated by law. It is simply the difference between covering yourself and being understood.</p>
 
       <p>Compliance protects you from a regulator. Communication is what the candidate actually experiences. Aim only for the first and you will hit neither well. Aim for the second and the first tends to take care of itself.</p>
-
-      {/* Foot CTA */}
-      <div style={{
-        borderTop: `0.5px solid ${border}`,
-        marginTop: "2.75rem",
-        paddingTop: "1.5rem",
-      }}>
-        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 1.25rem" }}>
-          If you would rather not write this from scratch for every stage of your process, the wording is already done for you.
-        </p>
-        <p style={{
-          fontSize: 10,
-          fontWeight: 700,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-          color: green,
-          margin: "0 0 8px",
-        }}>
-          Put it into practice
-        </p>
-        <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 4px" }}>
-          Candidate Transparency Guide
-        </p>
-        <p style={{ fontSize: 12.5, color: inkMid, margin: "0 0 12px", lineHeight: 1.55 }}>
-          What to tell candidates about AI at each stage of your process, with ready to use wording, an audit sheet, and the legal context behind it. The practical version of everything in this article.
-        </p>
-        <a
-          href="/resources#toolkits"
-          style={{
-            display: "inline-block",
-            background: green,
-            color: "#ffffff",
-            fontSize: 13,
-            fontWeight: 600,
-            padding: "9px 16px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          See all organisational tools →
-        </a>
-      </div>
 
     </ArticleLayout>
   );

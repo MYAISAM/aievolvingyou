@@ -17,7 +17,7 @@ const surface = "#f9f9f9";
 function FeedbackLoop() {
   const steps = [
     { number: "01", text: "Organisations use AI to screen and filter candidates" },
-    { number: "02", text: "Candidates don't know how — or that it's happening at all" },
+    { number: "02", text: "Candidates don't know how, or that it's happening at all" },
     { number: "03", text: "Candidates use AI to navigate a process they don't understand" },
     { number: "04", text: "Application volume rises, quality signals become harder to read" },
     { number: "05", text: "Organisations add more automation to cope with the volume" },
@@ -34,7 +34,7 @@ function FeedbackLoop() {
         ))}
         <div style={{ display: "flex", gap: 14, alignItems: "center", background: "#f6f3f2", border: "1.5px solid rgba(63,111,99,0.22)", borderRadius: 8, padding: "12px 16px" }}>
           <span style={{ fontSize: 14, fontWeight: 700, color: orange, flexShrink: 0 }}>&#8635;</span>
-          <p style={{ fontSize: 14, color: orange, fontWeight: 600, margin: 0, lineHeight: 1.55 }}>Back to step 01 — and the loop tightens</p>
+          <p style={{ fontSize: 14, color: orange, fontWeight: 600, margin: 0, lineHeight: 1.55 }}>Back to step 01, and the loop tightens</p>
         </div>
       </div>
     </div>
@@ -75,8 +75,8 @@ function TransparencyTable() {
 
 function CostCards() {
   const costs = [
-    { label: "Employer brand", detail: "Candidates talk — on Reddit, LinkedIn, in WhatsApp groups. A hiring process that feels opaque and automated is increasingly a reputational liability in competitive talent markets." },
-    { label: "Decision quality", detail: "Heavy filtering on AI-legible signals means you find candidates who are best at navigating AI screening — not the best candidates. Those are not the same group." },
+    { label: "Employer brand", detail: "Candidates talk, on Reddit, LinkedIn, in WhatsApp groups. A hiring process that feels opaque and automated is increasingly a reputational liability in competitive talent markets." },
+    { label: "Decision quality", detail: "Heavy filtering on AI-legible signals means you find candidates who are best at navigating AI screening, not the best candidates. Those are not the same group." },
     { label: "Legal and regulatory exposure", detail: "The EU AI Act classifies AI hiring tools as high-risk systems requiring transparency, human oversight, and auditability. It is arriving. Organisations with no governance will be exposed." },
   ];
   return (

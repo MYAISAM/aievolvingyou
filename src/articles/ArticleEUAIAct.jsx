@@ -95,7 +95,7 @@ export default function ArticleEUAIAct() {
         margin: "0 0 2rem",
       }}>
         <p style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: orange, margin: "0 0 6px" }}>
-          Deadline status — May 2026
+          Deadline status, May 2026
         </p>
         <p style={{ fontSize: 13.5, color: inkMid, lineHeight: 1.6, margin: 0 }}>
           A provisional political agreement under the Digital Omnibus would push high-risk AI Act obligations from 2 August 2026 to 2 December 2027. This is not yet law. The original August 2026 deadline remains the current legal position unless and until the Omnibus changes are formally adopted and published in the EU Official Journal. Employment lawyers advise continuing to prepare for August 2026. The AI Act remains operationally and legally fluid in places, particularly around implementation timing and practical enforcement guidance.
@@ -112,7 +112,7 @@ export default function ArticleEUAIAct() {
 
       <p>Littler's guidance is direct: organisations should continue preparing as if August 2026 remains the operative date.</p>
 
-      <p>There is also a broader point. Even if the deadline shifts, the obligations themselves do not disappear. They arrive later. And the existing UK GDPR obligations — as enforced and interpreted by the ICO — already apply now, regardless of what the EU AI Act does.</p>
+      <p>There is also a broader point. Even if the deadline shifts, the obligations themselves do not disappear. They arrive later. And the existing UK GDPR obligations, as enforced and interpreted by the ICO, already apply now, regardless of what the EU AI Act does.</p>
 
       <div style={{
         background: greenLight,
@@ -153,7 +153,7 @@ export default function ArticleEUAIAct() {
         />
         <TimelineItem
           date="August 2026"
-          title="High-risk AI — current legal deadline"
+          title="High-risk AI, current legal deadline"
           text="Full Annex III obligations including hiring AI apply. This date legally stands unless the Omnibus deal is formally adopted before it."
         />
         <TimelineItem
@@ -202,7 +202,7 @@ export default function ArticleEUAIAct() {
             <TableRow
               col1="Fundamental rights impact assessment"
               col2="Art. 27"
-              col3="Certain deployers — particularly public bodies and deployers operating in specified high-risk contexts — may be required to carry out a documented assessment of how the AI system affects fundamental rights, including non-discrimination."
+              col3="Certain deployers, particularly public bodies and deployers operating in specified high-risk contexts, may be required to carry out a documented assessment of how the AI system affects fundamental rights, including non-discrimination."
             />
             <TableRow
               col1="Record-keeping"
@@ -236,7 +236,7 @@ export default function ArticleEUAIAct() {
       }}>
         <div style={{ fontSize: 22, fontWeight: 700, color: green, lineHeight: 1.2 }}>18%</div>
         <p style={{ fontSize: 13, color: inkMid, lineHeight: 1.55, margin: 0 }}>
-          Only 18% of European employers describe themselves as very prepared for EU AI Act compliance, according to Littler's November 2025 survey — despite 72% already using AI in HR functions.
+          Only 18% of European employers describe themselves as very prepared for EU AI Act compliance, according to Littler's November 2025 survey, despite 72% already using AI in HR functions.
         </p>
       </div>
 
@@ -257,14 +257,14 @@ export default function ArticleEUAIAct() {
         margin: "1.5rem 0",
         lineHeight: 1.6,
       }}>
-        The organisations that will face the most difficulty are not the ones that used AI in hiring. They are the ones that used it without building any of the governance infrastructure the regulation requires — and assumed the vendor's compliance was sufficient cover for their own.
+        The organisations that will face the most difficulty are not the ones that used AI in hiring. They are the ones that used it without building any of the governance infrastructure the regulation requires, and assumed the vendor's compliance was sufficient cover for their own.
       </div>
 
       <h2>The UK position</h2>
 
       <p>UK organisations are not directly subject to the EU AI Act unless they deploy AI systems used by candidates or workers in EU member states.</p>
 
-      <p>But the existing UK GDPR obligations — as enforced and interpreted by the ICO — already create overlapping requirements that apply now.</p>
+      <p>But the existing UK GDPR obligations, as enforced and interpreted by the ICO, already create overlapping requirements that apply now.</p>
 
       <p>The ICO's March 2026 guidance on automated decision-making in recruitment is explicit: where AI tools make or materially influence hiring decisions, existing UK GDPR requirements apply. That means candidate notification, a meaningful human review mechanism, and the ability to explain how a decision was reached.</p>
 
@@ -288,12 +288,12 @@ export default function ArticleEUAIAct() {
           Practical steps for HR teams
         </p>
         <CheckItem>Map every AI tool currently used in your hiring process and confirm whether it falls within EU AI Act Annex III scope</CheckItem>
-        <CheckItem>Name a human oversight person for each in-scope tool with documented responsibilities — a job title is not sufficient, the person must be competent to understand and override the system</CheckItem>
+        <CheckItem>Name a human oversight person for each in-scope tool with documented responsibilities, a job title is not sufficient, the person must be competent to understand and override the system</CheckItem>
         <CheckItem>Build a candidate notification process that discloses AI use before or at the point of assessment, not buried in a privacy policy</CheckItem>
         <CheckItem>Request technical documentation from each vendor confirming intended use scope, bias testing methodology, and training data validation</CheckItem>
-        <CheckItem>Establish log retention for AI-assisted decisions — minimum six months under Article 12</CheckItem>
+        <CheckItem>Establish log retention for AI-assisted decisions, minimum six months under Article 12</CheckItem>
         <CheckItem>Assess whether your organisation falls within the scope of the fundamental rights impact assessment requirement under Article 27</CheckItem>
-        <CheckItem>Review vendor contracts for notification obligations on model updates — if none exist, add them</CheckItem>
+        <CheckItem>Review vendor contracts for notification obligations on model updates, if none exist, add them</CheckItem>
         <CheckItem>Take legal advice on territorial scope if you operate across UK and EU jurisdictions</CheckItem>
         <p style={{
           fontSize: 12.5, color: inkMid, fontStyle: "italic",

@@ -191,7 +191,7 @@ export default function ArticleAIToolsInventory() {
         </p>
       </div>
 
-      <p>One distinction is worth drawing while you build the list. For the tools already running, the inventory tells you what to govern. For the tools you are still evaluating or about to buy, the work is different: it is about what to ask the vendor before you sign. I have written those questions up separately in the <a href="/resources#toolkits" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Procurement Questions document</a>, so the inventory can stay focused on what you already have rather than turning into a buying exercise.</p>
+      <p>One distinction is worth drawing while you build the list. For the tools already running, the inventory tells you what to govern. For the tools you are still evaluating or about to buy, the work is different: it is about what to ask the vendor before you sign. I have written those questions up separately in the <a href="/resources#toolkit-library" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Procurement Questions document</a>, so the inventory can stay focused on what you already have rather than turning into a buying exercise.</p>
 
       <h2>Inventory is the foundation, not the finish</h2>
 
@@ -200,48 +200,6 @@ export default function ArticleAIToolsInventory() {
       <p>Once the map exists, the decisions that felt impossibly large become specific. This tool ranks candidates, so it needs a bias review. This one makes a decision with no human in the loop, so it needs either oversight or a change. This one touches candidate data informally, so it needs to be brought into the open or stopped. This contract says nothing about model updates, so it needs a clause. None of those calls can be made in the abstract. They can only be made against a list, because each one is a judgement about a specific tool doing a specific thing at a specific stage.</p>
 
       <p>That is why I always start here. Not because counting is the interesting part, but because everything interesting depends on it. The organisations that struggle with AI governance are rarely the ones that made a bad decision about a tool. They are the ones that never had the full list in front of them, and so were making every decision half blind. The inventory is how you stop doing that.</p>
-
-      {/* Foot CTA */}
-      <div style={{
-        borderTop: `0.5px solid ${border}`,
-        marginTop: "2.75rem",
-        paddingTop: "1.5rem",
-      }}>
-        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 1.25rem" }}>
-          Once you have the list, the next question is what rules apply to each tool on it.
-        </p>
-        <p style={{
-          fontSize: 10,
-          fontWeight: 700,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-          color: green,
-          margin: "0 0 8px",
-        }}>
-          Put it into practice
-        </p>
-        <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 4px" }}>
-          AI Hiring Policy Framework
-        </p>
-        <p style={{ fontSize: 12.5, color: inkMid, margin: "0 0 12px", lineHeight: 1.55 }}>
-          A ready to adapt framework for turning your tool inventory into clear internal rules: ownership, classification, human oversight, data protection, bias monitoring, candidate rights, and what happens when something goes wrong.
-        </p>
-        <a
-          href="/resources#toolkits"
-          style={{
-            display: "inline-block",
-            background: green,
-            color: "#ffffff",
-            fontSize: 13,
-            fontWeight: 600,
-            padding: "9px 16px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          See all organisational tools →
-        </a>
-      </div>
 
     </ArticleLayout>
   );

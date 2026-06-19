@@ -226,7 +226,7 @@ export default function ArticleCandidateWants() {
           A practical guide for HR teams on communicating AI use to candidates. Covers disclosure language, timing, human review signalling, and audit transparency. Written for the people running the process, not the people who built the tool.
         </p>
         <a
-          href="/resources#toolkits"
+          href="/resources#toolkit-library"
           style={{
             display: "inline-block",
             background: green,

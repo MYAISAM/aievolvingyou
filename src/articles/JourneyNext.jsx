@@ -12,7 +12,7 @@ function SmartLink({ to, className, children }) {
   }
 
   return (
-    <Link className={className} to={to}>
+    <Link className={className} to={to} preventScrollReset={false}>
       {children}
     </Link>
   );
@@ -31,7 +31,7 @@ export default function JourneyNext({ article }) {
         <SmartLink className="journey-next__card" to={next.slug}>
           <span className="journey-next__title">{next.title}</span>
           {next.copy && <span className="journey-next__copy">{next.copy}</span>}
-          <span className="journey-next__action">Continue</span>
+          <span className="journey-next__action">{next.action || "Continue"}</span>
         </SmartLink>
       </section>
     );
@@ -46,7 +46,7 @@ export default function JourneyNext({ article }) {
         <p className="journey-next__label" id="journey-related-title">{article.label}</p>
         <div className="journey-next__related-list">
           {related.map((item) => (
-            <Link className="journey-next__related-link" to={item.slug} key={item.slug}>
+            <Link className="journey-next__related-link" to={item.slug} preventScrollReset={false} key={item.slug}>
               {item.title}
             </Link>
           ))}

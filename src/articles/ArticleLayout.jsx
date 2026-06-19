@@ -8,11 +8,12 @@ import { articleMetadataBySlug } from "./articleMetadata";
 export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta, track }) {
   const location = useLocation();
   const article = articleMetadataBySlug[location.pathname];
-  const resourcesPath = article?.track === "org" || track === "orgs" ? "/resources#organisations" : "/resources";
+  const resourcesPath = article?.track === "org" || track === "orgs" ? "/resources#organisation-library" : "/resources#candidate-library";
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (location.hash) return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+  }, [location.pathname, location.hash])
 
   return (
     <div style={{ paddingTop: 62 }}>

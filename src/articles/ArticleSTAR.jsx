@@ -132,13 +132,13 @@ export default function ArticleSTAR() {
       bucket="Interview prep"
       title="The STAR method explained, with three real examples you can actually learn from"
     >
-      <p>Most interview advice tells you what the STAR method stands for. Situation, Task, Action, Result — understood. What it does not tell you is why most people's STAR answers still fall flat, and what the difference looks like in practice.</p>
+      <p>Most interview advice tells you what the STAR method stands for: Situation, Task, Action, Result. What it does not tell you is why most people's STAR answers still fall flat, and what the difference looks like in practice.</p>
 
       <p>This article covers what STAR actually is, where people go wrong at each stage, three full worked examples, the five behavioural themes that come up in almost every interview, and how to build a bank of strong answers before you walk in the room.</p>
 
       <h2>What the STAR method is actually for</h2>
 
-      <p>Interviewers ask behavioural questions — "tell me about a time when...", "give me an example of..." — because they believe past behaviour predicts future performance. They are not asking you to tell a story for the sake of it. They are trying to work out whether you have actually done the thing they need you to do, or something close enough that they can trust you to do it again.</p>
+      <p>Interviewers ask behavioural questions, "tell me about a time when...", "give me an example of...", because they believe past behaviour predicts future performance. They are not asking you to tell a story for the sake of it. They are trying to work out whether you have actually done the thing they need you to do, or something close enough that they can trust you to do it again.</p>
 
       <p>The STAR method gives you a structure to answer those questions in a way that is complete, credible, and easy to follow. Without it, most people either give vague generalisations ("I am really good at handling pressure") or ramble through a story that does not have a clear point.</p>
 
@@ -149,7 +149,7 @@ export default function ArticleSTAR() {
       <h2>Where people go wrong</h2>
 
       <Mistake title="Too much situation, not enough action">
-        People spend two minutes setting up the context and then rush through what they actually did. Flip the ratio — the action is what you are being assessed on.
+        People spend two minutes setting up the context and then rush through what they actually did. Flip the ratio, the action is what you are being assessed on.
       </Mistake>
 
       <Mistake title='"We" instead of "I"'>
@@ -166,7 +166,7 @@ export default function ArticleSTAR() {
 
       <p>In my role as a customer service advisor, we had a period where supply chain disruptions were causing significant delivery delays. I was responsible for managing incoming complaints, and one customer had been waiting six weeks for a large order critical for their business.</p>
 
-      <p>I started by letting them speak without interrupting — they needed to feel heard. Then I pulled up their order history, identified exactly where the hold-up was, and was honest with them about what had gone wrong. I arranged for a partial shipment within 48 hours, escalated the remainder directly to our logistics manager, and called the customer back myself the following day to confirm it was on track.</p>
+      <p>I started by letting them speak without interrupting, they needed to feel heard. Then I pulled up their order history, identified exactly where the hold-up was, and was honest with them about what had gone wrong. I arranged for a partial shipment within 48 hours, escalated the remainder directly to our logistics manager, and called the customer back myself the following day to confirm it was on track.</p>
 
       <p>The customer ended up leaving a positive review specifically mentioning that interaction. The complaint was closed without further escalation, and my manager used that case as a training example for the rest of the team.</p>
 
@@ -184,7 +184,7 @@ export default function ArticleSTAR() {
 
       <p>I was working as a senior sales assistant and we were consistently having issues with a particular section of the shop floor. I spent a week observing customer movement patterns during peak hours and realised the layout was not matching how people actually navigated the space. I also noticed our restocking schedule meant the section looked great at 9am and chaotic by 1pm. I put together a short proposal for my manager: reorganise the layout to match natural traffic flow, and shift restocking to the lunchtime rush rather than first thing.</p>
 
-      <p>Over the following month, customer complaints about that section dropped significantly. In our next mystery shopper visit it was specifically highlighted as well-organised and easy to navigate — the first time that section had been noted positively.</p>
+      <p>Over the following month, customer complaints about that section dropped significantly. In our next mystery shopper visit it was specifically highlighted as well-organised and easy to navigate, the first time that section had been noted positively.</p>
 
       <h2>How to build your own STAR answers</h2>
 
@@ -200,13 +200,13 @@ export default function ArticleSTAR() {
       {/* MERGED FROM BEHAVIOURAL: Example Bank */}
       <h2>Building your example bank</h2>
 
-      <p>The most important preparation you can do is build a bank of strong examples before the interview — not in the room when the question lands.</p>
+      <p>The most important preparation you can do is build a bank of strong examples before the interview, not in the room when the question lands.</p>
 
       <ExampleBankSteps />
 
       <h2>The thing no one tells you</h2>
 
-      <p>The STAR method is not about telling a perfect story. It is about giving the interviewer enough to make a decision. They are not looking for a flawless experience with a triumphant ending — they are looking for evidence that you can think clearly, take meaningful action, and learn from what happens.</p>
+      <p>The STAR method is not about telling a perfect story. It is about giving the interviewer enough to make a decision. They are not looking for a flawless experience with a triumphant ending, they are looking for evidence that you can think clearly, take meaningful action, and learn from what happens.</p>
 
       <p>A STAR answer where things went wrong but you navigated it well is often more compelling than one where everything worked out easily. The goal is not to impress them. It is to give them something real.</p>
 

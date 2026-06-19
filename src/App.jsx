@@ -134,8 +134,8 @@ function HomePage({ onOpenWaitlist }) {
                 teams evaluating AI tools before they buy, deploy or scale them.
               </p>
               <div className="pathway-actions">
-                <Link to="/resources#toolkits" className="link-subtle">Browse toolkits →</Link>
-                <Link to="/resources#organisations" className="link-subtle">See resources →</Link>
+                <Link to="/resources#toolkit-library" className="link-subtle">Browse toolkits →</Link>
+                <Link to="/resources#organisation-library" className="link-subtle">See resources →</Link>
               </div>
             </article>
 

@@ -14,12 +14,12 @@ function ThreeWays() {
       label: "Generate questions, not answers",
       description: "This is the highest-value use of AI in interview prep and the one most people overlook. Ask for twenty realistic questions specific to the role.",
       prompt: "\"I am interviewing for a Senior Customer Success Manager role at a B2B SaaS company with around 200 employees. The role involves managing enterprise accounts, driving renewals, and working cross-functionally with product and sales. Give me twenty interview questions I am likely to be asked.\"",
-      tip: "The AI generates the questions. Your answers need to be yours — in your own words, out loud, drawing from your own experience.",
+      tip: "The AI generates the questions. Your answers need to be yours, in your own words, out loud, drawing from your own experience.",
     },
     {
       number: "02",
       label: "Sharpen your language, not write it for you",
-      description: "Paste your answer in and ask for editing feedback. The AI helps you refine your own thinking — that is very different from asking it to think for you.",
+      description: "Paste your answer in and ask for editing feedback. The AI helps you refine your own thinking, that is very different from asking it to think for you.",
       prompt: "\"How can I make this more concise and punchy without losing the specifics?\" or \"Does this answer actually address the question, or am I going off on a tangent?\"",
       tip: "Never take the AI's rewritten version wholesale. Read it, take what is useful, rewrite it again in your own voice.",
     },
@@ -28,7 +28,7 @@ function ThreeWays() {
       label: "Run a practice interview",
       description: "Ask the AI to play the role of an interviewer. Give it context, ask it to go one question at a time, wait for your answer, and give feedback before moving on.",
       prompt: "\"Act as an interviewer for a [role] at [company]. Ask me one question at a time, wait for my answer, give brief feedback, then move to the next question.\"",
-      tip: "Answer out loud — not by typing. The gap between how something sounds in your head and how it sounds when you say it out loud is significant.",
+      tip: "Answer out loud, not by typing. The gap between how something sounds in your head and how it sounds when you say it out loud is significant.",
     },
   ];
 
@@ -129,7 +129,7 @@ export default function ArticleAIPrep() {
     >
       <p>AI is the best interview prep tool available right now. Most people are using it wrong.</p>
 
-      <p>I say that having watched candidates walk into interviews having done extensive AI-assisted preparation and still perform badly. Not because the tool failed them — because they used it in a way that made them sound like they were reading from a script. Polished on the surface, hollow underneath.</p>
+      <p>I say that having watched candidates walk into interviews having done extensive AI-assisted preparation and still perform badly. Not because the tool failed them, because they used it in a way that made them sound like they were reading from a script. Polished on the surface, hollow underneath.</p>
 
       <p>There is a version of AI-assisted interview prep that genuinely works. It makes you sharper, more prepared, and more confident. And there is a version that produces answers that sound impressive until someone asks a follow-up question, at which point the whole thing falls apart.</p>
 
@@ -137,7 +137,7 @@ export default function ArticleAIPrep() {
 
       <p>A candidate gets an interview. They go to ChatGPT or Claude and type something like "give me answers to common interview questions for a marketing manager role." The AI produces ten polished, well-structured responses. The candidate reads through them, memorises a few lines, and goes into the interview feeling prepared.</p>
 
-      <p>In the room, they deliver an answer that sounds technically correct but slightly off — like it was written for a generic marketing manager rather than this person, applying for this role, at this company. The interviewer asks a follow-up. The candidate hesitates, because the follow-up was not in the list. The answer unravels.</p>
+      <p>In the room, they deliver an answer that sounds technically correct but slightly off, like it was written for a generic marketing manager rather than this person, applying for this role, at this company. The interviewer asks a follow-up. The candidate hesitates, because the follow-up was not in the list. The answer unravels.</p>
 
       <p>The problem is not AI. The problem is using AI to generate answers you then try to pass off as your own thinking. That approach fails for two reasons.</p>
 
@@ -157,11 +157,11 @@ export default function ArticleAIPrep() {
 
       <AILimits />
 
-      <p>The candidates who use it well treat it like a sparring partner — something to push against, to help them find their edges, to sharpen their thinking. The candidates who use it badly treat it like a crutch. And crutches fall apart in conversations.</p>
+      <p>The candidates who use it well treat it like a sparring partner, something to push against, to help them find their edges, to sharpen their thinking. The candidates who use it badly treat it like a crutch. And crutches fall apart in conversations.</p>
 
       <h2>One more thing</h2>
 
-      <p>If you go into an interview and your answers sound like they were written by an AI, the interviewer will notice. Not always consciously — but something will feel slightly off. The tell is always the follow-up. When an interviewer asks "can you tell me more about that?" — that is where preparation built on your own thinking holds up, and preparation built on borrowed answers does not.</p>
+      <p>If you go into an interview and your answers sound like they were written by an AI, the interviewer will notice. Not always consciously, but something will feel slightly off. The tell is always the follow-up. When an interviewer asks "can you tell me more about that?", that is where preparation built on your own thinking holds up, and preparation built on borrowed answers does not.</p>
 
       <p>Use the tools. They are genuinely useful. Just make sure that when you walk into that room, the answers are yours.</p>
 
