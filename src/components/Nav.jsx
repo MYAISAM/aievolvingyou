@@ -60,11 +60,11 @@ export default function Nav({ onOpenWaitlist }) {
                     <span className="nav-dropdown-item-title">Interview Coach</span>
                   </a>
                   <Link
-                    to="/resources#toolkits"
+                    to="/resources#toolkit-library"
                     className="nav-dropdown-item"
                     onClick={closeAll}
                   >
-                    <span className="nav-dropdown-item-title">AI Procurement Questions for Hiring Teams</span>
+                    <span className="nav-dropdown-item-title">AI Hiring Toolkits</span>
                   </Link>
                   <button
                     className="nav-dropdown-item nav-dropdown-item--report"
@@ -127,7 +127,7 @@ export default function Nav({ onOpenWaitlist }) {
               )}
             </div>
 
-            <a href="#connect" className="nav-link nav-link--cta" onClick={closeAll}>
+            <a href="/#connect" className="nav-link nav-link--cta" onClick={closeAll}>
               Connect
             </a>
 
@@ -213,7 +213,7 @@ export default function Nav({ onOpenWaitlist }) {
 
           <div className="nav-mobile-group">
             <p className="nav-mobile-label">Connect</p>
-            <a href="#connect" className="nav-mobile-item nav-mobile-item--cta" onClick={closeAll}>
+            <a href="/#connect" className="nav-mobile-item nav-mobile-item--cta" onClick={closeAll}>
               Contact
             </a>
           </div>

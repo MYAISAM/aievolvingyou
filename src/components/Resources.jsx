@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { articleMetadata } from "../articles/articleMetadata";
+import ToolkitDetailModal from "./ToolkitDetailModal";
 
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
 const TRANSPARENCY_STRIPE_URL = "https://buy.stripe.com/fZubJ17Zg01o7YMbqt5Ne07";
@@ -24,38 +25,121 @@ const individualToolkits = [
   {
     id: "procurement-questions",
     title: "AI Procurement Questions for Hiring Teams",
-    price: "£79",
     label: "Procurement Questions",
-    body: "50 questions to cut through vendor claims and evaluate AI hiring tools properly, covering bias, privacy, transparency, legal exposure and vendor accountability.",
+    price: "£79",
     href: PROCUREMENT_STRIPE_URL,
     button: "Buy toolkit",
+    audience: "For HR leaders, talent teams, procurement and legal stakeholders reviewing AI hiring vendors.",
+    valueProposition: "Move vendor conversations from reassurance to evidence, so you can tell a strong AI hiring tool from a weak one before you sign.",
+    cardDescription: "48 vendor evaluation questions across six categories, each with red flag guidance and a strong-answer benchmark. Includes internal alignment prompts and a scored comparison sheet to evaluate vendors side by side.",
+    cardSummary: "Questions and scoring tools to test AI hiring vendors before you sign.",
+    featureChips: ["48 Questions", "6 Categories", "Vendor Scoring"],
+    modalHeading: "Evaluate AI hiring vendors with structure, not guesswork",
+    modalSummary: "This toolkit gives non-technical buyers the language and structure to question AI hiring vendors properly. You work through internal alignment first, ask the questions live in vendor calls, and score each vendor on a comparison sheet to build an evidenced, side-by-side record before you commit.",
+    whatsIncluded: [
+      "48 vendor evaluation questions across six categories: bias and fairness, data and privacy, explainability, human oversight, vendor accountability, and contract and exit",
+      "27 Core and 21 Deeper Dive questions, so you know what to prioritise",
+      "Red flag and weak answer guidance for every category",
+      "A strong-answer benchmark for every category",
+      "8 internal alignment prompts to run with your team before any vendor conversation",
+      "A vendor comparison sheet with a 1 to 5 scoring grid, notes column and overall score out of 30",
+    ],
+    bestFor: [
+      "Shortlisting between competing AI hiring vendors",
+      "Bringing legal or risk into a procurement decision",
+      "Replacing an informal vendor review with a documented one",
+    ],
+    ctaLabel: "Buy toolkit",
   },
   {
     id: "candidate-transparency-guide",
     title: "Candidate Transparency Guide",
-    price: "£49",
     label: "Candidate Transparency Guide",
-    body: "A practical guide for explaining where AI is used, what it affects, what stays human and how candidates can reach a person.",
+    price: "£49",
     href: TRANSPARENCY_STRIPE_URL,
     button: "Buy toolkit",
+    audience: "For HR directors, talent leads and anyone responsible for what candidates are told about AI in hiring.",
+    valueProposition: "Tell candidates what they need to know about AI in your process, at the right stage and in the right language, before opacity becomes a legal or reputational problem.",
+    cardDescription: "Stage-by-stage guidance on what to tell candidates about AI, when to tell them, and how to write it clearly. Includes regulatory mapping, alignment prompts and an eight-touchpoint audit sheet.",
+    cardSummary: "Guidance for explaining AI use to candidates clearly at each hiring stage.",
+    featureChips: ["5 Sections", "Reg Mapping", "Audit Sheet"],
+    modalHeading: "Communicate AI use to candidates clearly and credibly",
+    modalSummary: "Most candidates now meet AI somewhere in hiring, and many do not know it. This guide covers what to say at each stage, how to write it in plain language rather than legal register, and where your regulatory obligations sit. It ends with an audit sheet so you can see where your current practice has gaps.",
+    whatsIncluded: [
+      "Stage-by-stage communication guidance across job posting, application confirmation, pre-assessment briefing, rejection notice and on-request responses",
+      "24 review items across five sections, split into Core and Deeper Dive",
+      "Plain language versus legal language guidance, with examples of good and weak practice at each stage",
+      "Regulatory mapping across the EU AI Act, UK ICO guidance, NYC Local Law 144, EEOC and the Illinois AI Video Interview Act",
+      "6 internal alignment prompts for HR, talent and legal teams",
+      "An eight-touchpoint transparency audit sheet mapping current state, gap and action needed",
+      "Review trigger guidance for when AI tools or your hiring process change",
+    ],
+    bestFor: [
+      "Writing or reviewing candidate-facing AI disclosures",
+      "Aligning recruiters and hiring managers on consistent messaging",
+      "Reducing complaints and negative reviews from unexplained automated rejection",
+    ],
+    ctaLabel: "Buy toolkit",
   },
   {
     id: "bias-audit-checklist",
-    title: "Bias Audit Checklist",
-    price: "£49",
+    title: "Bias Audit Checklist for AI Hiring",
     label: "Bias Audit Checklist",
-    body: "A structured checklist for reviewing fairness risks across AI hiring tools, vendors, data, outcomes and decision points.",
+    price: "£49",
     href: BIAS_AUDIT_STRIPE_URL,
-    button: "Buy toolkit",
+    button: "Get the checklist",
+    audience: "For HR directors, heads of talent, AI governance leads, DPOs and DEI leads accountable for fair AI hiring.",
+    valueProposition: "Get an honest, documented picture of where bias risk sits in your AI hiring process, and a clear set of actions to close the gaps that matter most.",
+    cardDescription: "47 audit questions across seven categories, each marked Met, Partial or Gap, with remediation prompts built in. Includes a summary sheet to record your position and assign owners.",
+    cardSummary: "A checklist to spot bias risks, assign owners and set actions.",
+    featureChips: ["47 Questions", "7 Risk Areas", "Remediation Prompts"],
+    modalHeading: "Find where bias risk sits in your AI hiring process",
+    modalSummary: "Bias did not leave hiring when AI arrived; it gained reach and a harder-to-challenge wrapper. This checklist reviews the seven categories where bias most often enters, scales or goes undetected. You mark each question Met, Partial or Gap, then use the remediation prompts to set specific actions and owners.",
+    whatsIncluded: [
+      "47 audit questions across seven categories: training data and model design, pre-deployment bias testing, protected characteristics coverage, post-deployment monitoring, accountability and governance, vendor transparency and contractual safeguards, and candidate impact and redress",
+      "28 Core and 19 Deeper Dive questions, with Met, Partial or Gap scoring for each",
+      "Remediation prompts for every category, turning findings into actions",
+      "Red flag and weak practice indicators per category",
+      "Coverage of frequently missed protected characteristics including neurodivergence, non-binary gender identities, age over 50 and candidates for whom English is a second language",
+      "References to EU AI Act Article 26, UK GDPR Article 22, and the DUAA 2025 complaints procedure",
+      "A summary audit sheet with a seven-category status tracker, priority actions, named owners and completion date",
+    ],
+    bestFor: [
+      "Running a structured internal bias review with your governance team",
+      "Identifying monitoring and accountability gaps after a tool is already live",
+      "Preparing for external scrutiny or a candidate challenge",
+    ],
+    ctaLabel: "Get the checklist",
   },
   {
     id: "ai-hiring-policy-framework",
     title: "AI Hiring Policy Framework",
-    price: "£79",
     label: "AI Hiring Policy Framework",
-    body: "A practical governance document for AI use in recruitment, ready to adapt for internal ownership, review and escalation.",
+    price: "£79",
     href: POLICY_FRAMEWORK_STRIPE_URL,
-    button: "Buy toolkit",
+    button: "Buy framework",
+    audience: "For CHROs, HR directors, DPOs and General Counsel responsible for governing AI in hiring.",
+    valueProposition: "Leave with a usable first draft of your AI hiring policy, built from a structured review of where your current governance falls short.",
+    cardDescription: "A six-category readiness review plus a ten-section policy template with sample text throughout. Move from assessing your current position to a draft policy ready for legal and board review.",
+    cardSummary: "A readiness review and policy template for review-ready AI hiring governance.",
+    featureChips: ["42 Questions", "10 Sections", "Ready to Adapt"],
+    modalHeading: "Build a board-ready AI hiring policy from a structured starting point",
+    modalSummary: "This toolkit has two parts. Part 1 is a readiness review that identifies the gaps in your current governance. Part 2 is a draft AI hiring policy template with plain-English sample text in every section, ready to adapt and take to Legal, your DPO and executive sign-off.",
+    whatsIncluded: [
+      "40 policy readiness questions across six governance categories, split into Core and Deeper Dive",
+      "A Part 1 readiness summary sheet recording current status, priority gap and owner per category",
+      "A Part 2 ten-section AI Hiring Policy template with sample text throughout",
+      "An approved and prohibited uses section, specific enough to include in staff guidance",
+      "A meaningful human review definition that addresses the rubber-stamping failure",
+      "A four-tier escalation path from recruiter to HR Director to DPO or Legal to executive sponsor, plus trigger conditions",
+      "A training requirements section and a regulatory timeline appendix covering UK and EU developments from March 2024 to August 2026",
+    ],
+    bestFor: [
+      "Writing a first AI hiring policy from scratch",
+      "Preparing governance evidence ahead of EU AI Act obligations",
+      "Taking a structured draft to Legal, the DPO and the board",
+    ],
+    ctaLabel: "Buy framework",
   },
 ];
 
@@ -64,11 +148,29 @@ const bundleToolkit = {
   title: "AI Hiring Toolkit Bundle",
   price: "£199",
   label: "BEST VALUE",
-  body: "Includes all four AI Hiring Toolkits covering procurement, transparency, bias and governance.",
-  note: "£199 bundle price",
-  value: "Save over 20% compared with individual purchase",
   href: TOOLKIT_BUNDLE_STRIPE_URL,
   button: "Buy bundle",
+  audience: "For teams that want the full procurement, transparency, bias and governance set.",
+  valueProposition: "The four toolkits work as one governance journey, from evaluating a vendor through to a signed-off policy, at over 20% less than buying them separately.",
+  cardDescription: "All four AI Hiring Toolkits in one set: procurement questions, candidate transparency, bias audit and policy framework. Covers the full path from vendor evaluation to documented governance. Save over 20%.",
+  cardSummary: "All four AI Hiring Toolkits in one set, covering vendor evaluation, transparency, bias review and governance.",
+  featureChips: ["4 Toolkits", "Governance Set", "Save 20%+"],
+  modalHeading: "The complete AI hiring governance set, from procurement to policy",
+  modalSummary: "Each toolkit handles one stage of responsible AI hiring, and together they form a single governance journey. You evaluate vendors, build candidate transparency, audit for bias, and document the policy that ties it all together. Buying the set costs over 20% less than purchasing the four individually.",
+  whatsIncluded: [
+    "AI Procurement Questions for Hiring Teams: 48 vendor evaluation questions across six categories with red flag guidance and a scored comparison sheet",
+    "Candidate Transparency Guide: stage-by-stage communication guidance, regulatory mapping and an eight-touchpoint audit sheet",
+    "Bias Audit Checklist for AI Hiring: 47 audit questions across seven categories with remediation prompts and a summary tracker",
+    "AI Hiring Policy Framework: a 40-question readiness review and a ten-section policy template with sample text throughout",
+    "The four together cover the full sequence: evaluate, communicate, audit and govern",
+    "Priced at £199, a saving of over 20% against individual purchase",
+  ],
+  bestFor: [
+    "Standing up AI hiring governance from scratch",
+    "Equipping an HR, legal and DPO group with one shared toolset",
+    "Preparing for EU AI Act and UK regulatory obligations across the whole process",
+  ],
+  ctaLabel: "Buy bundle",
   featured: true,
 };
 
@@ -87,21 +189,29 @@ function ArticleLinkCard({ article, index }) {
   );
 }
 
-function ToolkitCard({ toolkit }) {
+function ToolkitCard({ toolkit, onOpenDetails }) {
   return (
     <article className={`toolkit-card${toolkit.featured ? " toolkit-card--featured" : ""}`} id={toolkit.id}>
       <div>
         <span className="toolkit-card__label">{toolkit.label}</span>
         <h3>{toolkit.title}</h3>
-        <p>{toolkit.body}</p>
-        {toolkit.note && <p className="toolkit-card__note">{toolkit.note}</p>}
-        {toolkit.value && <p className="toolkit-card__value">{toolkit.value}</p>}
+        <p>{toolkit.cardSummary}</p>
+        <div className="toolkit-card__chips" aria-label={`${toolkit.title} features`}>
+          {toolkit.featureChips.map((chip) => (
+            <span key={chip}>{chip}</span>
+          ))}
+        </div>
       </div>
       <div className="toolkit-card__footer">
         <strong>{toolkit.price}</strong>
-        <a href={toolkit.href} target="_blank" rel="noopener noreferrer">
-          {toolkit.button}
-        </a>
+        <div className="toolkit-card__actions">
+          <button type="button" onClick={() => onOpenDetails(toolkit)}>
+            What's included?
+          </button>
+          <a href={toolkit.href} target="_blank" rel="noopener noreferrer">
+            {toolkit.button}
+          </a>
+        </div>
       </div>
     </article>
   );
@@ -118,9 +228,26 @@ function AudienceCard({ title, copy, href, variant }) {
 
 export default function Resources() {
   const location = useLocation();
+  const [selectedToolkit, setSelectedToolkit] = useState(null);
+  const toolkitScrollY = useRef(null);
   const candidates = articleMetadata.filter((article) => article.track === "candidate");
   const orgs = articleMetadata.filter((article) => article.track === "org");
   const quickAnswers = candidates.filter((article) => article.stage === "quick-answer");
+
+  function openToolkitDetails(toolkit) {
+    toolkitScrollY.current = window.scrollY;
+    setSelectedToolkit(toolkit);
+  }
+
+  function closeToolkitDetails() {
+    const restoreY = toolkitScrollY.current;
+    setSelectedToolkit(null);
+    if (typeof restoreY === "number") {
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: restoreY, left: 0, behavior: "auto" });
+      });
+    }
+  }
 
   useEffect(() => {
     if (!location.hash) return;
@@ -252,11 +379,13 @@ export default function Resources() {
         </div>
         <div className="toolkit-grid">
           {individualToolkits.map((toolkit) => (
-            <ToolkitCard toolkit={toolkit} key={toolkit.id} />
+            <ToolkitCard toolkit={toolkit} key={toolkit.id} onOpenDetails={openToolkitDetails} />
           ))}
         </div>
-        <ToolkitCard toolkit={bundleToolkit} />
+        <ToolkitCard toolkit={bundleToolkit} onOpenDetails={openToolkitDetails} />
       </section>
+
+      <ToolkitDetailModal toolkit={selectedToolkit} onClose={closeToolkitDetails} />
     </main>
   );
 }
