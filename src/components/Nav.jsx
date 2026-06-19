@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Nav({ onOpenWaitlist }) {
+  const location = useLocation()
   const [productsOpen, setProductsOpen] = useState(false)
   const [channelsOpen, setChannelsOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -22,17 +23,36 @@ export default function Nav({ onOpenWaitlist }) {
     }
   }, [])
 
+  useEffect(() => {
+    if (location.pathname !== '/' || window.sessionStorage.getItem('logoScrollToTop') !== 'true') return
+
+    window.sessionStorage.removeItem('logoScrollToTop')
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    })
+  }, [location.pathname, location.key])
+
   function closeAll() {
     setProductsOpen(false)
     setChannelsOpen(false)
     setMobileOpen(false)
   }
 
+  function handleLogoClick(event) {
+    closeAll()
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.altKey || event.ctrlKey || event.shiftKey) return
+
+    window.sessionStorage.setItem('logoScrollToTop', 'true')
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }, 0)
+  }
+
   return (
     <>
       <nav className="nav">
         <div className="nav-inner">
-          <Link to="/" className="nav-logo" onClick={closeAll} style={{ textDecoration: "none" }}>
+          <Link to="/" className="nav-logo" onClick={handleLogoClick} style={{ textDecoration: "none" }}>
             AI Evolving You
           </Link>
 
