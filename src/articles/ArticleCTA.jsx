@@ -49,9 +49,10 @@ export default function ArticleCTA({ cta }) {
   if (!config) return null;
 
   const isExternal = config.href.startsWith("http");
+  const isToolkit = cta.startsWith("toolkit-");
 
   return (
-    <section className="article-cta">
+    <section className={`article-cta${isToolkit ? " article-cta--toolkit" : ""}`}>
       {config.label && <span className="article-cta__label">{config.label}</span>}
       {config.title && <h2>{config.title}</h2>}
       <p>{config.text}</p>
