@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -77,6 +77,47 @@ const ecosystemPillars = [
     body: "Articles, videos and analysis exploring how AI is reshaping work.",
   },
 ]
+
+function CountUpNumber({ value, duration = 1600 }) {
+  const ref = useRef(null)
+  const [displayValue, setDisplayValue] = useState(0)
+  const formattedValue = value.toLocaleString('en-GB')
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return undefined
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayValue(value)
+      return undefined
+    }
+
+    let animationFrame
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+
+      const start = performance.now()
+      const animate = (now) => {
+        const progress = Math.min((now - start) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setDisplayValue(Math.round(value * eased))
+
+        if (progress < 1) animationFrame = window.requestAnimationFrame(animate)
+      }
+
+      animationFrame = window.requestAnimationFrame(animate)
+      observer.disconnect()
+    }, { threshold: 0.35 })
+
+    observer.observe(element)
+    return () => {
+      observer.disconnect()
+      window.cancelAnimationFrame(animationFrame)
+    }
+  }, [duration, value])
+
+  return <strong ref={ref} aria-label={formattedValue}>{displayValue.toLocaleString('en-GB')}</strong>
+}
 
 function HomePage({ onOpenWaitlist }) {
   return (
@@ -199,7 +240,7 @@ function HomePage({ onOpenWaitlist }) {
 
             <div className="featured-metric" aria-label="AI-attributed job cuts tracked">
               <span>AI-attributed job cuts tracked</span>
-              <strong>91,476</strong>
+              <CountUpNumber value={91476} />
               <small>Editorially rated, source-led</small>
             </div>
           </article>

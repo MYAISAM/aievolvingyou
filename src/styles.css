@@ -1529,15 +1529,15 @@ body {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
   margin-top: 44px;
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
+  border-top: 1px solid rgba(157, 119, 80, 0.3);
+  border-left: 1px solid rgba(157, 119, 80, 0.3);
 }
 
 .pillar-card {
   min-height: 180px;
   background: var(--surface);
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid rgba(157, 119, 80, 0.3);
+  border-bottom: 1px solid rgba(157, 119, 80, 0.3);
   padding: 28px;
 }
 
@@ -1700,7 +1700,7 @@ body {
 
 .featured-metric {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(214, 166, 116, 0.72);
   border-radius: 14px;
   padding: 28px;
 }
@@ -1718,6 +1718,7 @@ body {
 .featured-metric strong {
   display: block;
   font-family: var(--font-heading);
+  font-variant-numeric: tabular-nums;
   font-size: clamp(2.4rem, 6vw, 4.4rem);
   line-height: 1;
   letter-spacing: -0.05em;
