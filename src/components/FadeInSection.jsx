@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
  * Adds `.visible` once the element enters the viewport,
  * then unobserves so the transition fires only once.
  */
-export default function FadeInSection({ children, id, className = '' }) {
+export default function FadeInSection({ children, id, className = '', revealOnly = false, ...props }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -27,7 +27,12 @@ export default function FadeInSection({ children, id, className = '' }) {
   }, [])
 
   return (
-    <section ref={ref} id={id} className={`fade-section ${className}`.trim()}>
+    <section
+      {...props}
+      ref={ref}
+      id={id}
+      className={`fade-section${revealOnly ? ' fade-section--reveal-only' : ''} ${className}`.trim()}
+    >
       {children}
     </section>
   )

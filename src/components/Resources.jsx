@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { articleMetadata } from "../articles/articleMetadata";
+import FadeInSection from "./FadeInSection";
 import ToolkitDetailModal from "./ToolkitDetailModal";
 
 const PROCUREMENT_STRIPE_URL = "https://buy.stripe.com/3cI14n93k5lI1AoeCF5Ne00";
@@ -321,7 +322,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="resource-section" id="candidate-library">
+      <FadeInSection revealOnly className="resource-section" id="candidate-library">
         <span className="anchor-alias" id="candidates" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Candidate Library</p>
@@ -361,17 +362,17 @@ export default function Resources() {
             </a>
           </section>
         </div>
-      </section>
+      </FadeInSection>
 
-      <section className="candidate-to-teams-bridge" aria-label="Hiring team resources">
+      <FadeInSection revealOnly className="candidate-to-teams-bridge" aria-label="Hiring team resources">
         <div>
           <h2>Looking for hiring-team resources instead?</h2>
           <p>Explore guidance on transparency, fairness, procurement and governance.</p>
         </div>
         <a href="#organisation-library">Jump to Hiring Teams ↓</a>
-      </section>
+      </FadeInSection>
 
-      <section className="resource-section resource-section--soft" id="quick-answers">
+      <FadeInSection revealOnly className="resource-section resource-section--soft" id="quick-answers">
         <div className="resource-section__heading">
           <p className="section-label">Quick Answers</p>
           <h2>Specific interview challenges.</h2>
@@ -382,9 +383,9 @@ export default function Resources() {
             <ArticleLinkCard article={article} key={article.slug} />
           ))}
         </div>
-      </section>
+      </FadeInSection>
 
-      <section className="resource-section" id="organisation-library">
+      <FadeInSection revealOnly className="resource-section" id="organisation-library">
         <span className="anchor-alias" id="organisations" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Organisation Library</p>
@@ -409,9 +410,9 @@ export default function Resources() {
             );
           })}
         </div>
-      </section>
+      </FadeInSection>
 
-      <section className="resource-section resource-section--soft" id="toolkit-library">
+      <FadeInSection revealOnly className="resource-section resource-section--soft" id="toolkit-library">
         <span className="anchor-alias" id="toolkits" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Toolkit Library</p>
@@ -424,7 +425,7 @@ export default function Resources() {
           ))}
         </div>
         <ToolkitCard toolkit={bundleToolkit} onOpenDetails={openToolkitDetails} />
-      </section>
+      </FadeInSection>
 
       <ToolkitDetailModal toolkit={selectedToolkit} onClose={closeToolkitDetails} />
     </main>
