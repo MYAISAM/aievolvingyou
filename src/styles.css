@@ -1678,10 +1678,13 @@ body {
   z-index: 1;
 }
 
-.featured-project .section-label,
 .featured-project h2,
 .featured-project p {
   color: #ffffff !important;
+}
+
+.featured-project .section-label {
+  color: #d6a674 !important;
 }
 
 .featured-project p {

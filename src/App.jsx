@@ -224,10 +224,7 @@ function HomePage({ onOpenWaitlist }) {
             <div>
               <p className="section-label">Featured project</p>
               <h2>Displaced Index</h2>
-              <p>
-                A public tracker of AI-attributed workforce reductions,
-                counter-signals and emerging labour market patterns.
-              </p>
+              <p>Tracking the human impact of AI on work.</p>
               <a
                 href="https://displaced.aievolvingyou.com"
                 target="_blank"
@@ -238,10 +235,10 @@ function HomePage({ onOpenWaitlist }) {
               </a>
             </div>
 
-            <div className="featured-metric" aria-label="AI-attributed job cuts tracked">
-              <span>AI-attributed job cuts tracked</span>
+            <div className="featured-metric" aria-label="Jobs tracked">
+              <span>JOBS TRACKED</span>
               <CountUpNumber value={91476} />
-              <small>Editorially rated, source-led</small>
+              <small>Beyond headlines. Into the data.</small>
             </div>
           </article>
         </div>
