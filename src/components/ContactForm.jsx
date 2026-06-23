@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const encode = (data) =>
   Object.keys(data)
@@ -77,6 +78,9 @@ export default function ContactForm() {
             </div>
 
             <button type="submit">Start a Conversation</button>
+            <p className="contact-form__privacy">
+              Read our <Link to="/privacy">Privacy Policy</Link>.
+            </p>
           </form>
         )}
       </div>

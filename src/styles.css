@@ -1985,6 +1985,18 @@ body {
   line-height: 1.68;
 }
 
+.contact-form__privacy {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contact-form__privacy a {
+  color: var(--green);
+  text-underline-offset: 3px;
+}
+
 .signature {
   max-width: var(--max-w);
   margin: 64px auto 48px;
@@ -2008,6 +2020,128 @@ body {
   font-size: 12px;
   color: #bbbbbb;
   letter-spacing: 0.01em;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 24px;
+}
+
+.footer-legal-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: var(--green);
+}
+
+/* ─────────────────────────────────────────
+   Legal pages
+   ───────────────────────────────────────── */
+.legal-page {
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 56px) 24px 88px;
+}
+
+.legal-document {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+.legal-document h1,
+.legal-document h2,
+.legal-document h3 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  letter-spacing: 0;
+}
+
+.legal-document h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.legal-document h2 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 48px 0 16px;
+}
+
+.legal-document h3 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin: 30px 0 10px;
+}
+
+.legal-document p,
+.legal-document li {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.legal-document p {
+  margin: 0 0 18px;
+  white-space: pre-line;
+}
+
+.legal-document ul,
+.legal-document ol {
+  margin: 0 0 22px;
+  padding-left: 1.4rem;
+}
+
+.legal-document li + li {
+  margin-top: 7px;
+}
+
+.legal-document hr {
+  border: 0;
+  border-top: 1px solid var(--divider);
+  margin: 32px 0;
+}
+
+.legal-document a {
+  color: var(--green);
+  text-underline-offset: 3px;
+}
+
+.legal-table-wrap {
+  margin: 20px 0 28px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.legal-document table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.legal-document th,
+.legal-document td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--divider);
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.legal-document th {
+  color: var(--text-primary);
+  font-weight: 700;
+  background: var(--surface-soft);
+}
+
+.legal-document tr:last-child td {
+  border-bottom: 0;
 }
 
 /* ─────────────────────────────────────────

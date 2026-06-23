@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import FadeInSection from "./components/FadeInSection";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 import WaitlistModal from "./components/WaitlistModal";
 import Resources from "./components/Resources";
 
@@ -40,6 +41,8 @@ import ThankYouBiasAudit from "./components/ThankYouBiasAudit";
 import ThankYouPolicyFramework from "./components/ThankYouPolicyFramework";
 import ThankYouToolkitBundle from "./components/ThankYouToolkitBundle";
 import { articleMetadataBySlug } from "./articles/articleMetadata";
+
+const LegalPage = lazy(() => import('./components/LegalPage'))
 
 const latestThinkingSlugs = [
   "/resources/ai-hiring-trust-problem",
@@ -281,44 +284,51 @@ function App() {
     <>
       <Nav onOpenWaitlist={() => setWaitlistOpen(true)} />
 
-      <Routes>
-        <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/resources/toolkits" element={<Resources />} />
+      <Suspense fallback={<main className="legal-page" aria-busy="true" />}>
+        <Routes>
+          <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/toolkits" element={<Resources />} />
+          <Route path="/terms" element={<LegalPage documentKey="terms" />} />
+          <Route path="/privacy" element={<LegalPage documentKey="privacy" />} />
+          <Route path="/terms-of-use" element={<LegalPage documentKey="terms-of-use" />} />
 
-        {/* Candidate articles */}
-        <Route path="/resources/do-ats-systems-reject-75-percent" element={<ArticleAtsMyth />} />
-        <Route path="/resources/how-ai-screening-actually-works" element={<ArticleAIScreeningWorks />} />
-        <Route path="/resources/can-you-tell-when-ai-is-screening-your-application" element={<ArticleCanYouTellAIScreening />} />
-        <Route path="/resources/the-cv-didnt-change" element={<ArticleCvDidntChange />} />
-        <Route path="/resources/ats-friendly-cvs-what-matters" element={<ArticleAtsFriendly />} />
-        <Route path="/resources/applications-you-never-hear-back-from" element={<ArticleNeverHearBack />} />
-        <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
-        <Route path="/resources/star-method" element={<ArticleSTAR />} />
-        <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
-        <Route path="/resources/ai-interview-prep" element={<ArticleAIPrep />} />
-        <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
-        <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
-        <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
+          {/* Candidate articles */}
+          <Route path="/resources/do-ats-systems-reject-75-percent" element={<ArticleAtsMyth />} />
+          <Route path="/resources/how-ai-screening-actually-works" element={<ArticleAIScreeningWorks />} />
+          <Route path="/resources/can-you-tell-when-ai-is-screening-your-application" element={<ArticleCanYouTellAIScreening />} />
+          <Route path="/resources/the-cv-didnt-change" element={<ArticleCvDidntChange />} />
+          <Route path="/resources/ats-friendly-cvs-what-matters" element={<ArticleAtsFriendly />} />
+          <Route path="/resources/applications-you-never-hear-back-from" element={<ArticleNeverHearBack />} />
+          <Route path="/resources/four-types-of-interview-question" element={<ArticleFourTypes />} />
+          <Route path="/resources/star-method" element={<ArticleSTAR />} />
+          <Route path="/resources/weakness-question" element={<ArticleWeakness />} />
+          <Route path="/resources/ai-interview-prep" element={<ArticleAIPrep />} />
+          <Route path="/resources/career-changers" element={<ArticleCareerChangers />} />
+          <Route path="/resources/specificity-principle" element={<ArticleSpecificity />} />
+          <Route path="/resources/interviewing-after-long-gap" element={<ArticleLongGap />} />
 
-        {/* Companion articles */}
-        <Route path="/resources/weakness-question-examples" element={<ArticleWeaknessExamples />} />
+          {/* Companion articles */}
+          <Route path="/resources/weakness-question-examples" element={<ArticleWeaknessExamples />} />
 
-        {/* Org articles */}
-        <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
-        <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
-        <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />
-        <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
-        <Route path="/resources/how-many-ai-tools-in-hiring" element={<ArticleAIToolsInventory />} />
-        <Route path="/resources/what-to-tell-candidates-about-ai" element={<ArticleCandidateDisclosure />} />
-        
-        {/* Thank you pages */}
-        <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
-        <Route path="/thank-you/candidate-transparency-guide" element={<ThankYouTransparencyGuide />} />
-        <Route path="/thank-you/bias-audit-checklist" element={<ThankYouBiasAudit />} />
-        <Route path="/thank-you/ai-hiring-policy-framework" element={<ThankYouPolicyFramework />} />
-        <Route path="/thank-you/toolkit-bundle" element={<ThankYouToolkitBundle />} />
-      </Routes>
+          {/* Org articles */}
+          <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
+          <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
+          <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />
+          <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
+          <Route path="/resources/how-many-ai-tools-in-hiring" element={<ArticleAIToolsInventory />} />
+          <Route path="/resources/what-to-tell-candidates-about-ai" element={<ArticleCandidateDisclosure />} />
+
+          {/* Thank you pages */}
+          <Route path="/thank-you/ai-procurement-questions" element={<ThankYou />} />
+          <Route path="/thank-you/candidate-transparency-guide" element={<ThankYouTransparencyGuide />} />
+          <Route path="/thank-you/bias-audit-checklist" element={<ThankYouBiasAudit />} />
+          <Route path="/thank-you/ai-hiring-policy-framework" element={<ThankYouPolicyFramework />} />
+          <Route path="/thank-you/toolkit-bundle" element={<ThankYouToolkitBundle />} />
+        </Routes>
+      </Suspense>
+
+      <Footer />
 
       <WaitlistModal
         open={waitlistOpen}
