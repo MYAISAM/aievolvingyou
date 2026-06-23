@@ -163,7 +163,7 @@ function HomePage({ onOpenWaitlist }) {
                 >
                   Try Interview Coach →
                 </a>
-                <Link to="/resources" className="link-subtle">Browse candidate guides →</Link>
+                <Link to="/resources#candidate-library" className="link-subtle">Browse candidate guides →</Link>
               </div>
             </article>
 
