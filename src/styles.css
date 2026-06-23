@@ -1986,6 +1986,7 @@ body {
 }
 
 .contact-form .contact-form__privacy {
+  margin-top: 12px;
   color: var(--text-muted);
   font-size: 0.525rem;
   line-height: 1.5;
