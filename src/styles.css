@@ -1985,9 +1985,9 @@ body {
   line-height: 1.68;
 }
 
-.contact-form__privacy {
+.contact-form .contact-form__privacy {
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.525rem;
   line-height: 1.5;
   text-align: center;
 }
