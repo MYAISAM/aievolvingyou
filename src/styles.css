@@ -1001,6 +1001,7 @@ body {
   .resource-section {
     padding: 48px 20px;
   }
+
 }
 
 /* ─────────────────────────────────────────
@@ -2000,6 +2001,10 @@ body {
    Responsive
    ───────────────────────────────────────── */
 @media (max-width: 768px) {
+  #candidate-library {
+    scroll-margin-top: calc(var(--nav-h) + 24px);
+  }
+
   .nav-inner       { padding: 0 24px; }
   .nav-links       { gap: 24px; }
   .hero-inner      { padding: 60px 24px 100px; }
