@@ -381,7 +381,7 @@ body {
 }
 
 .toolkit-pricing-note {
-  margin: 12px 2px 0;
+  margin: 12px auto 0;
   color: var(--text-muted);
   font-size: 0.75rem;
   line-height: 1.5;
