@@ -380,6 +380,13 @@ body {
   gap: 24px;
 }
 
+.toolkit-pricing-note {
+  margin: 12px 2px 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
 .toolkit-card > div:first-child {
   display: grid;
   grid-template-rows: auto minmax(2.7em, auto) 4.6em minmax(1.4rem, auto);

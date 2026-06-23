@@ -425,6 +425,9 @@ export default function Resources() {
           ))}
         </div>
         <ToolkitCard toolkit={bundleToolkit} onOpenDetails={openToolkitDetails} />
+        <p className="toolkit-pricing-note">
+          Prices are shown in GBP. We are not currently VAT registered, so VAT is not charged. Digital downloads for business and professional use. Not legal advice.
+        </p>
       </FadeInSection>
 
       <ToolkitDetailModal toolkit={selectedToolkit} onClose={closeToolkitDetails} />
