@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url>
+    <loc>https://aievolvingyou.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/toolkits</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Legal pages -->
+  <url>
+    <loc>https://aievolvingyou.com/terms</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/privacy</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/terms-of-use</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Candidate articles — Understand stage -->
+  <url>
+    <loc>https://aievolvingyou.com/resources/do-ats-systems-reject-75-percent</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/how-ai-screening-actually-works</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/can-you-tell-when-ai-is-screening-your-application</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Candidate articles — Adapt stage -->
+  <url>
+    <loc>https://aievolvingyou.com/resources/the-cv-didnt-change</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/ats-friendly-cvs-what-matters</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/applications-you-never-hear-back-from</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Candidate articles — Perform stage -->
+  <url>
+    <loc>https://aievolvingyou.com/resources/four-types-of-interview-question</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/star-method</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/weakness-question</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/specificity-principle</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/ai-interview-prep</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Candidate articles — Quick Answers -->
+  <url>
+    <loc>https://aievolvingyou.com/resources/weakness-question-examples</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/career-changers</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/interviewing-after-long-gap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Org articles -->
+  <url>
+    <loc>https://aievolvingyou.com/resources/ai-hiring-trust-problem</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/ai-procurement-mistakes</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/ai-hiring-bias</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/ai-hiring-ownership</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/how-many-ai-tools-in-hiring</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/resources/what-to-tell-candidates-about-ai</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
