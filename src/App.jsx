@@ -7,6 +7,7 @@ import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import WaitlistModal from "./components/WaitlistModal";
 import Resources from "./components/Resources";
+import { calcTrackerJobsTotal, fetchPublishedTrackerRows } from "./trackerData";
 
 // Candidate article pages
 import ArticleSTAR from "./articles/ArticleSTAR";
@@ -84,11 +85,11 @@ const ecosystemPillars = [
 function CountUpNumber({ value, duration = 1600 }) {
   const ref = useRef(null)
   const [displayValue, setDisplayValue] = useState(0)
-  const formattedValue = value.toLocaleString('en-GB')
+  const formattedValue = typeof value === 'number' ? value.toLocaleString('en-GB') : null
 
   useEffect(() => {
     const element = ref.current
-    if (!element) return undefined
+    if (!element || typeof value !== 'number') return undefined
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setDisplayValue(value)
@@ -119,10 +120,42 @@ function CountUpNumber({ value, duration = 1600 }) {
     }
   }, [duration, value])
 
+  if (formattedValue === null) {
+    return <strong ref={ref} aria-label="Jobs tracked unavailable">—</strong>
+  }
+
   return <strong ref={ref} aria-label={formattedValue}>{displayValue.toLocaleString('en-GB')}</strong>
 }
 
+function useTrackerJobsTotal() {
+  const [jobsTotal, setJobsTotal] = useState(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadJobsTotal() {
+      try {
+        const rows = await fetchPublishedTrackerRows()
+        if (!cancelled) setJobsTotal(calcTrackerJobsTotal(rows))
+      } catch (error) {
+        console.error('Unable to load Displaced Index jobs total', error)
+        if (!cancelled) setJobsTotal(null)
+      }
+    }
+
+    loadJobsTotal()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  return jobsTotal
+}
+
 function HomePage({ onOpenWaitlist }) {
+  const trackerJobsTotal = useTrackerJobsTotal()
+
   return (
     <>
       <Hero />
@@ -240,7 +273,7 @@ function HomePage({ onOpenWaitlist }) {
 
             <div className="featured-metric" aria-label="Jobs tracked">
               <span>JOBS TRACKED</span>
-              <CountUpNumber value={91476} />
+              <CountUpNumber value={trackerJobsTotal} />
               <small>Beyond headlines. Into the data.</small>
             </div>
           </article>
