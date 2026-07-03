@@ -4,7 +4,6 @@ const green = "#3F6F63";
 const greenLight = "#edf4f2";
 const ink = "#111111";
 const inkMid = "#555555";
-const inkLight = "#999999";
 const border = "rgba(0,0,0,0.07)";
 const surface = "#f9f9f9";
 
@@ -42,7 +41,8 @@ function LegalCard({ label, text }) {
 export default function ArticleVendorQuestions() {
   return (
     <ArticleLayout  
-      title="AI hiring vendor due diligence: the questions that matter"      bucket="For Organisations"
+      title="AI hiring vendor due diligence: the questions that matter"
+      bucket="For Organisations"
       hideCoachCta={true}
       nextArticle={{
         label: "Related reading",
@@ -159,44 +159,6 @@ export default function ArticleVendorQuestions() {
       <p>That is not an unreasonable ask. It is the minimum due diligence for a tool that is making consequential decisions about people's careers. The organisations that normalise asking these questions will be better positioned when regulation tightens, when a candidate challenges a decision, and when a court wants to know what governance was in place.</p>
 
       <p>The vendor who cannot answer clearly is not your compliance problem to solve. But deploying their tool without answers is.</p>
-
-      {/* CTA */}
-      <div style={{
-        borderTop: `0.5px solid ${border}`,
-        marginTop: "2.75rem",
-        paddingTop: "1.5rem",
-      }}>
-        <p style={{ fontSize: 14, color: inkMid, lineHeight: 1.6, margin: "0 0 1.25rem" }}>
-          If you want a structured set of questions to take into vendor conversations, the procurement toolkit is built for exactly that.
-        </p>
-        <p style={{
-          fontSize: 10, fontWeight: 700, textTransform: "uppercase",
-          letterSpacing: "0.06em", color: green, margin: "0 0 8px",
-        }}>
-          Put it into practice
-        </p>
-        <p style={{ fontSize: 13, fontWeight: 700, color: ink, margin: "0 0 4px" }}>
-          AI Procurement Questions for Hiring Teams
-        </p>
-        <p style={{ fontSize: 12.5, color: inkMid, margin: "0 0 12px", lineHeight: 1.55 }}>
-          48 structured vendor evaluation questions across 6 categories. Red flags, guidance notes, and a comparison framework. Built for HR and procurement teams who are not AI experts.
-        </p>
-        <a
-          href="/thank-you/ai-procurement-questions"
-          style={{
-            display: "inline-block",
-            background: green,
-            color: "#ffffff",
-            fontSize: 13,
-            fontWeight: 600,
-            padding: "9px 16px",
-            borderRadius: 6,
-            textDecoration: "none",
-          }}
-        >
-          Buy the toolkit, £79
-        </a>
-      </div>
 
     </ArticleLayout>
   );

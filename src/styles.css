@@ -339,23 +339,21 @@ body {
 
 .org-drawers {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 28px;
 }
 
 .org-drawer {
   display: grid;
-  align-content: start;
-  gap: 14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 22px;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--divider);
 }
 
 .org-drawer__links {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .toolkit-card {
@@ -953,6 +951,7 @@ body {
 @media (max-width: 760px) {
   .candidate-stage,
   .org-drawers,
+  .org-drawer__links,
   .audience-chooser,
   .toolkit-grid,
   .toolkit-card--featured,

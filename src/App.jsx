@@ -34,6 +34,8 @@ import ArticleAIHiringBias from "./articles/ArticleAIHiringBias";
 import ArticleAIHiringOwnership from "./articles/ArticleAIHiringOwnership";
 import ArticleAIToolsInventory from "./articles/ArticleAIToolsInventory";
 import ArticleCandidateDisclosure from "./articles/ArticleCandidateDisclosure";
+import ArticleVendorQuestions from "./articles/ArticleVendorQuestions";
+import ArticleEUAIAct from "./articles/ArticleEUAIAct";
 
 // Thank you pages
 import ThankYou from "./components/ThankYou";
@@ -347,8 +349,10 @@ function App() {
           {/* Org articles */}
           <Route path="/resources/ai-hiring-trust-problem" element={<ArticleTrustProblem />} />
           <Route path="/resources/ai-procurement-mistakes" element={<ArticleProcurementMistakes />} />
+          <Route path="/resources/vendor-questions" element={<ArticleVendorQuestions />} />
           <Route path="/resources/ai-hiring-bias" element={<ArticleAIHiringBias />} />
           <Route path="/resources/ai-hiring-ownership" element={<ArticleAIHiringOwnership />} />
+          <Route path="/resources/eu-ai-act-hiring" element={<ArticleEUAIAct />} />
           <Route path="/resources/how-many-ai-tools-in-hiring" element={<ArticleAIToolsInventory />} />
           <Route path="/resources/what-to-tell-candidates-about-ai" element={<ArticleCandidateDisclosure />} />
 
