@@ -81,7 +81,7 @@ export default function ArticleEUAIAct() {
         lineHeight: 1.65,
         margin: "0 0 1.75rem",
       }}>
-        The August 2026 deadline for high-risk AI systems is the date most HR teams have been working toward. In May 2026, EU lawmakers provisionally agreed to push it to December 2027. That agreement is not yet law. Until it is formally adopted, the original deadline remains the current legal position. The advice from employment lawyers is consistent: keep preparing.
+        The hiring-specific high-risk rules under the EU AI Act, named oversight, bias audits, documented human review, were expected to apply from 2 August 2026. That deadline has now been pushed to 2 December 2027. The European Parliament confirmed the change on 16 June 2026 and the Council gave final sign-off on 29 June 2026, so this is adopted, not proposed. One EU AI Act deadline still lands on 2 August 2026: the general transparency rules requiring AI systems to disclose that they are AI, including hiring chatbots. That rule is unaffected and unrelated to the hiring-specific delay.
       </p>
 
       <hr style={{ border: "none", borderTop: `1px solid ${border}`, margin: "2rem 0" }} />
@@ -95,24 +95,24 @@ export default function ArticleEUAIAct() {
         margin: "0 0 2rem",
       }}>
         <p style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: orange, margin: "0 0 6px" }}>
-          Deadline status, May 2026
+          Deadline status, confirmed June 2026
         </p>
         <p style={{ fontSize: 13.5, color: inkMid, lineHeight: 1.6, margin: 0 }}>
-          A provisional political agreement under the Digital Omnibus would push high-risk AI Act obligations from 2 August 2026 to 2 December 2027. This is not yet law. The original August 2026 deadline remains the current legal position unless and until the Omnibus changes are formally adopted and published in the EU Official Journal. Employment lawyers advise continuing to prepare for August 2026. The AI Act remains operationally and legally fluid in places, particularly around implementation timing and practical enforcement guidance.
+          The Digital Omnibus delay to high-risk AI Act obligations is now adopted, not proposed. Parliament confirmed it on 16 June 2026 and the Council gave final sign-off on 29 June 2026. Formal publication in the EU Official Journal is expected imminently, if it has not happened already, but the legislative decision itself is done. For recruitment and other standalone Annex III systems, the compliance deadline is now 2 December 2027, not 2 August 2026. Separately, AI systems embedded in regulated products (medical devices, machinery) move to 2 August 2028. The general transparency rules under Article 50, disclosing that a system is AI, still apply from 2 August 2026 and are not part of this delay.
         </p>
       </div>
 
-      <h2>Why the deadline shift does not reduce the urgency</h2>
+      <h2>Why the extra time does not reduce the urgency</h2>
 
-      <p>There is a temptation, when a regulatory deadline looks like it might move, to treat the pressure as having lifted.</p>
+      <p>There is a temptation, when a compliance deadline moves further out, to treat the pressure as having lifted.</p>
 
       <p>With the EU AI Act, that temptation is worth resisting.</p>
 
-      <p>The Digital Omnibus political deal reached on 7 May 2026 would push the Annex III high-risk AI obligations from 2 August 2026 to 2 December 2027. But political agreement is not the same as legal adoption. If formal adoption does not happen before 2 August, the original deadline applies.</p>
+      <p>The Digital Omnibus process moved through political agreement in May, Parliament's formal endorsement on 16 June 2026, and the Council's final sign-off on 29 June 2026. The recruitment-specific high-risk obligations now apply from 2 December 2027 rather than 2 August 2026, an extra sixteen months.</p>
 
-      <p>Littler's guidance is direct: organisations should continue preparing as if August 2026 remains the operative date.</p>
+      <p>That is genuine breathing room, not a reprieve. The obligations themselves have not changed and have not gone away. Named human oversight, bias audits, candidate notification, and documented review will still be required. Organisations now have more time to build that infrastructure properly instead of scrambling to meet it.</p>
 
-      <p>There is also a broader point. Even if the deadline shifts, the obligations themselves do not disappear. They arrive later. And the existing UK GDPR obligations, as enforced and interpreted by the ICO, already apply now, regardless of what the EU AI Act does.</p>
+      <p>There is also a broader point. The existing UK GDPR obligations, as enforced and interpreted by the ICO, already apply now, regardless of what the EU AI Act's timeline does. The delay only affects the EU AI Act's hiring-specific deadline. It does not touch UK obligations, and it does not touch the Article 50 transparency rules, which still land on 2 August 2026 for any AI system that interacts directly with people, including hiring chatbots.</p>
 
       <div style={{
         background: greenLight,
@@ -153,13 +153,13 @@ export default function ArticleEUAIAct() {
         />
         <TimelineItem
           date="August 2026"
-          title="High-risk AI, current legal deadline"
-          text="Full Annex III obligations including hiring AI apply. This date legally stands unless the Omnibus deal is formally adopted before it."
+          title="Article 50 transparency rules apply"
+          text="AI systems that interact directly with people, including hiring chatbots, must disclose that they are AI. AI-generated content must be labelled. This is unaffected by the Annex III delay below."
         />
         <TimelineItem
           date="December 2027"
-          title="Proposed Omnibus extension"
-          text="If the Digital Omnibus deal is formally adopted before August 2026, this becomes the operative deadline for Annex III high-risk systems including hiring AI."
+          title="High-risk AI, confirmed deadline for hiring"
+          text="Annex III obligations for recruitment and other standalone high-risk systems now apply from this date. Confirmed via Parliament's endorsement on 16 June 2026 and the Council's final sign-off on 29 June 2026."
           isLast={true}
         />
       </div>
@@ -299,15 +299,15 @@ export default function ArticleEUAIAct() {
           fontSize: 12.5, color: inkMid, fontStyle: "italic",
           margin: "10px 0 0", borderTop: `0.5px solid ${border}`, paddingTop: 10,
         }}>
-          These steps apply regardless of whether the August 2026 deadline shifts. They represent the minimum governance infrastructure for defensible AI use in hiring under current and forthcoming regulation.
+          These steps apply regardless of the confirmed December 2027 date. They represent the minimum governance infrastructure for defensible AI use in hiring under current and forthcoming regulation.
         </p>
       </div>
 
-      <p>The provisional Omnibus deal, if it becomes law, gives organisations more time. It does not change what they are required to build.</p>
+      <p>The confirmed delay gives organisations more time. It does not change what they are required to build.</p>
 
-      <p>Legal, operational, and reputational exposure do not pause during the extension period.</p>
+      <p>Legal, operational, and reputational exposure do not pause during the extension period, and the organisations that treat sixteen extra months as sixteen months of nothing will be in exactly the same position they would have been in under the original deadline.</p>
 
-      <p>Prepare for August. If the deadline moves, you will be ahead. If it does not, you will be ready. And until the law formally changes, the August 2026 deadline remains the operative position.</p>
+      <p>Build the governance infrastructure now, while there is room to do it properly instead of at speed. And do not forget the one date that has not moved: the Article 50 transparency rules, including hiring chatbot disclosure, still apply from 2 August 2026.</p>
   
     </ArticleLayout>
   );
