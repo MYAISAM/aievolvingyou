@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { TOOLKIT_SLUGS, toolkitUrl } from "../toolkitSlugs";
 
 const ctas = {
   "interview-coach": {
@@ -11,7 +12,7 @@ const ctas = {
     title: "AI Procurement Questions",
     text: "Use structured questions to test vendor claims, risk controls, human oversight, data use, bias monitoring and contractual safeguards before you buy.",
     button: "View toolkit",
-    href: "/resources/toolkits?toolkit=procurement-questions#procurement-questions",
+    href: toolkitUrl(TOOLKIT_SLUGS.procurementQuestions),
     secondary: "See all organisational tools",
     secondaryHref: "/resources#toolkit-library",
   },
@@ -20,7 +21,7 @@ const ctas = {
     title: "Candidate Transparency Guide",
     text: "Give candidates clear, practical explanations of where AI is used, what it affects, and how human review works.",
     button: "View toolkit",
-    href: "/resources/toolkits?toolkit=candidate-transparency-guide#candidate-transparency-guide",
+    href: toolkitUrl(TOOLKIT_SLUGS.candidateTransparencyGuide),
     secondary: "See all organisational tools",
     secondaryHref: "/resources#toolkit-library",
   },
@@ -29,7 +30,7 @@ const ctas = {
     title: "Bias Audit Checklist for AI Hiring",
     text: "Review where AI hiring tools may create, hide or amplify bias across screening, assessment, interview and decision stages.",
     button: "View toolkit",
-    href: "/resources/toolkits?toolkit=bias-audit-checklist#bias-audit-checklist",
+    href: toolkitUrl(TOOLKIT_SLUGS.biasAuditChecklist),
     secondary: "See all organisational tools",
     secondaryHref: "/resources#toolkit-library",
   },
@@ -38,7 +39,7 @@ const ctas = {
     title: "AI Hiring Policy Framework",
     text: "Turn your AI hiring inventory into clear internal rules for ownership, classification, human oversight, data protection, bias monitoring, candidate rights and incident response.",
     button: "View toolkit",
-    href: "/resources/toolkits?toolkit=ai-hiring-policy-framework#ai-hiring-policy-framework",
+    href: toolkitUrl(TOOLKIT_SLUGS.aiHiringPolicyFramework),
     secondary: "See all organisational tools",
     secondaryHref: "/resources#toolkit-library",
   },

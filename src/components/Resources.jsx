@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { articleMetadata } from "../articles/articleMetadata";
+import { TOOLKIT_SLUGS } from "../toolkitSlugs";
 import FadeInSection from "./FadeInSection";
 import ToolkitDetailModal from "./ToolkitDetailModal";
 
@@ -25,6 +26,7 @@ const orgDrawers = [
 const individualToolkits = [
   {
     id: "procurement-questions",
+    slug: TOOLKIT_SLUGS.procurementQuestions,
     title: "AI Procurement Questions for Hiring Teams",
     label: "Procurement Questions",
     price: "£79",
@@ -54,6 +56,7 @@ const individualToolkits = [
   },
   {
     id: "candidate-transparency-guide",
+    slug: TOOLKIT_SLUGS.candidateTransparencyGuide,
     title: "Candidate Transparency Guide",
     label: "Candidate Transparency Guide",
     price: "£49",
@@ -84,6 +87,7 @@ const individualToolkits = [
   },
   {
     id: "bias-audit-checklist",
+    slug: TOOLKIT_SLUGS.biasAuditChecklist,
     title: "Bias Audit Checklist for AI Hiring",
     label: "Bias Audit Checklist",
     price: "£49",
@@ -114,6 +118,7 @@ const individualToolkits = [
   },
   {
     id: "ai-hiring-policy-framework",
+    slug: TOOLKIT_SLUGS.aiHiringPolicyFramework,
     title: "AI Hiring Policy Framework",
     label: "AI Hiring Policy Framework",
     price: "£79",
@@ -146,6 +151,7 @@ const individualToolkits = [
 
 const bundleToolkit = {
   id: "ai-hiring-toolkit-bundle",
+  slug: TOOLKIT_SLUGS.completeBundle,
   title: "AI Hiring Toolkit Bundle",
   price: "£199",
   label: "BEST VALUE",
@@ -174,6 +180,9 @@ const bundleToolkit = {
   ctaLabel: "Buy bundle",
   featured: true,
 };
+
+const paidToolkits = [...individualToolkits, bundleToolkit];
+const paidToolkitsBySlug = new Map(paidToolkits.map((toolkit) => [toolkit.slug, toolkit]));
 
 function sortByOrder(items) {
   return [...items].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
@@ -229,20 +238,35 @@ function AudienceCard({ title, copy, href, variant }) {
 
 export default function Resources() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [selectedToolkit, setSelectedToolkit] = useState(null);
   const toolkitScrollY = useRef(null);
+  const queryOpenedToolkit = useRef(null);
   const candidates = articleMetadata.filter((article) => article.track === "candidate");
   const orgs = articleMetadata.filter((article) => article.track === "org");
   const quickAnswers = candidates.filter((article) => article.stage === "quick-answer");
 
   function openToolkitDetails(toolkit) {
+    queryOpenedToolkit.current = null;
     toolkitScrollY.current = window.scrollY;
     setSelectedToolkit(toolkit);
   }
 
   function closeToolkitDetails() {
     const restoreY = toolkitScrollY.current;
+    queryOpenedToolkit.current = null;
     setSelectedToolkit(null);
+
+    const searchParams = new URLSearchParams(location.search);
+    if (searchParams.has("toolkit")) {
+      searchParams.delete("toolkit");
+      const search = searchParams.toString();
+      navigate(
+        { pathname: location.pathname, search: search ? `?${search}` : "", hash: location.hash },
+        { replace: true },
+      );
+    }
+
     if (typeof restoreY === "number") {
       window.requestAnimationFrame(() => {
         window.scrollTo({ top: restoreY, left: 0, behavior: "auto" });
@@ -259,7 +283,8 @@ export default function Resources() {
   }
 
   useEffect(() => {
-    if (new URLSearchParams(location.search).has("toolkit")) return undefined;
+    const toolkitSlug = new URLSearchParams(location.search).get("toolkit");
+    if (toolkitSlug && paidToolkitsBySlug.has(toolkitSlug)) return undefined;
 
     const hash = location.hash || window.location.hash;
     if (!hash) return undefined;
@@ -270,15 +295,20 @@ export default function Resources() {
   }, [location.pathname, location.search, location.hash, location.key]);
 
   useEffect(() => {
-    const toolkitId = new URLSearchParams(location.search).get("toolkit");
-    if (!toolkitId) return undefined;
-
-    const toolkit = [...individualToolkits, bundleToolkit].find((item) => item.id === toolkitId);
-    if (!toolkit) return undefined;
+    const toolkitSlug = new URLSearchParams(location.search).get("toolkit");
+    const toolkit = paidToolkitsBySlug.get(toolkitSlug);
+    if (!toolkit) {
+      if (queryOpenedToolkit.current) {
+        queryOpenedToolkit.current = null;
+        setSelectedToolkit(null);
+      }
+      return undefined;
+    }
 
     const frame = window.requestAnimationFrame(() => {
-      scrollToResourceHash(location.hash || `#${toolkit.id}`, "instant");
+      scrollToResourceHash("#organisation-library", "instant");
       toolkitScrollY.current = window.scrollY;
+      queryOpenedToolkit.current = toolkit.slug;
       setSelectedToolkit(toolkit);
     });
 
@@ -287,7 +317,8 @@ export default function Resources() {
 
   useEffect(() => {
     function handleHashChange() {
-      if (new URLSearchParams(window.location.search).has("toolkit")) return;
+      const toolkitSlug = new URLSearchParams(window.location.search).get("toolkit");
+      if (toolkitSlug && paidToolkitsBySlug.has(toolkitSlug)) return;
 
       window.requestAnimationFrame(() => scrollToResourceHash());
       window.setTimeout(() => scrollToResourceHash(), 150);
