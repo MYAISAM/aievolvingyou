@@ -26,6 +26,19 @@
   status = 301
   force = true
 
+# Query strings pass through these redirects to preserve toolkit selections.
+[[redirects]]
+  from = "/resources/toolkits"
+  to = "/resources#toolkit-library"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/connect"
+  to = "/#connect"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

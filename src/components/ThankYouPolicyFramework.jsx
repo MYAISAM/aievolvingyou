@@ -277,7 +277,7 @@ export default function ThankYouPolicyFramework() {
       >
         Questions? Get in touch via the{" "}
         <a
-          href="/connect"
+          href="/#connect"
           style={{
             color: t.accentGreen,
             textDecoration: "underline",

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { toolkitUrl } from "../toolkitSlugs";
 
-export default function ToolkitDetailModal({ toolkit, onClose }) {
+export default function ToolkitDetailModal({ toolkit, onClose, bundle }) {
   const closeButtonRef = useRef(null);
 
   useEffect(() => {
@@ -67,6 +69,13 @@ export default function ToolkitDetailModal({ toolkit, onClose }) {
             {toolkit.ctaLabel}
           </a>
         </div>
+        {bundle && toolkit.slug !== bundle.slug && (
+          <div className="toolkit-modal__bundle">
+            <strong>Need the full set?</strong>
+            <p>Get all four practical AI hiring toolkits for {bundle.price}.</p>
+            <Link to={toolkitUrl(bundle.slug)}>View complete toolkit bundle →</Link>
+          </div>
+        )}
       </section>
     </div>
   );

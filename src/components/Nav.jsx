@@ -97,9 +97,10 @@ export default function Nav({ onOpenWaitlist }) {
               )}
             </div>
 
-            <Link to="/resources" className="nav-link" onClick={closeAll}>
-              Resources
-            </Link>
+            <Link to="/candidates" className="nav-link" aria-current={location.pathname.startsWith("/candidates") ? "page" : undefined} onClick={closeAll}>Candidates</Link>
+
+            <Link to="/organisations" className="nav-link" aria-current={location.pathname.startsWith("/organisations") ? "page" : undefined} onClick={closeAll}>Organisations</Link>
+
 
             <a
               href="https://displaced.aievolvingyou.com"
@@ -191,12 +192,11 @@ export default function Nav({ onOpenWaitlist }) {
           </div>
 
           <div className="nav-mobile-group">
-            <p className="nav-mobile-label">Resources</p>
-            <Link to="/resources#candidate-library" className="nav-mobile-item" onClick={closeAll}>
-              For Candidates
+            <Link to="/candidates" aria-current={location.pathname.startsWith("/candidates") ? "page" : undefined} className="nav-mobile-item" onClick={closeAll}>
+              Candidates
             </Link>
-            <Link to="/resources#organisation-library" className="nav-mobile-item" onClick={closeAll}>
-              For Hiring Teams
+            <Link to="/organisations" aria-current={location.pathname.startsWith("/organisations") ? "page" : undefined} className="nav-mobile-item" onClick={closeAll}>
+              Organisations
             </Link>
             <a
               href="https://displaced.aievolvingyou.com"

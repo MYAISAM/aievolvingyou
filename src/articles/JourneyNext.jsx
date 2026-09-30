@@ -1,59 +1,26 @@
-import { Link } from "react-router-dom";
-import { articleMetadataBySlug } from "./articleMetadata";
+import { Link } from 'react-router-dom'
+import JourneyLink from '../components/JourneyLink'
+import { articleMetadataBySlug } from './articleMetadata'
+import { nextInJourney } from '../pages/journeyNavigation'
 
-function SmartLink({ to, className, children }) {
-  if (!to) return null;
-  if (to.startsWith("http")) {
-    return (
-      <a className={className} href={to} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    );
-  }
-
+export default function JourneyNext({ article, journey }) {
+  // Direct visitors choose a journey explicitly; the old universal sequence
+  // must not silently assign one or move application readers into interviews.
+  if (!journey || !article) return null
+  const next = articleMetadataBySlug[nextInJourney(journey, article.slug)]
   return (
-    <Link className={className} to={to} preventScrollReset={false}>
-      {children}
-    </Link>
-  );
-}
-
-export default function JourneyNext({ article }) {
-  if (!article?.journeyMode || !article.label) return null;
-
-  if (article.journeyMode === "forward") {
-    const next = article.nextArticle;
-    if (!next?.slug || !next.title) return null;
-
-    return (
-      <section className="journey-next journey-next--forward" aria-labelledby="journey-next-title">
-        <p className="journey-next__label" id="journey-next-title">{article.label}</p>
-        <SmartLink className="journey-next__card" to={next.slug}>
+    <section className="journey-next" aria-label="Journey next step">
+      {next ? <>
+        <p className="journey-next__label">Next in this journey</p>
+        <JourneyLink className="journey-next__card" to={next.slug}>
           <span className="journey-next__title">{next.title}</span>
-          {next.copy && <span className="journey-next__copy">{next.copy}</span>}
-          <span className="journey-next__action">{next.action || "Continue"}</span>
-        </SmartLink>
-      </section>
-    );
-  }
-
-  if (article.journeyMode === "related") {
-    const related = (article.relatedArticles || []).filter((item) => item?.slug && articleMetadataBySlug[item.slug]);
-    if (related.length === 0) return null;
-
-    return (
-      <section className="journey-next journey-next--related" aria-labelledby="journey-related-title">
-        <p className="journey-next__label" id="journey-related-title">{article.label}</p>
-        <div className="journey-next__related-list">
-          {related.map((item) => (
-            <Link className="journey-next__related-link" to={item.slug} preventScrollReset={false} key={item.slug}>
-              {item.title}
-            </Link>
-          ))}
-        </div>
-      </section>
-    );
-  }
-
-  return null;
+          <span className="journey-next__action">Read the guide →</span>
+        </JourneyLink>
+      </> : <>
+        <p className="journey-next__label">Your next step</p>
+        {journey.audience === 'candidate' && !journey.coach && <p>Choose one role and check that your CV makes the relevant experience easy to find.</p>}
+        <Link className="journey-next__related-link" to={journey.path}>← Back to {journey.navigationLabel}</Link>
+      </>}
+    </section>
+  )
 }

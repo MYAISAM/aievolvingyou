@@ -12,9 +12,51 @@
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Public landing pages and journeys -->
   <url>
-    <loc>https://aievolvingyou.com/resources/toolkits</loc>
+    <loc>https://aievolvingyou.com/candidates</loc>
     <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/organisations</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/candidates/interview-soon</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/candidates/interviews-no-offers</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/candidates/no-interviews</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/organisations/assessing-ai-tools</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/organisations/governance</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/organisations/candidate-transparency</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://aievolvingyou.com/organisations/bias</loc>
+    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
 

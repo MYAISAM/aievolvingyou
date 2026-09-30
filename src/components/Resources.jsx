@@ -12,15 +12,15 @@ const POLICY_FRAMEWORK_STRIPE_URL = "https://buy.stripe.com/9B63cv6Vc8xUfreamp5N
 const TOOLKIT_BUNDLE_STRIPE_URL = "https://buy.stripe.com/6oUdR993keWibaYamp5Ne0a";
 
 const candidateStages = [
-  { id: "understand", label: "Understand", copy: "See what actually changed before trying to optimise for the wrong system." },
-  { id: "adapt", label: "Adapt", copy: "Make your CV and applications readable to the tools and the people behind them." },
-  { id: "perform", label: "Perform", copy: "Turn visibility into strong interview answers once you are in the room." },
+  { id: "understand", label: "AI screening", copy: "How application screening works and what candidates can expect." },
+  { id: "adapt", label: "CVs and applications", copy: "Guides to CV structure, relevance and getting your application seen." },
+  { id: "perform", label: "Interview preparation", copy: "Question types, answer structure and practical preparation." },
 ];
 
 const orgDrawers = [
-  { id: "understand-risk", label: "Understand Risk", copy: "Map where AI is already shaping hiring and where trust is breaking down." },
-  { id: "build-trust-fairness", label: "Build Trust & Fairness", copy: "Explain AI use clearly and review fairness risks before they harden." },
-  { id: "create-governance", label: "Create Governance", copy: "Ask better procurement questions and name ownership before problems land." },
+  { id: "understand-risk", label: "AI use and risk", copy: "Map where AI is already shaping hiring and where trust is breaking down." },
+  { id: "build-trust-fairness", label: "Trust and fairness", copy: "Explain AI use clearly and review fairness risks before they harden." },
+  { id: "create-governance", label: "Procurement and governance", copy: "Ask better procurement questions and name ownership before problems land." },
 ];
 
 const individualToolkits = [
@@ -188,10 +188,9 @@ function sortByOrder(items) {
   return [...items].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 }
 
-function ArticleLinkCard({ article, index }) {
+function ArticleLinkCard({ article }) {
   return (
     <Link className="resource-card" to={article.slug}>
-      {typeof index === "number" && <span className="resource-card__step">{String(index).padStart(2, "0")}</span>}
       <span className="resource-card__meta">{article.readTime}</span>
       <h3>{article.title}</h3>
       <p>{article.excerpt}</p>
@@ -240,7 +239,6 @@ export default function Resources() {
   const location = useLocation();
   const navigate = useNavigate();
   const [selectedToolkit, setSelectedToolkit] = useState(null);
-  const toolkitScrollY = useRef(null);
   const queryOpenedToolkit = useRef(null);
   const candidates = articleMetadata.filter((article) => article.track === "candidate");
   const orgs = articleMetadata.filter((article) => article.track === "org");
@@ -248,30 +246,25 @@ export default function Resources() {
 
   function openToolkitDetails(toolkit) {
     queryOpenedToolkit.current = null;
-    toolkitScrollY.current = window.scrollY;
     setSelectedToolkit(toolkit);
   }
 
   function closeToolkitDetails() {
-    const restoreY = toolkitScrollY.current;
     queryOpenedToolkit.current = null;
     setSelectedToolkit(null);
 
     const searchParams = new URLSearchParams(location.search);
-    if (searchParams.has("toolkit")) {
-      searchParams.delete("toolkit");
-      const search = searchParams.toString();
-      navigate(
-        { pathname: location.pathname, search: search ? `?${search}` : "", hash: location.hash },
-        { replace: true },
-      );
-    }
+    searchParams.delete("toolkit");
+    const search = searchParams.toString();
+    navigate(
+      { pathname: "/resources", search: search ? `?${search}` : "", hash: "#toolkit-library" },
+      { replace: true },
+    );
 
-    if (typeof restoreY === "number") {
-      window.requestAnimationFrame(() => {
-        window.scrollTo({ top: restoreY, left: 0, behavior: "auto" });
-      });
-    }
+    window.requestAnimationFrame(() => {
+      const section = scrollToResourceHash("#toolkit-library", "instant");
+      section?.focus({ preventScroll: true });
+    });
   }
 
   function scrollToResourceHash(hash = window.location.hash, behavior) {
@@ -306,8 +299,7 @@ export default function Resources() {
     }
 
     const frame = window.requestAnimationFrame(() => {
-      scrollToResourceHash("#organisation-library", "instant");
-      toolkitScrollY.current = window.scrollY;
+      scrollToResourceHash("#toolkit-library", "instant");
       queryOpenedToolkit.current = toolkit.slug;
       setSelectedToolkit(toolkit);
     });
@@ -333,9 +325,9 @@ export default function Resources() {
     <main className="resources-page">
       <section className="resources-hero">
         <p className="section-label">RESOURCES</p>
-        <h1>AI is changing hiring. Getting hired is still human.</h1>
+        <h1>Browse all guidance and tools</h1>
         <p className="resources-hero__subheading">
-          AI is changing how organisations hire and how candidates get hired. Explore practical guidance, evidence-based articles, interview coaching and governance resources.
+          Browse articles and tools for candidates and hiring teams, grouped by topic.
         </p>
         <div className="audience-chooser" aria-label="Choose resource audience">
           <AudienceCard
@@ -357,8 +349,7 @@ export default function Resources() {
         <span className="anchor-alias" id="candidates" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Candidate Library</p>
-          <p className="resource-section__kicker">Start here</p>
-          <h2>Understand → Adapt → Perform → Practise</h2>
+          <h2>Candidate guides by topic</h2>
         </div>
 
         <div className="candidate-staircase">
@@ -374,7 +365,7 @@ export default function Resources() {
                 </div>
                 <div className="candidate-stage__list">
                   {articles.map((article) => (
-                    <ArticleLinkCard article={article} index={article.order} key={article.slug} />
+                    <ArticleLinkCard article={article} key={article.slug} />
                   ))}
                 </div>
               </section>
@@ -383,11 +374,10 @@ export default function Resources() {
 
           <section className="candidate-stage candidate-stage--practise">
             <div className="candidate-stage__intro">
-              <span>Practise</span>
-              <p>Put the frameworks under pressure with questions matched to your role.</p>
+              <span>Interview tool</span>
+              <p>Looking for interview practice? Try the Interview Coach.</p>
             </div>
             <a className="coach-endpoint" href="https://coach.aievolvingyou.com" target="_blank" rel="noopener noreferrer">
-              <span>12</span>
               <strong>Interview Coach</strong>
               <p>Live practice, real-time feedback and a cheat sheet you keep.</p>
             </a>
@@ -420,8 +410,8 @@ export default function Resources() {
         <span className="anchor-alias" id="organisations" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Organisation Library</p>
-          <h2>Building or buying AI hiring tools?</h2>
-          <p>Start with the problem in front of you: understanding risk, building trust, reviewing fairness, or putting governance in place before issues land.</p>
+          <h2>Organisation guides by topic</h2>
+          <p>Browse guidance on AI use, trust, fairness, procurement and governance.</p>
         </div>
         <div className="org-drawers">
           {orgDrawers.map((drawer) => {
@@ -443,11 +433,11 @@ export default function Resources() {
         </div>
       </FadeInSection>
 
-      <FadeInSection revealOnly className="resource-section resource-section--soft" id="toolkit-library">
+      <FadeInSection revealOnly className="resource-section resource-section--soft" id="toolkit-library" tabIndex={-1} aria-labelledby="toolkit-library-heading">
         <span className="anchor-alias" id="toolkits" aria-hidden="true" />
         <div className="resource-section__heading">
           <p className="section-label">Toolkit Library</p>
-          <h2>Practical AI hiring frameworks for teams reviewing tools, transparency, bias and governance.</h2>
+          <h2 id="toolkit-library-heading">Practical AI hiring frameworks for teams reviewing tools, transparency, bias and governance.</h2>
           <p>AI hiring is full of claims, vendors and conflicting advice. These resources help teams ask better questions, review tools, improve transparency, reduce bias and establish clear ownership.</p>
         </div>
         <div className="toolkit-grid">
@@ -461,7 +451,7 @@ export default function Resources() {
         </p>
       </FadeInSection>
 
-      <ToolkitDetailModal toolkit={selectedToolkit} onClose={closeToolkitDetails} />
+      <ToolkitDetailModal toolkit={selectedToolkit} onClose={closeToolkitDetails} bundle={bundleToolkit} />
     </main>
   );
 }

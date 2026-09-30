@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import FadeInSection from "./components/FadeInSection";
@@ -44,6 +44,11 @@ import ThankYouBiasAudit from "./components/ThankYouBiasAudit";
 import ThankYouPolicyFramework from "./components/ThankYouPolicyFramework";
 import ThankYouToolkitBundle from "./components/ThankYouToolkitBundle";
 import { articleMetadataBySlug } from "./articles/articleMetadata";
+
+import { CandidatesLanding, CandidateJourney } from './pages/Candidates'
+import { candidateJourneys } from './pages/candidateJourneys'
+import { OrganisationsLanding, OrganisationJourney } from './pages/Organisations'
+import { organisationJourneys } from './pages/organisationJourneys'
 
 const LegalPage = lazy(() => import('./components/LegalPage'))
 
@@ -157,6 +162,15 @@ function useTrackerJobsTotal() {
 
 function HomePage({ onOpenWaitlist }) {
   const trackerJobsTotal = useTrackerJobsTotal()
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash !== '#connect') return undefined
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById('connect')?.scrollIntoView({ block: 'start', behavior: 'instant' })
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [hash])
 
   return (
     <>
@@ -193,15 +207,7 @@ function HomePage({ onOpenWaitlist }) {
                 confidence in a process that is becoming less transparent.
               </p>
               <div className="pathway-actions">
-                <a
-                  href="https://coach.aievolvingyou.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-subtle"
-                >
-                  Try Interview Coach →
-                </a>
-                <Link to="/resources#candidate-library" className="link-subtle">Browse candidate guides →</Link>
+                <Link to="/candidates" className="link-subtle">Find help with your job search →</Link>
               </div>
             </article>
 
@@ -213,8 +219,7 @@ function HomePage({ onOpenWaitlist }) {
                 teams evaluating AI tools before they buy, deploy or scale them.
               </p>
               <div className="pathway-actions">
-                <Link to="/resources#toolkit-library" className="link-subtle">Browse toolkits →</Link>
-                <Link to="/resources#organisation-library" className="link-subtle">See resources →</Link>
+                <Link to="/organisations" className="link-subtle">Find guidance for your organisation →</Link>
               </div>
             </article>
 
@@ -312,6 +317,12 @@ function HomePage({ onOpenWaitlist }) {
   )
 }
 
+// Netlify handles direct requests with 301s; this also supports local and SPA navigation.
+function LegacyDestination({ pathname, hash }) {
+  const { search } = useLocation()
+  return <Navigate replace to={{ pathname, search, hash }} />
+}
+
 function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false)
 
@@ -322,8 +333,13 @@ function App() {
       <Suspense fallback={<main className="legal-page" aria-busy="true" />}>
         <Routes>
           <Route path="/" element={<HomePage onOpenWaitlist={() => setWaitlistOpen(true)} />} />
+          <Route path="/organisations" element={<OrganisationsLanding />} />
+          {organisationJourneys.map(journey => <Route key={journey.id} path={`/organisations/${journey.id}`} element={<OrganisationJourney journey={journey} />} />)}
+          <Route path="/candidates" element={<CandidatesLanding />} />
+          {candidateJourneys.map(journey => <Route key={journey.id} path={`/candidates/${journey.id}`} element={<CandidateJourney journey={journey} />} />)}
           <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/toolkits" element={<Resources />} />
+          <Route path="/resources/toolkits" element={<LegacyDestination pathname="/resources" hash="#toolkit-library" />} />
+          <Route path="/connect" element={<LegacyDestination pathname="/" hash="#connect" />} />
           <Route path="/terms" element={<LegalPage documentKey="terms" />} />
           <Route path="/privacy" element={<LegalPage documentKey="privacy" />} />
           <Route path="/terms-of-use" element={<LegalPage documentKey="terms-of-use" />} />

@@ -4,7 +4,9 @@ import { TOOLKIT_SLUGS, toolkitUrl } from "../toolkitSlugs";
 const ctas = {
   "interview-coach": {
     text: "The Interview Coach turns these frameworks into a live, personalised practice session, with questions matched to your role and a cheat sheet you keep.",
-    button: "Start for free",
+    label: "Start practising",
+    title: "AI Interview Coach",
+    button: "Practise with Interview Coach",
     href: "https://coach.aievolvingyou.com",
   },
   "toolkit-1": {
@@ -13,8 +15,8 @@ const ctas = {
     text: "Use structured questions to test vendor claims, risk controls, human oversight, data use, bias monitoring and contractual safeguards before you buy.",
     button: "View toolkit",
     href: toolkitUrl(TOOLKIT_SLUGS.procurementQuestions),
-    secondary: "See all organisational tools",
-    secondaryHref: "/resources#toolkit-library",
+    secondary: "Browse all organisation guidance & tools",
+    secondaryHref: "/resources#organisation-library",
   },
   "toolkit-2": {
     label: "Put it into practice",
@@ -22,8 +24,8 @@ const ctas = {
     text: "Give candidates clear, practical explanations of where AI is used, what it affects, and how human review works.",
     button: "View toolkit",
     href: toolkitUrl(TOOLKIT_SLUGS.candidateTransparencyGuide),
-    secondary: "See all organisational tools",
-    secondaryHref: "/resources#toolkit-library",
+    secondary: "Browse all organisation guidance & tools",
+    secondaryHref: "/resources#organisation-library",
   },
   "toolkit-3": {
     label: "Put it into practice",
@@ -31,8 +33,8 @@ const ctas = {
     text: "Review where AI hiring tools may create, hide or amplify bias across screening, assessment, interview and decision stages.",
     button: "View toolkit",
     href: toolkitUrl(TOOLKIT_SLUGS.biasAuditChecklist),
-    secondary: "See all organisational tools",
-    secondaryHref: "/resources#toolkit-library",
+    secondary: "Browse all organisation guidance & tools",
+    secondaryHref: "/resources#organisation-library",
   },
   "toolkit-4": {
     label: "Put it into practice",
@@ -40,13 +42,13 @@ const ctas = {
     text: "Turn your AI hiring inventory into clear internal rules for ownership, classification, human oversight, data protection, bias monitoring, candidate rights and incident response.",
     button: "View toolkit",
     href: toolkitUrl(TOOLKIT_SLUGS.aiHiringPolicyFramework),
-    secondary: "See all organisational tools",
-    secondaryHref: "/resources#toolkit-library",
+    secondary: "Browse all organisation guidance & tools",
+    secondaryHref: "/resources#organisation-library",
   },
 };
 
-export default function ArticleCTA({ cta }) {
-  const config = ctas[cta];
+export default function ArticleCTA({ cta, showLibraryLink = true, coachCopy }) {
+  const config = cta === "interview-coach" && coachCopy ? { ...ctas[cta], ...coachCopy } : ctas[cta];
   if (!config) return null;
 
   const isExternal = config.href.startsWith("http");
@@ -67,7 +69,7 @@ export default function ArticleCTA({ cta }) {
             {config.button}
           </Link>
         )}
-        {config.secondary && (
+        {showLibraryLink && config.secondary && (
           <Link className="article-cta__secondary" to={config.secondaryHref}>
             {config.secondary}
           </Link>

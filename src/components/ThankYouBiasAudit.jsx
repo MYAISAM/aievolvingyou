@@ -276,7 +276,7 @@ export default function ThankYouBiasAudit() {
       >
         Questions? Get in touch via the{" "}
         <a
-          href="/connect"
+          href="/#connect"
           style={{
             color: t.accentGreen,
             textDecoration: "underline",

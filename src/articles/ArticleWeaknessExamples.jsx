@@ -1,3 +1,4 @@
+import JourneyLink from '../components/JourneyLink';
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
@@ -80,7 +81,7 @@ export default function ArticleWeaknessExamples() {
       title="Weakness question examples: answers you can actually use"
     >
       {/* TRIMMED: was a full strategy preamble duplicating the parent article. Now one cross-ref sentence. */}
-      <p>The strategy behind the weakness question is covered in full in <a href="/resources/weakness-question" style={{ color: green, fontWeight: 600 }}>The Weakness Question</a>. This article is the bank, built answers across roles and seniority levels, structured around the four beats every strong answer hits, ready to adapt to your own experience.</p>
+      <p>The strategy behind the weakness question is covered in full in <JourneyLink to="/resources/weakness-question" style={{ color: green, fontWeight: 600 }}>The Weakness Question</JourneyLink>. This article is the bank, built answers across roles and seniority levels, structured around the four beats every strong answer hits, ready to adapt to your own experience.</p>
 
       <h2>The four beats every strong answer hits</h2>
 

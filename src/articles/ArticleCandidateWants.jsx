@@ -1,3 +1,4 @@
+import { TOOLKIT_SLUGS, toolkitUrl } from "../toolkitSlugs";
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
@@ -226,7 +227,7 @@ export default function ArticleCandidateWants() {
           A practical guide for HR teams on communicating AI use to candidates. Covers disclosure language, timing, human review signalling, and audit transparency. Written for the people running the process, not the people who built the tool.
         </p>
         <a
-          href="/resources#toolkit-library"
+          href={toolkitUrl(TOOLKIT_SLUGS.candidateTransparencyGuide)}
           style={{
             display: "inline-block",
             background: green,

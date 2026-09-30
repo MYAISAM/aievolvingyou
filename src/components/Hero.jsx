@@ -1,3 +1,4 @@
+import IllustrationSlot from './IllustrationSlot'
 import GridBackground from './GridBackground'
 
 function scrollToWork() {
@@ -9,6 +10,7 @@ export default function Hero() {
     <section className="hero" id="hero">
       <GridBackground />
       <div className="hero-inner">
+        <div className="hero-copy">
         <h1 className="hero-headline">
           <span className="hero-line-1">AI Evolving You</span>
         </h1>
@@ -18,6 +20,8 @@ export default function Hero() {
         <button className="btn-primary" onClick={scrollToWork}>
           Choose your path →
         </button>
+        </div>
+        <IllustrationSlot src="/images/aiey-home-hero-final.png" alt="Navigating changes in work and opportunity" className="illustration-slot--home" />
       </div>
     </section>
   )

@@ -1,3 +1,4 @@
+import { TOOLKIT_SLUGS, toolkitUrl } from "../toolkitSlugs";
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
@@ -191,7 +192,7 @@ export default function ArticleAIToolsInventory() {
         </p>
       </div>
 
-      <p>One distinction is worth drawing while you build the list. For the tools already running, the inventory tells you what to govern. For the tools you are still evaluating or about to buy, the work is different: it is about what to ask the vendor before you sign. I have written those questions up separately in the <a href="/resources#toolkit-library" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Procurement Questions document</a>, so the inventory can stay focused on what you already have rather than turning into a buying exercise.</p>
+      <p>One distinction is worth drawing while you build the list. For the tools already running, the inventory tells you what to govern. For the tools you are still evaluating or about to buy, the work is different: it is about what to ask the vendor before you sign. I have written those questions up separately in the <a href={toolkitUrl(TOOLKIT_SLUGS.procurementQuestions)} style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Procurement Questions document</a>, so the inventory can stay focused on what you already have rather than turning into a buying exercise.</p>
 
       <h2>Inventory is the foundation, not the finish</h2>
 

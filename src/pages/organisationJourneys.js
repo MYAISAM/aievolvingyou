@@ -1,0 +1,70 @@
+import { TOOLKIT_SLUGS } from '../toolkitSlugs.js'
+
+const resource = slug => `/resources/${slug}`
+
+export const organisationJourneys = [
+  {
+    id: 'assessing-ai-tools',
+    navigationLabel: 'Assessing AI hiring tools',
+    entryTitle: 'We’re buying or assessing an AI hiring tool',
+    entryCopy: 'Work out what to ask vendors, what evidence to expect, and how to make a more informed decision before you buy or continue with a tool.',
+    entryAction: 'Assess an AI hiring tool',
+    title: 'Buying or reassessing an AI hiring tool?',
+    description: 'Start with the questions that help you move beyond the sales pitch and understand what the tool can actually evidence.',
+    start: resource('ai-procurement-mistakes'),
+    sequence: ['ai-procurement-mistakes', 'vendor-questions'].map(resource),
+    supporting: [],
+    toolkit: { title: 'AI Procurement Questions for Hiring Teams', slug: TOOLKIT_SLUGS.procurementQuestions, copy: 'Use structured questions and a comparison sheet to check vendor evidence before you decide.' },
+    secondaryToolkit: { title: 'Need the full set? View the toolkit bundle', slug: TOOLKIT_SLUGS.completeBundle },
+  },
+  {
+    id: 'governance',
+    navigationLabel: 'AI hiring governance',
+    entryTitle: 'We’re using AI in hiring and need better governance',
+    entryCopy: 'Get clearer on what tools are in use, who owns them, where the risks sit, and what needs to be governed.',
+    entryAction: 'Improve our governance',
+    title: 'Using AI in hiring and need better governance?',
+    description: 'Start by understanding what is already in use, who owns it, and where accountability or controls are missing.',
+    start: resource('how-many-ai-tools-in-hiring'),
+    sequence: ['how-many-ai-tools-in-hiring', 'ai-hiring-ownership'].map(resource),
+    supporting: ['eu-ai-act-hiring', 'ai-hiring-bias'].map(resource),
+    toolkit: { title: 'AI Hiring Policy Framework', slug: TOOLKIT_SLUGS.aiHiringPolicyFramework, copy: 'Bring the gaps you have found into a policy draft with clear responsibilities, human review and escalation steps.' },
+    secondaryToolkit: { title: 'Review fairness risks with the Bias Audit Checklist', slug: TOOLKIT_SLUGS.biasAuditChecklist },
+  },
+  {
+    id: 'candidate-transparency',
+    navigationLabel: 'Candidate transparency',
+    entryTitle: 'We need to explain our use of AI to candidates',
+    entryCopy: 'Work out what candidates should be told, when to tell them, and how to communicate AI use clearly.',
+    entryAction: 'Improve candidate transparency',
+    title: 'Need to explain your use of AI to candidates?',
+    description: 'Start with what candidates need to know, when they need to know it, and how to explain AI use without hiding behind legal language.',
+    start: resource('what-to-tell-candidates-about-ai'),
+    sequence: ['what-to-tell-candidates-about-ai', 'ai-hiring-trust-problem'].map(resource),
+    supporting: [],
+    toolkit: { title: 'Candidate Transparency Guide', slug: TOOLKIT_SLUGS.candidateTransparencyGuide, copy: 'Work through what to say at each hiring stage, with examples of clear wording and an audit of your candidate communications.' },
+  },
+  {
+    id: 'bias',
+    navigationLabel: 'Bias in AI hiring',
+    entryTitle: 'We’re concerned about bias in AI hiring',
+    entryCopy: 'Understand where bias can enter your hiring process, identify the tools to review, and clarify who owns the actions.',
+    entryAction: 'Review bias risks',
+    title: 'Concerned about bias in AI hiring?',
+    description: 'Start with the risks, map the tools involved, and establish accountability before working through a structured bias review.',
+    start: resource('ai-hiring-bias'),
+    sequence: ['ai-hiring-bias', 'how-many-ai-tools-in-hiring', 'ai-hiring-ownership'].map(resource),
+    supporting: ['vendor-questions'].map(resource),
+    toolkit: { title: 'Bias Audit Checklist for AI Hiring', slug: TOOLKIT_SLUGS.biasAuditChecklist, copy: 'Review bias risks, identify priority gaps, and assign actions and owners with a structured checklist.' },
+  },
+]
+
+export const organisationTopics = [
+  ['Bias and fairness', 'ai-hiring-bias'],
+  ['Procurement', 'ai-procurement-mistakes'],
+  ['Candidate transparency', 'what-to-tell-candidates-about-ai'],
+  ['Policy, governance and ownership', 'ai-hiring-ownership'],
+  ['Regulation', 'eu-ai-act-hiring'],
+  ['AI tool inventory', 'how-many-ai-tools-in-hiring'],
+  ['Candidate trust', 'ai-hiring-trust-problem'],
+].map(([label, slug]) => ({ label, slug: resource(slug) }))

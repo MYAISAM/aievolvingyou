@@ -1,3 +1,4 @@
+import { TOOLKIT_SLUGS, toolkitUrl } from "../toolkitSlugs";
 import ArticleLayout from "./ArticleLayout";
 
 const green = "#3F6F63";
@@ -179,7 +180,7 @@ export default function ArticleCandidateDisclosure() {
 
       <p>The second version is barely longer. It uses no jargon. And it does all four jobs: it names where AI is used, what it affects, what stays human, and how to reach someone. A candidate who reads it knows exactly where they stand. That is the whole standard, and you can apply it to any stage of your process by asking the same question of every notice you write: after reading this, would the candidate know what is happening to them and who to talk to?</p>
 
-      <p>Writing that once for every stage where AI shows up is the fiddly part, and it is exactly what the <a href="/resources#toolkit-library" style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Candidate Transparency Guide</a> is built to do for you, with ready wording stage by stage. But even if you write your own from scratch, the test above is the only one that matters.</p>
+      <p>Writing that once for every stage where AI shows up is the fiddly part, and it is exactly what the <a href={toolkitUrl(TOOLKIT_SLUGS.candidateTransparencyGuide)} style={{ color: green, fontWeight: 600, textDecoration: "none" }}>Candidate Transparency Guide</a> is built to do for you, with ready wording stage by stage. But even if you write your own from scratch, the test above is the only one that matters.</p>
 
       <h2>The common mistakes</h2>
 

@@ -140,7 +140,7 @@ export default function ThankYouToolkitBundle() {
 
       <div style={{ marginBottom: 40 }}>
         <Link
-          to="/resources/toolkits"
+          to="/resources#toolkit-library"
           style={{
             display: "inline-block",
             background: t.accentGreen,

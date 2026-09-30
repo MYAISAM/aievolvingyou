@@ -275,7 +275,7 @@ export default function ThankYouTransparencyGuide() {
       >
         Questions? Get in touch via the{" "}
         <a
-          href="/connect"
+          href="/#connect"
           style={{
             color: t.accentGreen,
             textDecoration: "underline",

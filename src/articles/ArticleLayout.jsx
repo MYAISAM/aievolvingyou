@@ -1,14 +1,24 @@
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import ArticleJourneyContext, { ArticleLibraryLink } from "./ArticleJourneyContext";
+import ApplicationReview from "./ApplicationReview";
 import ArticleCTA from "./ArticleCTA";
 import JourneyNext from "./JourneyNext";
+import OrganisationJourneyNext from "./OrganisationJourneyNext";
+import { activeJourney, journeysForArticle, libraryForArticle, articleCta, isCoachJourneyEnd } from "../pages/journeyNavigation";
 import { articleMetadataBySlug } from "./articleMetadata";
 
 export default function ArticleLayout({ title, bucket, children, nextArticle, hideCoachCta, track }) {
   const location = useLocation();
   const article = articleMetadataBySlug[location.pathname];
-  const resourcesPath = article?.track === "org" || track === "orgs" ? "/resources#organisation-library" : "/resources#candidate-library";
+  const journey = activeJourney(location);
+  const organisationJourney = journey?.audience === 'organisation';
+  const memberships = journeysForArticle(location.pathname);
+  const library = libraryForArticle(article);
+  const aiPrepPractice = journey?.path === '/candidates/interviews-no-offers' && article?.slug === '/resources/ai-interview-prep';
+  const applicationReview = journey?.path === '/candidates/no-interviews' && article?.slug === '/resources/ats-friendly-cvs-what-matters';
+  const coachJourneyEnd = isCoachJourneyEnd(journey, article?.slug);
+  const cta = (coachJourneyEnd || aiPrepPractice) ? "interview-coach" : articleCta(article);
 
   useEffect(() => {
     if (location.hash) return;
@@ -19,19 +29,7 @@ export default function ArticleLayout({ title, bucket, children, nextArticle, hi
     <div style={{ paddingTop: 62 }}>
       <div style={{ maxWidth: 680, margin: "0 auto", padding: "56px 24px 80px" }}>
 
-        <Link
-          to={resourcesPath}
-          style={{
-            display: "inline-block",
-            fontSize: 13, color: "#555555",
-            textDecoration: "none", marginBottom: 40,
-            transition: "color 0.15s",
-          }}
-          onMouseEnter={e => e.target.style.color = "#111111"}
-          onMouseLeave={e => e.target.style.color = "#555555"}
-        >
-          Back to resources
-        </Link>
+        <ArticleJourneyContext journey={journey} memberships={memberships} library={library} />
 
         <div style={{ marginBottom: 16 }}>
           <span style={{
@@ -58,8 +56,22 @@ export default function ArticleLayout({ title, bucket, children, nextArticle, hi
           {children}
         </div>
 
-        <JourneyNext article={article} />
-        <ArticleCTA cta={article?.cta} />
+        <div className="article-next-actions">
+          {organisationJourney ? <OrganisationJourneyNext article={article} journey={journey} /> : <>
+          {applicationReview ? <ApplicationReview /> : !coachJourneyEnd && !aiPrepPractice && <JourneyNext article={article} journey={journey} />}
+          <ArticleCTA cta={cta} showLibraryLink={false} coachCopy={aiPrepPractice ? {
+            label: 'Put it into practice',
+            title: 'Practise without scripting your answers',
+            text: 'Use Interview Coach to practise answering questions in your own words, with role-specific questions and feedback designed to sharpen your thinking rather than write the answer for you.',
+          } : undefined} />
+          </>}
+          <nav className="article-next-actions__library" aria-label="Browse more guides">
+            {(coachJourneyEnd || aiPrepPractice || applicationReview) && <div style={{ marginBottom: 10 }}>
+              <Link className="article-library-link" to={journey.path}>← Back to {journey.navigationLabel}</Link>
+            </div>}
+            <ArticleLibraryLink library={library} />
+          </nav>
+        </div>
 
       </div>
     </div>
